@@ -20,6 +20,12 @@
 		B59C947728770961005865CA /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C947628770961005865CA /* UITableView+Extension.swift */; };
 		B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C94782877097D005865CA /* UICollectionView+Extension.swift */; };
 		B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C947A2877098D005865CA /* UIStackView+Extension.swift */; };
+		778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A042877081800722CBB /* HousTabbarItemView.swift */; };
+		778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A06287708A600722CBB /* HousTabbarItem.swift */; };
+		778A7A0928770C7400722CBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0828770C7400722CBB /* ViewController.swift */; };
+		778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0A28770EB700722CBB /* HousTabbar.swift */; };
+		778A7A0E2879349100722CBB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 778A7A0D2879349100722CBB /* RxGesture */; };
+		77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
 		B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A12876D2D10025B767 /* AppDelegate.swift */; };
 		B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A32876D2D10025B767 /* SceneDelegate.swift */; };
 		B80510AB2876D2D20025B767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80510AA2876D2D20025B767 /* Assets.xcassets */; };
@@ -49,6 +55,7 @@
 		778A79FB287704E500722CBB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		778A7A002877061E00722CBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		778A7A022877062B00722CBB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -59,6 +66,13 @@
 		B59C947628770961005865CA /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		B59C94782877097D005865CA /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B59C947A2877098D005865CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+
+		778A7A042877081800722CBB /* HousTabbarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarItemView.swift; sourceTree = "<group>"; };
+		778A7A06287708A600722CBB /* HousTabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarItem.swift; sourceTree = "<group>"; };
+		778A7A0828770C7400722CBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		778A7A0A28770EB700722CBB /* HousTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbar.swift; sourceTree = "<group>"; };
+		77A8FC27287936A500F5376B /* HousTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarViewController.swift; sourceTree = "<group>"; };
+
 		B805109E2876D2D10025B767 /* Hous-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hous-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80510A12876D2D10025B767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B80510A32876D2D10025B767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +103,7 @@
 				B80510D72876D6440025B767 /* SnapKit in Frameworks */,
 				B80510E22876D65E0025B767 /* RxSwift in Frameworks */,
 				B80510E02876D65E0025B767 /* RxCocoa in Frameworks */,
+				778A7A0E2879349100722CBB /* RxGesture in Frameworks */,
 				B80510DA2876D64B0025B767 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +117,18 @@
 				778A79F9287704D400722CBB /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		778A7A032877080800722CBB /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				778A7A042877081800722CBB /* HousTabbarItemView.swift */,
+				778A7A06287708A600722CBB /* HousTabbarItem.swift */,
+				778A7A0828770C7400722CBB /* ViewController.swift */,
+				778A7A0A28770EB700722CBB /* HousTabbar.swift */,
+				77A8FC27287936A500F5376B /* HousTabbarViewController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		B80510952876D2D10025B767 = {
@@ -156,6 +183,7 @@
 		B80510B72876D2F30025B767 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				778A7A032877080800722CBB /* Tabbar */,
 				778A79F8287704C800722CBB /* Splash */,
 				B80510BD2876D3330025B767 /* Home */,
 				B80510BC2876D32D0025B767 /* Rules */,
@@ -286,6 +314,7 @@
 				B80510DC2876D6540025B767 /* Alamofire */,
 				B80510DF2876D65E0025B767 /* RxCocoa */,
 				B80510E12876D65E0025B767 /* RxSwift */,
+				778A7A0D2879349100722CBB /* RxGesture */,
 			);
 			productName = "Hous-iOS";
 			productReference = B805109E2876D2D10025B767 /* Hous-iOS.app */;
@@ -321,6 +350,7 @@
 				B80510D82876D64B0025B767 /* XCRemoteSwiftPackageReference "Then" */,
 				B80510DB2876D6540025B767 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = B805109F2876D2D10025B767 /* Products */;
 			projectDirPath = "";
@@ -354,18 +384,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				778A7A0928770C7400722CBB /* ViewController.swift in Sources */,
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
 				B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */,
 				B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */,
 				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
+
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
+				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
+				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
+				77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */,
 				B80510BF2876D33D0025B767 /* ProfileViewController.swift in Sources */,
 				B80510E42876D6B10025B767 /* APIConstants.swift in Sources */,
+				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
@@ -602,6 +638,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		B80510D52876D6440025B767 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -637,6 +681,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		778A7A0D2879349100722CBB /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		B80510D62876D6440025B767 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80510D52876D6440025B767 /* XCRemoteSwiftPackageReference "SnapKit" */;

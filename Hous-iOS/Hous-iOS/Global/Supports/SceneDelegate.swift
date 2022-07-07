@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   var window: UIWindow?
+  private let navigationController = UINavigationController()
   
   
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let window = UIWindow(windowScene: windowScene)
     window.backgroundColor = .white
 
-    window.rootViewController = SplashViewController()
+//    navigationController.setViewControllers([HousTabbarViewController()], animated: true)
+//    window.rootViewController = navigationController
+    window.rootViewController = HousTabbarViewController()
     window.makeKeyAndVisible()
     self.window = window
   }
