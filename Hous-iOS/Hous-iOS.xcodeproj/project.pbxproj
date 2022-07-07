@@ -27,6 +27,9 @@
 		B80510DD2876D6540025B767 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80510DC2876D6540025B767 /* Alamofire */; };
 		B80510E02876D65E0025B767 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B80510DF2876D65E0025B767 /* RxCocoa */; };
 		B80510E22876D65E0025B767 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B80510E12876D65E0025B767 /* RxSwift */; };
+		B80510E42876D6B10025B767 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E32876D6B10025B767 /* APIConstants.swift */; };
+		B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E52876D6F10025B767 /* NetworkResult.swift */; };
+		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		B80510CE2876D5D70025B767 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		B80510CF2876D5D70025B767 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		B80510D02876D5D70025B767 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		B80510E32876D6B10025B767 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		B80510E52876D6F10025B767 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		B80510EA2876D7840025B767 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,10 @@
 		B80510B52876D2E00025B767 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B80510E92876D7750025B767 /* Model */,
+				B80510E82876D7690025B767 /* HTTP */,
+				B80510E72876D7650025B767 /* API */,
+				B80510E32876D6B10025B767 /* APIConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -184,6 +194,29 @@
 				B80510CA2876D5B10025B767 /* SpoqaHanSansNeo-Medium.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		B80510E72876D7650025B767 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B80510E82876D7690025B767 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				B80510EA2876D7840025B767 /* HTTPHeaderField.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		B80510E92876D7750025B767 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B80510E52876D6F10025B767 /* NetworkResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
+				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
+				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
 				B80510BF2876D33D0025B767 /* ProfileViewController.swift in Sources */,
+				B80510E42876D6B10025B767 /* APIConstants.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
