@@ -48,6 +48,7 @@
 		B80510E42876D6B10025B767 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E32876D6B10025B767 /* APIConstants.swift */; };
 		B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E52876D6F10025B767 /* NetworkResult.swift */; };
 		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
+		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		B80510E32876D6B10025B767 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B80510E52876D6F10025B767 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B80510EA2876D7840025B767 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
+		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 		B843870F28795715003F7B75 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B843871328795805003F7B75 /* RulesHomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
 				77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */,
 				B80510BF2876D33D0025B767 /* ProfileViewController.swift in Sources */,
+				B843871428795805003F7B75 /* RulesHomeView.swift in Sources */,
 				B80510E42876D6B10025B767 /* APIConstants.swift in Sources */,
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
