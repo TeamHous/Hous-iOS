@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let window = UIWindow(windowScene: windowScene)
     window.backgroundColor = .white
 
-    window.rootViewController = Inject.ViewControllerHost(RulesViewController())
+//    window.rootViewController = Inject.ViewControllerHost(RulesViewController())
+    window.rootViewController = HousTabbarViewController()
     window.makeKeyAndVisible()
     self.window = window
   }

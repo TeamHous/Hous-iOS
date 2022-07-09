@@ -93,7 +93,7 @@ final class HousTabbar: UIStackView {
       .when(.recognized)
       .withUnretained(self)
       .bind(onNext: { owner, _ in
-        owner.homeItemView.animateClick {
+        owner.rulesItemView.animateClick {
           owner.selectItem(index: 1)
         }
       })
@@ -103,7 +103,7 @@ final class HousTabbar: UIStackView {
       .when(.recognized)
       .withUnretained(self)
       .bind(onNext: { owner, _ in
-        owner.homeItemView.animateClick {
+        owner.profileItemView.animateClick {
           owner.selectItem(index: 2)
         }
       })
