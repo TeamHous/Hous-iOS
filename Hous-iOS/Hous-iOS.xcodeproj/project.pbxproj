@@ -40,11 +40,6 @@
 		B80510D22876D5D70025B767 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B80510CE2876D5D70025B767 /* Montserrat-SemiBold.otf */; };
 		B80510D32876D5D70025B767 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B80510CF2876D5D70025B767 /* Montserrat-Bold.otf */; };
 		B80510D42876D5D70025B767 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B80510D02876D5D70025B767 /* Montserrat-Regular.otf */; };
-		B80510D72876D6440025B767 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B80510D62876D6440025B767 /* SnapKit */; };
-		B80510DA2876D64B0025B767 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B80510D92876D64B0025B767 /* Then */; };
-		B80510DD2876D6540025B767 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80510DC2876D6540025B767 /* Alamofire */; };
-		B80510E02876D65E0025B767 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B80510DF2876D65E0025B767 /* RxCocoa */; };
-		B80510E22876D65E0025B767 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B80510E12876D65E0025B767 /* RxSwift */; };
 		B80510E42876D6B10025B767 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E32876D6B10025B767 /* APIConstants.swift */; };
 		B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E52876D6F10025B767 /* NetworkResult.swift */; };
 		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
@@ -54,6 +49,13 @@
 		B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */; };
 		B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */; };
 		B843871E28795E0C003F7B75 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871D28795E0B003F7B75 /* NavigationBarView.swift */; };
+		B8438723287961EE003F7B75 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8438722287961EE003F7B75 /* SnapKit */; };
+		B8438725287961EE003F7B75 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B8438724287961EE003F7B75 /* Then */; };
+		B8438727287961EE003F7B75 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B8438726287961EE003F7B75 /* Alamofire */; };
+		B8438729287961EE003F7B75 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B8438728287961EE003F7B75 /* RxCocoa */; };
+		B843872B287961EE003F7B75 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B843872A287961EE003F7B75 /* RxRelay */; };
+		B843872D287961EE003F7B75 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B843872C287961EE003F7B75 /* RxSwift */; };
+		B843873128796397003F7B75 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B843873028796397003F7B75 /* Inject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,12 +113,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B80510DD2876D6540025B767 /* Alamofire in Frameworks */,
-				B80510D72876D6440025B767 /* SnapKit in Frameworks */,
-				B80510E22876D65E0025B767 /* RxSwift in Frameworks */,
-				B80510E02876D65E0025B767 /* RxCocoa in Frameworks */,
 				778A7A0E2879349100722CBB /* RxGesture in Frameworks */,
-				B80510DA2876D64B0025B767 /* Then in Frameworks */,
+				B843872D287961EE003F7B75 /* RxSwift in Frameworks */,
+				B843872B287961EE003F7B75 /* RxRelay in Frameworks */,
+				B8438727287961EE003F7B75 /* Alamofire in Frameworks */,
+				B843873128796397003F7B75 /* Inject in Frameworks */,
+				B8438723287961EE003F7B75 /* SnapKit in Frameworks */,
+				B8438729287961EE003F7B75 /* RxCocoa in Frameworks */,
+				B8438725287961EE003F7B75 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +152,7 @@
 			children = (
 				B80510A02876D2D10025B767 /* Hous-iOS */,
 				B805109F2876D2D10025B767 /* Products */,
+				B8438721287961EE003F7B75 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 		B80510B62876D2EF0025B767 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				B843871F28795F60003F7B75 /* UIComponent */,
 				B80510BA2876D30E0025B767 /* Extension */,
 				B80510B92876D3090025B767 /* Resource */,
 				B80510B82876D3040025B767 /* Supports */,
@@ -258,7 +264,6 @@
 				B84387102879571C003F7B75 /* Cell */,
 				B843870F28795715003F7B75 /* View */,
 				B843870E2879570C003F7B75 /* Controller */,
-				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -334,6 +339,21 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		B843871F28795F60003F7B75 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		B8438721287961EE003F7B75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -351,12 +371,14 @@
 			);
 			name = "Hous-iOS";
 			packageProductDependencies = (
-				B80510D62876D6440025B767 /* SnapKit */,
-				B80510D92876D64B0025B767 /* Then */,
-				B80510DC2876D6540025B767 /* Alamofire */,
-				B80510DF2876D65E0025B767 /* RxCocoa */,
-				B80510E12876D65E0025B767 /* RxSwift */,
 				778A7A0D2879349100722CBB /* RxGesture */,
+				B8438722287961EE003F7B75 /* SnapKit */,
+				B8438724287961EE003F7B75 /* Then */,
+				B8438726287961EE003F7B75 /* Alamofire */,
+				B8438728287961EE003F7B75 /* RxCocoa */,
+				B843872A287961EE003F7B75 /* RxRelay */,
+				B843872C287961EE003F7B75 /* RxSwift */,
+				B843873028796397003F7B75 /* Inject */,
 			);
 			productName = "Hous-iOS";
 			productReference = B805109E2876D2D10025B767 /* Hous-iOS.app */;
@@ -393,6 +415,7 @@
 				B80510DB2876D6540025B767 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */,
+				B843872F28796397003F7B75 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = B805109F2876D2D10025B767 /* Products */;
 			projectDirPath = "";
@@ -726,6 +749,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		B843872F28796397003F7B75 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -734,30 +765,40 @@
 			package = 778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
 		};
-		B80510D62876D6440025B767 /* SnapKit */ = {
+		B8438722287961EE003F7B75 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80510D52876D6440025B767 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		B80510D92876D64B0025B767 /* Then */ = {
+		B8438724287961EE003F7B75 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80510D82876D64B0025B767 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
-		B80510DC2876D6540025B767 /* Alamofire */ = {
+		B8438726287961EE003F7B75 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80510DB2876D6540025B767 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		B80510DF2876D65E0025B767 /* RxCocoa */ = {
+		B8438728287961EE003F7B75 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		B80510E12876D65E0025B767 /* RxSwift */ = {
+		B843872A287961EE003F7B75 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B843872C287961EE003F7B75 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		B843873028796397003F7B75 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B843872F28796397003F7B75 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

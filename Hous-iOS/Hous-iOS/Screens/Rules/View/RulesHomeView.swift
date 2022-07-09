@@ -35,6 +35,7 @@ class RulesHomeView: UIView {
       layout.scrollDirection = .horizontal
       $0.collectionViewLayout = layout
       $0.showsHorizontalScrollIndicator = false
+      $0.backgroundColor = .white
       $0.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
     }
   

@@ -23,7 +23,7 @@ class RulesTableView: UIView {
   }
   var myTodoButton = UIButton().then {
     $0.setTitle("나의 to-do ", for: .normal)
-    $0.setImage(ImageLiteral.myTodoCheck, for: .normal)
+    $0.setImage(R.Image.myTodoUnselected, for: .normal)
     $0.setTitleColor(.systemPink, for: .normal)
     $0.setTitleColor(.systemRed, for: .selected)
     $0.semanticContentAttribute = .forceRightToLeft

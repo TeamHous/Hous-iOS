@@ -205,6 +205,7 @@ extension R.Image {
   static var keyRulesUnchecked: UIImage { .load(named: "keyRulesUnchecked") }
   static var myTodoChecked: UIImage { .load(named: "myTodoChecked") }
   static var myTodoUnchecked: UIImage { .load(named: "myTodoUnchecked") }
+  static var myTodoSelected: UIImage { .load(named: "myTodoSelected") }
   static var myTodoUnselected: UIImage { .load(named: "myTodoUnselected") }
   static var popupCloseRules: UIImage { .load(named: "popupCloseRules") }
   static var rulesChecked: UIImage { .load(named: "rulesChecked") }

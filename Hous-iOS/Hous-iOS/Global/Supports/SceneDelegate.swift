@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Inject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
@@ -18,9 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let window = UIWindow(windowScene: windowScene)
     window.backgroundColor = .white
 
+<<<<<<< HEAD
 //    navigationController.setViewControllers([HousTabbarViewController()], animated: true)
 //    window.rootViewController = navigationController
     window.rootViewController = HousTabbarViewController()
+=======
+    window.rootViewController = Inject.ViewControllerHost(RulesViewController())
+>>>>>>> [#8] FEAT : import inject library
     window.makeKeyAndVisible()
     self.window = window
   }
