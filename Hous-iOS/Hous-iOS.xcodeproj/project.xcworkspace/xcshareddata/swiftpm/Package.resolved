@@ -11,21 +11,21 @@
         }
       },
       {
-<<<<<<< HEAD
-        "package": "RxGesture",
-        "repositoryURL": "https://github.com/RxSwiftCommunity/RxGesture",
-        "state": {
-          "branch": null,
-          "revision": "1b137c576b4aaaab949235752278956697c9e4a0",
-          "version": "4.0.4"
-=======
         "package": "Inject",
         "repositoryURL": "https://github.com/krzysztofzablocki/Inject.git",
         "state": {
           "branch": null,
           "revision": "c0ed5f5de62475e286a3b7c676cec99fa34533ce",
           "version": "1.1.1"
->>>>>>> [#8] FEAT : import inject library
+        }
+      },
+      {
+        "package": "RxGesture",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxGesture",
+        "state": {
+          "branch": null,
+          "revision": "1b137c576b4aaaab949235752278956697c9e4a0",
+          "version": "4.0.4"
         }
       },
       {
