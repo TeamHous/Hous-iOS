@@ -10,25 +10,26 @@ import UIKit
 class RulesTodosView: UIView {
   
   let circleImageView = UIImageView().then {
-    $0.image = UIImage(systemName: "circle.fill")
-    $0.tintColor = .blue
+    $0.image = R.Image.rulesDot
+    $0.tintColor = .softBlue
   }
   
   let checkButton = UIButton().then {
-    $0.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-    $0.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
-    $0.tintColor = UIColor(hex: "5E9EFF")
+    $0.setImage(R.Image.todoUnchecked, for: .normal)
+    $0.setImage(R.Image.todoChecked, for: .selected)
+    $0.tintColor = R.Color.softBlue
   }
   
   private let ruleLabel = UILabel().then {
-    $0.font = .systemFont(ofSize: 13, weight: .medium)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+    $0.textColor = .black
     $0.textAlignment = .left
     $0.numberOfLines = 1
   }
   
   private lazy var stackView = UIStackView(arrangedSubviews: [circleImageView, checkButton, ruleLabel]).then {
     $0.axis = .horizontal
-    $0.alignment = .firstBaseline
+    $0.alignment = .center
     $0.spacing = 8
   }
   

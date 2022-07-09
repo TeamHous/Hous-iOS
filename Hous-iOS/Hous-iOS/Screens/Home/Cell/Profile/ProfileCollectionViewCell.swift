@@ -16,7 +16,8 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   }
   
   private let profileNameLabel = UILabel().then {
-    $0.font = .systemFont(ofSize: 18, weight: .bold)
+    $0.font = .font(.montserratSemiBold, ofSize: 12)
+    $0.textColor = .greyishBrown
   }
   
   lazy var profileStack = UIStackView(arrangedSubviews: [profileImage, profileNameLabel]).then {
@@ -26,15 +27,15 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   }
   
   private let codeImage = UIImageView().then {
-    $0.image = UIImage(systemName: "rectangle")
-    $0.tintColor = .black
+    $0.image = R.Image.moreHomie
+    $0.tintColor = .paleGold
     $0.contentMode = .scaleAspectFit
   }
   
   private let codeLabel = UILabel().then {
     $0.text = "룸메이트 초대 코드 복사하기"
-    $0.font = .systemFont(ofSize: 12, weight: .light)
-    $0.tintColor = UIColor(hex: "C8C8C8")
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
+    $0.textColor = .veryLightPinkFive
     $0.lineBreakMode = .byWordWrapping
     $0.lineBreakStrategy = .hangulWordPriority
     $0.textAlignment = .center
@@ -79,16 +80,16 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   }
   
   private func configUI() {
-    self.backgroundColor = UIColor(hex: "FFD66D")
-    layer.cornerRadius = self.bounds.width / 4
+    self.backgroundColor = R.Color.offWhite
+    layer.cornerRadius = 10
     self.contentView.clipsToBounds = true
   }
   
   func setProfileData(_ data: ProfileDataModel) {
     if data.isTested {
-      profileImage.image = UIImage(systemName: "person.fill")
+      profileImage.image = R.Image.facePurple
     } else {
-      profileImage.image = UIImage(systemName: "person")
+      profileImage.image = R.Image.faceGreen
     }
     profileNameLabel.text = data.profileName
   }

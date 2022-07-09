@@ -32,7 +32,8 @@ class HomeViewController: UIViewController {
   //MARK: UI Compononents
   private let titleLabel = UILabel().then {
     $0.text = "Hous-"
-    $0.font = .systemFont(ofSize: 30, weight: .semibold)
+    $0.font = .font(.montserratSemiBold, ofSize: 30)
+    $0.textColor = .black
     $0.textAlignment = .left
   }
   

@@ -22,12 +22,6 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
   
   weak var delegate: ComingEventsCollectionViewCellDelegate?
   
-  private let subtitleLabel = UILabel().then {
-    $0.text = "Coming up-"
-    $0.font = .systemFont(ofSize: 20, weight: .semibold)
-    $0.textAlignment = .left
-  }
-  
   private var incomingEventsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
@@ -48,7 +42,7 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
   private func render() {
     contentView.addSubview(incomingEventsCollectionView)
     incomingEventsCollectionView.snp.makeConstraints { make in
-      make.leading.equalToSuperview().inset(24)
+      make.leading.equalToSuperview()
       make.top.bottom.equalToSuperview()
       make.trailing.equalToSuperview()
     }
@@ -61,6 +55,20 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
     incomingEventsCollectionView.dataSource = self
   }
   
+  private func setAddEventButton(cell: EventsCollectionViewCell) {
+    cell.backgroundColor = .offWhite
+    cell.d_dayLabel.isHidden = true
+    cell.background3DIconImageView.isHidden = true
+    cell.addIcon.isHidden = false
+  }
+  
+  private func setEventButton(cell: EventsCollectionViewCell) {
+    cell.backgroundColor = .paleGold
+    cell.addIcon.isHidden = true
+    cell.d_dayLabel.isHidden = false
+    cell.background3DIconImageView.isHidden = false
+    cell.background3DIconImageView.alpha = 0.6
+  }
 }
 
 
@@ -82,23 +90,18 @@ extension ComingEventsCollectionViewCell: UICollectionViewDataSource {
     guard let cell = incomingEventsCollectionView.dequeueReusableCell(withReuseIdentifier: EventsCollectionViewCell.className, for: indexPath) as? EventsCollectionViewCell else { return UICollectionViewCell() }
     
     if indexPath.row == 0 {
-      cell.d_dayLabel.isHidden = true
-      cell.addIcon.isHidden = false
-      cell.backgroudImageView.image = nil
-      cell.backgroundColor = UIColor(hex: "FFF8E6")
+      setAddEventButton(cell: cell)
+      
       return cell
     } else {
-      cell.d_dayLabel.isHidden = false
-      cell.addIcon.isHidden = true
-      cell.backgroudImageView.image = UIImage(systemName: "clock")
-      cell.backgroundColor = UIColor(hex: "FFDE8A")
+      setEventButton(cell: cell)
     }
     
     cell.setEventCellData(EventDataModel.sampleData[indexPath.row - 1])
+    cell.setEventImageData(EventDataModel.sampleData[indexPath.row - 1])
+    
     return cell
   }
-  
-  
 }
 
 
@@ -112,7 +115,7 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegateFlowLayout {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

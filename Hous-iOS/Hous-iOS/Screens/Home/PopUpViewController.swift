@@ -68,13 +68,13 @@ class PopUpViewController: UIViewController {
     render()
   }
   
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesBegan(touches, with: event)
-    
-    if let touch = touches.first, touch.view == self.blurView {
-      dismiss(animated: true)
-    }
-  }
+//  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    super.touchesBegan(touches, with: event)
+//
+//    if let touch = touches.first, touch.view == self.blurView {
+//      dismiss(animated: true)
+//    }
+//  }
   
   @objc private func cancelButtonDidTapped() {
     self.dismiss(animated: true)

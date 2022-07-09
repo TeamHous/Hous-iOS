@@ -10,7 +10,8 @@ import UIKit
 class HeaderCollectionReusableView: UICollectionReusableView {
   
   let subtitleLabel = UILabel().then {
-    $0.font = .systemFont(ofSize: 20, weight: .semibold)
+    $0.font = .font(.montserratSemiBold, ofSize: 20)
+    $0.textColor = .greyishBrown
     $0.textAlignment = .left
   }
   

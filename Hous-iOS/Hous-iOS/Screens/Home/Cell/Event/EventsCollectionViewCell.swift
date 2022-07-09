@@ -10,21 +10,23 @@ import UIKit
 class EventsCollectionViewCell: UICollectionViewCell {
   
   let addIcon = UIImageView().then {
-    $0.image = UIImage(systemName: "plus")
+    $0.image = R.Image.eventAdd
     $0.contentMode = .scaleAspectFit
-    $0.tintColor = UIColor(hex: "FFD66D")
+    $0.tintColor = .paleGold
     $0.isHidden = true
   }
   
   let d_dayLabel = UILabel().then {
     $0.textColor = .white
-    $0.font = .systemFont(ofSize: 22, weight: .semibold)
+    $0.font = .font(.montserratSemiBold, ofSize: 20)
   }
   
   let backgroudImageView = UIImageView().then {
-    $0.image = UIImage(systemName: "clock")
-    $0.tintColor = .white.withAlphaComponent(0.3)
-    $0.contentMode = .scaleAspectFit
+    $0.tintColor = .paleGold
+  }
+  
+  let background3DIconImageView = UIImageView().then {
+    $0.isHidden = true
   }
   
   override init(frame: CGRect) {
@@ -39,11 +41,14 @@ class EventsCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     contentView.addSubview(backgroudImageView)
-    backgroudImageView.addSubview(d_dayLabel)
-    backgroudImageView.addSubview(addIcon)
+    backgroudImageView.addSubViews([background3DIconImageView ,addIcon, d_dayLabel])
     
     backgroudImageView.snp.makeConstraints {
       $0.top.bottom.leading.trailing.equalToSuperview()
+    }
+    
+    background3DIconImageView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
     }
     
     d_dayLabel.snp.makeConstraints {
@@ -63,6 +68,7 @@ class EventsCollectionViewCell: UICollectionViewCell {
     d_dayLabel.text = data.ddayString
   }
   
-  
-  
+  func setEventImageData(_ data: EventDataModel) {
+    background3DIconImageView.image = data.eventImage
+  }
 }
