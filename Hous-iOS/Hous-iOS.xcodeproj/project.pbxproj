@@ -52,6 +52,7 @@
 		B843871628795830003F7B75 /* RulesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTableView.swift */; };
 		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
 		B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */; };
+		B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		B843871528795830003F7B75 /* RulesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableView.swift; sourceTree = "<group>"; };
 		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 			children = (
 				B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */,
 				B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */,
+				B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
+				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
 				B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */,
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
