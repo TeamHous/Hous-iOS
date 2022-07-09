@@ -203,17 +203,6 @@
 			path = RuleTodo;
 			sourceTree = "<group>";
 		};
-		B5084A2C287997E400C38749 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B5084A2D2879980100C38749 /* EventsDataModel.swift */,
-				B5084A2F2879980B00C38749 /* RulesDataModel.swift */,
-				B5084A312879981500C38749 /* TodoDataModel.swift */,
-				B5084A332879982400C38749 /* ProfileDataModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B80510952876D2D10025B767 = {
 			isa = PBXGroup;
 			children = (
@@ -339,7 +328,6 @@
 		B80510BD2876D3330025B767 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B5084A2C287997E400C38749 /* Model */,
 				B5084A1C2879953F00C38749 /* Cell */,
 				B80510C22876D36A0025B767 /* HomeViewController.swift */,
 				B5084A26287996EE00C38749 /* RulesTodoView.swift */,
@@ -380,6 +368,10 @@
 		B80510E92876D7750025B767 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5084A2D2879980100C38749 /* EventsDataModel.swift */,
+				B5084A2F2879980B00C38749 /* RulesDataModel.swift */,
+				B5084A312879981500C38749 /* TodoDataModel.swift */,
+				B5084A332879982400C38749 /* ProfileDataModel.swift */,
 				B80510E52876D6F10025B767 /* NetworkResult.swift */,
 			);
 			path = Model;
