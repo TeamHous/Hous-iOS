@@ -22,8 +22,6 @@ class RulesTodosView: UIView {
     
     private let ruleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 13, weight: .medium)
-//        $0.lineBreakMode = .byWordWrapping
-//        $0.lineBreakStrategy = .hangulWordPriority
         $0.textAlignment = .left
         $0.numberOfLines = 1
     }
