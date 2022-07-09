@@ -49,6 +49,7 @@
 		B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E52876D6F10025B767 /* NetworkResult.swift */; };
 		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
+		B843871628795830003F7B75 /* RulesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		B80510E52876D6F10025B767 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B80510EA2876D7840025B767 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
+		B843871528795830003F7B75 /* RulesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				B843871328795805003F7B75 /* RulesHomeView.swift */,
+				B843871528795830003F7B75 /* RulesTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
+				B843871628795830003F7B75 /* RulesTableView.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
