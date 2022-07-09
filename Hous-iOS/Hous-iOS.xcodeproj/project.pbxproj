@@ -243,6 +243,9 @@
 		B80510BC2876D32D0025B767 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				B84387102879571C003F7B75 /* Cell */,
+				B843870F28795715003F7B75 /* View */,
+				B843870E2879570C003F7B75 /* Controller */,
 				B80510C02876D3610025B767 /* RulesViewController.swift */,
 			);
 			path = Rules;
@@ -290,6 +293,27 @@
 				B80510E52876D6F10025B767 /* NetworkResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B843870E2879570C003F7B75 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B843870F28795715003F7B75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B84387102879571C003F7B75 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
