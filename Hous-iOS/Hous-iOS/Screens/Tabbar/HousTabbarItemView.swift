@@ -14,10 +14,8 @@ final class HousTabbarItemView: UIView {
 
   private let nameLabel: UILabel = {
     let label = UILabel()
-    label.textColor = .white.withAlphaComponent(0.4)
+    label.font = .font(.montserratSemiBold, ofSize: 13)
     label.textAlignment = .center
-    label.font = .systemFont(ofSize: 11, weight: .semibold)
-
     return label
   }()
 
@@ -65,14 +63,14 @@ final class HousTabbarItemView: UIView {
     }
 
     iconImageView.snp.makeConstraints { make in
-      make.width.equalTo(40)
-      make.height.equalTo(40)
-      make.top.equalToSuperview().inset(10)
+      make.width.equalTo(24)
+      make.height.equalTo(24)
+      make.top.equalToSuperview()
       make.centerX.equalToSuperview()
     }
 
     nameLabel.snp.makeConstraints {
-      $0.top.equalTo(iconImageView.snp.bottom)
+      $0.top.equalTo(iconImageView.snp.bottom).offset(2)
       $0.leading.trailing.equalToSuperview()
     }
   }

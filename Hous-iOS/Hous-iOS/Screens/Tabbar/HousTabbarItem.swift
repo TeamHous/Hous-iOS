@@ -29,22 +29,22 @@ extension HousTabbarItem {
   var icon: UIImage? {
     switch self {
     case .home:
-      return UIImage(systemName: "magnifyingglass.circle")?.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
+      return R.Image.homeTabUnselected.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
     case .rulse:
-      return UIImage(systemName: "heart.circle")?.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
+      return R.Image.rulesTabUnselected.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
     case .profile:
-      return UIImage(systemName: "person.crop.circle")?.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
+      return R.Image.profileTabUnselected.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
     }
   }
 
   var selectedIcon: UIImage? {
     switch self {
     case .home:
-      return UIImage(systemName: "magnifyingglass.circle.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+      return R.Image.homeTabSelected
     case .rulse:
-      return UIImage(systemName: "heart.circle.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+      return R.Image.rulesTabSelected
     case .profile:
-      return UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+      return R.Image.profileTabSelected
     }
   }
 

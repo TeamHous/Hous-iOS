@@ -55,11 +55,11 @@ final class HousTabbar: UIStackView {
   private func setupViews() {
 
     axis = .horizontal
-    backgroundColor = .red
+    backgroundColor = R.Color.paleGold
     distribution = .fillEqually
     alignment = .center
 
-    layer.cornerRadius = 32
+    layer.cornerRadius = 30
 
     addArrangedSubview(homeItemView)
     addArrangedSubview(rulesItemView)
@@ -67,7 +67,7 @@ final class HousTabbar: UIStackView {
 
     itemViews.forEach { view in
       view.snp.makeConstraints { make in
-        make.height.equalTo(80)
+        make.height.equalTo(52)
       }
     }
 
@@ -85,6 +85,7 @@ final class HousTabbar: UIStackView {
       .bind(onNext: { owner, _ in
         owner.homeItemView.animateClick {
           owner.selectItem(index: 0)
+          owner.backgroundColor = R.Color.paleGold
         }
       })
       .disposed(by: disposeBag)
@@ -95,6 +96,7 @@ final class HousTabbar: UIStackView {
       .bind(onNext: { owner, _ in
         owner.rulesItemView.animateClick {
           owner.selectItem(index: 1)
+          owner.backgroundColor = R.Color.softBlue
         }
       })
       .disposed(by: disposeBag)
@@ -105,6 +107,7 @@ final class HousTabbar: UIStackView {
       .bind(onNext: { owner, _ in
         owner.profileItemView.animateClick {
           owner.selectItem(index: 2)
+          owner.backgroundColor = R.Color.salmon
         }
       })
       .disposed(by: disposeBag)
