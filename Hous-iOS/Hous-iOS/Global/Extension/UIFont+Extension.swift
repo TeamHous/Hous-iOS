@@ -7,18 +7,38 @@
 
 import UIKit
 
-enum FontName: String {
-    case spoqaHanSansNeoBold = "SpoqaHanSansNeo-Bold"
-    case spoqaHanSansNeoMedium = "SpoqaHanSansNeo-Medium"
-    
-    case montserratSemiBold = "Montserrat-SemiBold"
-    case montserratBold = "Montserrat-Bold"
-    case montserratMedium = "Montserrat-Medium"
-    case montserratRegular = "Montserrat-Regular"
+enum FontName: String, CaseIterable {
+  case spoqaHanSansNeoBold = "SpoqaHanSansNeo-Bold"
+  case spoqaHanSansNeoMedium = "SpoqaHanSansNeo-Medium"
+
+  case montserratSemiBold = "Montserrat-SemiBold"
+  case montserratBold = "Montserrat-Bold"
+  case montserratMedium = "Montserrat-Medium"
+  case montserratRegular = "Montserrat-Regular"
 }
 
 extension UIFont {
-    static func font(_ style: FontName, ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: style.rawValue, size: size)!
+  static func font(_ style: FontName, ofSize size: CGFloat) -> UIFont {
+    return UIFont(name: style.rawValue, size: size)!
+  }
+}
+
+public class FontLoader {
+  static public func registerFont() {
+    FontName.allCases.forEach {
+      if let fontURL = Bundle(for: FontLoader.self).url(forResource: $0.rawValue, withExtension: "otf"),
+         let dataProvider = CGDataProvider(url: fontURL as CFURL),
+         let newFont = CGFont(dataProvider) {
+
+        var error: Unmanaged<CFError>?
+        if !CTFontManagerRegisterGraphicsFont(newFont, &error) {
+          print("Error Loading Font")
+        } else {
+          print("Loaded Font")
+        }
+      } else {
+        assertionFailure("Error Loading Font!")
+      }
     }
+  }
 }

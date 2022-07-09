@@ -10,6 +10,12 @@
 		778A79FA287704D400722CBB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A79F9287704D400722CBB /* SplashViewController.swift */; };
 		778A79FC287704E500722CBB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A79FB287704E500722CBB /* Strings.swift */; };
 		778A79FF2877061E00722CBB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 778A7A012877061E00722CBB /* Localizable.strings */; };
+		778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A042877081800722CBB /* HousTabbarItemView.swift */; };
+		778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A06287708A600722CBB /* HousTabbarItem.swift */; };
+		778A7A0928770C7400722CBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0828770C7400722CBB /* ViewController.swift */; };
+		778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0A28770EB700722CBB /* HousTabbar.swift */; };
+		778A7A0E2879349100722CBB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 778A7A0D2879349100722CBB /* RxGesture */; };
+		77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
 		B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946C2877090F005865CA /* UILabel+Extension.swift */; };
@@ -20,12 +26,6 @@
 		B59C947728770961005865CA /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C947628770961005865CA /* UITableView+Extension.swift */; };
 		B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C94782877097D005865CA /* UICollectionView+Extension.swift */; };
 		B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C947A2877098D005865CA /* UIStackView+Extension.swift */; };
-		778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A042877081800722CBB /* HousTabbarItemView.swift */; };
-		778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A06287708A600722CBB /* HousTabbarItem.swift */; };
-		778A7A0928770C7400722CBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0828770C7400722CBB /* ViewController.swift */; };
-		778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0A28770EB700722CBB /* HousTabbar.swift */; };
-		778A7A0E2879349100722CBB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 778A7A0D2879349100722CBB /* RxGesture */; };
-		77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
 		B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A12876D2D10025B767 /* AppDelegate.swift */; };
 		B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A32876D2D10025B767 /* SceneDelegate.swift */; };
 		B80510AB2876D2D20025B767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80510AA2876D2D20025B767 /* Assets.xcassets */; };
@@ -63,7 +63,11 @@
 		778A79FB287704E500722CBB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		778A7A002877061E00722CBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		778A7A022877062B00722CBB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-
+		778A7A042877081800722CBB /* HousTabbarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarItemView.swift; sourceTree = "<group>"; };
+		778A7A06287708A600722CBB /* HousTabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarItem.swift; sourceTree = "<group>"; };
+		778A7A0828770C7400722CBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		778A7A0A28770EB700722CBB /* HousTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbar.swift; sourceTree = "<group>"; };
+		77A8FC27287936A500F5376B /* HousTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarViewController.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -74,13 +78,6 @@
 		B59C947628770961005865CA /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		B59C94782877097D005865CA /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B59C947A2877098D005865CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-
-		778A7A042877081800722CBB /* HousTabbarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarItemView.swift; sourceTree = "<group>"; };
-		778A7A06287708A600722CBB /* HousTabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarItem.swift; sourceTree = "<group>"; };
-		778A7A0828770C7400722CBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		778A7A0A28770EB700722CBB /* HousTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbar.swift; sourceTree = "<group>"; };
-		77A8FC27287936A500F5376B /* HousTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarViewController.swift; sourceTree = "<group>"; };
-
 		B805109E2876D2D10025B767 /* Hous-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hous-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80510A12876D2D10025B767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B80510A32876D2D10025B767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -455,7 +452,6 @@
 				B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */,
 				B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */,
 				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
-
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
 				B843871628795830003F7B75 /* RulesTableView.swift in Sources */,
@@ -636,9 +632,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B849TJY5N4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hous-iOS/Global/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -652,6 +648,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jihyeon.Hous-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -663,9 +660,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B849TJY5N4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hous-iOS/Global/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -679,6 +676,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jihyeon.Hous-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
