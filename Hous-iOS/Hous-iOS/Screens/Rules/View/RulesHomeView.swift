@@ -23,7 +23,7 @@ class RulesHomeView: UIView {
   
   private var horizontalButtonView = UIView()
   var todayTodoButton = UIButton().then {
-    $0.setImage(ImageLiteral.todayTodo, for: .normal)
+    $0.setImage(R.Image.todoChecked, for: .normal)
   }
   var categoryCollectionView = UICollectionView(
     frame: .zero,
