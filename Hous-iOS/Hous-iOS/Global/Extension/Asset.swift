@@ -216,6 +216,7 @@ extension R.Image {
   static var badgeLocked: UIImage { .load(named: "badgeLocked") }
   static var naviBackButton: UIImage { .load(named: "naviBackButton") }
   static var notiOn: UIImage { .load(named: "notiOn") }
+  static var notiOff: UIImage { .load(named: "notiOff") }
   static var settingProfile: UIImage { .load(named: "settingProfile") }
   static var updateProfile: UIImage { .load(named: "updateProfile") }
   static var viewMoreButton: UIImage { .load(named: "viewMoreButton") }

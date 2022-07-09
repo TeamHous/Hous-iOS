@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bulb.png",
+      "filename" : "ic_bulb.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bulb@2x.png",
+      "filename" : "ic_bulb@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bulb@3x.png",
+      "filename" : "ic_bulb@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

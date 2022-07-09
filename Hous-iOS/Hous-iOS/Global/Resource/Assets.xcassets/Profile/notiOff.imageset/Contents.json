@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_broom.png",
+      "filename" : "ic_alarmoff.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_broom@2x.png",
+      "filename" : "ic_alarmoff@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_broom@3x.png",
+      "filename" : "ic_alarmoff@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "pancake.png",
+      "filename" : "ic_pancake.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "pancake@2x.png",
+      "filename" : "ic_pancake@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "pancake@3x.png",
+      "filename" : "ic_pancake@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
