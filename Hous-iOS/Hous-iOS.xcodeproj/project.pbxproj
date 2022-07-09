@@ -27,6 +27,7 @@
 		B5084A322879981500C38749 /* TodoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A312879981500C38749 /* TodoDataModel.swift */; };
 		B5084A342879982400C38749 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A332879982400C38749 /* ProfileDataModel.swift */; };
 		B5084A3628799AEB00C38749 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3528799AEB00C38749 /* UIColor+Extension.swift */; };
+		B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
 		B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946C2877090F005865CA /* UILabel+Extension.swift */; };
@@ -90,6 +91,7 @@
 		B5084A312879981500C38749 /* TodoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataModel.swift; sourceTree = "<group>"; };
 		B5084A332879982400C38749 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
 		B5084A3528799AEB00C38749 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				B5084A222879962100C38749 /* ComingEventsCollectionViewCell.swift */,
+				B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
 				77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */,
 				B80510BF2876D33D0025B767 /* ProfileViewController.swift in Sources */,
+				B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */,
 				B843871428795805003F7B75 /* RulesHomeView.swift in Sources */,
 				B80510E42876D6B10025B767 /* APIConstants.swift in Sources */,
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
