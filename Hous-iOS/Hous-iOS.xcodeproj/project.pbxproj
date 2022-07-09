@@ -50,6 +50,7 @@
 		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
 		B843871628795830003F7B75 /* RulesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTableView.swift */; };
+		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		B80510EA2876D7840025B767 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
 		B843871528795830003F7B75 /* RulesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableView.swift; sourceTree = "<group>"; };
+		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 		B84387102879571C003F7B75 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			files = (
 				778A7A0928770C7400722CBB /* ViewController.swift in Sources */,
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
+				B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */,
 				B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */,
 				B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */,
 				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
