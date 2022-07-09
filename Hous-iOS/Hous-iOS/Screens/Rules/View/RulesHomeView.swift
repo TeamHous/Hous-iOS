@@ -19,7 +19,7 @@ class RulesHomeView: UIView {
     static let categoryCollectionItemSpacing = CGFloat(24)
   }
   
-  var navigationBarView = MainTabNavigationView(tabType: .rules)
+  var navigationBarView = NavigationBarView(tabType: .rules)
   
   private var horizontalButtonView = UIView()
   var todayTodoButton = UIButton().then {
