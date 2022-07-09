@@ -25,7 +25,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   }
   var managerLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 13)
-    $0.textColor = R.Color.paleGrey
+    $0.textColor = R.Color.lightPeriwinkle
     $0.text = "담당자 선택하기"
   }
   var addManagerButton = UIButton().then {

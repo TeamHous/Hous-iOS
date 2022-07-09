@@ -19,7 +19,7 @@ final class RulesViewController: UIViewController {
     case todayTodo, myTodo
   }
   
-  var rulesCellType: RulesCellType = .myTodo
+  var rulesCellType: RulesCellType = .todayTodo
   var mainView = RulesHomeView()
   
   override func loadView() {

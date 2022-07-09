@@ -14,13 +14,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
   static let identifier = "CategoryCollectionViewCell"
   
   var categoryImageView = UIImageView().then {
-    $0.image = R.Image.categoryAdd
+    $0.image = R.Image.clean
   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
-    configure()
   }
   
   required init?(coder: NSCoder) {
@@ -32,13 +31,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     self.contentView.addSubview(categoryImageView)
     
     categoryImageView.snp.makeConstraints { make in
-      make.size.equalTo(30)
+      make.size.equalTo(40)
       make.center.equalToSuperview()
     }
-  }
-  
-  private func configure() {
-    self.layer.cornerRadius = 20
-    self.backgroundColor = R.Color.paleGrey
   }
 }

@@ -24,8 +24,9 @@ class RulesTableView: UIView {
   var myTodoButton = UIButton().then {
     $0.setTitle("나의 to-do ", for: .normal)
     $0.setImage(R.Image.myTodoUnselected, for: .normal)
-    $0.setTitleColor(.systemPink, for: .normal)
-    $0.setTitleColor(.systemRed, for: .selected)
+    $0.setImage(R.Image.myTodoSelected, for: .selected)
+    $0.setTitleColor(.paleLavender, for: .normal)
+    $0.setTitleColor(.lilac, for: .selected)
     $0.semanticContentAttribute = .forceRightToLeft
     $0.isSelected = false
   }
@@ -39,6 +40,7 @@ class RulesTableView: UIView {
       layout.scrollDirection = .vertical
       $0.collectionViewLayout = layout
       $0.showsVerticalScrollIndicator = false
+      $0.backgroundColor = .white
       $0.register(TodayTodoCollectionViewCell.self, forCellWithReuseIdentifier: TodayTodoCollectionViewCell.identifier)
       $0.register(MyTodoCollectionViewCell.self, forCellWithReuseIdentifier: MyTodoCollectionViewCell.identifier)
     }
