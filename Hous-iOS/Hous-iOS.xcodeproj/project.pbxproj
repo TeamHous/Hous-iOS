@@ -63,6 +63,7 @@
 		B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */; };
 		B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */; };
 		B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */; };
+		B843442E287C90E800CD1BF5 /* CategoryRulesAssignedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442D287C90E800CD1BF5 /* CategoryRulesAssignedView.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
 		B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTodoTableView.swift */; };
 		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
@@ -137,6 +138,7 @@
 		B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRulesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRulesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B843442D287C90E800CD1BF5 /* CategoryRulesAssignedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesAssignedView.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
 		B843871528795830003F7B75 /* RulesTodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoTableView.swift; sourceTree = "<group>"; };
 		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
+				B843442D287C90E800CD1BF5 /* CategoryRulesAssignedView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
+				B843442E287C90E800CD1BF5 /* CategoryRulesAssignedView.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
