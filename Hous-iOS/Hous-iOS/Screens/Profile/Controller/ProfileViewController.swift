@@ -100,11 +100,11 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
         let width = UIScreen.main.bounds.width
         switch indexPath.row{
         case 0:
-            return CGSize(width: width, height: width * (114 / 375))
+            return CGSize(width: width, height: 114)
         case 1:
-            return CGSize(width: width, height: width * (354 / 375))
+            return CGSize(width: width, height: 354)
         case 2:
-            return CGSize(width: width, height: width * (222 / 375))
+            return CGSize(width: width, height: 222)
         default:
             return CGSize(width: 0, height: 0)
         }
