@@ -56,6 +56,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
 
     self.rulesTitleLabel.text = item.ruleTitle
     assigneeView.assignedNumLabel.text = String(item.assigneeCount)
+    
     var color = item.assigneeColor
     if (color.count > 2) { color = Array(color.prefix(3)) }
     color.forEach { color in
