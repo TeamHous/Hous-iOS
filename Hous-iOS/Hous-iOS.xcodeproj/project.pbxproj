@@ -42,6 +42,7 @@
 		B5084A3628799AEB00C38749 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3528799AEB00C38749 /* UIColor+Extension.swift */; };
 		B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */; };
 		B5084A3F287C1C9400C38749 /* ParticipantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3E287C1C9400C38749 /* ParticipantsCollectionViewCell.swift */; };
+		B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A42287CAC1300C38749 /* EventIconView.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
 		B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946C2877090F005865CA /* UILabel+Extension.swift */; };
@@ -132,6 +133,7 @@
 		B5084A3528799AEB00C38749 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A3E287C1C9400C38749 /* ParticipantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5084A42287CAC1300C38749 /* EventIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIconView.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				B5084A26287996EE00C38749 /* RulesTodoView.swift */,
 				B5084A282879970F00C38749 /* HeaderCollectionReusableView.swift */,
+				B5084A42287CAC1300C38749 /* EventIconView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				B8434437287D920900CD1BF5 /* RulesCategoryView.swift in Sources */,
 				B5084A342879982400C38749 /* ProfileDataModel.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
+				B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */,
 				B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */,
 				B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */,
 				B84344242879A36600CD1BF5 /* RulesCategoryTableView.swift in Sources */,
