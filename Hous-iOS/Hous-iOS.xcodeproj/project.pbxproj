@@ -23,6 +23,7 @@
 		9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */; };
 		9B7D8610287C487C006C0BCE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D860A287C487C006C0BCE /* ProfileViewController.swift */; };
 		9B7D8612287C494C006C0BCE /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */; };
+		9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */; };
 		B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */; };
 		B5084A232879962100C38749 /* ComingEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A222879962100C38749 /* ComingEventsCollectionViewCell.swift */; };
 		B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A242879963800C38749 /* RulesTodoCollectionViewCell.swift */; };
@@ -102,6 +103,7 @@
 		9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileGraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B7D860A287C487C006C0BCE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBedgeStackItemView.swift; sourceTree = "<group>"; };
 		B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A222879962100C38749 /* ComingEventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A242879963800C38749 /* RulesTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */,
+				9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */,
 				9B7D8604287C487C006C0BCE /* CircleView.swift */,
 			);
 			path = View;
@@ -646,6 +649,7 @@
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
 				B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */,
 				B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */,
+				9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */,
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
 				B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */,
 				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
