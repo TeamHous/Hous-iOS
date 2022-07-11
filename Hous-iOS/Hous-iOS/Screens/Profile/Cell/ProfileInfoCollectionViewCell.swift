@@ -34,7 +34,6 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   var userJob = UILabel().then{
     $0.text = "대학생"
     $0.textColor = .red
-
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
     
