@@ -80,5 +80,4 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.className, for: indexPath)
     return cell
   }
-
 }
