@@ -11,7 +11,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
 
   static let identifier = "RulesCollectionViewCell"
 
-  var rulesByCategoryAssignView = CategoryRulesAssignedView()
+  var assigneeView = CategoryRulesAssigneeView()
 
   var rulesTitleLabel = UILabel().then {
     $0.textColor = .housBlack
@@ -31,9 +31,9 @@ class RulesCollectionViewCell: UICollectionViewCell {
 
   private func render() {
 
-    self.addSubViews([rulesByCategoryAssignView, rulesTitleLabel])
+    self.addSubViews([assigneeView, rulesTitleLabel])
 
-    rulesByCategoryAssignView.snp.makeConstraints { make in
+    assigneeView.snp.makeConstraints { make in
       make.centerY.equalToSuperview()
       make.height.equalToSuperview().multipliedBy(0.8)
       make.width.lessThanOrEqualTo(37).priority(.high)
@@ -41,16 +41,27 @@ class RulesCollectionViewCell: UICollectionViewCell {
     }
 
     rulesTitleLabel.snp.makeConstraints { make in
-      make.leading.equalTo(rulesByCategoryAssignView.snp.trailing).offset(10)
+      make.leading.equalTo(assigneeView.snp.trailing).offset(10)
       make.trailing.equalToSuperview().inset(8)
-      make.centerY.equalTo(rulesByCategoryAssignView.snp.centerY)
+      make.centerY.equalTo(assigneeView.snp.centerY)
     }
   }
 
   private func configure() {
-    self.rulesByCategoryAssignView.backgroundColor = .paleGrey
-    self.rulesByCategoryAssignView.makeRounded(cornerRadius: 10)
+    self.assigneeView.backgroundColor = .paleGrey
+    self.assigneeView.makeRounded(cornerRadius: 10)
     self.layer.cornerRadius = 15
     self.backgroundColor = .white
+  }
+
+  func setCategoryAssigneeData(_ item: CategoryRulesDataModel) {
+
+    self.rulesTitleLabel.text = item.ruleTitle
+    assigneeView.assignedNumLabel.text = String(item.assigneeCount)
+    item.assigneeColor.forEach { color in
+      let view = CategoryAssigneeCircleView()
+      view.setColor(color)
+      assigneeView.assignedCircleStackView.addArrangedSubview(view)
+    }
   }
 }

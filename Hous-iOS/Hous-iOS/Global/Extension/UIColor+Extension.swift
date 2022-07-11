@@ -26,3 +26,22 @@ extension UIColor {
                   blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: alpha)
     }
 }
+
+extension UIColor {
+  static func assigneeColor(_ name: AssigneeColor) -> UIColor {
+    switch name {
+    case .yellow:
+      return .paleGold
+    case .blue:
+      return .softBlue
+    case .purple:
+      return .lilac
+    case .red:
+      return .salmon
+    case .green:
+      return .easterGreen
+    case .none:
+      return .veryLightPinkFour
+    }
+  }
+}

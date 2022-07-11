@@ -15,6 +15,7 @@ public struct R {
 }
 
 extension R.Color {
+  
   static var salmon: UIColor {
     .dynamicColor(light: .salmon, dark: .white)
   }

@@ -1,5 +1,5 @@
 //
-//  CategoryRulesAssignedView.swift
+//  CategoryRulesAssigneeView.swift
 //  Hous-iOS
 //
 //  Created by 김지현 on 2022/07/12.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CategoryRulesAssignedView: UIView {
+class CategoryRulesAssigneeView: UIView {
 
   private enum Size {
     static let circleSize: CGFloat = 16
@@ -17,17 +17,12 @@ class CategoryRulesAssignedView: UIView {
 
   lazy var assignedCircleStackView: UIStackView = {
     let stackView = UIStackView()
-    stackView.spacing = -10
+    stackView.spacing = -20
     stackView.alignment = .fill
     stackView.distribution = .equalSpacing
     stackView.axis = .horizontal
     return stackView
   }()
-
-  var assignedCircleView = UIView().then {
-    $0.backgroundColor = .veryLightPinkFour
-    $0.makeRounded(cornerRadius: Size.circleSize/2)
-  }
 
   var assignedNumLabel = UILabel().then {
     $0.textColor = .softBlue
@@ -46,16 +41,11 @@ class CategoryRulesAssignedView: UIView {
 
   private func render() {
     self.addSubViews([assignedCircleStackView, assignedNumLabel])
-    assignedCircleStackView.addArrangedSubview(assignedCircleView)
 
     assignedCircleStackView.snp.makeConstraints { make in
       make.left.equalToSuperview().offset(5)
       make.centerY.equalToSuperview()
       make.height.equalTo(16)
-    }
-
-    assignedCircleView.snp.makeConstraints { make in
-      make.size.equalTo(16)
     }
 
     assignedNumLabel.snp.makeConstraints { make in
