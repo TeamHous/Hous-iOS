@@ -6,22 +6,22 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ProfileBedgeView : UIView {
-
-  let circles = [CircleView(), CircleView(), CircleView()]
+  
+  let width = UIScreen.main.bounds.width
   
   private lazy var bedgeGuideStackView = UIStackView().then{
     $0.alignment = .center
-    $0.distribution = .equalSpacing
+    $0.distribution = .fill
     $0.axis = .horizontal
-    $0.spacing = 30
-        
+    $0.spacing = width * (25 / 375)
   }
   
+
+  var profileBedgeItems = [profileBedgeStackItemView(),profileBedgeStackItemView(),profileBedgeStackItemView()]
   
-  
- 
   override init(frame: CGRect) {
     super.init(frame: frame)
     configure()
@@ -39,7 +39,26 @@ class ProfileBedgeView : UIView {
   }
   
   private func render(){
-    [].forEach {self.addSubview($0)}
-    [circles[0], circles[1], circles[2]].forEach {bedgeGuideStackView.addArrangedSubview($0)}
+    [bedgeGuideStackView].forEach {self.addSubview($0)}
+    profileBedgeItems.forEach {bedgeGuideStackView.addArrangedSubview($0)}
+    
+    bedgeGuideStackView.snp.makeConstraints {make in
+      make.top.bottom.equalToSuperview().inset(28)
+      make.centerX.equalToSuperview()
+    }
+    
+    profileBedgeItems.forEach{
+      $0.snp.makeConstraints {make in
+        make.width.equalTo(70)
+        make.height.equalTo(100)
+      }
+    }
   }
 }
+
+struct VCPreView5:PreviewProvider {
+    static var previews: some View {
+        ProfileViewController().toPreview()
+    }
+}
+

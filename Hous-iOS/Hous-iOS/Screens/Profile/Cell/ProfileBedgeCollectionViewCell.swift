@@ -16,13 +16,13 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
   
   let titleLabel = UILabel().then{
     $0.text = "나의 배지"
-    $0.font = .boldSystemFont(ofSize: 20)
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
   }
   
   let detailInfoButton = UIButton().then{
     $0.setTitle("자세히 보기 ▸", for: .normal)
-    $0.setTitleColor(.lightGray, for: .normal)
-    $0.titleLabel?.font = .systemFont(ofSize: 13)
+    $0.setTitleColor(.veryLightPinkFour, for: .normal)
+    $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
 
@@ -40,7 +40,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     
     
   private func configureUI(){
-    self.backgroundColor = .purple
+    self.backgroundColor = .white
     [titleLabel, detailInfoButton, profileBedgeView].forEach {self.addSubview($0)}
   }
     
@@ -62,7 +62,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     
     profileBedgeView.snp.makeConstraints {make in
       make.leading.trailing.equalToSuperview().inset(24)
-      make.top.bottom.equalToSuperview().inset(28)
+      make.top.equalTo(titleLabel.snp.bottom).offset(16)
     }
   }
 }
