@@ -10,7 +10,7 @@ import SwiftUI
 
 class ProfileViewController : UIViewController {
   
-  let navigationBarView = NavigationBarView(tabType: .rules)
+  let navigationBarView = NavigationBarView(tabType: .profile)
     
   let identifiers = [ProfileInfoCollectionViewCell.identifier, ProfileGraphbCollectionViewCell.identifier, ProfileBedgeCollectionViewCell.identifier]
   
