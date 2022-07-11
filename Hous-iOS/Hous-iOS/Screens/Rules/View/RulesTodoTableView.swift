@@ -85,6 +85,7 @@ final class RulesTodoTableView: UIView {
       make.bottom.equalToSuperview()
     }
   }
+  
 }
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {

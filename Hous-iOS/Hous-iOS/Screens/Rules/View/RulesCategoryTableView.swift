@@ -30,7 +30,7 @@ final class RulesCategoryTableView: UIView {
   //MARK: - 변수
 
   var categoryRules: [CategoryRulesDataModel]?
-
+  
   var categoryCollectionView = UICollectionView(
     frame: .zero,
     collectionViewLayout: UICollectionViewLayout()).then {
@@ -45,7 +45,6 @@ final class RulesCategoryTableView: UIView {
     }
 
   //MARK: - 생명주기
-
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
