@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
+enum TodoType {
+  case todayTodo, myTodo
+}
+
 final class RulesTodoTableView: UIView {
   
   enum Size {
@@ -16,6 +20,8 @@ final class RulesTodoTableView: UIView {
     static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     static let todoCollectionItemSpacing = CGFloat(8)
   }
+
+  var todoType: TodoType = .todayTodo
   
   private var todayTodoLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
@@ -44,15 +50,13 @@ final class RulesTodoTableView: UIView {
       $0.register(TodayTodoCollectionViewCell.self, forCellWithReuseIdentifier: TodayTodoCollectionViewCell.identifier)
       $0.register(MyTodoCollectionViewCell.self, forCellWithReuseIdentifier: MyTodoCollectionViewCell.identifier)
     }
-
-  var items: [String] = []
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
 
-    //todoCollectionView.delegate = self
-    //todoCollectionView.dataSource = self
+    todoCollectionView.delegate = self
+    todoCollectionView.dataSource = self
   }
   
   required init?(coder: NSCoder) {
@@ -79,13 +83,21 @@ final class RulesTodoTableView: UIView {
   
 }
 
-//extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//    return items.count
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    
-//  }
-//}
+extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    return 8
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    switch todoType {
+    case .todayTodo:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.identifier, for: indexPath)
+      return cell
+    case .myTodo:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.identifier, for: indexPath)
+      return cell
+    }
+  }
+}

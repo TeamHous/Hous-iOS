@@ -13,6 +13,7 @@ class KeyRulesCollectionViewCell: UICollectionViewCell {
 
   var rulesTitleLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+    $0.textColor = .softBlue
     $0.text = "거실 청소기 돌리기"
   }
 
@@ -38,6 +39,6 @@ class KeyRulesCollectionViewCell: UICollectionViewCell {
 
   private func configure() {
     self.layer.cornerRadius = 15
-    self.backgroundColor = .softBlue
+    self.backgroundColor = .lightPeriwinkle
   }
 }

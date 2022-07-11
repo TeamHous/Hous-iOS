@@ -11,25 +11,29 @@ import Then
 
 final class RulesCategoryTableView: UIView {
 
+  enum CategorySection: Int {
+    case keyRules, rules, add
+  }
+
   enum Size {
-    static let categoryCollectionItemSize = CGSize(width: 327, height: 80)
-    static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 28, left: 24, bottom: 12, right: 24)
-    static let categoryCollectionItemSpacing = CGFloat(12)
+    static let screenWidth = UIScreen.main.bounds.width
+    static let padding: CGFloat = 48
+    static let rulesItemSize = CGSize(width: screenWidth - padding, height: 46)
+    static let addItemSize = CGSize(width: screenWidth - padding, height: 32)
+    static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 28, left: 0, bottom: 12, right: 0)
   }
 
   var categoryCollectionView = UICollectionView(
     frame: .zero,
     collectionViewLayout: UICollectionViewLayout()).then {
       let layout = UICollectionViewFlowLayout()
-      layout.itemSize = Size.categoryCollectionItemSize
-      layout.sectionInset = Size.categoryCollectionEdgeInsets
-      layout.minimumInteritemSpacing = Size.categoryCollectionItemSpacing
       layout.scrollDirection = .vertical
+      $0.backgroundColor = .clear
       $0.collectionViewLayout = layout
       $0.showsVerticalScrollIndicator = false
-      $0.backgroundColor = .white
-      $0.register(RulesCollectionViewCell.self, forCellWithReuseIdentifier: RulesCollectionViewCell.identifier)
-      $0.register(KeyRulesCollectionViewCell.self, forCellWithReuseIdentifier: KeyRulesCollectionViewCell.identifier)
+      $0.register(cell: RulesCollectionViewCell.self)
+      $0.register(cell: AddRulesCollectionViewCell.self)
+      $0.register(cell: KeyRulesCollectionViewCell.self)
     }
 
   override init(frame: CGRect) {
@@ -64,24 +68,70 @@ final class RulesCategoryTableView: UIView {
 
 extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewDataSource {
 
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 3
+  }
+
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch section {
-    case 0:
-      print("0")
-    case 1:
-      print("1")
-    case 2:
-      print("2")
+    case CategorySection.keyRules.rawValue:
+      return 3
+    case CategorySection.rules.rawValue:
+      return 8
+    case CategorySection.add.rawValue:
+      return 1
     default:
       return 0
     }
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    <#code#>
+
+    switch indexPath.section {
+    case 0:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.identifier, for: indexPath)
+      return cell
+    case 1:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulesCollectionViewCell.identifier, for: indexPath)
+      return cell
+    case 2:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddRulesCollectionViewCell.identifier, for: indexPath)
+      return cell
+    default :
+      return UICollectionViewCell()
+    }
+  }
+}
+
+extension RulesCategoryTableView: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    switch indexPath.section {
+    case CategorySection.keyRules.rawValue, CategorySection.rules.rawValue:
+      return Size.rulesItemSize
+    case CategorySection.add.rawValue:
+      return Size.addItemSize
+    default:
+      return CGSize()
+    }
   }
 
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    var inset = Size.categoryCollectionEdgeInsets
 
+    switch section {
+    case CategorySection.keyRules.rawValue:
+      return inset
+    case CategorySection.rules.rawValue:
+      inset.top = 0
+      return inset
+    case CategorySection.add.rawValue:
+      inset.top = 4
+      return inset
+    default:
+      return UIEdgeInsets.zero
+    }
+  }
 }
 
 
