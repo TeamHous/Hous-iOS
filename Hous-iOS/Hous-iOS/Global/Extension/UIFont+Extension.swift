@@ -34,7 +34,7 @@ public class FontLoader {
         if !CTFontManagerRegisterGraphicsFont(newFont, &error) {
           print("Error Loading Font")
         } else {
-          print("Loaded Font")
+          //print("Loaded Font")
         }
       } else {
         assertionFailure("Error Loading Font!")
