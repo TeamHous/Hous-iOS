@@ -7,16 +7,6 @@
 
 import UIKit
 
-extension UIColor {
-    // 예시
-    static var twitter_white: UIColor {
-        return UIColor(hex: "#ffffff")
-    }
-
-    static var twitter_black_opacity_50: UIColor {
-        return UIColor(white: 0.0, alpha: 0.5)
-    }
-}
 
 extension UIColor {
     
