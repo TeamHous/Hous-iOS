@@ -6,14 +6,9 @@
 //
 
 import UIKit
-<<<<<<< HEAD
 import SwiftUI
 
 class profileBedgeStackItemView : UIView {
-=======
-
-class profileBedgeCollectionItemView : UIView {
->>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
 
   private let circle = CircleView()
   
@@ -63,21 +58,15 @@ class profileBedgeCollectionItemView : UIView {
     
     bedgeName.snp.makeConstraints {make in
       make.top.equalTo(circle.snp.bottom).offset(12)
-<<<<<<< HEAD
-      make.centerX.equalTo(circle.snp.centerX)
-=======
       make.centerY.equalToSuperview()
->>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
+      make.centerX.equalTo(circle.snp.centerX)
     }
     
   }
 }
-<<<<<<< HEAD
 
-struct VCPreView6:PreviewProvider {
-    static var previews: some View {
-        ProfileViewController().toPreview()
-    }
 }
-=======
->>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
+    }
+        ProfileViewController().toPreview()
+    static var previews: some View {
+struct VCPreView6:PreviewProvider {

@@ -42,7 +42,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
 
 
   private func configureUI(){
-    self.backgroundColor = .purple
+    self.backgroundColor = .white
     [titleLabel, detailInfoButton, profileBedgeView].forEach {self.addSubview($0)}
   }
     
