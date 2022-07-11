@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension UIViewController {
     /**
@@ -106,5 +107,35 @@ extension UIViewController {
         let generator = UIImpactFeedbackGenerator(style: degree)
         generator.impactOccurred()
     }
+  /**
+   - Description:
+   이 익스텐션이 존재하는 상태에서 Preview를 띄우고 싶은 파일의 최하단에 아래와 같은 Struct를 정의하면
+   화면을 즉시 Preview할 수 있습니다!
+
+   - ViewController
+   struct VCPreView:PreviewProvider {
+       static var previews: some View {
+           ProfileViewController().toPreview() -> 이 부분을 Preview를 하고 싶은 ViewController를 넣어줍니다.
+       }
+   }
+   
+   -View
+   
+   */
+
+    private struct Preview: UIViewControllerRepresentable {
+            let viewController: UIViewController
+
+            func makeUIViewController(context: Context) -> UIViewController {
+                return viewController
+            }
+
+            func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+            }
+        }
+
+        func toPreview() -> some View {
+            Preview(viewController: self)
+        }
 }
 
