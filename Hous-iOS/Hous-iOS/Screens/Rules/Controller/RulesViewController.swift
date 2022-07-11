@@ -23,25 +23,17 @@ final class RulesViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configUI()
     setCollectionView()
+  }
+
+  private func configUI() {
+    self.navigationController?.navigationBar.isHidden = true
   }
   
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
     mainView.categoryCollectionView.dataSource = self
-
-//    switch mainView.rulesType {
-//    case .category:
-//      if let rulesCategoryTableView = mainView.rulesDisplayView as? RulesCategoryTableView {
-//        rulesCategoryTableView.categoryCollectionView.delegate = self
-//        rulesCategoryTableView.categoryCollectionView.dataSource = self }
-//    case .todayTodo, .myTodo:
-//      if let rulesTodoTableView = mainView.rulesDisplayView as? RulesTodoTableView {
-//        rulesTodoTableView.todoCollectionView.delegate = self
-//        rulesTodoTableView.todoCollectionView.dataSource = self
-//      }
-//    }
-
   }
 }
 
@@ -56,23 +48,5 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)
     return cell
 
-//    switch collectionView {
-//    case mainView.categoryCollectionView:
-//      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)
-//      return cell
-//    default:
-//      switch mainView.rulesType {
-//      case .category:
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)
-//        return cell
-//      case .todayTodo:
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.identifier, for: indexPath)
-//        return cell
-//      case .myTodo:
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.identifier, for: indexPath)
-//        return cell
-//      }
-//    }
   }
-
 }
