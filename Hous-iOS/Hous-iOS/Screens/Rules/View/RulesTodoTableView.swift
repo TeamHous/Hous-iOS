@@ -52,6 +52,8 @@ final class RulesTodoTableView: UIView {
       $0.register(cell: TodayTodoCollectionViewCell.self)
       $0.register(cell: MyTodoCollectionViewCell.self)
     }
+
+  var items: [String] = []
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -81,6 +83,7 @@ final class RulesTodoTableView: UIView {
       make.bottom.equalToSuperview()
     }
   }
+  
 }
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
