@@ -24,11 +24,13 @@ final class RulesTodoTableView: UIView {
   var todoType: TodoType = .todayTodo
   
   private var todayTodoLabel = UILabel().then {
+    $0.textColor = .housBlack
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
     $0.text = "오늘의 to-do"
   }
   var myTodoButton = UIButton().then {
     $0.setTitle("나의 to-do ", for: .normal)
+    $0.tintColor = .housBlack
     $0.setImage(R.Image.myTodoUnselected, for: .normal)
     $0.setImage(R.Image.myTodoSelected, for: .selected)
     $0.setTitleColor(.paleLavender, for: .normal)

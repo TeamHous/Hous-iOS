@@ -14,6 +14,7 @@ class AddRulesCollectionViewCell: UICollectionViewCell {
   var rulesByCategoryAssignView = UIView()
 
   var rulesTitleLabel = UILabel().then {
+    $0.numberOfLines = 1
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.text = "거실 청소기 돌리기"
   }

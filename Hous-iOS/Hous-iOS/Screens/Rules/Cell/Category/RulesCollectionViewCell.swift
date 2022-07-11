@@ -14,6 +14,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
   var rulesByCategoryAssignView = UIView()
 
   var rulesTitleLabel = UILabel().then {
+    $0.textColor = .housBlack
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.text = "거실 청소기 돌리기"
   }
@@ -35,6 +36,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
     rulesByCategoryAssignView.snp.makeConstraints { make in
       make.centerY.equalToSuperview()
       make.height.equalToSuperview().multipliedBy(0.8)
+      make.width.equalToSuperview().multipliedBy(0.2)
       make.leading.equalToSuperview().offset(8)
     }
 
@@ -47,6 +49,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
 
   private func configure() {
     self.rulesByCategoryAssignView.backgroundColor = .paleGrey
+    self.rulesByCategoryAssignView.makeRounded(cornerRadius: 10)
     self.layer.cornerRadius = 15
     self.backgroundColor = .white
   }
