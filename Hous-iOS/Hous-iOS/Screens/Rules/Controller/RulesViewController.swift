@@ -66,5 +66,4 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     return cell
 
   }
-
 }
