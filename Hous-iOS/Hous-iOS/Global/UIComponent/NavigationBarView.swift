@@ -10,9 +10,9 @@ import SnapKit
 import Then
 
 enum TabType: String {
-    case home = "Hous-"
-    case rules = "Hous- 규칙"
-    case profile = "Hous- ME"
+  case home = "Hous-"
+  case rules = "Hous- 규칙"
+  case profile = "Hous- ME"
 }
 
 class NavigationBarView: UIView {

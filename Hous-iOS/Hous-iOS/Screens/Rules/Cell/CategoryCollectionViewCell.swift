@@ -31,7 +31,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     self.contentView.addSubview(categoryImageView)
     
     categoryImageView.snp.makeConstraints { make in
-      make.size.equalTo(40)
+      make.size.equalTo(43)
       make.center.equalToSuperview()
     }
   }

@@ -1,5 +1,5 @@
 //
-//  RulesTableView.swift
+//  RulesTodoTableView.swift
 //  Hous-iOS
 //
 //  Created by 김지현 on 2022/07/09.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class RulesTableView: UIView {
+final class RulesTodoTableView: UIView {
   
   enum Size {
     static let todoCollectionItemSize = CGSize(width: 327, height: 80) // 기기마다 좀 다르게 ...
@@ -18,7 +18,7 @@ class RulesTableView: UIView {
   }
   
   private var todayTodoLabel = UILabel().then {
-    // 폰트, 크기 어쩌구
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
     $0.text = "오늘의 to-do"
   }
   var myTodoButton = UIButton().then {
@@ -44,10 +44,15 @@ class RulesTableView: UIView {
       $0.register(TodayTodoCollectionViewCell.self, forCellWithReuseIdentifier: TodayTodoCollectionViewCell.identifier)
       $0.register(MyTodoCollectionViewCell.self, forCellWithReuseIdentifier: MyTodoCollectionViewCell.identifier)
     }
+
+  var items: [String] = []
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
+
+    //todoCollectionView.delegate = self
+    //todoCollectionView.dataSource = self
   }
   
   required init?(coder: NSCoder) {
@@ -71,4 +76,16 @@ class RulesTableView: UIView {
       make.bottom.equalToSuperview()
     }
   }
+  
 }
+
+//extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
+//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//
+//    return items.count
+//  }
+//
+//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//    
+//  }
+//}
