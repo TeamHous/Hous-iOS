@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
   
   private enum HomeSection: Int {
     case events
