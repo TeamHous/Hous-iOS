@@ -20,8 +20,10 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
   }
   
   let detailInfoButton = UIButton().then{
-    $0.setTitle("자세히 보기 ▸", for: .normal)
+    $0.setTitle("자세히 보기", for: .normal)
+    $0.setImage(R.Image.viewMoreSettingButton, for: .normal)
     $0.setTitleColor(.veryLightPinkFour, for: .normal)
+    $0.semanticContentAttribute = .forceRightToLeft
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
