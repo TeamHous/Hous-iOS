@@ -46,7 +46,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
   }
 
   private func configure() {
-    self.rulesByCategoryAssignView.backgroundColor = .systemPink
+    self.rulesByCategoryAssignView.backgroundColor = .paleGrey
     self.layer.cornerRadius = 15
     self.backgroundColor = .white
   }
