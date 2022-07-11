@@ -20,8 +20,8 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
   }
   
   let detailInfoButton = UIButton().then{
-    $0.setTitle("자세히 보기", for: .normal)
-    $0.setImage(R.Image.viewMoreSettingButton, for: .normal)
+    $0.setTitle("자세히 보기 ", for: .normal)
+    $0.setImage(R.Image.viewMoreButton, for: .normal)
     $0.setTitleColor(.veryLightPinkFour, for: .normal)
     $0.semanticContentAttribute = .forceRightToLeft
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
@@ -56,7 +56,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     }
     
     detailInfoButton.snp.makeConstraints {make in
-      make.top.equalTo(safeAreaLayoutGuide).offset((14 / 812) * height)
+      make.bottom.equalTo(titleLabel.snp.bottom)
       make.trailing.equalToSuperview().offset(-24)
       make.width.equalTo(74)
       make.height.equalTo(20)
