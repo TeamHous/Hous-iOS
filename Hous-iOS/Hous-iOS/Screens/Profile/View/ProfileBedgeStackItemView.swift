@@ -6,9 +6,14 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 import SwiftUI
 
 class profileBedgeStackItemView : UIView {
+=======
+
+class profileBedgeCollectionItemView : UIView {
+>>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
 
   private let circle = CircleView()
   
@@ -24,7 +29,11 @@ class profileBedgeStackItemView : UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+<<<<<<< HEAD
     configUI()
+=======
+    configure()
+>>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
     render()
   }
   
@@ -32,7 +41,11 @@ class profileBedgeStackItemView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+<<<<<<< HEAD
   private func configUI(){
+=======
+  private func configure(){
+>>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
     self.backgroundColor = .veryLightPinkTwo
   }
   
@@ -50,14 +63,21 @@ class profileBedgeStackItemView : UIView {
     
     bedgeName.snp.makeConstraints {make in
       make.top.equalTo(circle.snp.bottom).offset(12)
+<<<<<<< HEAD
       make.centerX.equalTo(circle.snp.centerX)
+=======
+      make.centerY.equalToSuperview()
+>>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
     }
     
   }
 }
+<<<<<<< HEAD
 
 struct VCPreView6:PreviewProvider {
     static var previews: some View {
         ProfileViewController().toPreview()
     }
 }
+=======
+>>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
