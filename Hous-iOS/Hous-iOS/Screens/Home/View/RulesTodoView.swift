@@ -22,7 +22,7 @@ class RulesTodosView: UIView {
   
   private let ruleLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
-    $0.textColor = .black
+    $0.textColor = .housBlack
     $0.textAlignment = .left
     $0.numberOfLines = 1
   }

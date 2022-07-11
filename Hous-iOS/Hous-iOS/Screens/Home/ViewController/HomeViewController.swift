@@ -33,7 +33,7 @@ final class HomeViewController: UIViewController {
   private let titleLabel = UILabel().then {
     $0.text = "Hous-"
     $0.font = .font(.montserratSemiBold, ofSize: 30)
-    $0.textColor = .black
+    $0.textColor = .housBlack
     $0.textAlignment = .left
   }
   
@@ -49,12 +49,17 @@ final class HomeViewController: UIViewController {
   //MARK: LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    configUI()
     render()
     setCollectionView()
     getRulesAndTodoList()
   }
   
   //MARK: Custom Methods
+  private func configUI() {
+    self.view.backgroundColor = .white
+  }
+  
   private func getRulesAndTodoList() {
     rules = RulesDataModel.sampleData
     todos = TodoDataModel.sampleData
