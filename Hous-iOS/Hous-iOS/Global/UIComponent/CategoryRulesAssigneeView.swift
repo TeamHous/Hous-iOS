@@ -17,9 +17,9 @@ class CategoryRulesAssigneeView: UIView {
 
   lazy var assignedCircleStackView: UIStackView = {
     let stackView = UIStackView()
-    stackView.spacing = -20
+    stackView.spacing = -8
     stackView.alignment = .fill
-    stackView.distribution = .equalSpacing
+    stackView.distribution = .equalCentering
     stackView.axis = .horizontal
     return stackView
   }()
