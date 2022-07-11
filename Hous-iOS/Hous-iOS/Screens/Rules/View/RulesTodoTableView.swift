@@ -28,6 +28,7 @@ final class RulesTodoTableView: UIView {
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
     $0.text = "오늘의 to-do"
   }
+  
   var myTodoButton = UIButton().then {
     $0.tintColor = R.Color.housBlack
     $0.setTitle("나의 to-do ", for: .normal)
@@ -38,6 +39,7 @@ final class RulesTodoTableView: UIView {
     $0.semanticContentAttribute = .forceRightToLeft
     $0.isSelected = false
   }
+  
   var todoCollectionView = UICollectionView(
     frame: .zero,
     collectionViewLayout: UICollectionViewLayout()).then {
@@ -52,6 +54,8 @@ final class RulesTodoTableView: UIView {
       $0.register(cell: TodayTodoCollectionViewCell.self)
       $0.register(cell: MyTodoCollectionViewCell.self)
     }
+
+  var items: [String] = []
   
   override init(frame: CGRect) {
     super.init(frame: frame)

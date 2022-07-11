@@ -49,4 +49,9 @@ class NavigationBarView: UIView {
     private func configure(_ tabType: TabType) {
         titleLabel.text = tabType.rawValue
     }
+  }
+
+  private func configure(_ tabType: TabType) {
+    titleLabel.text = tabType.rawValue
+  }
 }
