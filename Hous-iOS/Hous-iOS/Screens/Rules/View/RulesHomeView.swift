@@ -7,17 +7,19 @@
 
 import UIKit
 
+enum RulesType {
+  case category, todayTodo, myTodo
+}
+
 class RulesHomeView: UIView {
-  
-  enum rulesType {
-    case category, todo
-  }
   
   enum Size {
     static let categoryCollectionItemSize = CGSize(width: 40, height: 40)
     static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 40)
     static let categoryCollectionItemSpacing = CGFloat(24)
   }
+
+  var rulesType: RulesType = .todayTodo
   
   var navigationBarView = NavigationBarView(tabType: .rules)
   
@@ -38,8 +40,15 @@ class RulesHomeView: UIView {
       $0.backgroundColor = .white
       $0.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
     }
-  
-  var todoDisplayView = RulesTableView()
+
+  lazy var rulesDisplayView: UIView = {
+    switch rulesType {
+    case .category:
+      return RulesCategoryTableView()
+    case .todayTodo, .myTodo:
+      return RulesTodoTableView()
+    }
+  }()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -52,7 +61,7 @@ class RulesHomeView: UIView {
   
   private func render() {
     
-    self.addSubViews([navigationBarView, horizontalButtonView, todoDisplayView])
+    self.addSubViews([navigationBarView, horizontalButtonView, rulesDisplayView])
     horizontalButtonView.addSubViews([todayTodoButton, categoryCollectionView])
     
     navigationBarView.snp.makeConstraints { make in
@@ -76,7 +85,7 @@ class RulesHomeView: UIView {
       make.top.bottom.trailing.equalToSuperview()
     }
     
-    todoDisplayView.snp.makeConstraints { make in
+    rulesDisplayView.snp.makeConstraints { make in
       make.top.equalTo(horizontalButtonView.snp.bottom)
       make.leading.trailing.bottom.equalToSuperview()
     }

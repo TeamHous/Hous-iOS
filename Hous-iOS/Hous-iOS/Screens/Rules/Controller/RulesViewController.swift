@@ -15,13 +15,8 @@ final class RulesViewController: UIViewController {
   
   let disposeBag = DisposeBag()
   
-  enum RulesCellType {
-    case todayTodo, myTodo
-  }
-  
-  var rulesCellType: RulesCellType = .todayTodo
   var mainView = RulesHomeView()
-  
+
   override func loadView() {
     self.view = mainView
   }
@@ -34,8 +29,20 @@ final class RulesViewController: UIViewController {
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
     mainView.categoryCollectionView.dataSource = self
-    mainView.todoDisplayView.todoCollectionView.delegate = self
-    mainView.todoDisplayView.todoCollectionView.dataSource = self
+
+    switch mainView.rulesType {
+    case .category:
+//      if let rulesCategoryTableView = mainView.rulesDisplayView as? RulesCategoryTableView {
+//        rulesCategoryTableView.categoryCollectionView.delegate = self
+//        rulesCategoryTableView.categoryCollectionView.dataSource = self }
+      print("우선은 스킵")
+    case .todayTodo, .myTodo:
+      if let rulesTodoTableView = mainView.rulesDisplayView as? RulesTodoTableView {
+        rulesTodoTableView.todoCollectionView.delegate = self
+        rulesTodoTableView.todoCollectionView.dataSource = self
+      }
+    }
+
   }
 }
 
@@ -51,8 +58,12 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     case mainView.categoryCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)
       return cell
-    case mainView.todoDisplayView.todoCollectionView:
-      switch rulesCellType {
+    default:
+      switch mainView.rulesType {
+      case .category:
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)
+//        return cell
+        print("우선은 스킵")
       case .todayTodo:
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.identifier, for: indexPath)
         return cell
@@ -60,8 +71,7 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.identifier, for: indexPath)
         return cell
       }
-    default:
-      return UICollectionViewCell()
     }
   }
+
 }
