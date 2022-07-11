@@ -11,7 +11,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
 
   static let identifier = "RulesCollectionViewCell"
 
-  var rulesByCategoryAssignView = UIView()
+  var rulesByCategoryAssignView = CategoryRulesAssignedView()
 
   var rulesTitleLabel = UILabel().then {
     $0.textColor = .housBlack
@@ -36,7 +36,7 @@ class RulesCollectionViewCell: UICollectionViewCell {
     rulesByCategoryAssignView.snp.makeConstraints { make in
       make.centerY.equalToSuperview()
       make.height.equalToSuperview().multipliedBy(0.8)
-      make.width.equalToSuperview().multipliedBy(0.2)
+      make.width.lessThanOrEqualTo(37).priority(.high)
       make.leading.equalToSuperview().offset(8)
     }
 

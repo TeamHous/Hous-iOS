@@ -127,6 +127,7 @@ extension RulesCategoryTableView: UICollectionViewDelegateFlowLayout {
       return inset
     case CategorySection.add.rawValue:
       inset.top = 4
+      inset.bottom = 100 // Issue : 탭바와 겹치는 이슈
       return inset
     default:
       return UIEdgeInsets.zero

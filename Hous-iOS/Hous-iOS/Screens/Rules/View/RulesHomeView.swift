@@ -14,8 +14,8 @@ enum RulesType {
 class RulesHomeView: UIView {
   
   enum Size {
-    static let categoryCollectionItemSize = CGSize(width: 40, height: 40)
-    static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 40)
+    static let categoryCollectionItemSize = CGSize(width: 43, height: 43)
+    static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
     static let categoryCollectionItemSpacing = CGFloat(24)
   }
 
@@ -33,7 +33,7 @@ class RulesHomeView: UIView {
       let layout = UICollectionViewFlowLayout()
       layout.itemSize = Size.categoryCollectionItemSize
       layout.sectionInset = Size.categoryCollectionEdgeInsets
-      layout.minimumInteritemSpacing = Size.categoryCollectionItemSpacing
+      layout.minimumLineSpacing = Size.categoryCollectionItemSpacing
       layout.scrollDirection = .horizontal
       $0.collectionViewLayout = layout
       $0.showsHorizontalScrollIndicator = false
@@ -81,7 +81,7 @@ class RulesHomeView: UIView {
       make.size.equalTo(40)
     }
     categoryCollectionView.snp.makeConstraints { make in
-      make.leading.equalTo(todayTodoButton.snp.trailing).offset(20)
+      make.leading.equalTo(todayTodoButton.snp.trailing).offset(24)
       make.top.bottom.trailing.equalToSuperview()
     }
     
