@@ -283,7 +283,6 @@
 			children = (
 				B80510A02876D2D10025B767 /* Hous-iOS */,
 				B805109F2876D2D10025B767 /* Products */,
-				B8438721287961EE003F7B75 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
