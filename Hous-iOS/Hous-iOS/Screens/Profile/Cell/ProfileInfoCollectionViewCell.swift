@@ -28,25 +28,27 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   var userName = UILabel().then{
     $0.text = "최인영"
     $0.textColor = .black
-    $0.font = .boldSystemFont(ofSize: 26)
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
   }
     
   var userJob = UILabel().then{
     $0.text = "대학생"
     $0.textColor = .red
-    $0.font = .systemFont(ofSize: 13)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
     
   var statusMessage = UILabel().then{
     $0.text = "낮에 자고 밤에 일하는 부엉이"
     $0.textColor = .gray
-    $0.font = .systemFont(ofSize: 15)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
+  
+  // Tag 는 차후 서버 붙일 때 구조 List로 변경
     
   var tag1 = BasePaddingLabel(padding: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)).then{
     $0.text = "이의진"
     $0.textColor = .white
-    $0.font = .systemFont(ofSize: 13)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.backgroundColor = .lilac
     $0.layer.cornerRadius = 10
     $0.layer.masksToBounds = true
@@ -67,7 +69,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
     
     
   private func configureUI(){
-    self.backgroundColor = .offWhite
+    self.backgroundColor = .white
     [profileImage, userName, userJob, profileGuideStackView].forEach {self.addSubview($0)}
     [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
   }

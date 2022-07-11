@@ -281,7 +281,6 @@
 			children = (
 				B80510A02876D2D10025B767 /* Hous-iOS */,
 				B805109F2876D2D10025B767 /* Products */,
-				B8438721287961EE003F7B75 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -516,13 +515,6 @@
 				B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */,
 			);
 			path = UIComponent;
-			sourceTree = "<group>";
-		};
-		B8438721287961EE003F7B75 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
