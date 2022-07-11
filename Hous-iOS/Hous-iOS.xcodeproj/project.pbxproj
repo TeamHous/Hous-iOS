@@ -752,6 +752,7 @@
 				B5084A45287D6C1000C38749 /* EventDateView.swift in Sources */,
 				B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */,
 				B84344242879A36600CD1BF5 /* RulesCategoryTableView.swift in Sources */,
+				B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */,
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
 				9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
