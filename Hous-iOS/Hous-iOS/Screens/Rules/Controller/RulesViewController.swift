@@ -31,6 +31,10 @@ final class RulesViewController: UIViewController {
   private func configUI() {
     self.navigationController?.navigationBar.isHidden = true
   }
+
+  private func configUI() {
+    self.navigationController?.navigationBar.isHidden = true
+  }
   
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
@@ -65,5 +69,4 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.className, for: indexPath)
     return cell
   }
-
 }
