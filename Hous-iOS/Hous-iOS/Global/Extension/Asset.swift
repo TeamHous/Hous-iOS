@@ -191,6 +191,10 @@ extension R.Image {
   static var rulesDot: UIImage { .load(named: "rulesDot") }
   static var todoChecked: UIImage { .load(named: "todoChecked") }
   static var todoUnchecked: UIImage { .load(named: "todoUnchecked") }
+  static var beerYellowSmall: UIImage { .load(named: "beerYellowSmall")}
+  static var cakeYellowSmall: UIImage { .load(named: "cakeYellowSmall")}
+  static var coffeeYellowSmall: UIImage { .load(named: "coffeeYellowSmall")}
+  static var partyYellowSmall: UIImage { .load(named: "partyYellowSmall")}
   //Home Popup
   static var categoryCheck: UIImage { .load(named: "categoryCheck") }
   static var popupCloseHome: UIImage { .load(named: "popupCloseHome") }
