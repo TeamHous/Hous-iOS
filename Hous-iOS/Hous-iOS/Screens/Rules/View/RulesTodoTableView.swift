@@ -20,7 +20,7 @@ final class RulesTodoTableView: UIView {
     static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     static let todoCollectionItemSpacing = CGFloat(8)
   }
-
+  
   var todoType: TodoType = .todayTodo
   
   private var todayTodoLabel = UILabel().then {
@@ -32,6 +32,7 @@ final class RulesTodoTableView: UIView {
   var myTodoButton = UIButton().then {
     $0.tintColor = R.Color.housBlack
     $0.setTitle("나의 to-do ", for: .normal)
+    $0.tintColor = .housBlack
     $0.setImage(R.Image.myTodoUnselected, for: .normal)
     $0.setImage(R.Image.myTodoSelected, for: .selected)
     $0.setTitleColor(.paleLavender, for: .normal)
@@ -54,7 +55,7 @@ final class RulesTodoTableView: UIView {
       $0.register(cell: TodayTodoCollectionViewCell.self)
       $0.register(cell: MyTodoCollectionViewCell.self)
     }
-
+  
   var items: [String] = []
   
   override init(frame: CGRect) {
@@ -90,12 +91,12 @@ final class RulesTodoTableView: UIView {
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+    
     return 8
   }
-
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+    
     switch todoType {
     case .todayTodo:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath)
