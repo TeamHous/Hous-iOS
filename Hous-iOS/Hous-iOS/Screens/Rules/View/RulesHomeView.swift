@@ -8,7 +8,7 @@
 import UIKit
 
 enum RulesType {
-  case category, todayTodo, myTodo
+  case category, todo
 }
 
 class RulesHomeView: UIView {
@@ -19,7 +19,7 @@ class RulesHomeView: UIView {
     static let categoryCollectionItemSpacing = CGFloat(24)
   }
 
-  var rulesType: RulesType = .todayTodo
+  var rulesType: RulesType = .category
   
   var navigationBarView = NavigationBarView(tabType: .rules)
   
@@ -45,7 +45,7 @@ class RulesHomeView: UIView {
     switch rulesType {
     case .category:
       return RulesCategoryTableView()
-    case .todayTodo, .myTodo:
+    case .todo:
       return RulesTodoTableView()
     }
   }()
