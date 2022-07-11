@@ -34,6 +34,7 @@ class ProfileBedgeView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+
   private func configUI(){
     self.backgroundColor = .veryLightPinkTwo
     self.layer.cornerRadius = 10

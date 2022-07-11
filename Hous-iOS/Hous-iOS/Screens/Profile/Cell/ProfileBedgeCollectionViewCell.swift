@@ -32,20 +32,23 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     super.init(frame: frame)
     configUI()
     render()
+
   }
     
   required init?(coder: NSCoder){
     fatalError("init(coder:) has not been implemented")
   }
     
-    
-  private func configUI(){
-    self.backgroundColor = .white
-    
+
+
+  private func configureUI(){
+    self.backgroundColor = .purple
+    [titleLabel, detailInfoButton, profileBedgeView].forEach {self.addSubview($0)}
   }
     
-  private func render(){
-    [titleLabel, detailInfoButton, profileBedgeView].forEach {self.addSubview($0)}
+  private func setConstraints(){
+    
+
     let height = UIScreen.main.bounds.height
       
     titleLabel.snp.makeConstraints{make in
@@ -55,6 +58,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     
     detailInfoButton.snp.makeConstraints {make in
       make.bottom.equalTo(titleLabel.snp.bottom)
+      make.top.equalTo(safeAreaLayoutGuide).offset((14 / 812) * height)
       make.trailing.equalToSuperview().offset(-24)
       make.width.equalTo(74)
       make.height.equalTo(20)
@@ -63,6 +67,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     profileBedgeView.snp.makeConstraints {make in
       make.leading.trailing.equalToSuperview().inset(24)
       make.top.equalTo(titleLabel.snp.bottom).offset(16)
+      make.top.bottom.equalToSuperview().inset(28)
     }
   }
 }

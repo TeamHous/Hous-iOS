@@ -13,13 +13,16 @@ class CircleView : UIView {
     let path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
     let color : UIColor = .veryLightPink
     color.setFill()
+
     path.fill()
     
   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+
     configUI()
+
     render()
   }
   
@@ -27,9 +30,11 @@ class CircleView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+
   private func configUI(){
     self.backgroundColor = .veryLightPinkTwo
   }
+
   private func render(){
     
   }

@@ -58,10 +58,12 @@ class ProfileViewController : UIViewController {
     make.height.equalTo(width * (50 / 375))
     make.top.equalTo(view.safeAreaLayoutGuide)
     make.trailing.equalToSuperview()
+
       }
     }
     
   private func setDelegate(){
+
     self.profileMainCollectionView.delegate = self
     self.profileMainCollectionView.dataSource = self
   }
@@ -76,6 +78,7 @@ class ProfileViewController : UIViewController {
     
 extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return 3
     }
     
@@ -83,6 +86,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
         switch indexPath.row{
         case 0:
             guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[0], for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
+
           if isProfileEmpty{
             cell.setColor(color: .veryLightPink)
           }
@@ -93,6 +97,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
             return cell
           }
             guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[1], for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
+
             return cell
         
         case 2:
@@ -108,6 +113,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
         let width = UIScreen.main.bounds.width
         switch indexPath.row{
         case 0:
+
             return CGSize(width: width, height: 114)
         case 1:
           if isProfileEmpty{

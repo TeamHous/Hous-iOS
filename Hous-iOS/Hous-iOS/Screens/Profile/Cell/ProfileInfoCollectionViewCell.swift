@@ -34,6 +34,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   var userJob = UILabel().then{
     $0.text = "대학생"
     $0.textColor = .red
+
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
     
@@ -58,6 +59,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
     
   override init(frame: CGRect){
     super.init(frame: frame)
+<<<<<<< HEAD
     configUI()
     render()
   }
@@ -68,6 +70,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
     
     
     
+
   private func configUI(){
     self.backgroundColor = .white
     
@@ -76,6 +79,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   private func render(){
     [profileImage, userName, userJob, profileGuideStackView].forEach {self.addSubview($0)}
     [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
+
     let width = UIScreen.main.bounds.width
     profileImage.snp.makeConstraints { make in
         make.centerY.equalToSuperview()
@@ -94,6 +98,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
         make.leading.equalTo(userName.snp.trailing).offset(8)
       }
   }
+
   
   func setColor(color : UIColor){
     self.tag1.backgroundColor = color
