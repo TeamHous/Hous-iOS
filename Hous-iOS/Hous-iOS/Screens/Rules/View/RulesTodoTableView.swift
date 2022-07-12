@@ -34,7 +34,6 @@ final class RulesTodoTableView: UIView {
   var myTodoButton = UIButton().then {
     $0.tintColor = R.Color.housBlack
     $0.setTitle("나의 to-do ", for: .normal)
-    $0.tintColor = .housBlack
     $0.setImage(R.Image.myTodoUnselected, for: .normal)
     $0.setImage(R.Image.myTodoSelected, for: .selected)
     $0.setTitleColor(.paleLavender, for: .normal)

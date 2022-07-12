@@ -110,7 +110,6 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
       return cell
     case 1:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulesCollectionViewCell.className, for: indexPath) as? RulesCollectionViewCell else { return UICollectionViewCell() }
-      
       cell.setCategoryAssigneeData(categoryRules![indexPath.row])
       return cell
     case 2:
