@@ -9,8 +9,6 @@ import UIKit
 
 class MyTodoCollectionViewCell: UICollectionViewCell {
   
-  static let identifier = "MyTodoCollectionViewCell"
-  
   var todoTitleLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 16)
     $0.text = "거실 청소기 돌리기"

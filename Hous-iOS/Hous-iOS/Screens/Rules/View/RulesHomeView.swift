@@ -45,7 +45,7 @@ class RulesHomeView: UIView {
       $0.collectionViewLayout = layout
       $0.showsHorizontalScrollIndicator = false
       $0.backgroundColor = .white
-      $0.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
+      $0.register(cell: CategoryCollectionViewCell.self)
     }
 
   lazy var categoryView = RulesCategoryTableView()
@@ -89,7 +89,8 @@ class RulesHomeView: UIView {
     
     rulesDisplayView.snp.makeConstraints { make in
       make.top.equalTo(horizontalButtonView.snp.bottom)
-      make.leading.trailing.bottom.equalToSuperview()
+      make.leading.trailing.equalToSuperview()
+      make.bottom.equalTo(safeAreaLayoutGuide)
     }
   }
 }

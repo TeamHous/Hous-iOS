@@ -9,8 +9,6 @@ import UIKit
 
 class KeyRulesCollectionViewCell: UICollectionViewCell {
 
-  static let identifier = "KeyRulesCollectionViewCell"
-
   var rulesTitleLabel = UILabel().then {
     $0.numberOfLines = 1
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
@@ -40,6 +38,6 @@ class KeyRulesCollectionViewCell: UICollectionViewCell {
 
   private func configure() {
     self.layer.cornerRadius = 15
-    self.backgroundColor = .lightPeriwinkle
+    self.backgroundColor = R.Color.lightPeriwinkle
   }
 }

@@ -18,7 +18,7 @@ enum TabType: String {
 class NavigationBarView: UIView {
 
   private var titleLabel = UILabel().then {
-    $0.textColor = .housBlack
+    $0.textColor = R.Color.housBlack
     $0.font = .font(.montserratSemiBold, ofSize: 26)
     $0.text = "Hous-"
   }

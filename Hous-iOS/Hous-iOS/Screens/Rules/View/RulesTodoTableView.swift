@@ -24,13 +24,13 @@ final class RulesTodoTableView: UIView {
   var todoType: TodoType = .todayTodo
   
   private var todayTodoLabel = UILabel().then {
-    $0.textColor = .housBlack
+    $0.textColor = R.Color.housBlack
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
     $0.text = "오늘의 to-do"
   }
   var myTodoButton = UIButton().then {
+    $0.tintColor = R.Color.housBlack
     $0.setTitle("나의 to-do ", for: .normal)
-    $0.tintColor = .housBlack
     $0.setImage(R.Image.myTodoUnselected, for: .normal)
     $0.setImage(R.Image.myTodoSelected, for: .selected)
     $0.setTitleColor(.paleLavender, for: .normal)
@@ -49,22 +49,15 @@ final class RulesTodoTableView: UIView {
       $0.collectionViewLayout = layout
       $0.showsVerticalScrollIndicator = false
       $0.backgroundColor = .white
-      $0.register(TodayTodoCollectionViewCell.self, forCellWithReuseIdentifier: TodayTodoCollectionViewCell.identifier)
-      $0.register(MyTodoCollectionViewCell.self, forCellWithReuseIdentifier: MyTodoCollectionViewCell.identifier)
+      $0.register(cell: TodayTodoCollectionViewCell.self)
+      $0.register(cell: MyTodoCollectionViewCell.self)
     }
-
-  override func draw(_ rect: CGRect) {
-    super.draw(rect)
-    print("todoTable",#function)
-  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
-
     todoCollectionView.delegate = self
     todoCollectionView.dataSource = self
-    print("todoTable",#function)
   }
   
   required init?(coder: NSCoder) {
@@ -88,7 +81,6 @@ final class RulesTodoTableView: UIView {
       make.bottom.equalToSuperview()
     }
   }
-  
 }
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -101,10 +93,10 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
 
     switch todoType {
     case .todayTodo:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.identifier, for: indexPath)
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath)
       return cell
     case .myTodo:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.identifier, for: indexPath)
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath)
       return cell
     }
   }

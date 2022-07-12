@@ -9,12 +9,10 @@ import UIKit
 
 class RulesCollectionViewCell: UICollectionViewCell {
 
-  static let identifier = "RulesCollectionViewCell"
-
   var assigneeView = CategoryRulesAssigneeView()
 
   var rulesTitleLabel = UILabel().then {
-    $0.textColor = .housBlack
+    $0.textColor = R.Color.housBlack
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.text = "거실 청소기 돌리기"
   }

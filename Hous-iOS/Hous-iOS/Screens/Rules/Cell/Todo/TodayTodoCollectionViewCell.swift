@@ -11,8 +11,6 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   
   // add, 여러명, 한명 분기처리 해야함
   
-  static let identifier = "TodayTodoCollectionViewCell"
-  
   private var labelStackView = UIStackView().then {
     $0.alignment = .fill
     $0.distribution = .fillProportionally
