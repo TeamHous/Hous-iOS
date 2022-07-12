@@ -62,6 +62,7 @@
 		B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */; };
 		B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */; };
 		B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
+		B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
 		B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTodoTableView.swift */; };
 		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
@@ -135,6 +136,7 @@
 		B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesAssigneeView.swift; sourceTree = "<group>"; };
 		B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAssigneeCircleView.swift; sourceTree = "<group>"; };
 		B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesDataModel.swift; sourceTree = "<group>"; };
+		B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
 		B843871528795830003F7B75 /* RulesTodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoTableView.swift; sourceTree = "<group>"; };
 		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		B80510BC2876D32D0025B767 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				B8434433287CEB6200CD1BF5 /* ViewModel */,
 				B84387102879571C003F7B75 /* Cell */,
 				B843870F28795715003F7B75 /* View */,
 				B843870E2879570C003F7B75 /* Controller */,
@@ -425,6 +428,14 @@
 				B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */,
 			);
 			path = Todo;
+			sourceTree = "<group>";
+		};
+		B8434433287CEB6200CD1BF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B843870E2879570C003F7B75 /* Controller */ = {
@@ -585,6 +596,7 @@
 				B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */,
 				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
+				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
