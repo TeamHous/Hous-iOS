@@ -31,10 +31,6 @@ final class RulesViewController: UIViewController {
   private func configUI() {
     self.navigationController?.navigationBar.isHidden = true
   }
-
-  private func configUI() {
-    self.navigationController?.navigationBar.isHidden = true
-  }
   
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
