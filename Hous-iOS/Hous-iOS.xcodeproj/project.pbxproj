@@ -16,6 +16,9 @@
 		778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A7A0A28770EB700722CBB /* HousTabbar.swift */; };
 		778A7A0E2879349100722CBB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 778A7A0D2879349100722CBB /* RxGesture */; };
 		77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
+		9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C07287DD09700A15D82 /* GraphView.swift */; };
+		9B1F1C0A287DD15C00A15D82 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */; };
+		9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */; };
 		9B7D860B287C487C006C0BCE /* ProfileBedgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */; };
 		9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8604287C487C006C0BCE /* CircleView.swift */; };
 		9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */; };
@@ -89,6 +92,9 @@
 		778A7A0828770C7400722CBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		778A7A0A28770EB700722CBB /* HousTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbar.swift; sourceTree = "<group>"; };
 		77A8FC27287936A500F5376B /* HousTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarViewController.swift; sourceTree = "<group>"; };
+		9B1F1C07287DD09700A15D82 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIBezierPath+Extension.swift"; path = "../../../../../../../../../../Applications/UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBackgroundView.swift; sourceTree = "<group>"; };
 		9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBedgeView.swift; sourceTree = "<group>"; };
 		9B7D8604287C487C006C0BCE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -368,6 +374,7 @@
 				B59C94782877097D005865CA /* UICollectionView+Extension.swift */,
 				B59C947A2877098D005865CA /* UIStackView+Extension.swift */,
 				B5084A3528799AEB00C38749 /* UIColor+Extension.swift */,
+				9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -474,6 +481,8 @@
 			children = (
 				9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */,
 				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
+				9B1F1C07287DD09700A15D82 /* GraphView.swift */,
+				9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -598,7 +607,9 @@
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
+				9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */,
 				9B7D8610287C487C006C0BCE /* ProfileViewController.swift in Sources */,
+				9B1F1C0A287DD15C00A15D82 /* UIBezierPath+Extension.swift in Sources */,
 				77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */,
 				B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */,
 				B843871428795805003F7B75 /* RulesHomeView.swift in Sources */,
@@ -609,6 +620,7 @@
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
+				9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
 				B5084A302879980B00C38749 /* RulesDataModel.swift in Sources */,
 				B5084A27287996EE00C38749 /* RulesTodoView.swift in Sources */,
