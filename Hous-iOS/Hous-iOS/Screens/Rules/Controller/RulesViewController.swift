@@ -51,6 +51,21 @@ extension RulesViewController {
         }
       }
       .disposed(by: disposeBag)
+
+    let todoView = self.mainView.todoTableView
+    todoView.myTodoButton.rx.tap
+      .subscribe { _ in
+        if todoView.todoType == .todayTodo {
+          todoView.todoType = .myTodo
+          todoView.myTodoButton.isSelected = true
+        } else {
+          todoView.todoType = .todayTodo
+          todoView.myTodoButton.isSelected = false
+        }
+        todoView.todoCollectionView.reloadData()
+      }
+      .disposed(by: disposeBag)
+
   }
 }
 

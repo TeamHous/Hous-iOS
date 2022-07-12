@@ -16,8 +16,10 @@ enum TodoType {
 final class RulesTodoTableView: UIView {
   
   enum Size {
-    static let todoCollectionItemSize = CGSize(width: 327, height: 80) // 기기마다 좀 다르게 ...
-    static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    static let screenWidth = UIScreen.main.bounds.width
+    static let itemWidth = screenWidth * 0.9
+    static let todoCollectionItemSize = CGSize(width: itemWidth, height: 80)
+    static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 120, right: 20)
     static let todoCollectionItemSpacing = CGFloat(8)
   }
 

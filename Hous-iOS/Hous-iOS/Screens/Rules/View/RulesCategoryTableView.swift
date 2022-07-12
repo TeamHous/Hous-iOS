@@ -21,9 +21,9 @@ final class RulesCategoryTableView: UIView {
 
   enum Size {
     static let screenWidth = UIScreen.main.bounds.width
-    static let padding: CGFloat = 48
-    static let rulesItemSize = CGSize(width: screenWidth - padding, height: 46)
-    static let addItemSize = CGSize(width: screenWidth - padding, height: 32)
+    static let itemWidth = screenWidth * 0.9
+    static let rulesItemSize = CGSize(width: itemWidth, height: 46)
+    static let addItemSize = CGSize(width: itemWidth, height: 32)
     static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 28, left: 0, bottom: 12, right: 0)
   }
 
