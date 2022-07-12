@@ -14,12 +14,20 @@
 <br /> 
 
 ### 🍎 Hous- iOS Developers
-|![지현](https://user-images.githubusercontent.com/60292150/178426997-5ddd73fe-5edb-458f-9192-51a7963a3abc.png)|![민재](https://user-images.githubusercontent.com/60292150/178427691-c527cca9-2efe-4fc6-a9fa-b7958901b67a.png)|![의진](https://user-images.githubusercontent.com/60292150/178427724-e9fb4a5b-d610-494a-a81e-e09578f27c6b.png)|![호세](https://user-images.githubusercontent.com/60292150/178427752-774f87bf-7a7d-4311-8657-1104731e4f8f.png)|
+|지현<img src="https://user-images.githubusercontent.com/60292150/178426997-5ddd73fe-5edb-458f-9192-51a7963a3abc.png" width="200" height="200"/>|민재<img src="https://user-images.githubusercontent.com/60292150/178427691-c527cca9-2efe-4fc6-a9fa-b7958901b67a.png" width="200" height="200"/>|의진<img src="https://user-images.githubusercontent.com/60292150/178427724-e9fb4a5b-d610-494a-a81e-e09578f27c6b.png" width="200" height="200"/>|호세<img src="https://user-images.githubusercontent.com/60292150/178427752-774f87bf-7a7d-4311-8657-1104731e4f8f.png" width="200"  height="200" />|
 |:--:|:--:|:--:|:--:|
 |**김지현 `lead`**|**김민재**|**이의진**|**김호세**|
 |          [@Jihyun247](https://github.com/Jihyun247)          |           [@ffalswo2](https://github.com/ffalswo2)           |              [@pabby](https://github.com/lee-euijin)              | [@psychehose](https://github.com/psychehose) |
 
 ---
+<br />
+<br />
+
+## `프로젝트 소개`
+### 🛖 함께 한 집에 살며 느꼈던 고민과 고충! Hous-가 해결해줄께요. 🛖
+> 청소에 민감하지만 룸메이트는 청소에 민감하지 않아서 결국 다 혼자 청소하지는 않으셨나요? </br>
+전혀 상처를 주려고 하지 않았지만, 룸메이트와 성향이 달라 상처를 줘버린 적이 있지는 않으셨나요? </br>
+룸메이트와의 평화로운 한집살이를 도와줄 비서 **Hous-** 입니다.
 
 
 </div>
