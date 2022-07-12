@@ -19,7 +19,6 @@ final class RulesViewController: UIViewController {
 
   override func loadView() {
     self.view = mainView
-    print("rulesVC", #function)
   }
   
   override func viewDidLoad() {
@@ -27,7 +26,6 @@ final class RulesViewController: UIViewController {
     configUI()
     setCollectionView()
     binding()
-    print("rulesVC", #function)
   }
 
   private func configUI() {
@@ -47,13 +45,9 @@ extension RulesViewController {
         if !self.mainView.todayTodoButton.isSelected {
           self.mainView.todayTodoButton.isSelected = true
           self.mainView.rulesType = .todo
-          self.mainView.categoryView.testText = "기본기본기본"
-          print(self.mainView.categoryView.testText)
         } else {
           self.mainView.todayTodoButton.isSelected = false
           self.mainView.rulesType = .category
-          self.mainView.categoryView.testText = "바뀜바뀜바뀜"
-          print(self.mainView.categoryView.testText)
         }
       }
       .disposed(by: disposeBag)
@@ -68,12 +62,8 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.className, for: indexPath)
     return cell
 
   }
-
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    <#code#>
-//  }
 }

@@ -9,8 +9,6 @@ import UIKit
 
 class AddRulesCollectionViewCell: UICollectionViewCell {
 
-  static let identifier = "AddRulesCollectionViewCell"
-
   var rulesByCategoryAssignView = UIView()
 
   var rulesTitleLabel = UILabel().then {

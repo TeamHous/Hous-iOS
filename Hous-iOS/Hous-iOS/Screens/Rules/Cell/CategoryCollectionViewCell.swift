@@ -11,14 +11,12 @@ import Then
 
 class CategoryCollectionViewCell: UICollectionViewCell {
   
-  static let identifier = "CategoryCollectionViewCell"
-  
   var categoryImageView = UIImageView().then {
     $0.image = R.Image.clean
   }
 
   var categoryTitleLabel = UILabel().then {
-    $0.textColor = .brownGreyTwo
+    $0.textColor = R.Color.brownGreyTwo
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.textAlignment = .center
     $0.text = "청소"

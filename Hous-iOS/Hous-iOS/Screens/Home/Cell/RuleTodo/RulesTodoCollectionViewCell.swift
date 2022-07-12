@@ -48,14 +48,14 @@ class RulesTodoCollectionViewCell: UICollectionViewCell {
   let emptyRuleLabel = UILabel().then {
     $0.text = "아직 규칙이 없어요:("
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
-    $0.textColor = .brownGreyTwo
+    $0.textColor = R.Color.brownGreyTwo
     $0.isHidden = true
   }
   
   let emptyTodoLabel = UILabel().then {
     $0.text = "아직 할 일이 없어요:("
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
-    $0.textColor = .brownGreyTwo
+    $0.textColor = R.Color.brownGreyTwo
     $0.isHidden = true
   }
   

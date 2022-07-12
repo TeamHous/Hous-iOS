@@ -46,18 +46,12 @@ final class RulesCategoryTableView: UIView {
 
   //MARK: - 생명주기
 
-  override func draw(_ rect: CGRect) {
-    super.draw(rect)
-    print("categoryTable",#function)
-  }
-
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
     configUI()
     setCollectionView()
     getCategoryRules()
-    print("categoryTable",#function)
   }
 
   required init?(coder: NSCoder) {
@@ -112,14 +106,14 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
 
     switch indexPath.section {
     case 0:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.identifier, for: indexPath)
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.className, for: indexPath)
       return cell
     case 1:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulesCollectionViewCell.identifier, for: indexPath) as? RulesCollectionViewCell else { return UICollectionViewCell() }
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulesCollectionViewCell.className, for: indexPath) as? RulesCollectionViewCell else { return UICollectionViewCell() }
       cell.setCategoryAssigneeData(categoryRules![indexPath.row])
       return cell
     case 2:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddRulesCollectionViewCell.identifier, for: indexPath)
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddRulesCollectionViewCell.className, for: indexPath)
       return cell
     default :
       return UICollectionViewCell()
@@ -151,7 +145,7 @@ extension RulesCategoryTableView: UICollectionViewDelegateFlowLayout {
       return inset
     case CategorySection.add.rawValue:
       inset.top = 4
-      inset.bottom = 100 // Issue : 탭바와 겹치는 이슈
+      inset.bottom = 120
       return inset
     default:
       return UIEdgeInsets.zero
