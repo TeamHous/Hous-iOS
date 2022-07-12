@@ -12,15 +12,14 @@ class ProfileGraphBoxView : UIView {
   
   let width = UIScreen.main.bounds.width
   
-  private lazy var bedgeGuideStackView = UIStackView().then{
-    $0.alignment = .center
-    $0.distribution = .fill
-    $0.axis = .horizontal
-    $0.spacing = width * (25 / 375)
+  var personalityLabel = UILabel().then{
+    $0.text = "둥그란 동글이"
+    $0.textColor = .lilac
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 22)
   }
   
+  var profileGraphView = ProfileGraphView()
 
-  var profileBedgeItems = [profileBedgeStackItemView(),profileBedgeStackItemView(),profileBedgeStackItemView()]
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -33,25 +32,23 @@ class ProfileGraphBoxView : UIView {
   }
   
   private func configure(){
-    self.backgroundColor = .veryLightPinkTwo
+    self.backgroundColor = .paleGreyTwo
     self.layer.cornerRadius = 10
     self.layer.masksToBounds = true
   }
   
   private func render(){
-    [bedgeGuideStackView].forEach {self.addSubview($0)}
-    profileBedgeItems.forEach {bedgeGuideStackView.addArrangedSubview($0)}
+    [personalityLabel, profileGraphView].forEach {self.addSubview($0)}
     
-    bedgeGuideStackView.snp.makeConstraints {make in
-      make.top.bottom.equalToSuperview().inset(28)
+    personalityLabel.snp.makeConstraints {make in
       make.centerX.equalToSuperview()
+      make.top.equalToSuperview().offset(32)
     }
     
-    profileBedgeItems.forEach{
-      $0.snp.makeConstraints {make in
-        make.width.equalTo(70)
-        make.height.equalTo(100)
-      }
+    profileGraphView.snp.makeConstraints {make in
+      make.top.equalTo(personalityLabel.snp.bottom).offset(29)
+      make.bottom.equalToSuperview().offset(-29)
+      make.leading.trailing.equalToSuperview().inset(79)
     }
   }
 }

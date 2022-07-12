@@ -13,13 +13,8 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     
   static var identifier = "ProfileGraphCollectionViewCell"
     
-    
-    
-  let tempLabel = UILabel().then{
-        $0.text = "Temp"
-    }
-    
-  private let titleLabel = UILabel().then{
+
+  let titleLabel = UILabel().then{
     $0.text = "나의 성향"
     $0.textColor = .black
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
@@ -32,6 +27,9 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     $0.semanticContentAttribute = .forceRightToLeft
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
+  
+  let profileGraphBoxView = ProfileGraphBoxView()
+  
     
     //MARK: - Override Methods
     
@@ -49,7 +47,7 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     
     private func configureUI(){
       self.backgroundColor = .white
-      [titleLabel, detailInfoButton].forEach {self.addSubview($0)}
+      [titleLabel, detailInfoButton, profileGraphBoxView].forEach {self.addSubview($0)}
     }
     
     private func setConstraints(){
@@ -63,6 +61,12 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
         make.bottom.equalTo(titleLabel.snp.bottom)
         make.width.equalTo(74)
         make.height.equalTo(20)
+      }
+      
+      profileGraphBoxView.snp.makeConstraints {make in
+        make.leading.trailing.equalToSuperview().inset(24)
+        make.top.equalTo(titleLabel.snp.bottom).offset(19)
+        make.height.equalTo(290)
       }
     }
     
