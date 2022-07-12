@@ -33,6 +33,10 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     $0.image = R.Image.rulesChecked
     //$0.isHidden = true
   }
+  var notiDotView = UIView().then {
+    $0.backgroundColor = R.Color.softBlue
+    $0.makeRounded(cornerRadius: 4)
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -46,7 +50,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.addSubViews([labelStackView, addManagerButton, doneCheckBoxImageView])
+    self.addSubViews([labelStackView, addManagerButton, doneCheckBoxImageView, notiDotView])
     labelStackView.addArrangedSubview(todoTitleLabel)
     labelStackView.addArrangedSubview(managerLabel)
     
@@ -65,6 +69,11 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
       make.trailing.equalToSuperview().inset(20)
       make.size.equalTo(24)
       make.centerY.equalTo(labelStackView.snp.centerY)
+    }
+
+    notiDotView.snp.makeConstraints { make in
+      make.top.trailing.equalToSuperview().inset(12)
+      make.size.equalTo(8)
     }
   }
   
