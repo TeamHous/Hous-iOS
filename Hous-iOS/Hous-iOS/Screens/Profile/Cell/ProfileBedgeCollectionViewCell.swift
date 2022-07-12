@@ -27,6 +27,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
+  
 
   override init(frame: CGRect){
     super.init(frame: frame)
