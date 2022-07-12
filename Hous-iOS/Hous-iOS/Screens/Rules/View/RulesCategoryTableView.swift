@@ -11,6 +11,8 @@ import Then
 
 final class RulesCategoryTableView: UIView {
 
+  var testText = "기본기본기본"
+
   //MARK: - Enum
 
   enum CategorySection: Int {
@@ -44,12 +46,18 @@ final class RulesCategoryTableView: UIView {
 
   //MARK: - 생명주기
 
+  override func draw(_ rect: CGRect) {
+    super.draw(rect)
+    print("categoryTable",#function)
+  }
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
     configUI()
     setCollectionView()
     getCategoryRules()
+    print("categoryTable",#function)
   }
 
   required init?(coder: NSCoder) {

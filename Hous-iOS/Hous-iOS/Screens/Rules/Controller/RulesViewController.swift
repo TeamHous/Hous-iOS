@@ -19,12 +19,15 @@ final class RulesViewController: UIViewController {
 
   override func loadView() {
     self.view = mainView
+    print("rulesVC", #function)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configUI()
     setCollectionView()
+    binding()
+    print("rulesVC", #function)
   }
 
   private func configUI() {
@@ -34,6 +37,26 @@ final class RulesViewController: UIViewController {
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
     mainView.categoryCollectionView.dataSource = self
+  }
+}
+
+extension RulesViewController {
+  private func binding() {
+    mainView.todayTodoButton.rx.tap
+      .subscribe { _ in
+        if !self.mainView.todayTodoButton.isSelected {
+          self.mainView.todayTodoButton.isSelected = true
+          self.mainView.rulesType = .todo
+          self.mainView.categoryView.testText = "기본기본기본"
+          print(self.mainView.categoryView.testText)
+        } else {
+          self.mainView.todayTodoButton.isSelected = false
+          self.mainView.rulesType = .category
+          self.mainView.categoryView.testText = "바뀜바뀜바뀜"
+          print(self.mainView.categoryView.testText)
+        }
+      }
+      .disposed(by: disposeBag)
   }
 }
 
@@ -49,4 +72,8 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     return cell
 
   }
+
+//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    <#code#>
+//  }
 }

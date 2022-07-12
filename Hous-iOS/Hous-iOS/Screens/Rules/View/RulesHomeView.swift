@@ -14,18 +14,25 @@ enum RulesType {
 class RulesHomeView: UIView {
   
   enum Size {
-    static let categoryCollectionItemSize = CGSize(width: 43, height: 43)
+    static let horizontalButtonViewHeight = 110
+    static let categoryCollectionItemSize = CGSize(width: 43, height: horizontalButtonViewHeight)
     static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
     static let categoryCollectionItemSpacing = CGFloat(24)
   }
 
-  var rulesType: RulesType = .category
+  var rulesType: RulesType = .todo {
+    didSet {
+      updateRulesView(rulesDisplayView, type: rulesType)
+    }
+  }
   
   var navigationBarView = NavigationBarView(tabType: .rules)
   
   private var horizontalButtonView = UIView()
   var todayTodoButton = UIButton().then {
-    $0.setImage(R.Image.todoSelected, for: .normal)
+    $0.setImage(R.Image.todoSelected, for: .selected)
+    $0.setImage(R.Image.todoUnselected, for: .normal)
+    $0.isSelected = true
   }
   var categoryCollectionView = UICollectionView(
     frame: .zero,
@@ -41,14 +48,9 @@ class RulesHomeView: UIView {
       $0.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
     }
 
-  lazy var rulesDisplayView: UIView = {
-    switch rulesType {
-    case .category:
-      return RulesCategoryTableView()
-    case .todo:
-      return RulesTodoTableView()
-    }
-  }()
+  lazy var categoryView = RulesCategoryTableView()
+  lazy var todoView = RulesTodoTableView()
+  var rulesDisplayView = UIView()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -73,7 +75,7 @@ class RulesHomeView: UIView {
     horizontalButtonView.snp.makeConstraints { make in
       make.top.equalTo(navigationBarView.snp.bottom)
       make.leading.trailing.equalToSuperview()
-      make.height.equalTo(80)
+      make.height.equalTo(Size.horizontalButtonViewHeight)
     }
     todayTodoButton.snp.makeConstraints { make in
       make.leading.equalToSuperview().inset(20)
@@ -88,6 +90,25 @@ class RulesHomeView: UIView {
     rulesDisplayView.snp.makeConstraints { make in
       make.top.equalTo(horizontalButtonView.snp.bottom)
       make.leading.trailing.bottom.equalToSuperview()
+    }
+  }
+}
+
+extension RulesHomeView {
+  func updateRulesView(_ view: UIView, type: RulesType) {
+    switch rulesType {
+    case .category:
+      todoView.removeFromSuperview()
+      view.addSubview(categoryView)
+      categoryView.snp.makeConstraints { make in
+          make.edges.equalToSuperview()
+      }
+    case .todo:
+      categoryView.removeFromSuperview()
+      view.addSubview(todoView)
+      todoView.snp.makeConstraints { make in
+          make.edges.equalToSuperview()
+      }
     }
   }
 }

@@ -52,6 +52,11 @@ final class RulesTodoTableView: UIView {
       $0.register(TodayTodoCollectionViewCell.self, forCellWithReuseIdentifier: TodayTodoCollectionViewCell.identifier)
       $0.register(MyTodoCollectionViewCell.self, forCellWithReuseIdentifier: MyTodoCollectionViewCell.identifier)
     }
+
+  override func draw(_ rect: CGRect) {
+    super.draw(rect)
+    print("todoTable",#function)
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -59,6 +64,7 @@ final class RulesTodoTableView: UIView {
 
     todoCollectionView.delegate = self
     todoCollectionView.dataSource = self
+    print("todoTable",#function)
   }
   
   required init?(coder: NSCoder) {
