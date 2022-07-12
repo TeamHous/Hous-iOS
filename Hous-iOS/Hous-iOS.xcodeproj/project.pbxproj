@@ -24,6 +24,8 @@
 		9B7D8610287C487C006C0BCE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D860A287C487C006C0BCE /* ProfileViewController.swift */; };
 		9B7D8612287C494C006C0BCE /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */; };
 		9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */; };
+		9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */; };
+		9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81422A287D3FE30073E533 /* ProfileGraphView.swift */; };
 		B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */; };
 		B5084A232879962100C38749 /* ComingEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A222879962100C38749 /* ComingEventsCollectionViewCell.swift */; };
 		B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A242879963800C38749 /* RulesTodoCollectionViewCell.swift */; };
@@ -95,6 +97,8 @@
 		9B7D860A287C487C006C0BCE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBedgeStackItemView.swift; sourceTree = "<group>"; };
+		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
+		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A222879962100C38749 /* ComingEventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A242879963800C38749 /* RulesTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */,
+				9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */,
+				9B81422A287D3FE30073E533 /* ProfileGraphView.swift */,
 				9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */,
 				9B7D8604287C487C006C0BCE /* CircleView.swift */,
 			);
@@ -585,6 +591,7 @@
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
 				B843871628795830003F7B75 /* RulesTableView.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
+				9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
@@ -613,6 +620,7 @@
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
 				B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */,
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
+				9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
 				778A79FC287704E500722CBB /* Strings.swift in Sources */,
 				778A79FA287704D400722CBB /* SplashViewController.swift in Sources */,

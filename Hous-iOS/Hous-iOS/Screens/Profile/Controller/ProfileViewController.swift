@@ -43,33 +43,34 @@ class ProfileViewController : UIViewController {
     registerCell()
   }
     
-  private func setConstraints(){
-    profileMainCollectionView.snp.makeConstraints{ make in
-        let width = UIScreen.main.bounds.width
-        make.top.equalTo(view.safeAreaLayoutGuide).offset(width * (60/375))
-        make.bottom.equalToSuperview()
-        make.trailing.equalToSuperview()
-        make.leading.equalToSuperview()
-      }
-    navigationBarView.snp.makeConstraints { make in
-        let width = UIScreen.main.bounds.width
-        make.width.equalTo(width)
-        make.height.equalTo(width * (50 / 375))
-        make.top.equalTo(view.safeAreaLayoutGuide)
-        make.trailing.equalToSuperview()
+ private func setConstraints(){
+  profileMainCollectionView.snp.makeConstraints{ make in
+    let width = UIScreen.main.bounds.width
+    make.top.equalTo(view.safeAreaLayoutGuide).offset(width * (60/375))
+    make.bottom.equalToSuperview().offset(-76)
+    make.trailing.equalToSuperview()
+    make.leading.equalToSuperview()
+    }
+  navigationBarView.snp.makeConstraints { make in
+    let width = UIScreen.main.bounds.width
+    make.width.equalTo(width)
+    make.height.equalTo(width * (50 / 375))
+    make.top.equalTo(view.safeAreaLayoutGuide)
+    make.trailing.equalToSuperview()
+    
       }
     }
     
   private func setDelegate(){
-      self.profileMainCollectionView.delegate = self
-      self.profileMainCollectionView.dataSource = self
+    self.profileMainCollectionView.delegate = self
+    self.profileMainCollectionView.dataSource = self
   }
     
     
   private func registerCell(){
-      self.cells.enumerated().forEach{
-          profileMainCollectionView.register($1, forCellWithReuseIdentifier: identifiers[$0])
-      }
+    self.cells.enumerated().forEach{
+      profileMainCollectionView.register($1, forCellWithReuseIdentifier: identifiers[$0])
+    }
   }
 }
     

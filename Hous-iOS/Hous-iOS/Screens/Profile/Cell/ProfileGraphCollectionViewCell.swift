@@ -11,14 +11,27 @@ import SwiftUI
 
 class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     
-    static var identifier = "ProfileGraphCollectionViewCell"
+  static var identifier = "ProfileGraphCollectionViewCell"
     
     
-    //MARK: - Properties
     
-    let tempLabel = UILabel().then{
+  let tempLabel = UILabel().then{
         $0.text = "Temp"
     }
+    
+  private let titleLabel = UILabel().then{
+    $0.text = "나의 성향"
+    $0.textColor = .black
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+  }
+  
+  let detailInfoButton = UIButton().then{
+    $0.setTitle("자세히 보기 ", for: .normal)
+    $0.setImage(R.Image.viewMoreButton, for: .normal)
+    $0.setTitleColor(.veryLightPinkFour, for: .normal)
+    $0.semanticContentAttribute = .forceRightToLeft
+    $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+  }
     
     //MARK: - Override Methods
     
@@ -35,15 +48,22 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     //MARK: - Private Methods
     
     private func configureUI(){
-        self.backgroundColor = .blue
-        [tempLabel].forEach {self.addSubview($0)}
+      self.backgroundColor = .white
+      [titleLabel, detailInfoButton].forEach {self.addSubview($0)}
     }
     
     private func setConstraints(){
-        tempLabel.snp.makeConstraints{make in
-            make.top.equalTo(self.safeAreaLayoutGuide)
-            make.centerY.equalToSuperview()
-        }
+      titleLabel.snp.makeConstraints {make in
+        make.leading.equalToSuperview().offset(24)
+        make.top.equalToSuperview().offset(10)
+      }
+      
+      detailInfoButton.snp.makeConstraints {make in
+        make.trailing.equalToSuperview().offset(-24)
+        make.bottom.equalTo(titleLabel.snp.bottom)
+        make.width.equalTo(74)
+        make.height.equalTo(20)
+      }
     }
     
     

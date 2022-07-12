@@ -1,14 +1,14 @@
 //
-//  ProfileBedgeView.swift
+//  GraphBoxView.swift
 //  Hous-iOS
 //
-//  Created by 이의진 on 2022/07/11.
+//  Created by 이의진 on 2022/07/12.
 //
 
 import UIKit
 import SwiftUI
 
-class ProfileBedgeView : UIView {
+class ProfileGraphBoxView : UIView {
   
   let width = UIScreen.main.bounds.width
   
@@ -16,7 +16,7 @@ class ProfileBedgeView : UIView {
     $0.alignment = .center
     $0.distribution = .fill
     $0.axis = .horizontal
-    $0.spacing = width * (30 / 375)
+    $0.spacing = width * (25 / 375)
   }
   
 
@@ -56,9 +56,8 @@ class ProfileBedgeView : UIView {
   }
 }
 
-struct VCPreView5:PreviewProvider {
+struct VCPreView7:PreviewProvider {
     static var previews: some View {
         ProfileViewController().toPreview()
     }
 }
-
