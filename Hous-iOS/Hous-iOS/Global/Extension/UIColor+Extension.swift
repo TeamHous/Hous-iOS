@@ -31,17 +31,17 @@ extension UIColor {
   static func assigneeColor(_ name: AssigneeColor) -> UIColor {
     switch name {
     case .yellow:
-      return .paleGold
+      return R.Color.paleGold
     case .blue:
-      return .softBlue
+      return R.Color.softBlue
     case .purple:
-      return .lilac
+      return R.Color.lilac
     case .red:
-      return .salmon
+      return R.Color.salmon
     case .green:
-      return .easterGreen
+      return R.Color.easterGreen
     case .none:
-      return .veryLightPinkFour
+      return R.Color.veryLightPinkFour
     }
   }
 }
