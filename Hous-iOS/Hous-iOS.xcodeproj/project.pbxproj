@@ -76,6 +76,7 @@
 		B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */; };
 		B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
 		B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */; };
+		B8434437287D920900CD1BF5 /* RulesCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434436287D920900CD1BF5 /* RulesCategoryView.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
 		B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTodoTableView.swift */; };
 		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
@@ -164,6 +165,7 @@
 		B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAssigneeCircleView.swift; sourceTree = "<group>"; };
 		B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesDataModel.swift; sourceTree = "<group>"; };
 		B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
+		B8434436287D920900CD1BF5 /* RulesCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCategoryView.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
 		B843871528795830003F7B75 /* RulesTodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoTableView.swift; sourceTree = "<group>"; };
 		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				B843871328795805003F7B75 /* RulesHomeView.swift */,
 				B843871528795830003F7B75 /* RulesTodoTableView.swift */,
 				B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */,
+				B8434436287D920900CD1BF5 /* RulesCategoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
 				9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */,
 				B5084A2E2879980100C38749 /* EventsDataModel.swift in Sources */,
+				B8434437287D920900CD1BF5 /* RulesCategoryView.swift in Sources */,
 				B5084A342879982400C38749 /* ProfileDataModel.swift in Sources */,
 				B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,

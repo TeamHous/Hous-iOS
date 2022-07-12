@@ -47,7 +47,7 @@ extension RulesViewController {
           self.mainView.rulesType = .todo
         } else {
           self.mainView.todayTodoButton.isSelected = false
-          self.mainView.rulesType = .category
+          self.mainView.rulesType = .editCategory
         }
       }
       .disposed(by: disposeBag)
