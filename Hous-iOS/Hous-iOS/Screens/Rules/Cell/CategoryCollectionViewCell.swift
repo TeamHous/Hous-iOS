@@ -16,6 +16,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
   var categoryImageView = UIImageView().then {
     $0.image = R.Image.clean
   }
+
+  var categoryTitleLabel = UILabel().then {
+    $0.textColor = .brownGreyTwo
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+    $0.textAlignment = .center
+    $0.text = "청소"
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -28,11 +35,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.contentView.addSubview(categoryImageView)
+    self.contentView.addSubViews([categoryImageView, categoryTitleLabel])
     
     categoryImageView.snp.makeConstraints { make in
       make.size.equalTo(43)
       make.center.equalToSuperview()
+    }
+
+    categoryTitleLabel.snp.makeConstraints { make in
+      make.leading.trailing.equalToSuperview()
+      make.top.equalTo(categoryImageView.snp.bottom).offset(2)
     }
   }
 }
