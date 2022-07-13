@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ComingEventsCollectionViewCellDelegate: AnyObject {
-  func showPopup(_ row: Int)
+  func showPopup(_ icon: UIImage)
 }
 
 
@@ -75,7 +75,12 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
 extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    delegate?.showPopup(indexPath.row)
+    if indexPath.row == 0 {
+      delegate?.showPopup(R.Image.partyYellow)
+      return
+    }
+    guard let eventIcon = EventDataModel.sampleData[indexPath.row - 1].eventImage else { return }
+    delegate?.showPopup(eventIcon)
   }
   
 }

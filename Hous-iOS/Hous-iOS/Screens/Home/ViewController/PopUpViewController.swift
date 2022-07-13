@@ -62,7 +62,7 @@ class PopUpViewController: UIViewController {
     $0.tintColor = .housBlack
   }
   
-  private let eventImageView = UIImageView().then {
+  var eventImageView = UIImageView().then {
     $0.backgroundColor = R.Color.offWhite
     $0.image = R.Image.partyYellow
     $0.clipsToBounds = true
@@ -78,20 +78,18 @@ class PopUpViewController: UIViewController {
     $0.adjustsFontSizeToFitWidth = true
   }
   
+  private let eventDateView = EventDateView()
+  
+  private let participantLabel = UILabel().then {
+    $0.text = "참여자"
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
+  }
+  
   private let participantsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
-    
     $0.collectionViewLayout = layout
     $0.showsHorizontalScrollIndicator = false
-  }
-  
-  private lazy var datePicker = UIDatePicker().then {
-    $0.preferredDatePickerStyle = .wheels
-    $0.datePickerMode = .date
-    $0.locale = Locale(identifier: "ko-KR")
-    $0.timeZone = .autoupdatingCurrent
-    $0.addTarget(self, action: #selector(handleDatePickerData), for: .valueChanged)
   }
   
   private lazy var cancelButton = UIButton().then {
@@ -139,7 +137,7 @@ class PopUpViewController: UIViewController {
     render()
     setTextField()
     setTapGesture()
-//    setCollectionView()
+    setCollectionView()
   }
   
   override func viewDidLayoutSubviews() {
@@ -154,7 +152,7 @@ class PopUpViewController: UIViewController {
   private func render() {
     self.view.addSubview(blurView)
     self.view.addSubview(popUpView)
-    popUpView.addSubViews([titleLabel, eventImageView, popUpCloseButton, buttonStackView, textFieldBackgroundView, iconStackView])
+    popUpView.addSubViews([titleLabel, eventImageView, popUpCloseButton, buttonStackView, textFieldBackgroundView, iconStackView, eventDateView, participantLabel, participantsCollectionView])
     textFieldBackgroundView.addSubview(eventTextField)
     
     popUpView.snp.makeConstraints { make in
@@ -180,6 +178,7 @@ class PopUpViewController: UIViewController {
     }
     
     buttonStackView.snp.makeConstraints { make in
+      make.top.equalTo(participantsCollectionView.snp.bottom).offset(16)
       make.leading.trailing.equalToSuperview().inset(24)
       make.bottom.equalToSuperview().inset(20)
     }
@@ -201,16 +200,20 @@ class PopUpViewController: UIViewController {
       make.height.equalTo(44)
     }
     
-//    participantsCollectionView.snp.makeConstraints { make in
-//      make.top.equalTo(eventImageView.snp.bottom).offset(16)
-//      make.leading.trailing.equalTo(popUpView)
-//      make.height.equalTo(50)
-//    }
+    eventDateView.snp.makeConstraints { make in
+      make.top.equalTo(iconStackView.snp.bottom).offset(16)
+      make.leading.trailing.equalTo(popUpView).inset(24)
+    }
     
-//    datePicker.snp.makeConstraints { make in
-//      make.top.equalTo(participantsCollectionView.snp.bottom).offset(16)
-//      make.leading.trailing.equalTo(popUpView).inset(24)
-//    }
+    participantLabel.snp.makeConstraints { make in
+      make.top.equalTo(eventDateView.snp.bottom).offset(16)
+      make.leading.equalTo(popUpView).offset(24)
+    }
+    
+    participantsCollectionView.snp.makeConstraints { make in
+      make.top.equalTo(participantLabel.snp.bottom).offset(8)
+      make.leading.trailing.equalTo(popUpView)
+    }
   }
   
   private func setTextField() {
@@ -233,12 +236,12 @@ class PopUpViewController: UIViewController {
     }
   }
   
-//  private func setCollectionView() {
-//    participantsCollectionView.register(cell: ParticipantsCollectionViewCell.self)
-//
-//    participantsCollectionView.delegate = self
-//    participantsCollectionView.dataSource = self
-//  }
+  private func setCollectionView() {
+    participantsCollectionView.register(cell: ParticipantsCollectionViewCell.self)
+
+    participantsCollectionView.delegate = self
+    participantsCollectionView.dataSource = self
+  }
 }
 
 
@@ -270,67 +273,52 @@ extension PopUpViewController {
         eventIconView.iconImageView.backgroundColor = .paleGold
         eventIconView.iconImageView.alpha = 0.4
         eventIconView.iconForegroundImageView.isHidden = false
+        eventImageView.image = eventIconView.iconImageView.image
       } else {
         eventIconView.iconImageView.backgroundColor = .offWhite
         eventIconView.iconForegroundImageView.isHidden = true
       }
     }
   }
-  
-  @objc private func handleDatePickerData() {
-    let dateformatter = DateFormatter()
-    dateformatter.dateStyle = .long
-    dateformatter.timeStyle = .none
-    let date = dateformatter.string(from: datePicker.date)
-    let year = date[date.startIndex..<date.index(date.startIndex, offsetBy: 4)]
-    let month = date[date.index(date.startIndex, offsetBy: 6) ..< date.index(date.startIndex, offsetBy: 7)]
-    let day = date[date.index(date.endIndex, offsetBy: -3) ..< date.index(before: date.endIndex)]
-    print(year)
-    print(month)
-    print(day)
-  }
 }
 
 //MARK: Delegate & Datasource
-//extension PopUpViewController: UICollectionViewDelegate {
-//
-//}
+extension PopUpViewController: UICollectionViewDelegate {
 
-//extension PopUpViewController: UICollectionViewDataSource {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return 4
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    if collectionView == participantsCollectionView {
-//      guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell else { return UICollectionViewCell() }
-//      cell.setIconData(iconImageList[indexPath.row])
-//
-//      return cell
-//    }
-//
-//    return UICollectionViewCell()
-//  }
-//}
+}
 
-//extension PopUpViewController: UICollectionViewDelegateFlowLayout {
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//    return Size.eventIconSize
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//    return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//    return 18
-//  }
-  
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//    return 18
-//  }
-//}
+extension PopUpViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return ParticipantsDataModel.sampleData.count
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if collectionView == participantsCollectionView {
+      guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell else { return UICollectionViewCell() }
+      
+      cell.setParticipantData(ParticipantsDataModel.sampleData[indexPath.row])
+
+      return cell
+    }
+
+    return UICollectionViewCell()
+  }
+}
+
+extension PopUpViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    return Size.eventIconSize
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 16
+  }
+}
 
 extension PopUpViewController: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

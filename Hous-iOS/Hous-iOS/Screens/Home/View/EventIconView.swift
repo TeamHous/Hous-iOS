@@ -27,12 +27,15 @@ class EventIconView: UIView {
   }
   
   override func draw(_ rect: CGRect) {
-    super.draw(rect)
-    iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
+    configUI()
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  private func configUI() {
+    iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
   }
   
   private func render() {
@@ -40,7 +43,9 @@ class EventIconView: UIView {
     iconImageView.addSubview(iconForegroundImageView)
     
     iconImageView.snp.makeConstraints { make in
-      make.edges.equalToSuperview()
+      make.top.equalToSuperview()
+      make.leading.equalToSuperview()
+      make.width.height.equalTo(44)
     }
     
     iconForegroundImageView.snp.makeConstraints { make in
