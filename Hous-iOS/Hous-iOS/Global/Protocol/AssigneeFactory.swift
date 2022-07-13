@@ -35,7 +35,7 @@ struct RedAssignee: AssigneeProtocol {
   var image = R.Image.faceRed
   var color = R.Color.salmon
 }
-
+//
 struct GreenAssignee: AssigneeProtocol {
   var image = R.Image.faceGreen
   var color = R.Color.easterGreen

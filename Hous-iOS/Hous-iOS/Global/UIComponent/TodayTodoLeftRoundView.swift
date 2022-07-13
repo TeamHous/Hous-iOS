@@ -31,6 +31,19 @@ class TodayTodoAddAssingnButton: UIButton {
 
 class TodayTodoManyAssignedView: UIView {
 
+  var topLeftView = UIView()
+  var topRightView = UIView()
+  var bottomLeftView = UIView()
+  var bottomRightView = UIView()
+
+  private var firstlineStackView = UIStackView()
+  private var secondlineStackView = UIStackView()
+  private var stackView = UIStackView().then {
+    $0.axis = .vertical
+    $0.alignment = .fill
+    $0.distribution = .fillEqually
+  }
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
@@ -42,11 +55,28 @@ class TodayTodoManyAssignedView: UIView {
   }
 
   private func render() {
-
+    self.addSubview(stackView)
+    stackView.addArrangedSubviews(firstlineStackView, secondlineStackView)
+    stackView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
+    [topLeftView, topRightView, bottomLeftView, bottomRightView].forEach { view in
+      view.snp.makeConstraints { make in
+        make.height.equalTo(view.snp.width as ConstraintRelatableTarget)
+      }
+    }
   }
 
   private func configUI() {
+    [firstlineStackView, secondlineStackView].forEach { stackView in
+      stackView.axis = .horizontal
+      stackView.alignment = .fill
+      stackView.distribution = .fillEqually
+    }
 
+    [topLeftView, topRightView, bottomLeftView, bottomRightView].forEach { view in
+      view.makeRounded(cornerRadius: 10)
+    }
   }
 }
 
