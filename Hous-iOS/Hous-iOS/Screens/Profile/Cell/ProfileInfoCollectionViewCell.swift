@@ -94,6 +94,12 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
         make.leading.equalTo(userName.snp.trailing).offset(8)
       }
   }
+  
+  func setColor(color : UIColor){
+    self.tag1.backgroundColor = color
+    self.profileImage.image = R.Image.faceBlue
+  
+  }
         
 }
 

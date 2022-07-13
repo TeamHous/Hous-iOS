@@ -11,7 +11,7 @@ import SwiftUI
 
 
 
-class ProfileGraphbCollectionViewCell: UICollectionViewCell {
+class ProfileGraphCollectionViewCell: UICollectionViewCell {
     
   static var identifier = "ProfileGraphCollectionViewCell"
     
