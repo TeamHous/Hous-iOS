@@ -27,7 +27,6 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
-  
 
   override init(frame: CGRect){
     super.init(frame: frame)
@@ -44,7 +43,7 @@ class ProfileBedgeCollectionViewCell: UICollectionViewCell {
 
   private func configureUI(){
     self.backgroundColor = .white
-    [titleLabel, detailInfoButton, profileBedgeView].forEach {self.addSubview($0)}
+    
   }
     
   private func setConstraints(){

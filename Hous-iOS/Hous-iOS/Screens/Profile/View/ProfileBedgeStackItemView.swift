@@ -24,11 +24,7 @@ class profileBedgeStackItemView : UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-<<<<<<< HEAD
     configUI()
-=======
-    configure()
->>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
     render()
   }
   
@@ -36,11 +32,7 @@ class profileBedgeStackItemView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-<<<<<<< HEAD
   private func configUI(){
-=======
-  private func configure(){
->>>>>>> e372fde ([#19] FEAT : Profile Main View Bedge Cell item layout 완료)
     self.backgroundColor = .veryLightPinkTwo
   }
   
