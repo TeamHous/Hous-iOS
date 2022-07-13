@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window.backgroundColor = .white
 
     window.rootViewController = Inject.ViewControllerHost(HousTabbarViewController())
-    
     window.makeKeyAndVisible()
     self.window = window
   }
