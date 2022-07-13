@@ -43,6 +43,8 @@
 		B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */; };
 		B5084A3F287C1C9400C38749 /* ParticipantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A3E287C1C9400C38749 /* ParticipantsCollectionViewCell.swift */; };
 		B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A42287CAC1300C38749 /* EventIconView.swift */; };
+		B5084A45287D6C1000C38749 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A44287D6C1000C38749 /* EventDateView.swift */; };
+		B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
 		B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946C2877090F005865CA /* UILabel+Extension.swift */; };
@@ -134,6 +136,8 @@
 		B5084A3728799C0D00C38749 /* EventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A3E287C1C9400C38749 /* ParticipantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5084A42287CAC1300C38749 /* EventIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIconView.swift; sourceTree = "<group>"; };
+		B5084A44287D6C1000C38749 /* EventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateView.swift; sourceTree = "<group>"; };
+		B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsDataModel.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				B5084A26287996EE00C38749 /* RulesTodoView.swift */,
 				B5084A282879970F00C38749 /* HeaderCollectionReusableView.swift */,
 				B5084A42287CAC1300C38749 /* EventIconView.swift */,
+				B5084A44287D6C1000C38749 /* EventDateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				B5084A332879982400C38749 /* ProfileDataModel.swift */,
 				B80510E52876D6F10025B767 /* NetworkResult.swift */,
 				B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */,
+				B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				778A7A0928770C7400722CBB /* ViewController.swift in Sources */,
+				B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */,
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
 				B5084A3F287C1C9400C38749 /* ParticipantsCollectionViewCell.swift in Sources */,
 				B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */,
@@ -742,6 +749,7 @@
 				B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */,
 				B84344242879A36600CD1BF5 /* RulesCategoryTableView.swift in Sources */,
 				B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */,
+				B5084A45287D6C1000C38749 /* EventDateView.swift in Sources */,
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
 				9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
