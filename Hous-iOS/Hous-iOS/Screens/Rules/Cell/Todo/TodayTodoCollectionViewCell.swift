@@ -7,9 +7,15 @@
 
 import UIKit
 
+enum TodayTodoType {
+  case notAssigned, manyAssinged, oneAssinged
+}
+
 class TodayTodoCollectionViewCell: UICollectionViewCell {
-  
-  // add, 여러명, 한명 분기처리 해야함
+
+  enum Size {
+    static let leftRoundViewSize: CGFloat = 40
+  }
   
   private var labelStackView = UIStackView().then {
     $0.alignment = .fill
@@ -26,12 +32,11 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     $0.textColor = R.Color.lightPeriwinkle
     $0.text = "담당자 선택하기"
   }
-  var addManagerButton = UIButton().then {
-    $0.setImage(R.Image.assignAdd, for: .normal)
+  var leftRoundView = UIView().then {
+    $0.makeRounded(cornerRadius: Size.leftRoundViewSize/2)
   }
   var doneCheckBoxImageView = UIImageView().then {
     $0.image = R.Image.rulesChecked
-    //$0.isHidden = true
   }
   var notiDotView = UIView().then {
     $0.backgroundColor = R.Color.softBlue
@@ -50,17 +55,17 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.addSubViews([labelStackView, addManagerButton, doneCheckBoxImageView, notiDotView])
+    self.addSubViews([labelStackView, leftRoundView, doneCheckBoxImageView, notiDotView])
     labelStackView.addArrangedSubview(todoTitleLabel)
     labelStackView.addArrangedSubview(managerLabel)
     
     labelStackView.snp.makeConstraints { make in
       make.top.bottom.equalToSuperview().inset(20)
-      make.leading.equalTo(addManagerButton.snp.trailing).offset(20)
+      make.leading.equalTo(leftRoundView.snp.trailing).offset(20)
       make.trailing.greaterThanOrEqualTo(doneCheckBoxImageView.snp.leading).inset(20)
     }
     
-    addManagerButton.snp.makeConstraints { make in
+    leftRoundView.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(20)
       make.size.equalTo(40)
       make.centerY.equalTo(labelStackView.snp.centerY)
@@ -80,5 +85,18 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   private func configure() {
     self.layer.cornerRadius = 15
     self.backgroundColor = R.Color.paleGrey
+  }
+}
+
+extension TodayTodoCollectionViewCell {
+  func setLeftRoundView(type: TodayTodoType) {
+//    switch type {
+//    case .notAssigned:
+//
+//    case .manyAssinged:
+//      <#code#>
+//    case .oneAssinged:
+//      <#code#>
+//    }
   }
 }

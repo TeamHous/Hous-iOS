@@ -22,7 +22,6 @@ class RulesHomeView: UIView {
 
   var rulesType: RulesType = .todo {
     didSet {
-      print("처음엔 호출 안되나 ?")
       updateRulesView(rulesDisplayView, type: rulesType)
     }
   }
