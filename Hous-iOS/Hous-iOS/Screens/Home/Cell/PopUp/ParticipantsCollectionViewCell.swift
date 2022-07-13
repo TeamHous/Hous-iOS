@@ -12,6 +12,7 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
   private let participantImageView = UIImageView()
   
   private let participantNameLabel = UILabel().then {
+    $0.textAlignment = .center
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.textColor = R.Color.veryLightPinkFive
   }
@@ -39,10 +40,12 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
     participantImageView.snp.makeConstraints { make in
       make.centerX.equalToSuperview()
       make.top.equalToSuperview()
-//      make.height.width.equalTo(44)
+      make.leading.trailing.equalToSuperview()
+      make.height.equalTo(participantImageView.snp.width)
     }
     
     participantNameLabel.snp.makeConstraints { make in
+      make.leading.trailing.bottom.equalToSuperview()
       make.top.equalTo(participantImageView.snp.bottom).offset(4)
       make.centerX.equalTo(participantImageView)
     }
