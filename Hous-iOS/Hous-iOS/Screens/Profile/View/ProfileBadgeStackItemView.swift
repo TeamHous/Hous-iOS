@@ -6,17 +6,22 @@
 //
 
 import UIKit
-import SwiftUI
 
-class profileBedgeStackItemView : UIView {
-
+class profileBadgeStackItemView : UIView {
+  
+  private enum Size{
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
+    static let circleSize = CGSize(width: 70, height: 70)
+  }
+  
   private let circle = CircleView()
   
-  var bedgeImage = UIImageView().then{
+  var badgeImage = UIImageView().then {
     $0.image = R.Image.badgeLocked
   }
   
-  var bedgeName = UILabel().then{
+  var badgeLabel = UILabel().then {
     $0.text = "규칙 한걸음"
     $0.textColor = .black
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
@@ -37,28 +42,21 @@ class profileBedgeStackItemView : UIView {
   }
   
   private func render(){
-    [circle, bedgeImage, bedgeName].forEach {self.addSubview($0)}
+    self.addSubViews([circle, badgeImage, badgeLabel])
     
     circle.snp.makeConstraints {make in
       make.top.equalToSuperview()
-      make.width.height.equalTo(70)
+      make.width.height.equalTo(Size.circleSize)
     }
     
-    bedgeImage.snp.makeConstraints {make in
+    badgeImage.snp.makeConstraints {make in
       make.top.bottom.leading.trailing.equalTo(circle).inset(22)
     }
     
-    bedgeName.snp.makeConstraints {make in
+    badgeLabel.snp.makeConstraints {make in
       make.top.equalTo(circle.snp.bottom).offset(12)
       make.centerY.equalToSuperview()
       make.centerX.equalTo(circle.snp.centerX)
     }
-    
   }
 }
-
-}
-    }
-        ProfileViewController().toPreview()
-    static var previews: some View {
-struct VCPreView6:PreviewProvider {

@@ -10,47 +10,52 @@ import SwiftUI
 
 class ProfileViewController : UIViewController {
   
-  let navigationBarView = NavigationBarView(tabType: .profile)
-    
-  let identifiers = [ProfileInfoCollectionViewCell.identifier, ProfileGraphCollectionViewCell.identifier, ProfileBedgeCollectionViewCell.identifier, ProfileGraphEmptyCollectionViewCell.identifier]
+  private enum Size{
+    static let screenWidth = UIScreen.main.bounds.width
+    static let infoCellSize = CGSize(width: Size.screenWidth, height: 114)
+    static let graphCellSize = CGSize(width: Size.screenWidth, height: 354)
+    static let badgeCellSize = CGSize(width: Size.screenWidth, height: 222)
+    static let graphEmptyCellSize = CGSize(width: Size.screenWidth, height: 180)
+  }
   
-  let cells = [ProfileInfoCollectionViewCell.self, ProfileGraphCollectionViewCell.self, ProfileBedgeCollectionViewCell.self, ProfileGraphEmptyCollectionViewCell.self]
+  private let navigationBarView = NavigationBarView(tabType: .profile)
   
-  var isProfileEmpty = true
+  private var isProfileEmpty = true
   
-  let profileMainCollectionView: UICollectionView = {
+  private let profileMainCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.minimumLineSpacing = 0
     layout.scrollDirection = .vertical
     layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
     return cv
-    }()
-    
+  }()
+  
   override func viewDidLoad() {
-      super.viewDidLoad()
-      setUp()
-      configUI()
-      render()
+    super.viewDidLoad()
+    setUp()
+    configUI()
+    render()
   }
   
   private func setUp(){
     setDelegate()
     registerCell()
   }
-    
+  
   private func configUI(){
     profileMainCollectionView.backgroundColor = .white
   }
+  
+  private func render(){
+    view.addSubViews([navigationBarView, profileMainCollectionView])
     
- private func render(){
-   [navigationBarView, profileMainCollectionView].forEach {self.view.addSubview($0)}
-  profileMainCollectionView.snp.makeConstraints{ make in
-    let width = UIScreen.main.bounds.width
-    make.top.equalTo(view.safeAreaLayoutGuide).offset(width * (60/375))
-    make.bottom.equalToSuperview().offset(-76)
-    make.trailing.equalToSuperview()
-    make.leading.equalToSuperview()
+    profileMainCollectionView.snp.makeConstraints{ make in
+      let width = UIScreen.main.bounds.width
+      make.top.equalTo(view.safeAreaLayoutGuide).offset(width * (60/375))
+      make.bottom.equalToSuperview().offset(-76)
+      make.trailing.equalToSuperview()
+      make.leading.equalToSuperview()
     }
   navigationBarView.snp.makeConstraints { make in
     let width = UIScreen.main.bounds.width
@@ -61,21 +66,22 @@ class ProfileViewController : UIViewController {
 
       }
     }
-    
+  }
+  
   private func setDelegate(){
 
     self.profileMainCollectionView.delegate = self
     self.profileMainCollectionView.dataSource = self
   }
-    
-    
+  
   private func registerCell(){
-    self.cells.enumerated().forEach{
-      profileMainCollectionView.register($1, forCellWithReuseIdentifier: identifiers[$0])
-    }
+    profileMainCollectionView.register(cell: ProfileInfoCollectionViewCell.self)
+    profileMainCollectionView.register(cell: ProfileGraphCollectionViewCell.self)
+    profileMainCollectionView.register(cell: ProfileBadgeCollectionViewCell.self)
+    profileMainCollectionView.register(cell: ProfileGraphEmptyCollectionViewCell.self)
   }
 }
-    
+
 extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
@@ -128,21 +134,15 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
     }
 }
 
-struct VCPreView:PreviewProvider {
-    static var previews: some View {
-        ProfileViewController().toPreview()
-    }
-}
 
 
-    
 
 
-    
-    
-    
-    
-    
+
+
+
+
+
 
 
 

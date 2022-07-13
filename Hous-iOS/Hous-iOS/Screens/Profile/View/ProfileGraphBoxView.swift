@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class PersonalityAttribute : UILabel {
   
@@ -15,7 +14,7 @@ class PersonalityAttribute : UILabel {
     self.textColor = .brownGrey
     self.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
   }
-    
+  
   required init?(coder: NSCoder){
     fatalError("init(coder:) has not been implemented")
   }
@@ -23,9 +22,12 @@ class PersonalityAttribute : UILabel {
 
 class ProfileGraphBoxView : UIView {
   
-  let width = UIScreen.main.bounds.width
+  private enum Size{
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
+  }
   
-  var personalityLabel = UILabel().then{
+  var personalityLabel = UILabel().then {
     $0.text = "둥그란 동글이"
     $0.textColor = .lilac
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 22)
@@ -33,8 +35,8 @@ class ProfileGraphBoxView : UIView {
   
   var profileGraphView = ProfileGraphView()
   
-  var personalityAttributes : [UILabel] = []
-
+  private var personalityAttributes : [UILabel] = []
+  
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -54,7 +56,7 @@ class ProfileGraphBoxView : UIView {
   }
   
   private func render(){
-    [personalityLabel, profileGraphView].forEach {self.addSubview($0)}
+    self.addSubViews([personalityLabel, profileGraphView])
     
     personalityLabel.snp.makeConstraints {make in
       make.centerX.equalToSuperview()
@@ -68,8 +70,7 @@ class ProfileGraphBoxView : UIView {
     }
     
     let labelPositionData : [Double] = [100, 105, 105, 105, 105]
-    let labelPosition = makePoint(centerPoint: Point(x: (width-48)/2, y: 176), dataList: labelPositionData)
-    print(personalityLabel.frame.origin)
+    let labelPosition = makePoint(centerPoint: Point(x: (Size.screenWidth-48)/2, y: 176), dataList: labelPositionData)
     
     for (index, item) in personalityAttributes.enumerated(){
       self.addSubView(item)
@@ -80,44 +81,37 @@ class ProfileGraphBoxView : UIView {
     }
   }
   
-private func appendPersonalityAttributesItems(){
-  let personalityAttributesString = ["빛", "정리\n정돈", "외향", "냄새", "소음"]
-  for i in 0...4{
-    let personalityAttributesItem = PersonalityAttribute()
-    personalityAttributesItem.text = personalityAttributesString[i]
-    if i == 1{
-      personalityAttributesItem.numberOfLines = 2
+  private func appendPersonalityAttributesItems(){
+    let personalityAttributesString = ["빛", "정리\n정돈", "외향", "냄새", "소음"]
+    for i in 0...4{
+      let personalityAttributesItem = PersonalityAttribute()
+      personalityAttributesItem.text = personalityAttributesString[i]
+      if i == 1{
+        personalityAttributesItem.numberOfLines = 2
+      }
+      personalityAttributes.append(personalityAttributesItem)
     }
-    personalityAttributes.append(personalityAttributesItem)
   }
-}
-
-private func makePoint(centerPoint : Point, dataList : [Double]) -> [Point]{
-  let pi = Double.pi
-  var points : [Point] = []
-  for i in 0...4{
-    var point = Point(x: 0, y: 0)
-    let angle : Double = Double(i) * (2/5) * pi
-    point.x = centerPoint.x - dataList[i] * cos((pi / 2) + angle)
-    point.y = centerPoint.y - dataList[i] * sin((pi / 2) + angle)
-    points.append(point)
-    
-  }
-  var averageDataPoint: Point = Point(x: 0, y: 0)
-  for point in points{
-    averageDataPoint.x += (point.x - centerPoint.x)
-    averageDataPoint.y += (point.y - centerPoint.y)
-  }
-  averageDataPoint.x += centerPoint.x
-  averageDataPoint.y += centerPoint.y
-  points.append(averageDataPoint)
-  return points
-  }
-}
-
-
-struct VCPreView7:PreviewProvider {
-    static var previews: some View {
-        ProfileViewController().toPreview()
+  
+  private func makePoint(centerPoint : Point, dataList : [Double]) -> [Point]{
+    let pi = Double.pi
+    var points : [Point] = []
+    for i in 0...4{
+      var point = Point(x: 0, y: 0)
+      let angle : Double = Double(i) * (2/5) * pi
+      point.x = centerPoint.x - dataList[i] * cos((pi / 2) + angle)
+      point.y = centerPoint.y - dataList[i] * sin((pi / 2) + angle)
+      points.append(point)
+      
     }
+    var averageDataPoint: Point = Point(x: 0, y: 0)
+    for point in points{
+      averageDataPoint.x += (point.x - centerPoint.x)
+      averageDataPoint.y += (point.y - centerPoint.y)
+    }
+    averageDataPoint.x += centerPoint.x
+    averageDataPoint.y += centerPoint.y
+    points.append(averageDataPoint)
+    return points
+  }
 }

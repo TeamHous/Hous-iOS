@@ -6,23 +6,23 @@
 //
 
 import UIKit
-import SwiftUI
 
-
-
-class ProfileBedgeView : UIView {
+class ProfileBadgeView : UIView {
   
-  let width = UIScreen.main.bounds.width
+  private enum Size{
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
+    static let badgeItemSize = CGSize(width: 70, height: 100)
+  }
   
-  private lazy var bedgeGuideStackView = UIStackView().then{
+  private lazy var badgeGuideStackView = UIStackView().then {
     $0.alignment = .center
     $0.distribution = .fill
     $0.axis = .horizontal
-    $0.spacing = width * (30 / 375)
+    $0.spacing = Size.screenWidth * (30 / 375)
   }
   
-
-  var profileBedgeItems = [profileBedgeStackItemView(),profileBedgeStackItemView(),profileBedgeStackItemView()]
+  var profileBadgeItems = [profileBadgeStackItemView(),profileBadgeStackItemView(),profileBadgeStackItemView()]
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -41,26 +41,17 @@ class ProfileBedgeView : UIView {
   }
   
   private func render(){
-    [bedgeGuideStackView].forEach {self.addSubview($0)}
-    profileBedgeItems.forEach {bedgeGuideStackView.addArrangedSubview($0)}
+    self.addSubViews([badgeGuideStackView])
     
-    bedgeGuideStackView.snp.makeConstraints {make in
+    badgeGuideStackView.snp.makeConstraints {make in
       make.top.bottom.equalToSuperview().inset(28)
       make.centerX.equalToSuperview()
     }
     
-    profileBedgeItems.forEach{
+    profileBadgeItems.forEach{
       $0.snp.makeConstraints {make in
-        make.width.equalTo(70)
-        make.height.equalTo(100)
+        make.width.height.equalTo(Size.badgeItemSize)
       }
     }
   }
 }
-
-struct VCPreView5:PreviewProvider {
-    static var previews: some View {
-        ProfileViewController().toPreview()
-    }
-}
-
