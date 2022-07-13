@@ -18,7 +18,7 @@ enum TabType: String {
 class NavigationBarView: UIView {
     
     private var titleLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 25)
+      $0.font = .font(.montserratSemiBold, ofSize: 30)
         $0.text = "Hous-"
     }
     
@@ -42,7 +42,7 @@ class NavigationBarView: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview().multipliedBy(1.5)
-            make.leading.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(24)
         }
     }
     
