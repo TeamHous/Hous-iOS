@@ -9,10 +9,15 @@ import UIKit
 import Then
 import SnapKit
 
-class TodayTodoAddAssingnButton: UIButton {
+class TodayTodoAddAssingnView: UIView {
+
+  private var addImageView = UIImageView().then {
+    $0.image = R.Image.assignAdd
+  }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    render()
     configUI()
   }
 
@@ -20,13 +25,16 @@ class TodayTodoAddAssingnButton: UIButton {
     fatalError("init(coder:) has not been implemented")
   }
 
-  private func configUI() {
-    self.backgroundColor = .lightPeriwinkle
-    self.setImage(R.Image.assignAdd, for: .normal)
-    self.titleLabel?.isHidden = true
-    self.makeRounded(cornerRadius: 20)
+  private func render() {
+    self.addSubview(addImageView)
+    addImageView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
   }
 
+  private func configUI() {
+    self.backgroundColor = .lightPeriwinkle
+  }
 }
 
 class TodayTodoManyAssignedView: UIView {
@@ -76,6 +84,37 @@ class TodayTodoManyAssignedView: UIView {
 
     [topLeftView, topRightView, bottomLeftView, bottomRightView].forEach { view in
       view.makeRounded(cornerRadius: 10)
+    }
+  }
+
+  // 두개일 때 [bottomLeftView, topRightView]
+  // 세개일 때 [bottomLeftView, topRightView, topLeftView]
+  // 네개일 때 [bottomLeftView, topRightView, topLeftView, bottomRightView]
+  func setCircle(count: Int, colors: [String]) {
+
+    var assigneeView: [UIView] = []
+    var colorsCase: [UIColor] = []
+    for color in colors {
+      let colorCase = AssigneeColor(rawValue: color)!,
+          assignee = AssigneeFactory.makeAssignee(type: colorCase)
+      colorsCase.append(assignee.color)
+    }
+    // 숨김처리 및 보여지는 뷰 배열에 append
+    if count == 2 {
+      [topLeftView, bottomRightView].forEach {
+        $0.isHidden = true
+        assigneeView = [bottomLeftView, topRightView]
+      }
+    } else if count == 3 {
+      bottomRightView.isHidden = true
+      assigneeView = [bottomLeftView, topRightView, topLeftView]
+    } else {
+      assigneeView = [bottomLeftView, topRightView, topLeftView, bottomRightView]
+    }
+
+    let sequence = zip(colorsCase, assigneeView)
+    for (color, view) in sequence {
+      view.backgroundColor = color
     }
   }
 }
