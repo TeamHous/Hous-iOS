@@ -20,14 +20,14 @@
 		9B1F1C0A287DD15C00A15D82 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */; };
 		9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */; };
 		9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */; };
-		9B7D860B287C487C006C0BCE /* ProfileBedgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */; };
+		9B7D860B287C487C006C0BCE /* ProfileBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */; };
 		9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8604287C487C006C0BCE /* CircleView.swift */; };
 		9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */; };
-		9B7D860E287C487C006C0BCE /* ProfileBedgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8607287C487C006C0BCE /* ProfileBedgeCollectionViewCell.swift */; };
+		9B7D860E287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8607287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift */; };
 		9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */; };
 		9B7D8610287C487C006C0BCE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D860A287C487C006C0BCE /* ProfileViewController.swift */; };
 		9B7D8612287C494C006C0BCE /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */; };
-		9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */; };
+		9B814227287C93340073E533 /* ProfileBadgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */; };
 		9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */; };
 		9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81422A287D3FE30073E533 /* ProfileGraphView.swift */; };
 		B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */; };
@@ -105,14 +105,14 @@
 		9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIBezierPath+Extension.swift"; path = "../../../../../../../../../../Applications/UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBackgroundView.swift; sourceTree = "<group>"; };
 		9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
-		9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBedgeView.swift; sourceTree = "<group>"; };
+		9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBadgeView.swift; sourceTree = "<group>"; };
 		9B7D8604287C487C006C0BCE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		9B7D8607287C487C006C0BCE /* ProfileBedgeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBedgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B7D8607287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileGraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B7D860A287C487C006C0BCE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
-		9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBedgeStackItemView.swift; sourceTree = "<group>"; };
+		9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadgeStackItemView.swift; sourceTree = "<group>"; };
 		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
 		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -213,10 +213,10 @@
 		9B7D8602287C487C006C0BCE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */,
+				9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */,
 				9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */,
 				9B81422A287D3FE30073E533 /* ProfileGraphView.swift */,
-				9B814226287C93340073E533 /* ProfileBedgeStackItemView.swift */,
+				9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */,
 				9B7D8604287C487C006C0BCE /* CircleView.swift */,
 			);
 			path = View;
@@ -226,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */,
-				9B7D8607287C487C006C0BCE /* ProfileBedgeCollectionViewCell.swift */,
+				9B7D8607287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift */,
 				9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */,
 				9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */,
 			);
@@ -642,15 +642,15 @@
 				B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */,
 				B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */,
 				B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */,
-				9B7D860B287C487C006C0BCE /* ProfileBedgeView.swift in Sources */,
+				9B7D860B287C487C006C0BCE /* ProfileBadgeView.swift in Sources */,
 				B5084A322879981500C38749 /* TodoDataModel.swift in Sources */,
 				B5084A2B2879972A00C38749 /* PopUpViewController.swift in Sources */,
 				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
-				9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */,
+				9B814227287C93340073E533 /* ProfileBadgeStackItemView.swift in Sources */,
 				B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */,
 				B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */,
-				9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */,
+				9B814227287C93340073E533 /* ProfileBadgeStackItemView.swift in Sources */,
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
 				B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */,
 				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
@@ -698,7 +698,7 @@
 				778A79FC287704E500722CBB /* Strings.swift in Sources */,
 				778A79FA287704D400722CBB /* SplashViewController.swift in Sources */,
 				B843871E28795E0C003F7B75 /* NavigationBarView.swift in Sources */,
-				9B7D860E287C487C006C0BCE /* ProfileBedgeCollectionViewCell.swift in Sources */,
+				9B7D860E287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift in Sources */,
 				B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
