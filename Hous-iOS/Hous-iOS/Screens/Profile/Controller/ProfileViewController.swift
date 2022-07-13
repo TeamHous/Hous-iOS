@@ -103,7 +103,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
       return cell
       
     case 2:
-      guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileBedgeCollectionViewCell.className, for: indexPath) as? ProfileBadgeCollectionViewCell else {return UICollectionViewCell()}
+      guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileBadgeCollectionViewCell.className, for: indexPath) as? ProfileBadgeCollectionViewCell else {return UICollectionViewCell()}
       return cell
       
     default:

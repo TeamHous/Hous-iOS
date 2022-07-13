@@ -1,5 +1,5 @@
 //
-//  ProfileBedgeView.swift
+//  ProfileBadgeView.swift
 //  Hous-iOS
 //
 //  Created by 이의진 on 2022/07/11.
@@ -42,6 +42,7 @@ class ProfileBadgeView : UIView {
   
   private func render(){
     self.addSubViews([badgeGuideStackView])
+    profileBadgeItems.forEach {badgeGuideStackView.addArrangedSubview($0)}
     
     badgeGuideStackView.snp.makeConstraints {make in
       make.top.bottom.equalToSuperview().inset(28)
