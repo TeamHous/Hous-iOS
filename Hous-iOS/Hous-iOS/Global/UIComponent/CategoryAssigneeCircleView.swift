@@ -9,9 +9,6 @@ import UIKit
 import SnapKit
 import Then
 
-enum AssigneeColor {
-  case yellow, blue, purple, red, green, none
-}
 
 class CategoryAssigneeCircleView: UIView {
 
