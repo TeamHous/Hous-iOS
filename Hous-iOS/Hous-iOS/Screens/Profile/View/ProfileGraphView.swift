@@ -35,7 +35,7 @@ class ProfileGraphView : UIView {
   }
   
   private func render(){
-    profileGraphView.setNeedsDisplay()
+    
     [profileGraphBackgroundView,profileGraphView].forEach {self.addSubview($0)}
     
     
