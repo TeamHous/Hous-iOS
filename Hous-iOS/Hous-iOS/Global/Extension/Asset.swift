@@ -15,6 +15,7 @@ public struct R {
 }
 
 extension R.Color {
+  
   static var salmon: UIColor {
     .dynamicColor(light: .salmon, dark: .white)
   }
@@ -71,6 +72,12 @@ extension R.Color {
   }
   static var greyishBrown: UIColor {
     .dynamicColor(light: .greyishBrown, dark: .white)
+  }
+  static var housBlack: UIColor {
+    .dynamicColor(light: .housBlack, dark: .white)
+  }
+  static var whitishGrey: UIColor {
+    .dynamicColor(light: .whitishGrey, dark: .white)
   }
 }
 

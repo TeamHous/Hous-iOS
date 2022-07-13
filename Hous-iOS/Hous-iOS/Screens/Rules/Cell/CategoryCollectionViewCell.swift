@@ -11,10 +11,15 @@ import Then
 
 class CategoryCollectionViewCell: UICollectionViewCell {
   
-  static let identifier = "CategoryCollectionViewCell"
-  
   var categoryImageView = UIImageView().then {
     $0.image = R.Image.clean
+  }
+
+  var categoryTitleLabel = UILabel().then {
+    $0.textColor = R.Color.brownGreyTwo
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+    $0.textAlignment = .center
+    $0.text = "청소"
   }
   
   override init(frame: CGRect) {
@@ -28,11 +33,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.contentView.addSubview(categoryImageView)
+    self.contentView.addSubViews([categoryImageView, categoryTitleLabel])
     
     categoryImageView.snp.makeConstraints { make in
-      make.size.equalTo(40)
+      make.size.equalTo(43)
       make.center.equalToSuperview()
+    }
+
+    categoryTitleLabel.snp.makeConstraints { make in
+      make.leading.trailing.equalToSuperview()
+      make.top.equalTo(categoryImageView.snp.bottom).offset(2)
     }
   }
 }

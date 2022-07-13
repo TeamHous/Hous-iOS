@@ -68,8 +68,16 @@
 		B80510E42876D6B10025B767 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E32876D6B10025B767 /* APIConstants.swift */; };
 		B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E52876D6F10025B767 /* NetworkResult.swift */; };
 		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
+		B84344242879A36600CD1BF5 /* RulesCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */; };
+		B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */; };
+		B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */; };
+		B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */; };
+		B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */; };
+		B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */; };
+		B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
+		B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
-		B843871628795830003F7B75 /* RulesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTableView.swift */; };
+		B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTodoTableView.swift */; };
 		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
 		B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */; };
 		B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */; };
@@ -147,8 +155,16 @@
 		B80510E32876D6B10025B767 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B80510E52876D6F10025B767 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B80510EA2876D7840025B767 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
+		B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCategoryTableView.swift; sourceTree = "<group>"; };
+		B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRulesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRulesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesAssigneeView.swift; sourceTree = "<group>"; };
+		B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAssigneeCircleView.swift; sourceTree = "<group>"; };
+		B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesDataModel.swift; sourceTree = "<group>"; };
+		B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
-		B843871528795830003F7B75 /* RulesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableView.swift; sourceTree = "<group>"; };
+		B843871528795830003F7B75 /* RulesTodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoTableView.swift; sourceTree = "<group>"; };
 		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -395,6 +411,7 @@
 		B80510BC2876D32D0025B767 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				B8434433287CEB6200CD1BF5 /* ViewModel */,
 				B84387102879571C003F7B75 /* Cell */,
 				B843870F28795715003F7B75 /* View */,
 				B843870E2879570C003F7B75 /* Controller */,
@@ -448,8 +465,36 @@
 				B5084A312879981500C38749 /* TodoDataModel.swift */,
 				B5084A332879982400C38749 /* ProfileDataModel.swift */,
 				B80510E52876D6F10025B767 /* NetworkResult.swift */,
+				B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B8434429287C62AB00CD1BF5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */,
+				B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */,
+				B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B843442A287C62B200CD1BF5 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */,
+				B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		B8434433287CEB6200CD1BF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B843870E2879570C003F7B75 /* Controller */ = {
@@ -464,7 +509,8 @@
 			isa = PBXGroup;
 			children = (
 				B843871328795805003F7B75 /* RulesHomeView.swift */,
-				B843871528795830003F7B75 /* RulesTableView.swift */,
+				B843871528795830003F7B75 /* RulesTodoTableView.swift */,
+				B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,8 +519,8 @@
 			isa = PBXGroup;
 			children = (
 				B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */,
-				B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */,
-				B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */,
+				B843442A287C62B200CD1BF5 /* Todo */,
+				B8434429287C62AB00CD1BF5 /* Category */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -486,6 +532,8 @@
 				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
 				9B1F1C07287DD09700A15D82 /* GraphView.swift */,
 				9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */,
+				B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */,
+				B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -600,13 +648,18 @@
 				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
 				9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */,
+				B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */,
+				B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */,
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
-				B843871628795830003F7B75 /* RulesTableView.swift in Sources */,
+				B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */,
+				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */,
+				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
+				B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
@@ -635,6 +688,9 @@
 				B5084A342879982400C38749 /* ProfileDataModel.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
 				B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */,
+				B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */,
+				B84344242879A36600CD1BF5 /* RulesCategoryTableView.swift in Sources */,
+				B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */,
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
 				9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
