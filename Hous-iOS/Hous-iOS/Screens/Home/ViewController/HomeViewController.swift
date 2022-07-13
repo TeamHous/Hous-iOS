@@ -29,13 +29,9 @@ final class HomeViewController: UIViewController {
   private var rules: [RulesDataModel]?
   private var todos: [TodoDataModel]?
   
+  var navigationBarView = NavigationBarView(tabType: .home)
+  
   //MARK: UI Compononents
-  private let titleLabel = UILabel().then {
-    $0.text = "Hous-"
-    $0.font = .font(.montserratSemiBold, ofSize: 30)
-    $0.textColor = .housBlack
-    $0.textAlignment = .left
-  }
   
   private let homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
@@ -58,6 +54,7 @@ final class HomeViewController: UIViewController {
   //MARK: Custom Methods
   private func configUI() {
     self.view.backgroundColor = .white
+    self.navigationController?.navigationBar.isHidden = true
   }
   
   private func getRulesAndTodoList() {
@@ -77,16 +74,16 @@ final class HomeViewController: UIViewController {
   }
   
   private func render() {
-    view.addSubViews([titleLabel, homeCollectionView])
+    view.addSubViews([navigationBarView, homeCollectionView])
     
-    titleLabel.snp.makeConstraints {
-      $0.top.equalTo(view.safeAreaLayoutGuide).offset(19)
-      $0.leading.equalToSuperview().offset(24)
-      $0.trailing.equalToSuperview()
+    navigationBarView.snp.makeConstraints { make in
+      make.top.equalTo(view.safeAreaLayoutGuide)
+      make.leading.trailing.equalToSuperview()
+      make.height.equalTo(60)
     }
     
     homeCollectionView.snp.makeConstraints {
-      $0.top.equalTo(titleLabel.snp.bottom).offset(24).multipliedBy(0.9)
+      $0.top.equalTo(navigationBarView.snp.bottom).offset(24).multipliedBy(0.9)
       $0.leading.trailing.equalToSuperview()
       $0.bottom.equalToSuperview()
     }
@@ -212,7 +209,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     case HomeSection.rulesTodo.rawValue:
       return UIEdgeInsets(top: 3, left: 0, bottom: 24, right: 0)
     case HomeSection.profiles.rawValue:
-      return UIEdgeInsets(top: 12, left: 24, bottom: 0, right: 24)
+      return UIEdgeInsets(top: 12, left: 24, bottom: 120, right: 24)
     default:
       return UIEdgeInsets()
     }
