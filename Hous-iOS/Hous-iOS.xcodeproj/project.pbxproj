@@ -647,6 +647,7 @@
 				B5084A2B2879972A00C38749 /* PopUpViewController.swift in Sources */,
 				B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */,
 				B59C94712877092F005865CA /* UIViewController+Extension.swift in Sources */,
+				9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */,
 				B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */,
 				B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */,
 				9B814227287C93340073E533 /* ProfileBedgeStackItemView.swift in Sources */,
