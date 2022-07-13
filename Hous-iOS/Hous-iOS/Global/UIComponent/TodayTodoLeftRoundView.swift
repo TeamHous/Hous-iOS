@@ -31,8 +31,6 @@ class TodayTodoAddAssingnButton: UIButton {
 
 class TodayTodoManyAssignedView: UIView {
 
-
-
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
@@ -71,10 +69,14 @@ class TodayTodoOneAssignedView: UIView {
   }
 
   private func render() {
-
+    self.addSubView(assigneeImageView)
+    assigneeImageView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
   }
 
   private func configUI(_ color: AssigneeColor) {
     let assignee = AssigneeFactory.makeAssignee(type: color)
+    assigneeImageView.image = assignee.image
   }
 }
