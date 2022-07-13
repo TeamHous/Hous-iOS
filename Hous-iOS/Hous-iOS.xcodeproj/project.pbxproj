@@ -19,6 +19,7 @@
 		9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C07287DD09700A15D82 /* GraphView.swift */; };
 		9B1F1C0A287DD15C00A15D82 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */; };
 		9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */; };
+		9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */; };
 		9B7D860B287C487C006C0BCE /* ProfileBedgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */; };
 		9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8604287C487C006C0BCE /* CircleView.swift */; };
 		9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */; };
@@ -95,6 +96,7 @@
 		9B1F1C07287DD09700A15D82 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIBezierPath+Extension.swift"; path = "../../../../../../../../../../Applications/UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBackgroundView.swift; sourceTree = "<group>"; };
+		9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B7D8603287C487C006C0BCE /* ProfileBedgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBedgeView.swift; sourceTree = "<group>"; };
 		9B7D8604287C487C006C0BCE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */,
 				9B7D8607287C487C006C0BCE /* ProfileBedgeCollectionViewCell.swift */,
 				9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */,
+				9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */,
 				B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */,
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
+				9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */,
 				B5084A2E2879980100C38749 /* EventsDataModel.swift in Sources */,
 				B5084A342879982400C38749 /* ProfileDataModel.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
