@@ -32,6 +32,7 @@
 		B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A42287CAC1300C38749 /* EventIconView.swift */; };
 		B5084A45287D6C1000C38749 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A44287D6C1000C38749 /* EventDateView.swift */; };
 		B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */; };
+		B589C8E1287F323400A18ABE /* IconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589C8E0287F323400A18ABE /* IconFactory.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
 		B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946C2877090F005865CA /* UILabel+Extension.swift */; };
@@ -109,6 +110,7 @@
 		B5084A42287CAC1300C38749 /* EventIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIconView.swift; sourceTree = "<group>"; };
 		B5084A44287D6C1000C38749 /* EventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateView.swift; sourceTree = "<group>"; };
 		B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsDataModel.swift; sourceTree = "<group>"; };
+		B589C8E0287F323400A18ABE /* IconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFactory.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				B87BD3E6287F283200FE232D /* AssigneeFactory.swift */,
+				B589C8E0287F323400A18ABE /* IconFactory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
+				B589C8E1287F323400A18ABE /* IconFactory.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
 				B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */,
