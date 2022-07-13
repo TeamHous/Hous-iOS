@@ -39,7 +39,7 @@ class ProfileGraphBoxView : UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     appendPersonalityAttributesItems()
-    configure()
+    configUI()
     render()
   }
   
@@ -47,7 +47,7 @@ class ProfileGraphBoxView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  private func configure(){
+  private func configUI(){
     self.backgroundColor = .paleGreyTwo
     self.layer.cornerRadius = 10
     self.layer.masksToBounds = true

@@ -30,20 +30,14 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
-
-
-  
-
   
   let profileGraphBoxView = ProfileGraphBoxView()
   
-    
-    //MARK: - Override Methods
-    
+  
     override init(frame: CGRect){
         super.init(frame: frame)
-        configureUI()
-        setConstraints()
+        configUI()
+        render()
         
     }
     
@@ -51,14 +45,13 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Private Methods
     
-    private func configureUI(){
+    private func configUI(){
       self.backgroundColor = .white
-      [titleLabel, detailInfoButton, profileGraphBoxView].forEach {self.addSubview($0)}
     }
     
-    private func setConstraints(){
+    private func render(){
+      [titleLabel, detailInfoButton, profileGraphBoxView].forEach {self.addSubview($0)}
       titleLabel.snp.makeConstraints {make in
         make.leading.equalToSuperview().offset(24)
         make.top.equalToSuperview().offset(10)
@@ -81,7 +74,6 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
 }
       
       
-    
 
 
 struct VCPreView3:PreviewProvider {
