@@ -173,6 +173,7 @@ extension R.Image {
   static var facePurple: UIImage { .load(named: "facePurple") }
   static var faceRed: UIImage { .load(named: "faceRed") }
   static var faceYellow: UIImage { .load(named: "faceYellow") }
+  static var faceEmpty : UIImage { .load(named: "faceEmpty")}
   
   static var faceCheckedBlue: UIImage { .load(named: "faceCheckedBlue") }
   static var faceCheckedGreen: UIImage { .load(named: "faceCheckedGreen") }

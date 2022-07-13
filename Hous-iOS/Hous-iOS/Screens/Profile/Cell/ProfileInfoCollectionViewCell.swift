@@ -97,7 +97,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   
   func setColor(color : UIColor){
     self.tag1.backgroundColor = color
-    self.profileImage.image = R.Image.faceBlue
+    self.profileImage.image = R.Image.faceEmpty
   
   }
         
