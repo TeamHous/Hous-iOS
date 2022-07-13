@@ -9,7 +9,7 @@ import UIKit
 
 class ParticipantsCollectionViewCell: UICollectionViewCell {
   
-  private let participantImageView = UIImageView()
+  let participantButton = UIButton()
   
   private let participantNameLabel = UILabel().then {
     $0.textAlignment = .center
@@ -31,28 +31,29 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
   }
   
   private func configUI() {
-    participantImageView.layer.cornerRadius = participantImageView.frame.width / 2
+    participantButton.layer.cornerRadius = participantButton.frame.width / 2
   }
   
   private func render() {
-    self.addSubViews([participantImageView, participantNameLabel])
+    self.addSubViews([participantButton, participantNameLabel])
     
-    participantImageView.snp.makeConstraints { make in
+    participantButton.snp.makeConstraints { make in
       make.centerX.equalToSuperview()
       make.top.equalToSuperview()
       make.leading.trailing.equalToSuperview()
-      make.height.equalTo(participantImageView.snp.width)
+      make.height.equalTo(participantButton.snp.width)
     }
     
     participantNameLabel.snp.makeConstraints { make in
       make.leading.trailing.bottom.equalToSuperview()
-      make.top.equalTo(participantImageView.snp.bottom).offset(4)
-      make.centerX.equalTo(participantImageView)
+      make.top.equalTo(participantButton.snp.bottom).offset(4)
+      make.centerX.equalTo(participantButton)
     }
   }
   
   func setParticipantData(_ data: ParticipantsDataModel) {
-    participantImageView.image = data.participantImage
+    participantButton.setBackgroundImage(data.participantImage, for: .normal)
+    participantButton.setBackgroundImage(R.Image.faceCheckedRed, for: .selected)
     participantNameLabel.text = data.participantName
   }
 }

@@ -76,7 +76,7 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     if indexPath.row == 0 {
-      delegate?.showPopup(R.Image.partyYellow)
+      delegate?.showPopup(R.Image.partyYellowSmall)
       return
     }
     guard let eventIcon = EventDataModel.sampleData[indexPath.row - 1].eventImage else { return }
