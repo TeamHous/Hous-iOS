@@ -75,6 +75,7 @@ class ProfileGraphCollectionViewCell: UICollectionViewCell {
       
       
 
+
 struct VCPreView3:PreviewProvider {
     static var previews: some View {
         ProfileViewController().toPreview()
