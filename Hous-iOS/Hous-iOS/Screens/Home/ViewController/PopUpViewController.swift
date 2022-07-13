@@ -63,6 +63,7 @@ class PopUpViewController: UIViewController {
   }
   
   var eventImageView = UIImageView().then {
+    $0.contentMode = .scaleAspectFit
     $0.backgroundColor = R.Color.offWhite
     $0.image = R.Image.partyYellow
     $0.clipsToBounds = true
@@ -284,7 +285,11 @@ extension PopUpViewController {
 
 //MARK: Delegate & Datasource
 extension PopUpViewController: UICollectionViewDelegate {
-
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell else { return }
+    
+    cell.participantButton.isSelected.toggle()
+  }
 }
 
 extension PopUpViewController: UICollectionViewDataSource {
@@ -296,6 +301,7 @@ extension PopUpViewController: UICollectionViewDataSource {
     if collectionView == participantsCollectionView {
       guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell else { return UICollectionViewCell() }
       
+      cell.contentView.isUserInteractionEnabled = true
       cell.setParticipantData(ParticipantsDataModel.sampleData[indexPath.row])
 
       return cell

@@ -32,7 +32,6 @@ final class HomeViewController: UIViewController {
   var navigationBarView = NavigationBarView(tabType: .home)
   
   //MARK: UI Compononents
-  
   private let homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
