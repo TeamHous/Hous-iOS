@@ -31,12 +31,6 @@ class GraphView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func draw(_ rect: CGRect) {
-    super.draw(rect)
-    print(1)
-    
-    
-  }
   
   override func didMoveToSuperview() {
     super.didMoveToSuperview()
@@ -67,7 +61,7 @@ class GraphView : UIView {
     let animation = CABasicAnimation(keyPath: "path")
     animation.duration = 1
     animation.beginTime = CACurrentMediaTime() + 1// Your new shape here
-    var newPath = UIBezierPath.roundedCornersPath(newPath, 30)
+    let newPath = UIBezierPath.roundedCornersPath(newPath, 30)
     animation.toValue = newPath?.cgPath
     animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
     

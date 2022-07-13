@@ -28,22 +28,21 @@ class ProfileViewController : UIViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
       setUp()
-      configureUI()
-      setConstraints()
+      configUI()
+      render()
   }
   
   private func setUp(){
-      
-  }
-    
-  private func configureUI(){
-    [navigationBarView, profileMainCollectionView].forEach {self.view.addSubview($0)}
-    profileMainCollectionView.backgroundColor = .yellow
     setDelegate()
     registerCell()
   }
     
- private func setConstraints(){
+  private func configUI(){
+    profileMainCollectionView.backgroundColor = .yellow
+  }
+    
+ private func render(){
+   [navigationBarView, profileMainCollectionView].forEach {self.view.addSubview($0)}
   profileMainCollectionView.snp.makeConstraints{ make in
     let width = UIScreen.main.bounds.width
     make.top.equalTo(view.safeAreaLayoutGuide).offset(width * (60/375))
@@ -57,7 +56,6 @@ class ProfileViewController : UIViewController {
     make.height.equalTo(width * (50 / 375))
     make.top.equalTo(view.safeAreaLayoutGuide)
     make.trailing.equalToSuperview()
-    
       }
     }
     

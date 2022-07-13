@@ -58,8 +58,8 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
     
   override init(frame: CGRect){
     super.init(frame: frame)
-    configureUI()
-    setConstraints()
+    configUI()
+    render()
   }
     
   required init?(coder: NSCoder){
@@ -68,13 +68,14 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
     
     
     
-  private func configureUI(){
+  private func configUI(){
     self.backgroundColor = .white
-    [profileImage, userName, userJob, profileGuideStackView].forEach {self.addSubview($0)}
-    [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
+    
   }
     
-  private func setConstraints(){
+  private func render(){
+    [profileImage, userName, userJob, profileGuideStackView].forEach {self.addSubview($0)}
+    [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
     let width = UIScreen.main.bounds.width
     profileImage.snp.makeConstraints { make in
         make.centerY.equalToSuperview()
