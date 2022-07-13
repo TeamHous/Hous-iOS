@@ -1,5 +1,5 @@
 //
-//  ProfileBedgeCollectionViewCell.swift
+//  ProfileBadgeCollectionViewCell.swift
 //  Hous-iOS
 //
 //  Created by 이의진 on 2022/07/11.
@@ -16,7 +16,7 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
     static let detailInfoButton = CGSize(width: 74, height: 20)
   }
   
-  private let profileBedgeView = ProfileBedgeView()
+  private let profileBadgeView = ProfileBadgeView()
   
   private let titleLabel = UILabel().then {
     $0.text = "나의 배지"
@@ -50,7 +50,7 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
   }
   
   private func render(){
-    self.addSubViews([titleLabel, detailInfoButton, profileBedgeView])
+    self.addSubViews([titleLabel, detailInfoButton, profileBadgeView])
     
     titleLabel.snp.makeConstraints{make in
       make.top.equalTo(safeAreaLayoutGuide).offset((14 / 812) * Size.screenHeight)
@@ -64,7 +64,7 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
       make.width.height.equalTo(Size.detailInfoButton)
     }
     
-    profileBedgeView.snp.makeConstraints {make in
+    profileBadgeView.snp.makeConstraints {make in
       make.leading.trailing.equalToSuperview().inset(24)
       make.top.equalTo(titleLabel.snp.bottom).offset(16)
       make.top.bottom.equalToSuperview().inset(28)
