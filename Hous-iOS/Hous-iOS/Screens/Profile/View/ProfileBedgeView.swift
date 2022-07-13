@@ -26,7 +26,7 @@ class ProfileBedgeView : UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    configure()
+    configUI()
     render()
   }
   
@@ -34,7 +34,7 @@ class ProfileBedgeView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  private func configure(){
+  private func configUI(){
     self.backgroundColor = .veryLightPinkTwo
     self.layer.cornerRadius = 10
     self.layer.masksToBounds = true
