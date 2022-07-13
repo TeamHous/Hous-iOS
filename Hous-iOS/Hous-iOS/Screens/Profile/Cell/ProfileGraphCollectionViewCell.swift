@@ -9,6 +9,8 @@
 import UIKit
 import SwiftUI
 
+
+
 class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     
   static var identifier = "ProfileGraphCollectionViewCell"
@@ -28,6 +30,11 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
+
+
+  
+
+  
   let profileGraphBoxView = ProfileGraphBoxView()
   
     
@@ -37,6 +44,7 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configureUI()
         setConstraints()
+        
     }
     
     required init?(coder: NSCoder){
@@ -68,10 +76,13 @@ class ProfileGraphbCollectionViewCell: UICollectionViewCell {
         make.top.equalTo(titleLabel.snp.bottom).offset(19)
         make.height.equalTo(290)
       }
+      
     }
-    
-    
 }
+      
+      
+    
+
 
 struct VCPreView3:PreviewProvider {
     static var previews: some View {

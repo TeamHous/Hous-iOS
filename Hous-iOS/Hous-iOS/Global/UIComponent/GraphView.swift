@@ -14,6 +14,7 @@ struct Point{
 
 class GraphView : UIView {
   
+  
   let graphShapeLayer = CAShapeLayer()
   let graphMaskLayer = CAShapeLayer()
   let backgroundShapeLayer = CAShapeLayer()
@@ -108,11 +109,11 @@ class GraphView : UIView {
     ]
     
     let initialPath : [CGPoint] = [
-        CGPoint(x: centerPoint.x + 0.001 * pointList[0].x, y: centerPoint.y + 0.001 * pointList[0].y),
-        CGPoint(x: centerPoint.x + 0.001 * pointList[1].x, y: centerPoint.y + 0.001 * pointList[1].y),
-        CGPoint(x: centerPoint.x + 0.001 * pointList[2].x, y: centerPoint.y + 0.001 * pointList[2].y),
-        CGPoint(x: centerPoint.x + 0.001 * pointList[3].x, y: centerPoint.y + 0.001 * pointList[3].y),
-        CGPoint(x: centerPoint.x + 0.001 * pointList[4].x, y: centerPoint.y + 0.001 * pointList[4].y)
+      CGPoint(x: centerPoint.x + 0.001 * pointList[0].x, y: centerPoint.y + 0.001 * pointList[0].y),
+      CGPoint(x: centerPoint.x + 0.001 * pointList[1].x, y: centerPoint.y + 0.001 * pointList[1].y),
+      CGPoint(x: centerPoint.x + 0.001 * pointList[2].x, y: centerPoint.y + 0.001 * pointList[2].y),
+      CGPoint(x: centerPoint.x + 0.001 * pointList[3].x, y: centerPoint.y + 0.001 * pointList[3].y),
+      CGPoint(x: centerPoint.x + 0.001 * pointList[4].x, y: centerPoint.y + 0.001 * pointList[4].y)
     ]
         
     let paths = [initialPath, graphPath, backgroundPath]

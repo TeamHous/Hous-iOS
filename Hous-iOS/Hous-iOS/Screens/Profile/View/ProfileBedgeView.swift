@@ -8,6 +8,8 @@
 import UIKit
 import SwiftUI
 
+
+
 class ProfileBedgeView : UIView {
   
   let width = UIScreen.main.bounds.width
