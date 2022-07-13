@@ -11,10 +11,18 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
   
   private let participantImageView = UIImageView()
   
+  private let participantNameLabel = UILabel().then {
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+    $0.textColor = R.Color.veryLightPinkFive
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
-    configUI()
     render()
+  }
+  
+  override func draw(_ rect: CGRect) {
+    configUI()
   }
   
   required init?(coder: NSCoder) {
@@ -22,19 +30,26 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
   }
   
   private func configUI() {
-    self.backgroundColor = .offWhite
-    self.layer.cornerRadius = self.bounds.width / 2
+    participantImageView.layer.cornerRadius = participantImageView.frame.width / 2
   }
   
   private func render() {
-    self.addSubview(participantImageView)
+    self.addSubViews([participantImageView, participantNameLabel])
     
     participantImageView.snp.makeConstraints { make in
-      make.top.bottom.leading.trailing.equalToSuperview()
+      make.centerX.equalToSuperview()
+      make.top.equalToSuperview()
+//      make.height.width.equalTo(44)
+    }
+    
+    participantNameLabel.snp.makeConstraints { make in
+      make.top.equalTo(participantImageView.snp.bottom).offset(4)
+      make.centerX.equalTo(participantImageView)
     }
   }
   
-  func setIconData(_ icon: UIImage) {
-    participantImageView.image = icon
+  func setParticipantData(_ data: ParticipantsDataModel) {
+    participantImageView.image = data.participantImage
+    participantNameLabel.text = data.participantName
   }
 }
