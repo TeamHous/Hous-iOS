@@ -12,9 +12,11 @@ class ProfileViewController : UIViewController {
   
   let navigationBarView = NavigationBarView(tabType: .profile)
     
-  let identifiers = [ProfileInfoCollectionViewCell.identifier, ProfileGraphbCollectionViewCell.identifier, ProfileBedgeCollectionViewCell.identifier]
+  let identifiers = [ProfileInfoCollectionViewCell.identifier, ProfileGraphCollectionViewCell.identifier, ProfileBedgeCollectionViewCell.identifier, ProfileGraphEmptyCollectionViewCell.identifier]
   
-  let cells = [ProfileInfoCollectionViewCell.self, ProfileGraphbCollectionViewCell.self, ProfileBedgeCollectionViewCell.self]
+  let cells = [ProfileInfoCollectionViewCell.self, ProfileGraphCollectionViewCell.self, ProfileBedgeCollectionViewCell.self, ProfileGraphEmptyCollectionViewCell.self]
+  
+  var isProfileEmpty = true
   
   let profileMainCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -38,7 +40,7 @@ class ProfileViewController : UIViewController {
   }
     
   private func configUI(){
-    profileMainCollectionView.backgroundColor = .yellow
+    profileMainCollectionView.backgroundColor = .white
   }
     
  private func render(){
@@ -74,16 +76,23 @@ class ProfileViewController : UIViewController {
     
 extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return identifiers.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.row{
         case 0:
             guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[0], for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
+          if isProfileEmpty{
+            cell.setColor(color: .veryLightPink)
+          }
             return cell
         case 1:
-            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[1], for: indexPath) as? ProfileGraphbCollectionViewCell else {return UICollectionViewCell()}
+          if isProfileEmpty {
+            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[3], for: indexPath) as? ProfileGraphEmptyCollectionViewCell else {return UICollectionViewCell()}
+            return cell
+          }
+            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[1], for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
             return cell
         
         case 2:
@@ -101,6 +110,9 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
         case 0:
             return CGSize(width: width, height: 114)
         case 1:
+          if isProfileEmpty{
+            return CGSize(width: width, height: 180)
+          }
             return CGSize(width: width, height: 354)
         case 2:
             return CGSize(width: width, height: 222)
