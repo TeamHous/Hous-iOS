@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 import Then
 
-
-
 final class RulesTodoTableView: UIView {
+
+  var leftAssigneeViewAction : (() -> Void)?
 
   // 데이터모델 정의
   
@@ -19,7 +19,7 @@ final class RulesTodoTableView: UIView {
     static let screenWidth = UIScreen.main.bounds.width
     static let itemWidth = screenWidth * 0.9
     static let todoCollectionItemSize = CGSize(width: itemWidth, height: 80)
-    static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 120, right: 20)
+    static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
     static let todoCollectionItemSpacing = CGFloat(8)
   }
   
@@ -56,7 +56,7 @@ final class RulesTodoTableView: UIView {
       $0.register(cell: TodayTodoCollectionViewCell.self)
       $0.register(cell: MyTodoCollectionViewCell.self)
     }
-  
+
   var items: [String] = []
   
   override init(frame: CGRect) {
@@ -100,6 +100,8 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
     switch todoType {
     case .todayTodo:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath) as? TodayTodoCollectionViewCell else { return UICollectionViewCell() }
+
+      cell.delegate = self
       cell.setLeftRoundView(type: .notAssigned)
       // many랑 one didSet 처리해주기
       return cell
@@ -107,5 +109,11 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath)
       return cell
     }
+  }
+}
+
+extension RulesTodoTableView: TodayTodoCollectionViewCellDelegate {
+  func leftAssigneeViewTouched() {
+    leftAssigneeViewAction?()
   }
 }

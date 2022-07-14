@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol TodayTodoCollectionViewCellDelegate: AnyObject {
+  func leftAssigneeViewTouched()
+  // func cellTouched()
+}
+
 class TodayTodoCollectionViewCell: UICollectionViewCell {
+
+  weak var delegate: TodayTodoCollectionViewCellDelegate?
 
   enum Size {
     static let leftRoundViewSize: CGFloat = 40
@@ -87,19 +94,6 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   }
 }
 
-//extension TodayTodoCollectionViewCell {
-//  func setLeftRoundView(type: TodayTodoType) {
-//    switch type {
-//    case .notAssigned:
-//      leftAssigneeView = TodayTodoAddAssingnView()
-//    case .manyAssinged:
-//      leftAssigneeView = manyAssignedView
-//    case .oneAssinged:
-//      leftAssigneeView = oneAssignedView
-//    }
-//  }
-//}
-
 extension TodayTodoCollectionViewCell {
 
     func setLeftRoundView(type: TodayTodoType) {
@@ -121,4 +115,20 @@ extension TodayTodoCollectionViewCell {
         }
       }
     }
+}
+
+extension TodayTodoCollectionViewCell {
+
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      super.touchesBegan(touches, with: event)
+
+    guard let touch = touches.reversed().first else { return }
+    if touch.view == self.addAssignView ||
+        touch.view == self.manyAssignedView ||
+        touch.view == self.oneAssignedView {
+      delegate?.leftAssigneeViewTouched()
+    } else {
+      print("나머지 부분 터치했지롱")
+    }
+  }
 }

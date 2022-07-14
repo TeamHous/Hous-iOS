@@ -107,6 +107,7 @@
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
 		B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */; };
+		B87BD3EF2880273900FE232D /* RulesAssignPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3EE2880273900FE232D /* RulesAssignPopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +206,7 @@
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
 		B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		B87BD3EE2880273900FE232D /* RulesAssignPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesAssignPopUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +493,7 @@
 		B80510BC2876D32D0025B767 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				B87BD3ED2880272400FE232D /* PopUp */,
 				B87BD3E8287FE46300FE232D /* Enum */,
 				B8434433287CEB6200CD1BF5 /* ViewModel */,
 				B84387102879571C003F7B75 /* Cell */,
@@ -638,6 +641,14 @@
 				B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		B87BD3ED2880272400FE232D /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				B87BD3EE2880273900FE232D /* RulesAssignPopUpViewController.swift */,
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -814,6 +825,7 @@
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
 				9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
+				B87BD3EF2880273900FE232D /* RulesAssignPopUpViewController.swift in Sources */,
 				778A79FC287704E500722CBB /* Strings.swift in Sources */,
 				778A79FA287704D400722CBB /* SplashViewController.swift in Sources */,
 				B843871E28795E0C003F7B75 /* NavigationBarView.swift in Sources */,

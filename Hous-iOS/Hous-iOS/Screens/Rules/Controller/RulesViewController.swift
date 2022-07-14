@@ -25,6 +25,7 @@ final class RulesViewController: UIViewController {
     super.viewDidLoad()
     configUI()
     setCollectionView()
+    setAction()
     binding()
   }
 
@@ -35,6 +36,15 @@ final class RulesViewController: UIViewController {
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
     mainView.categoryCollectionView.dataSource = self
+  }
+
+  private func setAction() {
+    mainView.todoTableView.leftAssigneeViewAction = {
+      let todayTodoAssignPopUp = TodayTodoAssignPopUpViewController()
+      todayTodoAssignPopUp.modalTransitionStyle = .crossDissolve
+      todayTodoAssignPopUp.modalPresentationStyle = .overFullScreen
+      self.present(todayTodoAssignPopUp, animated: true)
+    }
   }
 }
 
