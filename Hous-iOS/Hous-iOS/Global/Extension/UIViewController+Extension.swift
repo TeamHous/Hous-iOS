@@ -118,9 +118,6 @@ extension UIViewController {
            ProfileViewController().toPreview() -> 이 부분을 Preview를 하고 싶은 ViewController를 넣어줍니다.
        }
    }
-   
-   -View
-   
    */
 
     private struct Preview: UIViewControllerRepresentable {

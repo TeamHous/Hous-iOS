@@ -47,10 +47,12 @@ class ProfileViewController : UIViewController {
     configUI()
     render()
   }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.setNavigationBarHidden(true, animated: false)
   }
+  
   private func setUp(){
     setDelegate()
     registerCell()
