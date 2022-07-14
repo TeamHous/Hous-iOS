@@ -45,12 +45,24 @@ extension RulesViewController {
         if !self.mainView.todayTodoButton.isSelected {
           self.mainView.todayTodoButton.isSelected = true
           self.mainView.rulesType = .todo
-        } else {
-          self.mainView.todayTodoButton.isSelected = false
-          self.mainView.rulesType = .category
         }
       }
       .disposed(by: disposeBag)
+
+    let todoView = self.mainView.todoTableView
+    todoView.myTodoButton.rx.tap
+      .subscribe { _ in
+        if todoView.todoType == .todayTodo {
+          todoView.todoType = .myTodo
+          todoView.myTodoButton.isSelected = true
+        } else {
+          todoView.todoType = .todayTodo
+          todoView.myTodoButton.isSelected = false
+        }
+        todoView.todoCollectionView.reloadData()
+      }
+      .disposed(by: disposeBag)
+
   }
 }
 

@@ -8,8 +8,10 @@
 import UIKit
 
 class TodayTodoCollectionViewCell: UICollectionViewCell {
-  
-  // add, 여러명, 한명 분기처리 해야함
+
+  enum Size {
+    static let leftRoundViewSize: CGFloat = 40
+  }
   
   private var labelStackView = UIStackView().then {
     $0.alignment = .fill
@@ -26,18 +28,24 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     $0.textColor = R.Color.lightPeriwinkle
     $0.text = "담당자 선택하기"
   }
-  var addManagerButton = UIButton().then {
-    $0.setImage(R.Image.assignAdd, for: .normal)
-  }
+
+  lazy var addAssignView = TodayTodoAddAssingnView()
+  lazy var manyAssignedView = TodayTodoManyAssignedView()
+  lazy var oneAssignedView = TodayTodoOneAssignedView()
+  var leftAssigneeView = UIView()
+
   var doneCheckBoxImageView = UIImageView().then {
     $0.image = R.Image.rulesChecked
-    //$0.isHidden = true
+  }
+  var notiDotView = UIView().then {
+    $0.backgroundColor = R.Color.softBlue
+    $0.makeRounded(cornerRadius: 4)
   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
-    configure()
+    configUI()
   }
   
   required init?(coder: NSCoder) {
@@ -46,17 +54,17 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.addSubViews([labelStackView, addManagerButton, doneCheckBoxImageView])
+    self.addSubViews([labelStackView, leftAssigneeView, doneCheckBoxImageView, notiDotView])
     labelStackView.addArrangedSubview(todoTitleLabel)
     labelStackView.addArrangedSubview(managerLabel)
     
     labelStackView.snp.makeConstraints { make in
       make.top.bottom.equalToSuperview().inset(20)
-      make.leading.equalTo(addManagerButton.snp.trailing).offset(20)
+      make.leading.equalTo(leftAssigneeView.snp.trailing).offset(20)
       make.trailing.greaterThanOrEqualTo(doneCheckBoxImageView.snp.leading).inset(20)
     }
     
-    addManagerButton.snp.makeConstraints { make in
+    leftAssigneeView.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(20)
       make.size.equalTo(40)
       make.centerY.equalTo(labelStackView.snp.centerY)
@@ -66,10 +74,51 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
       make.size.equalTo(24)
       make.centerY.equalTo(labelStackView.snp.centerY)
     }
+
+    notiDotView.snp.makeConstraints { make in
+      make.top.trailing.equalToSuperview().inset(12)
+      make.size.equalTo(8)
+    }
   }
   
-  private func configure() {
+  private func configUI() {
     self.layer.cornerRadius = 15
     self.backgroundColor = R.Color.paleGrey
   }
+}
+
+//extension TodayTodoCollectionViewCell {
+//  func setLeftRoundView(type: TodayTodoType) {
+//    switch type {
+//    case .notAssigned:
+//      leftAssigneeView = TodayTodoAddAssingnView()
+//    case .manyAssinged:
+//      leftAssigneeView = manyAssignedView
+//    case .oneAssinged:
+//      leftAssigneeView = oneAssignedView
+//    }
+//  }
+//}
+
+extension TodayTodoCollectionViewCell {
+
+    func setLeftRoundView(type: TodayTodoType) {
+      switch type {
+      case .notAssigned:
+        leftAssigneeView.addSubview(addAssignView)
+        addAssignView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+      case .manyAssinged:
+        leftAssigneeView.addSubview(manyAssignedView)
+        manyAssignedView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+      case .oneAssinged:
+        leftAssigneeView.addSubview(oneAssignedView)
+        oneAssignedView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+      }
+    }
 }

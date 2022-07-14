@@ -59,7 +59,7 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
     
     detailInfoButton.snp.makeConstraints {make in
       make.bottom.equalTo(titleLabel.snp.bottom)
-      make.top.equalTo(safeAreaLayoutGuide).offset((14 / 812) * height)
+      make.top.equalTo(safeAreaLayoutGuide).offset((14 / 812) * Size.screenHeight)
       make.trailing.equalToSuperview().offset(-24)
       make.width.height.equalTo(Size.detailInfoButton)
     }

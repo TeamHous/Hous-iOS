@@ -60,7 +60,6 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   
   override init(frame: CGRect){
     super.init(frame: frame)
-<<<<<<< HEAD
     configUI()
     render()
   }

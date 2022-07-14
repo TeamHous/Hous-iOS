@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum RulesType {
-  case category, todo
-}
-
 class RulesHomeView: UIView {
   
   enum Size {
@@ -48,13 +44,15 @@ class RulesHomeView: UIView {
       $0.register(cell: CategoryCollectionViewCell.self)
     }
 
-  lazy var categoryView = RulesCategoryTableView()
-  lazy var todoView = RulesTodoTableView()
+  lazy var categoryTableView = RulesCategoryTableView()
+  lazy var todoTableView = RulesTodoTableView()
+  lazy var categoryView = RulesCategoryView(editType: .add)
   var rulesDisplayView = UIView()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
+    updateRulesView(rulesDisplayView, type: .editCategory)
   }
   
   required init?(coder: NSCoder) {
@@ -97,17 +95,21 @@ class RulesHomeView: UIView {
 
 extension RulesHomeView {
   func updateRulesView(_ view: UIView, type: RulesType) {
+    view.subviews.forEach { $0.removeFromSuperview() }
     switch rulesType {
     case .category:
-      todoView.removeFromSuperview()
-      view.addSubview(categoryView)
-      categoryView.snp.makeConstraints { make in
+      view.addSubview(categoryTableView)
+      categoryTableView.snp.makeConstraints { make in
           make.edges.equalToSuperview()
       }
     case .todo:
-      categoryView.removeFromSuperview()
-      view.addSubview(todoView)
-      todoView.snp.makeConstraints { make in
+      view.addSubview(todoTableView)
+      todoTableView.snp.makeConstraints { make in
+          make.edges.equalToSuperview()
+      }
+    case .editCategory:
+      view.addSubview(categoryView)
+      categoryView.snp.makeConstraints { make in
           make.edges.equalToSuperview()
       }
     }
