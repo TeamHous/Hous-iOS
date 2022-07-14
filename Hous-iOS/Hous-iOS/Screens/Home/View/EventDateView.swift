@@ -150,8 +150,11 @@ extension EventDateView {
     dateformatter.dateStyle = .long
     dateformatter.timeStyle = .none
     let date = dateformatter.string(from: datePicker.date)
+    
     let year = date[date.startIndex..<date.index(date.startIndex, offsetBy: 4)]
-    let month = date[date.index(date.startIndex, offsetBy: 6) ..< date.index(date.startIndex, offsetBy: 7)]
+    
+    let month = date[date.index(date.startIndex, offsetBy: 6) ..< date.index(date.startIndex, offsetBy: 8)].description.replacingOccurrences(of: "월", with: "")
+    
     let day = date[date.index(date.endIndex, offsetBy: -3) ..< date.index(before: date.endIndex)]
     
     let attributes = [
