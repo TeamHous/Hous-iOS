@@ -55,7 +55,6 @@ class profileBadgeStackItemView : UIView {
     
     badgeLabel.snp.makeConstraints {make in
       make.top.equalTo(circle.snp.bottom).offset(12)
-      make.centerY.equalToSuperview()
       make.centerX.equalTo(circle.snp.centerX)
     }
   }

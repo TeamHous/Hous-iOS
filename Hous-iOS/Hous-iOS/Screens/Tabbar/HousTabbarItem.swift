@@ -22,7 +22,7 @@ extension HousTabbarItem {
     case .rulse:
       return UINavigationController(rootViewController: RulesViewController())
     case .profile:
-      return UINavigationController(rootViewController: ViewController(item: .profile))
+      return UINavigationController(rootViewController: ProfileViewController(item: .profile))
     }
   }
 

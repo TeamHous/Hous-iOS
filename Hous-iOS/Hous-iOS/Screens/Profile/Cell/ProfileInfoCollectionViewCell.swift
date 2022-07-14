@@ -67,10 +67,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder){
     fatalError("init(coder:) has not been implemented")
   }
-    
-    
-    
-
+  
   private func configUI(){
     self.backgroundColor = .white
   }
@@ -96,7 +93,6 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
       make.leading.equalTo(userName.snp.trailing).offset(8)
     }
   }
-
   
   func setProfile(color : UIColor){
     self.tag1.backgroundColor = color

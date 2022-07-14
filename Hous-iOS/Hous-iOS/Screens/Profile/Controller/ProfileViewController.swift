@@ -1,12 +1,11 @@
+
 //
 //  ProfileViewController.swift
 //  Hous-iOS
 //
 //  Created by 김지현 on 2022/07/07.
 //
-
 import UIKit
-import SwiftUI
 
 class ProfileViewController : UIViewController {
   
@@ -14,22 +13,33 @@ class ProfileViewController : UIViewController {
     static let screenWidth = UIScreen.main.bounds.width
     static let infoCellSize = CGSize(width: Size.screenWidth, height: 114)
     static let graphCellSize = CGSize(width: Size.screenWidth, height: 354)
-    static let badgeCellSize = CGSize(width: Size.screenWidth, height: 222)
+    static let badgeCellSize = CGSize(width: Size.screenWidth, height: 300)
     static let graphEmptyCellSize = CGSize(width: Size.screenWidth, height: 180)
   }
   
   private let navigationBarView = NavigationBarView(tabType: .profile)
   
-  private var isProfileEmpty = true
+  private var isProfileEmpty = false
   
   private let profileMainCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.minimumLineSpacing = 0
     layout.scrollDirection = .vertical
-    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
     return cv
   }()
+  
+  private let item: HousTabbarItem
+ 
+  init(item: HousTabbarItem) {
+    self.item = item
+    super.init(nibName: nil, bundle: nil)
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,47 +47,46 @@ class ProfileViewController : UIViewController {
     configUI()
     render()
   }
-  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
+  }
   private func setUp(){
     setDelegate()
     registerCell()
   }
+  
+  private func configUI(){
+    profileMainCollectionView.backgroundColor = .white
+  }
+  
+  private func render(){
+    view.addSubViews([navigationBarView, profileMainCollectionView])
 
+    navigationBarView.snp.makeConstraints { make in
+      make.height.equalTo(60)
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.leading.trailing.equalToSuperview()
+    }
+
+    profileMainCollectionView.snp.makeConstraints{ make in
+      make.top.equalTo(navigationBarView.snp.bottom)
+      make.bottom.equalToSuperview()
+      make.trailing.leading.equalToSuperview()
+    }
+  
+  }
+  
   private func setDelegate(){
-
     self.profileMainCollectionView.delegate = self
     self.profileMainCollectionView.dataSource = self
   }
-
+  
   private func registerCell(){
     profileMainCollectionView.register(cell: ProfileInfoCollectionViewCell.self)
     profileMainCollectionView.register(cell: ProfileGraphCollectionViewCell.self)
     profileMainCollectionView.register(cell: ProfileBadgeCollectionViewCell.self)
     profileMainCollectionView.register(cell: ProfileGraphEmptyCollectionViewCell.self)
-  }
-  
-  private func configUI() {
-    profileMainCollectionView.backgroundColor = .white
-  }
-  
-  private func render() {
-    view.addSubViews([navigationBarView, profileMainCollectionView])
-    
-    profileMainCollectionView.snp.makeConstraints{ make in
-      let width = UIScreen.main.bounds.width
-      make.top.equalTo(view.safeAreaLayoutGuide).offset(width * (60/375))
-      make.bottom.equalToSuperview().offset(-76)
-      make.trailing.equalToSuperview()
-      make.leading.equalToSuperview()
-    }
-    navigationBarView.snp.makeConstraints { make in
-      let width = UIScreen.main.bounds.width
-      make.width.equalTo(width)
-      make.height.equalTo(width * (50 / 375))
-      make.top.equalTo(view.safeAreaLayoutGuide)
-      make.trailing.equalToSuperview()
-
-    }
   }
 }
 
@@ -87,7 +96,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    switch indexPath.row {
+    switch indexPath.row{
     case 0:
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileInfoCollectionViewCell.className, for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
       if isProfileEmpty{
@@ -111,23 +120,21 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
       return UICollectionViewCell()
       
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let width = UIScreen.main.bounds.width
-      switch indexPath.row {
-      case 0:
-
-        return CGSize(width: width, height: 114)
-      case 1:
-        if isProfileEmpty{
-          return CGSize(width: width, height: 180)
-        }
-        return CGSize(width: width, height: 354)
-      case 2:
-        return CGSize(width: width, height: 222)
-      default:
-        return CGSize(width: 0, height: 0)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    switch indexPath.row{
+    case 0:
+      return Size.infoCellSize
+    case 1:
+      if isProfileEmpty{
+        return Size.graphEmptyCellSize
       }
+      return Size.graphCellSize
+    case 2:
+      return Size.badgeCellSize
+    default:
+      return CGSize(width: 0, height: 0)
     }
   }
 }

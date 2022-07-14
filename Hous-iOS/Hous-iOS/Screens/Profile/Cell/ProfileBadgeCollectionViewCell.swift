@@ -38,7 +38,6 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
     super.init(frame: frame)
     configUI()
     render()
-
   }
   
   required init?(coder: NSCoder){
@@ -59,7 +58,6 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
     
     detailInfoButton.snp.makeConstraints {make in
       make.bottom.equalTo(titleLabel.snp.bottom)
-      make.top.equalTo(safeAreaLayoutGuide).offset((14 / 812) * Size.screenHeight)
       make.trailing.equalToSuperview().offset(-24)
       make.width.height.equalTo(Size.detailInfoButton)
     }
@@ -67,7 +65,6 @@ class ProfileBadgeCollectionViewCell: UICollectionViewCell {
     profileBadgeView.snp.makeConstraints {make in
       make.leading.trailing.equalToSuperview().inset(24)
       make.top.equalTo(titleLabel.snp.bottom).offset(16)
-      make.top.bottom.equalToSuperview().inset(28)
     }
   }
 }
