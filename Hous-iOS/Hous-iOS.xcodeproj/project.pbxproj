@@ -92,6 +92,7 @@
 		B843873128796397003F7B75 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B843873028796397003F7B75 /* Inject */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
+		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +177,7 @@
 		B87BD3E6287F283200FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
+		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +421,7 @@
 		B80510BC2876D32D0025B767 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				B87BD3E8287FE46300FE232D /* Enum */,
 				B8434433287CEB6200CD1BF5 /* ViewModel */,
 				B84387102879571C003F7B75 /* Cell */,
 				B843870F28795715003F7B75 /* View */,
@@ -563,6 +566,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		B87BD3E8287FE46300FE232D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -682,6 +693,7 @@
 				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */,
+				B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */,
 				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,

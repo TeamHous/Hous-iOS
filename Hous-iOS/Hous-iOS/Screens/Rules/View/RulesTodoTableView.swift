@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import Then
 
-enum TodoType {
-  case todayTodo, myTodo
-}
+
 
 final class RulesTodoTableView: UIView {
+
+  // 데이터모델 정의
   
   enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -97,7 +97,9 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
 
     switch todoType {
     case .todayTodo:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath)
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath) as? TodayTodoCollectionViewCell else { return UICollectionViewCell() }
+      cell.setLeftRoundView(type: .notAssigned)
+      // many랑 one didSet 처리해주기
       return cell
     case .myTodo:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath)

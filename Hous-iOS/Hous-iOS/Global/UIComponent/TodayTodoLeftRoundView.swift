@@ -18,7 +18,6 @@ class TodayTodoAddAssingnView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
-    configUI()
   }
 
   required init?(coder: NSCoder) {
@@ -30,10 +29,6 @@ class TodayTodoAddAssingnView: UIView {
     addImageView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
-  }
-
-  private func configUI() {
-    self.backgroundColor = .lightPeriwinkle
   }
 }
 

@@ -9,10 +9,6 @@ import UIKit
 import SnapKit
 import Then
 
-enum EditType {
-  case add, update
-}
-
 final class RulesCategoryView: UIView {
 
   //MARK: - 변수
@@ -73,7 +69,7 @@ final class RulesCategoryView: UIView {
 
   //MARK: - 생명주기
 
-  convenience init(editType: EditType) {
+  convenience init(editType: CategoryEditType) {
     self.init(frame: .zero)
     render()
     configUI(editType)
@@ -139,7 +135,7 @@ final class RulesCategoryView: UIView {
     }
   }
 
-  private func configUI(_ editType: EditType) {
+  private func configUI(_ editType: CategoryEditType) {
     self.layer.cornerRadius = 30
     self.backgroundColor = R.Color.paleGrey
 

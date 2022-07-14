@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum TodayTodoType {
-  case notAssigned, manyAssinged, oneAssinged
-}
-
 class TodayTodoCollectionViewCell: UICollectionViewCell {
 
   enum Size {
@@ -32,9 +28,12 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     $0.textColor = R.Color.lightPeriwinkle
     $0.text = "담당자 선택하기"
   }
-  var leftRoundView = UIView().then {
-    $0.makeRounded(cornerRadius: Size.leftRoundViewSize/2)
-  }
+
+  lazy var addAssignView = TodayTodoAddAssingnView()
+  lazy var manyAssignedView = TodayTodoManyAssignedView()
+  lazy var oneAssignedView = TodayTodoOneAssignedView()
+  var leftAssigneeView = UIView()
+
   var doneCheckBoxImageView = UIImageView().then {
     $0.image = R.Image.rulesChecked
   }
@@ -46,7 +45,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
-    configure()
+    configUI()
   }
   
   required init?(coder: NSCoder) {
@@ -55,17 +54,17 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.addSubViews([labelStackView, leftRoundView, doneCheckBoxImageView, notiDotView])
+    self.addSubViews([labelStackView, leftAssigneeView, doneCheckBoxImageView, notiDotView])
     labelStackView.addArrangedSubview(todoTitleLabel)
     labelStackView.addArrangedSubview(managerLabel)
     
     labelStackView.snp.makeConstraints { make in
       make.top.bottom.equalToSuperview().inset(20)
-      make.leading.equalTo(leftRoundView.snp.trailing).offset(20)
+      make.leading.equalTo(leftAssigneeView.snp.trailing).offset(20)
       make.trailing.greaterThanOrEqualTo(doneCheckBoxImageView.snp.leading).inset(20)
     }
     
-    leftRoundView.snp.makeConstraints { make in
+    leftAssigneeView.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(20)
       make.size.equalTo(40)
       make.centerY.equalTo(labelStackView.snp.centerY)
@@ -82,21 +81,44 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  private func configure() {
+  private func configUI() {
     self.layer.cornerRadius = 15
     self.backgroundColor = R.Color.paleGrey
   }
 }
 
-extension TodayTodoCollectionViewCell {
-  func setLeftRoundView(type: TodayTodoType) {
+//extension TodayTodoCollectionViewCell {
+//  func setLeftRoundView(type: TodayTodoType) {
 //    switch type {
 //    case .notAssigned:
-//
+//      leftAssigneeView = TodayTodoAddAssingnView()
 //    case .manyAssinged:
-//      <#code#>
+//      leftAssigneeView = manyAssignedView
 //    case .oneAssinged:
-//      <#code#>
+//      leftAssigneeView = oneAssignedView
 //    }
-  }
+//  }
+//}
+
+extension TodayTodoCollectionViewCell {
+
+    func setLeftRoundView(type: TodayTodoType) {
+      switch type {
+      case .notAssigned:
+        leftAssigneeView.addSubview(addAssignView)
+        addAssignView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+      case .manyAssinged:
+        leftAssigneeView.addSubview(manyAssignedView)
+        manyAssignedView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+      case .oneAssinged:
+        leftAssigneeView.addSubview(oneAssignedView)
+        oneAssignedView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+      }
+    }
 }

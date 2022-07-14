@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum RulesType {
-  case category, todo, editCategory
-}
-
 class RulesHomeView: UIView {
   
   enum Size {
