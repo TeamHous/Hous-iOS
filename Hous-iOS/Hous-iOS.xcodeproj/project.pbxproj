@@ -92,6 +92,7 @@
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
+		B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +176,7 @@
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
+		B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +402,7 @@
 				B59C94782877097D005865CA /* UICollectionView+Extension.swift */,
 				B59C947A2877098D005865CA /* UIStackView+Extension.swift */,
 				B5084A3528799AEB00C38749 /* UIColor+Extension.swift */,
+				B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
+				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
