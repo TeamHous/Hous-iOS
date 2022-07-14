@@ -17,6 +17,7 @@
 		778A7A0E2879349100722CBB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 778A7A0D2879349100722CBB /* RxGesture */; };
 		77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
 		9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C07287DD09700A15D82 /* GraphView.swift */; };
+		9B1F1C0A287DD15C00A15D82 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */; };
 		9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */; };
 		9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */; };
 		9B7D860B287C487C006C0BCE /* ProfileBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */; };
@@ -75,7 +76,6 @@
 		B8434430287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */; };
 		B8434432287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
 		B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */; };
-		B8434437287D920900CD1BF5 /* RulesCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434436287D920900CD1BF5 /* RulesCategoryView.swift */; };
 		B843871428795805003F7B75 /* RulesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871328795805003F7B75 /* RulesHomeView.swift */; };
 		B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871528795830003F7B75 /* RulesTodoTableView.swift */; };
 		B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */; };
@@ -89,10 +89,7 @@
 		B843872B287961EE003F7B75 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B843872A287961EE003F7B75 /* RxRelay */; };
 		B843872D287961EE003F7B75 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B843872C287961EE003F7B75 /* RxSwift */; };
 		B843873128796397003F7B75 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B843873028796397003F7B75 /* Inject */; };
-		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
-		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
-		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
-		B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */; };
+		B87BD3E7287F283200FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E6287F283200FE232D /* AssigneeFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +103,7 @@
 		778A7A0A28770EB700722CBB /* HousTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbar.swift; sourceTree = "<group>"; };
 		77A8FC27287936A500F5376B /* HousTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousTabbarViewController.swift; sourceTree = "<group>"; };
 		9B1F1C07287DD09700A15D82 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIBezierPath+Extension.swift"; path = "../../../../../../../../../../Applications/UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBackgroundView.swift; sourceTree = "<group>"; };
 		9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBadgeView.swift; sourceTree = "<group>"; };
@@ -166,17 +164,13 @@
 		B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAssigneeCircleView.swift; sourceTree = "<group>"; };
 		B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesDataModel.swift; sourceTree = "<group>"; };
 		B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
-		B8434436287D920900CD1BF5 /* RulesCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCategoryView.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
 		B843871528795830003F7B75 /* RulesTodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTodoTableView.swift; sourceTree = "<group>"; };
 		B843871728795855003F7B75 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871D28795E0B003F7B75 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
-		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
-		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
-		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
-		B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		B87BD3E6287F283200FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,7 +338,7 @@
 		B80510B62876D2EF0025B767 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				B87BD3E2287F1FBC00FE232D /* Protocol */,
+				B87BD3E5287F282600FE232D /* Protocol */,
 				B843871F28795F60003F7B75 /* UIComponent */,
 				B80510BA2876D30E0025B767 /* Extension */,
 				B80510B92876D3090025B767 /* Resource */,
@@ -402,7 +396,7 @@
 				B59C94782877097D005865CA /* UICollectionView+Extension.swift */,
 				B59C947A2877098D005865CA /* UIStackView+Extension.swift */,
 				B5084A3528799AEB00C38749 /* UIColor+Extension.swift */,
-				B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */,
+				9B1F1C09287DD15C00A15D82 /* UIBezierPath+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -420,7 +414,6 @@
 		B80510BC2876D32D0025B767 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
-				B87BD3E8287FE46300FE232D /* Enum */,
 				B8434433287CEB6200CD1BF5 /* ViewModel */,
 				B84387102879571C003F7B75 /* Cell */,
 				B843870F28795715003F7B75 /* View */,
@@ -521,7 +514,6 @@
 				B843871328795805003F7B75 /* RulesHomeView.swift */,
 				B843871528795830003F7B75 /* RulesTodoTableView.swift */,
 				B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */,
-				B8434436287D920900CD1BF5 /* RulesCategoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,25 +537,23 @@
 				9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */,
 				B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */,
 				B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */,
-				B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
-		B87BD3E2287F1FBC00FE232D /* Protocol */ = {
+		B8438721287961EE003F7B75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */,
 			);
-			path = Protocol;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B87BD3E8287FE46300FE232D /* Enum */ = {
+		B87BD3E5287F282600FE232D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */,
+				B87BD3E6287F283200FE232D /* AssigneeFactory.swift */,
 			);
-			path = Enum;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,16 +670,13 @@
 				B843442C287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift in Sources */,
 				9B814227287C93340073E533 /* ProfileBadgeStackItemView.swift in Sources */,
 				778A7A052877081800722CBB /* HousTabbarItemView.swift in Sources */,
-				B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */,
 				B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */,
 				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */,
-				B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */,
 				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
-				B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
 				B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
@@ -697,7 +684,10 @@
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
 				9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */,
 				9B7D8610287C487C006C0BCE /* ProfileViewController.swift in Sources */,
+				9B1F1C0A287DD15C00A15D82 /* UIBezierPath+Extension.swift in Sources */,
 				77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */,
+				B87BD3E7287F283200FE232D /* AssigneeFactory.swift in Sources */,
+				B80510BF2876D33D0025B767 /* ProfileViewController.swift in Sources */,
 				9B7D8610287C487C006C0BCE /* ProfileViewController.swift in Sources */,
 				77A8FC28287936A500F5376B /* HousTabbarViewController.swift in Sources */,
 				B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */,
@@ -706,7 +696,6 @@
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
-				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
@@ -719,8 +708,8 @@
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
 				9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */,
 				B5084A2E2879980100C38749 /* EventsDataModel.swift in Sources */,
-				B8434437287D920900CD1BF5 /* RulesCategoryView.swift in Sources */,
 				B5084A342879982400C38749 /* ProfileDataModel.swift in Sources */,
+				B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
 				B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */,
 				B84344282879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift in Sources */,

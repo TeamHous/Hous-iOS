@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
+enum AssigneeColor {
+  case yellow, blue, purple, red, green, none
+}
+
 class CategoryAssigneeCircleView: UIView {
 
   private enum Size {
@@ -36,7 +40,6 @@ class CategoryAssigneeCircleView: UIView {
   }
 
   func setColor(_ color: AssigneeColor) {
-    let assignee = AssigneeFactory.makeAssignee(type: color)
-    self.backgroundColor = assignee.color
+    self.backgroundColor = UIColor.assigneeColor(color)
   }
 }

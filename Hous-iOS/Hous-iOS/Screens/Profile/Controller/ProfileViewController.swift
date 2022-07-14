@@ -42,25 +42,12 @@ class ProfileViewController : UIViewController {
     setDelegate()
     registerCell()
   }
-
-  private func setDelegate(){
-
-    self.profileMainCollectionView.delegate = self
-    self.profileMainCollectionView.dataSource = self
-  }
-
-  private func registerCell(){
-    profileMainCollectionView.register(cell: ProfileInfoCollectionViewCell.self)
-    profileMainCollectionView.register(cell: ProfileGraphCollectionViewCell.self)
-    profileMainCollectionView.register(cell: ProfileBadgeCollectionViewCell.self)
-    profileMainCollectionView.register(cell: ProfileGraphEmptyCollectionViewCell.self)
-  }
   
-  private func configUI() {
+  private func configUI(){
     profileMainCollectionView.backgroundColor = .white
   }
   
-  private func render() {
+  private func render(){
     view.addSubViews([navigationBarView, profileMainCollectionView])
     
     profileMainCollectionView.snp.makeConstraints{ make in
@@ -70,14 +57,28 @@ class ProfileViewController : UIViewController {
       make.trailing.equalToSuperview()
       make.leading.equalToSuperview()
     }
-    navigationBarView.snp.makeConstraints { make in
-      let width = UIScreen.main.bounds.width
-      make.width.equalTo(width)
-      make.height.equalTo(width * (50 / 375))
-      make.top.equalTo(view.safeAreaLayoutGuide)
-      make.trailing.equalToSuperview()
+  navigationBarView.snp.makeConstraints { make in
+    let width = UIScreen.main.bounds.width
+    make.width.equalTo(width)
+    make.height.equalTo(width * (50 / 375))
+    make.top.equalTo(view.safeAreaLayoutGuide)
+    make.trailing.equalToSuperview()
 
+      }
     }
+  }
+  
+  private func setDelegate(){
+
+    self.profileMainCollectionView.delegate = self
+    self.profileMainCollectionView.dataSource = self
+  }
+  
+  private func registerCell(){
+    profileMainCollectionView.register(cell: ProfileInfoCollectionViewCell.self)
+    profileMainCollectionView.register(cell: ProfileGraphCollectionViewCell.self)
+    profileMainCollectionView.register(cell: ProfileBadgeCollectionViewCell.self)
+    profileMainCollectionView.register(cell: ProfileGraphEmptyCollectionViewCell.self)
   }
 }
 
@@ -87,7 +88,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    switch indexPath.row {
+    switch indexPath.row{
     case 0:
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileInfoCollectionViewCell.className, for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
       if isProfileEmpty{
@@ -112,22 +113,62 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
       
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let width = UIScreen.main.bounds.width
-      switch indexPath.row {
-      case 0:
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch indexPath.row{
+        case 0:
+            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[0], for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
 
-        return CGSize(width: width, height: 114)
-      case 1:
-        if isProfileEmpty{
-          return CGSize(width: width, height: 180)
+          if isProfileEmpty{
+            cell.setColor(color: .veryLightPink)
+          }
+            return cell
+        case 1:
+          if isProfileEmpty {
+            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[3], for: indexPath) as? ProfileGraphEmptyCollectionViewCell else {return UICollectionViewCell()}
+            return cell
+          }
+            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[1], for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
+
+            return cell
+        
+        case 2:
+            guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[2], for: indexPath) as? ProfileBedgeCollectionViewCell else {return UICollectionViewCell()}
+            return cell
+        default:
+            return UICollectionViewCell()
+
         }
-        return CGSize(width: width, height: 354)
-      case 2:
-        return CGSize(width: width, height: 222)
-      default:
-        return CGSize(width: 0, height: 0)
-      }
     }
-  }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        switch indexPath.row{
+        case 0:
+
+            return CGSize(width: width, height: 114)
+        case 1:
+          if isProfileEmpty{
+            return CGSize(width: width, height: 180)
+          }
+            return CGSize(width: width, height: 354)
+        case 2:
+            return CGSize(width: width, height: 222)
+        default:
+            return CGSize(width: 0, height: 0)
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
