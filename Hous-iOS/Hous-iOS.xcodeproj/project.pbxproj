@@ -62,6 +62,7 @@
 		B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
 		B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */; };
 		B5F858352880278D009474A1 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A44287D6C1000C38749 /* EventDateView.swift */; };
+		B5F8583828802B4A009474A1 /* ProfileTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8583728802B4A009474A1 /* ProfileTestViewController.swift */; };
 		B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A12876D2D10025B767 /* AppDelegate.swift */; };
 		B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A32876D2D10025B767 /* SceneDelegate.swift */; };
 		B80510AB2876D2D20025B767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80510AA2876D2D20025B767 /* Assets.xcassets */; };
@@ -156,6 +157,7 @@
 		B59C94782877097D005865CA /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B59C947A2877098D005865CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		B5BD75D028801F4C00B98D35 /* IconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFactory.swift; sourceTree = "<group>"; };
+		B5F8583728802B4A009474A1 /* ProfileTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestViewController.swift; sourceTree = "<group>"; };
 		B805109E2876D2D10025B767 /* Hous-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hous-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80510A12876D2D10025B767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B80510A32876D2D10025B767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -332,6 +334,14 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
+		B5F85836288029E5009474A1 /* ProfileTest */ = {
+			isa = PBXGroup;
+			children = (
+				B5F8583728802B4A009474A1 /* ProfileTestViewController.swift */,
+			);
+			path = ProfileTest;
+			sourceTree = "<group>";
+		};
 		B80510952876D2D10025B767 = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +396,7 @@
 		B80510B72876D2F30025B767 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B5F85836288029E5009474A1 /* ProfileTest */,
 				778A7A032877080800722CBB /* Tabbar */,
 				778A79F8287704C800722CBB /* Splash */,
 				B80510BD2876D3330025B767 /* Home */,
@@ -693,6 +704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F8583828802B4A009474A1 /* ProfileTestViewController.swift in Sources */,
 				B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */,
 				B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */,
 				778A7A0928770C7400722CBB /* ViewController.swift in Sources */,

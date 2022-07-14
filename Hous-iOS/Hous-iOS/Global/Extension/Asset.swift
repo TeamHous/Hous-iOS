@@ -233,6 +233,26 @@ extension R.Image {
   static var updateProfile: UIImage { .load(named: "updateProfile") }
   static var viewMoreButton: UIImage { .load(named: "viewMoreButton") }
   static var viewMoreSettingButton: UIImage { .load(named: "viewMoreSettingButton") }
+  
+  // Profile-Test
+  static var testBackwardButton: UIImage { .load(named: "testBackwardButton")}
+  static var testForwardButton: UIImage { .load(named: "testForwardButton")}
+  static var testImage1: UIImage { .load(named: "testImage1")}
+  static var testImage2: UIImage { .load(named: "testImage2")}
+  static var testImage3: UIImage { .load(named: "testImage3")}
+  static var testImage4: UIImage { .load(named: "testImage4")}
+  static var testImage5: UIImage { .load(named: "testImage5")}
+  static var testImage6: UIImage { .load(named: "testImage6")}
+  static var testImage7: UIImage { .load(named: "testImage7")}
+  static var testImage8: UIImage { .load(named: "testImage8")}
+  static var testImage9: UIImage { .load(named: "testImage9")}
+  static var testImage10: UIImage { .load(named: "testImage10")}
+  static var testImage11: UIImage { .load(named: "testImage11")}
+  static var testImage12: UIImage { .load(named: "testImage12")}
+  static var testImage13: UIImage { .load(named: "testImage13")}
+  static var testImage14: UIImage { .load(named: "testImage14")}
+  static var testImage15: UIImage { .load(named: "testImage15")}
+  static var testStartCheck: UIImage { .load(named: "testStartCheck")}
 }
 
 extension UIImage {
