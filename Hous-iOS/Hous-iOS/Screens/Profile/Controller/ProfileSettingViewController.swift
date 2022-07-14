@@ -7,9 +7,10 @@
 
 
 import UIKit
-import SwiftUI
 
 class ProfileSettingViewController : UIViewController {
+  
+  let cellLabels = ["알림", "시스템 설정", "피드백 보내기"]
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
@@ -117,14 +118,8 @@ extension ProfileSettingViewController: UICollectionViewDelegateFlowLayout, UICo
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = profileSettingCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileSettingCollectionViewCell.className, for: indexPath) as? ProfileSettingCollectionViewCell else {return UICollectionViewCell()}
     
-    if indexPath.row == 0 {
-      cell.setButton(isNotiButton: true)
-    }
-    else {
-      cell.setButton(isNotiButton: false)
-    }
-    
-    let cellLabels = ["알림", "시스템 설정", "피드백 보내기"]
+    indexPath.row == 0 ? cell.setButton(isNotiButton: true) : cell.setButton(isNotiButton: false)
+
     cell.setLabel(cellLabels[indexPath.row])
     return cell
   }

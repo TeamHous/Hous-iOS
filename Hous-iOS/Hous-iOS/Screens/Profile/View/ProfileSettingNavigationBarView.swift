@@ -5,18 +5,9 @@
 //  Created by 이의진 on 2022/07/14.
 //
 
-//
-//  NavigationBarView.swift
-//  Hous-iOS
-//
-//  Created by 김지현 on 2022/07/09.
-//
-
 import UIKit
 import SnapKit
 import Then
-import SwiftUI
-
 
 class ProfileSettingNavigationBarView: UIView {
   
