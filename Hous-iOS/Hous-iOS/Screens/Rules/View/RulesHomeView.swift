@@ -11,9 +11,8 @@ class RulesHomeView: UIView {
   
   enum Size {
     static let horizontalButtonViewHeight = 110
-    static let categoryCollectionItemSize = CGSize(width: 43, height: horizontalButtonViewHeight)
+    static let categoryCollectionItemSize = CGSize(width: 60, height: horizontalButtonViewHeight)
     static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
-    static let categoryCollectionItemSpacing = CGFloat(24)
   }
 
   var rulesType: RulesType = .todo {
@@ -36,7 +35,6 @@ class RulesHomeView: UIView {
       let layout = UICollectionViewFlowLayout()
       layout.itemSize = Size.categoryCollectionItemSize
       layout.sectionInset = Size.categoryCollectionEdgeInsets
-      layout.minimumLineSpacing = Size.categoryCollectionItemSpacing
       layout.scrollDirection = .horizontal
       $0.collectionViewLayout = layout
       $0.showsHorizontalScrollIndicator = false
@@ -46,7 +44,7 @@ class RulesHomeView: UIView {
 
   lazy var categoryTableView = RulesCategoryTableView()
   lazy var todoTableView = RulesTodoTableView()
-  lazy var categoryView = RulesCategoryView(editType: .add)
+  lazy var categoryView = RulesCategoryEditView(editType: .add)
   var rulesDisplayView = UIView()
   
   override init(frame: CGRect) {
@@ -81,7 +79,7 @@ class RulesHomeView: UIView {
       make.size.equalTo(40)
     }
     categoryCollectionView.snp.makeConstraints { make in
-      make.leading.equalTo(todayTodoButton.snp.trailing).offset(24)
+      make.leading.equalTo(todayTodoButton.snp.trailing).offset(22)
       make.top.bottom.trailing.equalToSuperview()
     }
     

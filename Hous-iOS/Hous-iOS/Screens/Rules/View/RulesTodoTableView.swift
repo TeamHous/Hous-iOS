@@ -12,8 +12,6 @@ import Then
 final class RulesTodoTableView: UIView {
 
   var leftAssigneeViewAction : (() -> Void)?
-
-  // 데이터모델 정의
   
   enum Size {
     static let screenWidth = UIScreen.main.bounds.width

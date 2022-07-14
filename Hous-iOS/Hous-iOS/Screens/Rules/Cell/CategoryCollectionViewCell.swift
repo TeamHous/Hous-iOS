@@ -20,6 +20,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.textAlignment = .center
     $0.text = "청소"
+    $0.isHidden = true
+  }
+
+  override var isSelected: Bool {
+    didSet {
+      self.isSelected ? (categoryTitleLabel.isHidden = false) : (categoryTitleLabel.isHidden = true)
+    }
   }
   
   override init(frame: CGRect) {
@@ -44,5 +51,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
       make.leading.trailing.equalToSuperview()
       make.top.equalTo(categoryImageView.snp.bottom).offset(2)
     }
+  }
+}
+
+extension CategoryCollectionViewCell {
+
+  func setCategory(_ item: Category) {
+    guard let categoryIconType = CategoryIconImage(rawValue: item.categoryIcon.lowercased()) else { return }
+    let categoryIcon = CategoryIconFactory.makeIcon(type: categoryIconType)
+    self.categoryImageView.image = categoryIcon.unCheckedImage
+    self.categoryTitleLabel.text = item.categoryName
   }
 }

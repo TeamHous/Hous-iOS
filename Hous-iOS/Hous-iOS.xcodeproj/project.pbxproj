@@ -68,6 +68,7 @@
 		B5F8583D28805EEF009474A1 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8583C28805EEF009474A1 /* TestCollectionViewCell.swift */; };
 		B5F8583F288069B6009474A1 /* ProfileTestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8583E288069B6009474A1 /* ProfileTestDataModel.swift */; };
 		B5F8584128806E95009474A1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8584028806E95009474A1 /* UIImageView+Extension.swift */; };
+		B80418C428808E450060A9C9 /* CategoryIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80418C328808E450060A9C9 /* CategoryIconFactory.swift */; };
 		B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A12876D2D10025B767 /* AppDelegate.swift */; };
 		B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A32876D2D10025B767 /* SceneDelegate.swift */; };
 		B80510AB2876D2D20025B767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80510AA2876D2D20025B767 /* Assets.xcassets */; };
@@ -164,11 +165,15 @@
 		B59C947A2877098D005865CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTestPopUpViewController.swift; sourceTree = "<group>"; };
 		B5BD75D028801F4C00B98D35 /* IconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFactory.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		B5F8583728802B4A009474A1 /* ProfileTestInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestInfoViewController.swift; sourceTree = "<group>"; };
 		B5F858392880531A009474A1 /* ProfileTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestViewController.swift; sourceTree = "<group>"; };
 		B5F8583C28805EEF009474A1 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5F8583E288069B6009474A1 /* ProfileTestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestDataModel.swift; sourceTree = "<group>"; };
 		B5F8584028806E95009474A1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+=======
+		B80418C328808E450060A9C9 /* CategoryIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconFactory.swift; sourceTree = "<group>"; };
+>>>>>>> [#31] FEAT : Category Collection View Cell 분기처리 및 didSelect 액션
 		B805109E2876D2D10025B767 /* Hous-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hous-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80510A12876D2D10025B767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B80510A32876D2D10025B767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -631,6 +636,7 @@
 			children = (
 				B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */,
 				B5BD75D028801F4C00B98D35 /* IconFactory.swift */,
+				B80418C328808E450060A9C9 /* CategoryIconFactory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -788,6 +794,7 @@
 				9B648B8E28805D28005E9322 /* ProfileViewController.swift in Sources */,
 				B5A7D19A28809B180037F210 /* QuitTestPopUpViewController.swift in Sources */,
 				B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */,
+				B80418C428808E450060A9C9 /* CategoryIconFactory.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,

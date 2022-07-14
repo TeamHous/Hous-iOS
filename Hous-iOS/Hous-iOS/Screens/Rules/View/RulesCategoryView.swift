@@ -1,5 +1,5 @@
 //
-//  RulesCategoryView.swift
+//  RulesCategoryEditView.swift
 //  Hous-iOS
 //
 //  Created by 김지현 on 2022/07/12.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class RulesCategoryView: UIView {
+final class RulesCategoryEditView: UIView {
 
   //MARK: - 변수
 

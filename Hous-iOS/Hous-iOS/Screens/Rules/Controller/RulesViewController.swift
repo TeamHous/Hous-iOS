@@ -12,9 +12,10 @@ import RxSwift
 import RxCocoa
 
 final class RulesViewController: UIViewController {
-  
+
+  var categories: Categories?
+
   let disposeBag = DisposeBag()
-  
   var mainView = RulesHomeView()
 
   override func loadView() {
@@ -26,6 +27,7 @@ final class RulesViewController: UIViewController {
     configUI()
     setCollectionView()
     setAction()
+    getCategories()
     binding()
   }
 
@@ -45,6 +47,10 @@ final class RulesViewController: UIViewController {
       todayTodoAssignPopUp.modalPresentationStyle = .overFullScreen
       self.present(todayTodoAssignPopUp, animated: true)
     }
+  }
+
+  private func getCategories() {
+    categories = Category.sampleData
   }
 }
 
@@ -78,12 +84,31 @@ extension RulesViewController {
 extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 8
+    return Category.sampleData.count + 1
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.className, for: indexPath)
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.className, for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
+
+    if indexPath.row == categories?.count {
+      cell.categoryImageView.image = R.Image.categoryAdd
+      cell.isSelected = false
+    } else {
+      cell.setCategory(categories![indexPath.row])
+    }
+
     return cell
+  }
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+
+    cell.isSelected = true
+
+    indexPath.row != categories?.count ? (self.mainView.rulesType = .category) : (self.mainView.rulesType = .editCategory)
+
+    self.mainView.todayTodoButton.isSelected = false
   }
 }
