@@ -141,6 +141,6 @@ class TodayTodoOneAssignedView: UIView {
 
   private func configUI(_ color: AssigneeColor) {
     let assignee = AssigneeFactory.makeAssignee(type: color)
-    assigneeImageView.image = assignee.image
+    assigneeImageView.image = assignee.faceImage
   }
 }

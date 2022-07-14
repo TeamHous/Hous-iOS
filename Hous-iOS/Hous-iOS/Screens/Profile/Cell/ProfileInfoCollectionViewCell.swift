@@ -79,7 +79,6 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
     self.addSubViews([profileImage, userName, userJob, profileGuideStackView])
     [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
 
-    let width = UIScreen.main.bounds.width
     profileImage.snp.makeConstraints { make in
       make.centerY.equalToSuperview()
       make.leading.equalToSuperview().offset(24)
