@@ -56,6 +56,21 @@ class ProfileViewController : UIViewController {
   private func setUp(){
     setDelegate()
     registerCell()
+    navigationBarView.moveToSettingViewController = {
+      // 이 부분은 하드 코딩 -> TabBar Controller를 Hidden 하는 방법으로 대체 예정
+      let profileSettingViewController = ProfileSettingViewController(item: .profile)
+      
+      profileSettingViewController.modalPresentationStyle = .fullScreen
+      
+      let transition = CATransition()
+      transition.duration = 0.3
+      transition.type = CATransitionType.push
+      transition.subtype = CATransitionSubtype.fromRight
+      transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+      self.view.window!.layer.add(transition, forKey: kCATransition)
+      
+      self.present(profileSettingViewController, animated: false, completion: nil)
+    }
   }
   
   private func configUI(){

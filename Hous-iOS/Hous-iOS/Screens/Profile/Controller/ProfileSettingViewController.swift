@@ -27,6 +27,17 @@ class ProfileSettingViewController : UIViewController {
     return cv
   }()
   
+  private let checkOutButton = UIButton().then {
+    $0.backgroundColor = .white
+    $0.setTitle("퇴사하기", for: .normal)
+    $0.setTitleColor(.salmon, for: .normal)
+    $0.layer.cornerRadius = 10
+    $0.layer.borderColor = UIColor.salmon.cgColor
+    $0.layer.borderWidth = 1.5
+    $0.layer.masksToBounds = true
+    $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 18)
+  }
+  
   private let item: HousTabbarItem
  
   init(item: HousTabbarItem) {
@@ -44,15 +55,22 @@ class ProfileSettingViewController : UIViewController {
     configUI()
     render()
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    self.navigationController?.setNavigationBarHidden(true, animated: false)
-  }
-  
+
   private func setUp(){
     setDelegate()
     registerCell()
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    profileSettingNavigationBarView.popNavigationController = {
+      // 이 부분은 하드 코딩 -> TabBar Controller를 Hidden 하는 방법으로 대체 예정
+      let transition = CATransition()
+      transition.duration = 0.3
+      transition.type = CATransitionType.push
+      transition.subtype = CATransitionSubtype.fromLeft
+      transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+      self.view.window!.layer.add(transition, forKey: kCATransition)
+      
+      self.dismiss(animated: false)
+    }
   }
   
   private func configUI(){
@@ -60,7 +78,7 @@ class ProfileSettingViewController : UIViewController {
   }
   
   private func render(){
-    view.addSubViews([profileNavigationView, profileSettingCollectionView])
+    view.addSubViews([profileSettingNavigationBarView, profileSettingCollectionView, checkOutButton])
 
     profileNavigationView.snp.makeConstraints { make in
       make.height.equalTo(60)
@@ -72,6 +90,12 @@ class ProfileSettingViewController : UIViewController {
       make.top.equalTo(profileNavigationView.snp.bottom)
       make.bottom.equalToSuperview()
       make.trailing.leading.equalToSuperview()
+    }
+    
+    checkOutButton.snp.makeConstraints {make in
+      make.leading.trailing.equalToSuperview().inset(24)
+      make.bottom.equalToSuperview().inset(40)
+      make.height.equalTo(54)
     }
   }
   
