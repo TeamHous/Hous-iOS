@@ -18,7 +18,7 @@
 		9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C07287DD09700A15D82 /* GraphView.swift */; };
 		9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */; };
 		9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */; };
-		9B648B8928804DD4005E9322 /* ProfileNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8828804DD4005E9322 /* ProfileNavigationView.swift */; };
+		9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */; };
 		9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */; };
 		9B648B8D2880542C005E9322 /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */; };
 		9B648B8E28805D28005E9322 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D860A287C487C006C0BCE /* ProfileViewController.swift */; };
@@ -116,7 +116,7 @@
 		9B1F1C07287DD09700A15D82 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBackgroundView.swift; sourceTree = "<group>"; };
 		9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
-		9B648B8828804DD4005E9322 /* ProfileNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationView.swift; sourceTree = "<group>"; };
+		9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingNavigationBarView.swift; sourceTree = "<group>"; };
 		9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBadgeView.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */,
-				9B648B8828804DD4005E9322 /* ProfileNavigationView.swift */,
+				9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */,
 				9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */,
 				9B81422A287D3FE30073E533 /* ProfileGraphView.swift */,
 				9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */,
@@ -751,7 +751,7 @@
 				B5084A302879980B00C38749 /* RulesDataModel.swift in Sources */,
 				B5F858352880278D009474A1 /* EventDateView.swift in Sources */,
 				B5084A27287996EE00C38749 /* RulesTodoView.swift in Sources */,
-				9B648B8928804DD4005E9322 /* ProfileNavigationView.swift in Sources */,
+				9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */,
 				9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */,
 				B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */,
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,

@@ -18,7 +18,9 @@ import Then
 import SwiftUI
 
 
-class ProfileNavigationView: UIView {
+class ProfileSettingNavigationBarView: UIView {
+  
+  var popNavigationController : (() -> Void)?
   
   private var titleLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
@@ -33,10 +35,15 @@ class ProfileNavigationView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
+    setup()
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  private func setup(){
+    navigationBackButton.addTarget(self, action: #selector(tabNavigationBackButton), for: .touchUpInside)
   }
   
   private func render() {
@@ -51,6 +58,12 @@ class ProfileNavigationView: UIView {
       make.centerY.equalToSuperview().multipliedBy(1.5)
       make.leading.equalToSuperview().offset(24)
     }
+  }
+}
+
+extension ProfileSettingNavigationBarView {
+  @objc func tabNavigationBackButton(){
+    popNavigationController!()
   }
 }
 

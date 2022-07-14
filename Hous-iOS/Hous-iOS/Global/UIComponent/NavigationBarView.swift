@@ -16,6 +16,8 @@ enum TabType: String {
 }
 
 class NavigationBarView: UIView {
+  
+  var moveToSettingViewController : (() -> Void)?
 
   private var titleLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
@@ -35,6 +37,7 @@ class NavigationBarView: UIView {
     self.init(frame: .zero)
     render(tabType)
     configure(tabType)
+    setup()
   }
 
   override init(frame: CGRect) {
@@ -43,6 +46,10 @@ class NavigationBarView: UIView {
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  private func setup(){
+    settingProfileButton.addTarget(self, action: #selector(tabSettingProfileButton), for: .touchUpInside)
   }
 
   private func render(_ tabType: TabType) {
@@ -73,5 +80,11 @@ class NavigationBarView: UIView {
 
   private func configure(_ tabType: TabType) {
     titleLabel.text = tabType.rawValue
+  }
+}
+
+extension NavigationBarView {
+  @objc func tabSettingProfileButton(){
+    moveToSettingViewController!()
   }
 }

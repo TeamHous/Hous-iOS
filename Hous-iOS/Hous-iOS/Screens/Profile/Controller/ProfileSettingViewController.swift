@@ -16,7 +16,7 @@ class ProfileSettingViewController : UIViewController {
     static let settingCellSize = CGSize(width: Size.screenWidth, height: 62)
   }
   
-  private let profileNavigationView = ProfileNavigationView()
+  private let profileSettingNavigationBarView = ProfileSettingNavigationBarView()
   
   private let profileSettingCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -80,14 +80,14 @@ class ProfileSettingViewController : UIViewController {
   private func render(){
     view.addSubViews([profileSettingNavigationBarView, profileSettingCollectionView, checkOutButton])
 
-    profileNavigationView.snp.makeConstraints { make in
+    profileSettingNavigationBarView.snp.makeConstraints { make in
       make.height.equalTo(60)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.trailing.equalToSuperview()
     }
 
     profileSettingCollectionView.snp.makeConstraints{ make in
-      make.top.equalTo(profileNavigationView.snp.bottom)
+      make.top.equalTo(profileSettingNavigationBarView.snp.bottom)
       make.bottom.equalToSuperview()
       make.trailing.leading.equalToSuperview()
     }
