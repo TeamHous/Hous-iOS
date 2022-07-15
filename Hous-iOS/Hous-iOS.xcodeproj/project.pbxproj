@@ -255,12 +255,8 @@
 		9B7D8602287C487C006C0BCE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */,
-				9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */,
-				9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */,
-				9B81422A287D3FE30073E533 /* ProfileGraphView.swift */,
-				9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */,
-				9B7D8604287C487C006C0BCE /* CircleView.swift */,
+				9BF7AB1E288160A9005B6E8A /* ProfileSetting */,
+				9BF7AB1D28816087005B6E8A /* ProfileMain */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,11 +264,8 @@
 		9B7D8605287C487C006C0BCE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */,
-				9B7D8607287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift */,
-				9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */,
-				9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */,
-				9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */,
+				9BF7AB1C28816071005B6E8A /* ProfileSetting */,
+				9BF7AB1B28816069005B6E8A /* ProfileMain */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -284,6 +277,45 @@
 				9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9BF7AB1B28816069005B6E8A /* ProfileMain */ = {
+			isa = PBXGroup;
+			children = (
+				9B7D8606287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift */,
+				9B7D8607287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift */,
+				9B7D8608287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift */,
+				9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */,
+			);
+			path = ProfileMain;
+			sourceTree = "<group>";
+		};
+		9BF7AB1C28816071005B6E8A /* ProfileSetting */ = {
+			isa = PBXGroup;
+			children = (
+				9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */,
+			);
+			path = ProfileSetting;
+			sourceTree = "<group>";
+		};
+		9BF7AB1D28816087005B6E8A /* ProfileMain */ = {
+			isa = PBXGroup;
+			children = (
+				9B7D8603287C487C006C0BCE /* ProfileBadgeView.swift */,
+				9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */,
+				9B81422A287D3FE30073E533 /* ProfileGraphView.swift */,
+				9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */,
+				9B7D8604287C487C006C0BCE /* CircleView.swift */,
+			);
+			path = ProfileMain;
+			sourceTree = "<group>";
+		};
+		9BF7AB1E288160A9005B6E8A /* ProfileSetting */ = {
+			isa = PBXGroup;
+			children = (
+				9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */,
+			);
+			path = ProfileSetting;
 			sourceTree = "<group>";
 		};
 		B5084A1C2879953F00C38749 /* Cell */ = {
