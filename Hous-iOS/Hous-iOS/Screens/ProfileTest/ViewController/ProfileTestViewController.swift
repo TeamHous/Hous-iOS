@@ -93,23 +93,48 @@ extension ProfileTestViewController: UICollectionViewDelegate {
 
 extension ProfileTestViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return ProfileTestDataModel.sampleData.count
+    return ProfileTestDataModel.sampleData.first?.data.count ?? 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = testCollectionView.dequeueReusableCell(withReuseIdentifier: TestCollectionViewCell.className, for: indexPath) as? TestCollectionViewCell else { return UICollectionViewCell() }
+    guard let cell = testCollectionView.dequeueReusableCell(withReuseIdentifier: TestCollectionViewCell.className, for: indexPath) as? TestCollectionViewCell,
+          let data = ProfileTestDataModel.sampleData.first?.data
+    else { return UICollectionViewCell() }
     
-    cell.buttonAction = {
-      if indexPath.row + 1 == ProfileTestDataModel.sampleData.count {
+    cell.buttonAction = { sender in
+      if indexPath.row + 1 == data.count {
         return
       }
       
-      collectionView.scrollToItem(at: IndexPath(row: indexPath.row + 1, section: 0), at: .right, animated: true)
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        collectionView.scrollToItem(at: IndexPath(row: indexPath.row + 1, section: 0), at: .right, animated: true)
+        
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = R.Color.whitishGrey
+        config.baseForegroundColor = R.Color.brownGreyTwo
+        sender.configuration = config
+      }
     }
     
-    testCountLabel.text = "\(indexPath.row + 1) / \(ProfileTestDataModel.sampleData.count)"
+    if indexPath.row == 0 {
+      self.backwardButton.alpha = 0
+      self.backwardButton.isEnabled = false
+      
+    } else if indexPath.row + 1 == data.count {
+      self.forwardButton.alpha = 0
+      self.forwardButton.isEnabled = false
+      
+    } else {
+      self.backwardButton.alpha = 1
+      self.backwardButton.isEnabled = true
+      
+      self.forwardButton.alpha = 1
+      self.forwardButton.isEnabled = true
+    }
     
-    cell.setTestData(ProfileTestDataModel.sampleData[indexPath.row])
+    testCountLabel.text = "\(data[indexPath.row].testIdx) / \(data.count)"
+    
+    cell.setTestData(data[indexPath.row])
     return cell
   }
 }

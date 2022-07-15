@@ -10,7 +10,7 @@ import UIKit
 
 class TestCollectionViewCell: UICollectionViewCell {
   
-  var buttonAction: (() -> Void)?
+  var buttonAction: ((UIButton) -> Void)?
   
   private let testTitleLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
@@ -26,6 +26,7 @@ class TestCollectionViewCell: UICollectionViewCell {
   }
   
   private lazy var optionButton1 = UIButton().then {
+//    /
     setOptionButton(sender: $0)
   }
   
@@ -86,23 +87,27 @@ class TestCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func setTestData(_ data: ProfileTestDataModel) {
+  func setTestData(_ data: TestInfoDataModel) {
     testTitleLabel.text = data.testTitle
     // url -> image
 //    testImageView.urlToImage(urlString: data.testImg)
-    optionButton1.setTitle(data.testAnswers[0], for: .normal)
-    optionButton1.titleLabel?.textAlignment = .center
     
-    optionButton2.setTitle(data.testAnswers[1], for: .normal)
-    optionButton2.titleLabel?.textAlignment = .center
-    
-    optionButton3.setTitle(data.testAnswers[2], for: .normal)
-    optionButton3.titleLabel?.textAlignment = .center
+    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
+    for (button, text) in sequence {
+      button.setTitle(text, for: .normal)
+      button.titleLabel?.textAlignment = .center
+    }
   }
 }
 
 extension TestCollectionViewCell {
-  @objc private func buttonPressed(sender: Any) {
-    self.buttonAction?()
+  @objc private func buttonPressed(_ sender: UIButton) {
+    var config = UIButton.Configuration.filled()
+    config.baseBackgroundColor = R.Color.veryLightPinkTwo
+    config.baseForegroundColor = R.Color.salmon
+    
+    sender.configuration = config
+    
+    self.buttonAction?(sender)
   }
 }
