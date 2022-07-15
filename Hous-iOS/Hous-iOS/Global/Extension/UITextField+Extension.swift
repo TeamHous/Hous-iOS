@@ -38,15 +38,20 @@ extension UITextField {
     self.attributedText = attributedStr
   }
   
-  /// Placeholder Color 설정 메서드
-  // -> placeholder text를 먼저 설정한 뒤 textField.setPlaceholderColor(.systemGray)
-  func setPlaceholderColor(_ placeholderColor: UIColor) {
+  /// Placeholder Color, Font 설정 메서드
+  /*
+   -> placeholder text를 먼저 설정한 뒤
+      textField.setPlaceholderStyle(placeholderColor : .white, placeholderFont : font(...))
+   */
+  
+  func setPlaceholderStyle(placeholderColor: UIColor, placeholderFont : UIFont) {
     attributedPlaceholder = NSAttributedString(
       string: placeholder ?? "",
       attributes: [
         .foregroundColor: placeholderColor,
-        .font: font
+        .font: placeholderFont
       ].compactMapValues { $0 }
     )
   }
+  
 }
