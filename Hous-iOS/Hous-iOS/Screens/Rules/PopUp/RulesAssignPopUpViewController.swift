@@ -46,16 +46,9 @@ class TodayTodoAssignPopUpViewController: UIViewController {
     $0.showsHorizontalScrollIndicator = false
   }
 
-  private let saveButton = UIButton().then {
-    var config = UIButton.Configuration.plain()
-    var container = AttributeContainer()
-    container.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
-
-    config.attributedTitle = AttributedString("저장", attributes: container)
-    $0.configuration = config
-    $0.backgroundColor = .softBlue
-    $0.tintColor = .white
-    $0.layer.cornerRadius = 10
+  private let saveButton = FilledCustomButton().then {
+    $0.configUI(font: .font(.spoqaHanSansNeoMedium, ofSize: 16),
+                text: "저장", color: .softBlue, corner: 10)
   }
 
   //MARK: Life Cycle

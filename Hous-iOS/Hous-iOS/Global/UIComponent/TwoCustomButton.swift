@@ -9,11 +9,6 @@ import UIKit
 
 class BorderCustomButton: UIButton {
 
-  convenience init(text: String, font: UIFont, color: UIColor) {
-    self.init(frame: .zero)
-    configUI(text, font, color)
-  }
-
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
@@ -22,7 +17,7 @@ class BorderCustomButton: UIButton {
     fatalError("init(coder:) has not been implemented")
   }
 
-  private func configUI(_ text: String, _ font: UIFont, _ color: UIColor) {
+  func configUI(font: UIFont, text: String, color: UIColor, corner: CGFloat) {
     var container = AttributeContainer()
     container.font = font
 
@@ -34,18 +29,13 @@ class BorderCustomButton: UIButton {
     config.background.strokeWidth = 2.0
 
     self.configuration = config
-    self.layer.cornerRadius = 15
+    self.layer.cornerRadius = corner
     self.layer.masksToBounds = true
   }
 
 }
 
 class FilledCustomButton: UIButton {
-
-  convenience init(text: String, font: UIFont, textColor: UIColor, backgroundColor: UIColor) {
-    self.init(frame: .zero)
-    configUI(text, font, textColor, backgroundColor)
-  }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -55,17 +45,17 @@ class FilledCustomButton: UIButton {
     fatalError("init(coder:) has not been implemented")
   }
 
-  private func configUI(_ text: String, _ font: UIFont, _ textColor: UIColor, _ backgroundColor: UIColor) {
+  func configUI(font: UIFont, text: String, color: UIColor, corner: CGFloat) {
     var container = AttributeContainer()
     container.font = font
 
     var config = UIButton.Configuration.filled()
     config.attributedTitle = AttributedString(text, attributes: container)
-    config.baseBackgroundColor = backgroundColor
-    config.baseForegroundColor = textColor
+    config.baseBackgroundColor = color
+    config.baseForegroundColor = .white
 
     self.configuration = config
-    self.layer.cornerRadius = 15
+    self.layer.cornerRadius = corner
     self.layer.masksToBounds = true
   }
 
