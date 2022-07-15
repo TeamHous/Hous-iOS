@@ -358,6 +358,40 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		B5E95AD72881895D00CD2244 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B5084A2D2879980100C38749 /* EventsDataModel.swift */,
+				B5084A2F2879980B00C38749 /* RulesDataModel.swift */,
+				B5084A312879981500C38749 /* TodoDataModel.swift */,
+				B5084A332879982400C38749 /* ProfileDataModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B5E95AD8288189FA00CD2244 /* ProfileTest */ = {
+			isa = PBXGroup;
+			children = (
+				B5F8583E288069B6009474A1 /* ProfileTestDataModel.swift */,
+			);
+			path = ProfileTest;
+			sourceTree = "<group>";
+		};
+		B5E95AD928818A9600CD2244 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		B5E95ADA28818AA100CD2244 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B5F85836288029E5009474A1 /* ProfileTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,14 +580,12 @@
 		B80510E92876D7750025B767 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B5084A2D2879980100C38749 /* EventsDataModel.swift */,
-				B5084A2F2879980B00C38749 /* RulesDataModel.swift */,
-				B5084A312879981500C38749 /* TodoDataModel.swift */,
-				B5084A332879982400C38749 /* ProfileDataModel.swift */,
+				B5E95ADA28818AA100CD2244 /* Profile */,
+				B5E95AD928818A9600CD2244 /* Rules */,
+				B5E95AD8288189FA00CD2244 /* ProfileTest */,
+				B5E95AD72881895D00CD2244 /* Home */,
 				B80510E52876D6F10025B767 /* NetworkResult.swift */,
-				B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */,
 				B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */,
-				B5F8583E288069B6009474A1 /* ProfileTestDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
