@@ -87,7 +87,7 @@ class TestCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func setTestData(_ data: TestInfoDataModel) {
+  func setTestData(_ data: TestInfoList) {
     testTitleLabel.text = data.testTitle
     // url -> image
 //    testImageView.urlToImage(urlString: data.testImg)

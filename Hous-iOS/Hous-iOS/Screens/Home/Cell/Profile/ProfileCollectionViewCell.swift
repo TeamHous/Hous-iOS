@@ -85,5 +85,4 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     profileImage.image = factory.faceImage
     self.backgroundColor = factory.color.withAlphaComponent(0.5)
   }
-  
 }

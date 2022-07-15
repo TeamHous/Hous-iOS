@@ -93,12 +93,12 @@ extension ProfileTestViewController: UICollectionViewDelegate {
 
 extension ProfileTestViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return ProfileTestDataModel.sampleData.first?.data.count ?? 0
+    return ProfileTestDTO.sampleData.first?.data.count ?? 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = testCollectionView.dequeueReusableCell(withReuseIdentifier: TestCollectionViewCell.className, for: indexPath) as? TestCollectionViewCell,
-          let data = ProfileTestDataModel.sampleData.first?.data
+          let data = ProfileTestDTO.sampleData.first?.data
     else { return UICollectionViewCell() }
     
     cell.buttonAction = { sender in

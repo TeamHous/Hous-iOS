@@ -26,7 +26,7 @@ final class HomeViewController: UIViewController {
   }
   
   //MARK: Properties
-  private var homeData: HomeDataModel?
+  private var homeData: HomeDTO?
   
   var navigationBarView = NavigationBarView(tabType: .home)
   
@@ -56,7 +56,7 @@ final class HomeViewController: UIViewController {
   }
   
   private func getHomeAPI() {
-    homeData = HomeDataModel.sampleData
+    homeData = HomeDTO.sampleData
   }
   
   private func setCollectionView() {

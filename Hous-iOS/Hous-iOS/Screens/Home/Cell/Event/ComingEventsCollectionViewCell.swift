@@ -22,7 +22,7 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
   
   weak var delegate: ComingEventsCollectionViewCellDelegate?
   
-  var homeData: HomeDataModel?
+  var homeData: HomeDTO?
   
   private var incomingEventsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
