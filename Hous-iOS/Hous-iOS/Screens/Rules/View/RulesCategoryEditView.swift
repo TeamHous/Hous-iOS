@@ -15,6 +15,7 @@ final class RulesCategoryEditView: UIView {
 
   enum Size {
     static let selectedCategoryViewSize: CGFloat = 100
+    static let maxCategoryLength = 5
   }
 
   //var originalCategoryData: [CategoryDataModel]? .add면 nil, .update면 data 유
@@ -183,6 +184,8 @@ final class RulesCategoryEditView: UIView {
 extension RulesCategoryEditView {
 
   private func setUp() {
+    categoryTextField.delegate = self
+
     (categoryFirstStackView.subviews +
      categorySecondStackView.subviews).forEach {
       guard let button = $0 as? UIButton else { return }
@@ -199,5 +202,15 @@ extension RulesCategoryEditView {
       button == sender ? (button.isSelected = true) : (button.isSelected = false)
     }
     selectedCategoryImageView.image = sender.imageView?.image
+  }
+}
+
+extension RulesCategoryEditView: UITextFieldDelegate {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    guard let text = textField.text else { return false }
+    if text.count + 1 > Size.maxCategoryLength && range.length == 0 {
+      return false
+    }
+    return true
   }
 }
