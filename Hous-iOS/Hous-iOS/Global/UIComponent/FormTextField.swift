@@ -11,7 +11,16 @@ import UIKit
 
 class FormTextField: UITextField {
   var insetX: CGFloat = 20
-  var insetY: CGFloat = 18
+  var insetY: CGFloat = 0
+  
+  init(insetY : CGFloat){
+    super.init(frame: CGRect())
+    self.insetY = insetY
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func textRect(forBounds bounds: CGRect) -> CGRect {
     return bounds.insetBy(dx: insetX, dy: insetY)
