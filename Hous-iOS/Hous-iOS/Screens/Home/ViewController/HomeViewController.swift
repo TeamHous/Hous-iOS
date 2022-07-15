@@ -28,9 +28,6 @@ final class HomeViewController: UIViewController {
   //MARK: Properties
   private var homeData: HomeDataModel?
   
-  private var rules: [RulesDataModel]?
-  private var todos: [TodoDataModel]?
-  
   var navigationBarView = NavigationBarView(tabType: .home)
   
   //MARK: UI Compononents
