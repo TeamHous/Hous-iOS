@@ -12,7 +12,7 @@ class ProfileSettingViewController : UIViewController {
   
   let cellLabels = ["알림", "시스템 설정", "피드백 보내기"]
   
-  private enum Size{
+  private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let settingCellSize = CGSize(width: Size.screenWidth, height: 62)
   }
@@ -39,46 +39,39 @@ class ProfileSettingViewController : UIViewController {
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 18)
   }
   
-  private let item: HousTabbarItem
- 
-  init(item: HousTabbarItem) {
-    self.item = item
-    super.init(nibName: nil, bundle: nil)
-  }
-
-  required init?(coder: NSCoder) {
-    fatalError("")
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUp()
+    setup()
     configUI()
     render()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    setNavigationController()
+  }
+  
+  private func setNavigationController() {
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = false
+    }
+  }
 
-  private func setUp(){
+  private func setup() {
     setDelegate()
     registerCell()
-    self.navigationController?.setNavigationBarHidden(true, animated: false)
-    profileSettingNavigationBarView.popNavigationController = {
-      // 이 부분은 하드 코딩 -> TabBar Controller를 Hidden 하는 방법으로 대체 예정
-      let transition = CATransition()
-      transition.duration = 0.3
-      transition.type = CATransitionType.push
-      transition.subtype = CATransitionSubtype.fromLeft
-      transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-      self.view.window!.layer.add(transition, forKey: kCATransition)
-      
-      self.dismiss(animated: false)
+    profileSettingNavigationBarView.popNavigationController = { [self] in
+      navigationController?.popViewController(animated: true)
     }
   }
   
-  private func configUI(){
+  private func configUI() {
     profileSettingCollectionView.backgroundColor = .white
+    view.backgroundColor = .white
   }
   
-  private func render(){
+  private func render() {
     view.addSubViews([profileSettingNavigationBarView, profileSettingCollectionView, checkOutButton])
 
     profileSettingNavigationBarView.snp.makeConstraints { make in
@@ -100,17 +93,17 @@ class ProfileSettingViewController : UIViewController {
     }
   }
   
-  private func setDelegate(){
+  private func setDelegate() {
     self.profileSettingCollectionView.delegate = self
     self.profileSettingCollectionView.dataSource = self
   }
   
-  private func registerCell(){
+  private func registerCell() {
     profileSettingCollectionView.register(cell: ProfileSettingCollectionViewCell.self)
   }
 }
 
-extension ProfileSettingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension ProfileSettingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 3
   }

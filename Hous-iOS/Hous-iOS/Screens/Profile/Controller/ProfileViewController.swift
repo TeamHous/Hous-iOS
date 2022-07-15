@@ -43,41 +43,38 @@ class ProfileViewController : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUp()
+    setup()
     configUI()
     render()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    setNavigationController()
   }
   
-  private func setUp(){
-    setDelegate()
-    registerCell()
-    navigationBarView.moveToSettingViewController = {
-      // 이 부분은 하드 코딩 -> TabBar Controller를 Hidden 하는 방법으로 대체 예정
-      let profileSettingViewController = ProfileSettingViewController(item: .profile)
-      
-      profileSettingViewController.modalPresentationStyle = .fullScreen
-      
-      let transition = CATransition()
-      transition.duration = 0.3
-      transition.type = CATransitionType.push
-      transition.subtype = CATransitionSubtype.fromRight
-      transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-      self.view.window!.layer.add(transition, forKey: kCATransition)
-      
-      self.present(profileSettingViewController, animated: false, completion: nil)
+  private func setNavigationController() {
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = false
     }
   }
   
-  private func configUI(){
-    profileMainCollectionView.backgroundColor = .white
+  private func setup(){
+    setDelegate()
+    registerCell()
+    navigationBarView.moveToSettingViewController = {  [self] in
+      let profileSettingViewController = ProfileSettingViewController()
+      navigationController?.pushViewController(profileSettingViewController, animated: true)
+    }
   }
   
-  private func render(){
+  private func configUI() {
+    profileMainCollectionView.backgroundColor = .white
+    view.backgroundColor = .white
+  }
+  
+  private func render() {
     view.addSubViews([navigationBarView, profileMainCollectionView])
 
     navigationBarView.snp.makeConstraints { make in
@@ -94,12 +91,12 @@ class ProfileViewController : UIViewController {
   
   }
   
-  private func setDelegate(){
+  private func setDelegate() {
     self.profileMainCollectionView.delegate = self
     self.profileMainCollectionView.dataSource = self
   }
   
-  private func registerCell(){
+  private func registerCell() {
     profileMainCollectionView.register(cell: ProfileInfoCollectionViewCell.self)
     profileMainCollectionView.register(cell: ProfileGraphCollectionViewCell.self)
     profileMainCollectionView.register(cell: ProfileBadgeCollectionViewCell.self)
@@ -107,7 +104,7 @@ class ProfileViewController : UIViewController {
   }
 }
 
-extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 3
   }

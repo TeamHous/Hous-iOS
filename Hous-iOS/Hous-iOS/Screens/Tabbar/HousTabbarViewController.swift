@@ -12,7 +12,7 @@ import SnapKit
 
 class HousTabbarViewController: UITabBarController {
 
-  private let housTabbar: HousTabbar = {
+  public let housTabbar: HousTabbar = {
     let tabbar = HousTabbar()
     return tabbar
   }()
