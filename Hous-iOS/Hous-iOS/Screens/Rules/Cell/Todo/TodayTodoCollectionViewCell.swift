@@ -128,7 +128,7 @@ extension TodayTodoCollectionViewCell {
         touch.view == self.oneAssignedView {
       delegate?.leftAssigneeViewTouched()
     } else {
-      print("나머지 부분 터치했지롱")
+      // 나머지 부분 터치 시 기능 구현 예정
     }
   }
 }

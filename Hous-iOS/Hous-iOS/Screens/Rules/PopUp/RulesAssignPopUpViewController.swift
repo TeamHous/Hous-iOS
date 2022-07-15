@@ -109,7 +109,6 @@ class TodayTodoAssignPopUpViewController: UIViewController {
 //MARK: Objective-C methods
 extension TodayTodoAssignPopUpViewController {
   @objc private func cancelButtonDidTapped() {
-    print("캔슬버튼")
     self.dismiss(animated: true)
   }
 }
