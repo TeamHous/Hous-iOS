@@ -29,14 +29,11 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   
   var codeLabel = UILabel().then {
     $0.isHidden = true
-    $0.text = "룸메이트 초대코드 복사하기"
+    $0.text = "룸메이트 초대\n코드 복사하기"
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
     $0.textColor = .veryLightPinkFive
-    $0.lineBreakMode = .byWordWrapping
-    $0.lineBreakStrategy = .hangulWordPriority
     $0.textAlignment = .center
-    $0.numberOfLines = 0
-    $0.minimumScaleFactor = 0.5
+    $0.numberOfLines = 2
   }
   
   override init(frame: CGRect) {
@@ -51,10 +48,6 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     contentView.addSubViews([profileImage, profileNameLabel, codeImage, codeLabel])
-    
-    codeLabel.snp.makeConstraints {
-      $0.width.equalTo(self.bounds.width / 2)
-    }
     
     profileImage.snp.makeConstraints { make in
       make.top.equalToSuperview().offset(15)
@@ -78,19 +71,19 @@ class ProfileCollectionViewCell: UICollectionViewCell {
       make.centerX.equalTo(codeImage)
       make.bottom.equalToSuperview().inset(8)
     }
-    
   }
   
   private func configUI() {
     self.backgroundColor = R.Color.offWhite
     layer.cornerRadius = 10
-    self.contentView.clipsToBounds = true
   }
   
   func setProfileData(_ data: HomieProfileList) {
+    profileNameLabel.text = data.userName
+    
     let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: data.userName.lowercased()) ?? .none)
     profileImage.image = factory.faceImage
-    profileNameLabel.text = data.userName
+    self.backgroundColor = factory.color.withAlphaComponent(0.5)
   }
   
 }
