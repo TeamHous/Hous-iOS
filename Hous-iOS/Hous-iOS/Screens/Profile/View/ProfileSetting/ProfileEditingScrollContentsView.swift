@@ -39,6 +39,7 @@ class ProfileEditingScrollContentsView : UIView {
     $0.layer.cornerRadius = 10
     $0.layer.masksToBounds = true
     $0.textContainerInset = UIEdgeInsets(top: 18, left: 20, bottom: 18, right: 20)
+    $0.contentInset = UIEdgeInsets(top: 18, left: -5, bottom: 18, right: 0)
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.text = "나이 등 간단한 자기소개"
     $0.textColor = .veryLightPinkFour
