@@ -17,6 +17,14 @@ struct TestInfoDataModel {
   let testIdx: Int
   let testImg: String
   let testAnswers: [String]
+  
+  enum CodingKeys: String, CodingKey {
+    case id = "_id"
+    case testTitle
+    case testIdx
+    case testImg
+    case testAnswers
+  }
 }
 
 extension ProfileTestDataModel {
