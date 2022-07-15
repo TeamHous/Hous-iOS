@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - DataClass
+// MARK: - HomeDTO
 struct HomeDTO: Decodable {
   let eventList: [EventList]
   let keyRulesList: [String]
