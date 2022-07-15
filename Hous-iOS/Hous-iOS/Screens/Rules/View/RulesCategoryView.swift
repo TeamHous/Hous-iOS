@@ -28,7 +28,7 @@ final class RulesCategoryEditView: UIView {
   var selectedCategoryView = UIView().then {
     $0.backgroundColor = .lightPeriwinkle
     $0.makeRounded(cornerRadius: Size.selectedCategoryViewSize/2)
-    //$0.largeContentImage
+    $0.largeContentImage = R.Image.clean
   }
   private var guideLabel = UILabel().then {
     $0.textColor = R.Color.softBlue

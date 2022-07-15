@@ -13,47 +13,47 @@ enum CategoryIconImage: String {
 
 protocol CategoryIconProtocol {
   var unCheckedImage: UIImage { get set }
-  //var checkedImage: UIImage { get set }
+  var checkedImage: UIImage { get set }
 }
 
 struct CategoryLightIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.light
-  //var checkedImage = R.Image.partyYellowSmall
+  var checkedImage = R.Image.lightChecked
 }
 
 struct CategoryCakeIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.cake
-  //var checkedImage = R.Image.cakeYellowSmall
+  var checkedImage = R.Image.cakeChecked
 }
 
 struct CategoryBeerIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.beer
-  //var checkedImage = R.Image.beerYellowSmall
+  var checkedImage = R.Image.beerChecked
 }
 
 struct CategoryCoffeeIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.coffee
-  //var checkedImage = R.Image.coffeeYellowSmall
+  var checkedImage = R.Image.coffeeChecked
 }
 
 struct CategoryCleanIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.clean
-  //var checkedImage = R.Image.coffeeYellowSmall
+  var checkedImage = R.Image.cleanChecked
 }
 
 struct CategoryTrashIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.trash
-  //var checkedImage = R.Image.coffeeYellowSmall
+  var checkedImage = R.Image.trashChecked
 }
 
 struct CategoryHeartIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.heart
-  //var checkedImage = R.Image.coffeeYellowSmall
+  var checkedImage = R.Image.heartChecked
 }
 
 struct CategoryLaundryIcon: CategoryIconProtocol {
   var unCheckedImage = R.Image.laundry
-  //var checkedImage = R.Image.coffeeYellowSmall
+  var checkedImage = R.Image.laundryChecked
 }
 
 struct CategoryIconFactory {

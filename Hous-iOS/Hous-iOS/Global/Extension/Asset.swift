@@ -166,6 +166,15 @@ extension R.Image {
   static var laundry: UIImage { .load(named: "laundry") }
   static var light: UIImage { .load(named: "light") }
   static var trash: UIImage { .load(named: "trash") }
+
+  static var beerChecked: UIImage { .load(named: "beer") }
+  static var cakeChecked: UIImage { .load(named: "cake") }
+  static var cleanChecked: UIImage { .load(named: "clean") }
+  static var coffeeChecked: UIImage { .load(named: "coffee") }
+  static var heartChecked: UIImage { .load(named: "heart") }
+  static var laundryChecked: UIImage { .load(named: "laundry") }
+  static var lightChecked: UIImage { .load(named: "light") }
+  static var trashChecked: UIImage { .load(named: "trash") }
   
   // Face
   static var faceBlue: UIImage { .load(named: "faceBlue") }
