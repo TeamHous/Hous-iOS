@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let window = UIWindow(windowScene: windowScene)
     window.backgroundColor = .white
 
-    window.rootViewController = Inject.ViewControllerHost(HousTabbarViewController())
+    window.rootViewController = Inject.ViewControllerHost(ProfileEditingViewController())
     window.makeKeyAndVisible()
     self.window = window
   }

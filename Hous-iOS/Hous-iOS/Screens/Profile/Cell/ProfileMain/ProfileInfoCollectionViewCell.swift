@@ -72,7 +72,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewCell {
   }
   
   private func render(){
-    self.addSubViews([profileImage, userName, userJob, profileGuideStackView])
+    self.addSubViews([profileImage, userJob, profileGuideStackView])
     [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
     
     profileImage.snp.makeConstraints { make in

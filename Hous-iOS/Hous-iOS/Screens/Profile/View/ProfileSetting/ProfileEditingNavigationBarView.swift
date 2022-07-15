@@ -1,24 +1,24 @@
 //
-//  ProfileSettingView.swift
+//  ProfileEdittingNavigationBarView.swift
 //  Hous-iOS
 //
-//  Created by 이의진 on 2022/07/14.
+//  Created by 이의진 on 2022/07/15.
 //
 
 import UIKit
 
-class ProfileSettingNavigationBarView: UIView {
+class ProfileEditingNavigationBarView: UIView {
   
   var popNavigationController : (() -> Void)?
   
   private var titleLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
-    $0.font = .font(.montserratSemiBold, ofSize: 26)
-    $0.text = "Settings"
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+    $0.text = "프로필 수정"
   }
   
   private let navigationBackButton = UIButton().then {
-    $0.setImage(R.Image.naviBackButton, for: .normal)
+    $0.setImage(R.Image.popupCloseRules, for: .normal)
   }
 
   override init(frame: CGRect) {
@@ -50,7 +50,7 @@ class ProfileSettingNavigationBarView: UIView {
   }
 }
 
-extension ProfileSettingNavigationBarView {
+extension ProfileEditingNavigationBarView {
   @objc func tabNavigationBackButton(){
     popNavigationController!()
   }
