@@ -60,6 +60,7 @@
 		B5A7D19A28809B180037F210 /* QuitTestPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */; };
 		B5BD75D128801F4C00B98D35 /* IconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD75D028801F4C00B98D35 /* IconFactory.swift */; };
 		B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
+		B5E95ADC2881917B00CD2244 /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E95ADB2881917B00CD2244 /* HomeDataModel.swift */; };
 		B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
 		B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */; };
 		B5F858352880278D009474A1 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A44287D6C1000C38749 /* EventDateView.swift */; };
@@ -165,6 +166,7 @@
 		B59C947A2877098D005865CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTestPopUpViewController.swift; sourceTree = "<group>"; };
 		B5BD75D028801F4C00B98D35 /* IconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFactory.swift; sourceTree = "<group>"; };
+		B5E95ADB2881917B00CD2244 /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		B5F8583728802B4A009474A1 /* ProfileTestInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestInfoViewController.swift; sourceTree = "<group>"; };
 		B5F858392880531A009474A1 /* ProfileTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestViewController.swift; sourceTree = "<group>"; };
 		B5F8583C28805EEF009474A1 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				B5084A2F2879980B00C38749 /* RulesDataModel.swift */,
 				B5084A312879981500C38749 /* TodoDataModel.swift */,
 				B5084A332879982400C38749 /* ProfileDataModel.swift */,
+				B5E95ADB2881917B00CD2244 /* HomeDataModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				B5084A3628799AEB00C38749 /* UIColor+Extension.swift in Sources */,
 				B5084A232879962100C38749 /* ComingEventsCollectionViewCell.swift in Sources */,
 				B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */,
+				B5E95ADC2881917B00CD2244 /* HomeDataModel.swift in Sources */,
 				9B7D8612287C494C006C0BCE /* BasePaddingLabel.swift in Sources */,
 				B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */,
 				B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */,
