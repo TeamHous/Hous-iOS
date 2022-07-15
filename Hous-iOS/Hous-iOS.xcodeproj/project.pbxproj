@@ -57,6 +57,7 @@
 		B5BD75D128801F4C00B98D35 /* IconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD75D028801F4C00B98D35 /* IconFactory.swift */; };
 		B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
 		B5E95ADC2881917B00CD2244 /* HomeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E95ADB2881917B00CD2244 /* HomeDTO.swift */; };
+		B5E95ADE2881B63000CD2244 /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E95ADD2881B63000CD2244 /* EventDTO.swift */; };
 		B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
 		B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */; };
 		B5F858352880278D009474A1 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A44287D6C1000C38749 /* EventDateView.swift */; };
@@ -160,6 +161,7 @@
 		B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTestPopUpViewController.swift; sourceTree = "<group>"; };
 		B5BD75D028801F4C00B98D35 /* IconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFactory.swift; sourceTree = "<group>"; };
 		B5E95ADB2881917B00CD2244 /* HomeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTO.swift; sourceTree = "<group>"; };
+		B5E95ADD2881B63000CD2244 /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
 		B5F8583728802B4A009474A1 /* ProfileTestInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestInfoViewController.swift; sourceTree = "<group>"; };
 		B5F858392880531A009474A1 /* ProfileTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestViewController.swift; sourceTree = "<group>"; };
 		B5F8583C28805EEF009474A1 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				B5E95ADB2881917B00CD2244 /* HomeDTO.swift */,
+				B5E95ADD2881B63000CD2244 /* EventDTO.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
 				9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */,
 				B8434437287D920900CD1BF5 /* RulesCategoryView.swift in Sources */,
+				B5E95ADE2881B63000CD2244 /* EventDTO.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
 				B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */,
 				B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */,
