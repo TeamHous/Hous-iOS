@@ -13,7 +13,6 @@ import RxSwift
 
 import SnapKit
 
-
 final class HousTabbar: UIStackView {
 
   var itemTapped: Observable<Int> { itemTappedSubject.asObservable() }

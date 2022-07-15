@@ -15,6 +15,7 @@ final class RulesCategoryEditView: UIView {
 
   enum Size {
     static let selectedCategoryViewSize: CGFloat = 100
+    static let bottomButtonHeight: CGFloat = 48
     static let maxCategoryLength = 5
   }
 
@@ -92,6 +93,23 @@ final class RulesCategoryEditView: UIView {
     $0.setImage(R.Image.coffeeChecked, for: .selected)
   }
 
+  var buttonStackView = UIStackView().then {
+    $0.axis = .horizontal
+    $0.distribution = .fillEqually
+    $0.spacing = 15
+    $0.alignment = .fill
+  }
+  var cancelButton = BorderCustomButton().then {
+    $0.configUI(font: .font(.spoqaHanSansNeoBold, ofSize: 18),
+                text: "작성 취소",
+                borderColor: R.Color.softBlue, backColor: R.Color.paleGrey,
+                corner: 15)
+  }
+  var addCategoryButton = FilledCustomButton().then {
+    $0.configUI(font: .font(.spoqaHanSansNeoBold, ofSize: 18),
+                text: "추가하기", color: R.Color.softBlue, corner: 15)
+  }
+
   //MARK: - 생명주기
 
   convenience init(editType: CategoryEditType) {
@@ -112,11 +130,12 @@ final class RulesCategoryEditView: UIView {
   //MARK: - Setting
 
   private func render() {
-    self.addSubViews([categoryTitleLabel, categorySettingView, categoryStackView])
+    self.addSubViews([categoryTitleLabel, categorySettingView, categoryStackView, buttonStackView])
     categorySettingView.addSubViews([selectedCategoryImageView, guideLabel, categoryTextField, duplicatedGuideLabel])
     categoryStackView.addArrangedSubviews(categoryFirstStackView, categorySecondStackView)
     categoryFirstStackView.addArrangedSubviews(cleanCategoryButton, trashCategoryButton, lightCategoryButton, heartCategoryButton)
     categorySecondStackView.addArrangedSubviews(beerCategoryButton, cakeCategoryButton, laundryCategoryButton, coffeeCategoryButton)
+    buttonStackView.addArrangedSubviews(cancelButton, addCategoryButton)
 
     categoryTitleLabel.snp.makeConstraints { make in
       make.top.equalToSuperview().offset(32)
@@ -158,6 +177,12 @@ final class RulesCategoryEditView: UIView {
       button.snp.makeConstraints { make in
         make.height.equalTo(button.snp.width as ConstraintRelatableTarget)
       }
+    }
+
+    buttonStackView.snp.makeConstraints { make in
+      make.leading.trailing.equalToSuperview().inset(24)
+      make.bottom.equalToSuperview().inset(38)
+      make.height.equalTo(Size.bottomButtonHeight)
     }
   }
 

@@ -13,6 +13,9 @@ import RxCocoa
 
 final class RulesViewController: UIViewController {
 
+//  override var hidesBottomBarWhenPushed: Bool { get { true } set { } }?÷
+
+
   var categories: Categories?
 
   let disposeBag = DisposeBag()
@@ -31,6 +34,13 @@ final class RulesViewController: UIViewController {
     binding()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    
+  }
+
+  
   private func configUI() {
     self.navigationController?.navigationBar.isHidden = true
   }
@@ -109,11 +119,21 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     if indexPath.row != categories?.count {
       self.mainView.rulesType = .category
+      isNavigatinHidden(isHidden: false)
     } else {
       self.mainView.rulesType = .editCategory
       cell.categoryTitleLabel.isHidden = true
+      isNavigatinHidden(isHidden: true)
     }
 
     self.mainView.todayTodoButton.isSelected = false
+  }
+}
+
+extension RulesViewController {
+  private func isNavigatinHidden(isHidden: Bool) {
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = isHidden
+    }
   }
 }

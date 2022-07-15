@@ -17,18 +17,14 @@ class BorderCustomButton: UIButton {
     fatalError("init(coder:) has not been implemented")
   }
 
-  func configUI(font: UIFont, text: String, color: UIColor, corner: CGFloat) {
-    var container = AttributeContainer()
-    container.font = font
+  func configUI(font: UIFont, text: String, borderColor: UIColor, backColor: UIColor, corner: CGFloat) {
 
-    var config = UIButton.Configuration.filled()
-    config.attributedTitle = AttributedString(text, attributes: container)
-    config.baseBackgroundColor = .white
-    config.baseForegroundColor = color
-    config.background.strokeColor = color
-    config.background.strokeWidth = 2.0
-
-    self.configuration = config
+    self.titleLabel?.font = font
+    self.setTitleColor(borderColor, for: .normal)
+    self.setTitle(text, for: .normal)
+    self.layer.borderColor = borderColor.cgColor
+    self.layer.backgroundColor = backColor.cgColor
+    self.layer.borderWidth = 2.0
     self.layer.cornerRadius = corner
     self.layer.masksToBounds = true
   }
@@ -46,15 +42,11 @@ class FilledCustomButton: UIButton {
   }
 
   func configUI(font: UIFont, text: String, color: UIColor, corner: CGFloat) {
-    var container = AttributeContainer()
-    container.font = font
 
-    var config = UIButton.Configuration.filled()
-    config.attributedTitle = AttributedString(text, attributes: container)
-    config.baseBackgroundColor = color
-    config.baseForegroundColor = .white
-
-    self.configuration = config
+    self.titleLabel?.font = font
+    self.setTitleColor(.white, for: .normal)
+    self.setTitle(text, for: .normal)
+    self.layer.backgroundColor = color.cgColor
     self.layer.cornerRadius = corner
     self.layer.masksToBounds = true
   }

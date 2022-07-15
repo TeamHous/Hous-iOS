@@ -86,7 +86,7 @@ class RulesHomeView: UIView {
     rulesDisplayView.snp.makeConstraints { make in
       make.top.equalTo(horizontalButtonView.snp.bottom)
       make.leading.trailing.equalToSuperview()
-      make.bottom.equalTo(safeAreaLayoutGuide)
+      make.bottom.equalToSuperview()
     }
   }
 }
