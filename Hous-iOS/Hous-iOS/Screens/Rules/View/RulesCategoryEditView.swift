@@ -25,10 +25,8 @@ final class RulesCategoryEditView: UIView {
   }
 
   private var categorySettingView = UIView()
-  var selectedCategoryView = UIView().then {
-    $0.backgroundColor = .lightPeriwinkle
-    $0.makeRounded(cornerRadius: Size.selectedCategoryViewSize/2)
-    $0.largeContentImage = R.Image.clean
+  var selectedCategoryImageView = UIImageView().then {
+    $0.image = R.Image.clean
   }
   private var guideLabel = UILabel().then {
     $0.textColor = R.Color.softBlue
@@ -39,6 +37,7 @@ final class RulesCategoryEditView: UIView {
     $0.textColor = R.Color.salmon
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
     $0.text = "*중복된 이름입니다."
+    $0.isHidden = true
   }
   var categoryTextField = UITextField().then {
     $0.textColor = R.Color.housBlack
@@ -57,15 +56,40 @@ final class RulesCategoryEditView: UIView {
   private var categoryFirstStackView = UIStackView()
   private var categorySecondStackView = UIStackView()
 
-  // 코드 간결히 짜는 방법이 없을까
-  var cleanCategoryButton = UIButton().then { $0.setImage(R.Image.clean, for: .normal)}
-  var trashCategoryButton = UIButton().then { $0.setImage(R.Image.trash, for: .normal)}
-  var lightCategoryButton = UIButton().then { $0.setImage(R.Image.light, for: .normal)}
-  var heartCategoryButton = UIButton().then { $0.setImage(R.Image.heart, for: .normal)}
-  var beerCategoryButton = UIButton().then { $0.setImage(R.Image.beer, for: .normal)}
-  var cakeCategoryButton = UIButton().then { $0.setImage(R.Image.cake, for: .normal)}
-  var laundryCategoryButton = UIButton().then { $0.setImage(R.Image.laundry, for: .normal)}
-  var coffeeCategoryButton = UIButton().then { $0.setImage(R.Image.coffee, for: .normal)}
+  var cleanCategoryButton = UIButton().then {
+    $0.isSelected = true
+    $0.setImage(R.Image.clean, for: .normal)
+    $0.setImage(R.Image.cleanChecked, for: .selected)
+  }
+  var trashCategoryButton = UIButton().then {
+    $0.setImage(R.Image.trash, for: .normal)
+    $0.setImage(R.Image.trashChecked, for: .selected)
+  }
+  var lightCategoryButton = UIButton().then {
+    $0.setImage(R.Image.light, for: .normal)
+    $0.setImage(R.Image.lightChecked, for: .selected)
+  }
+  var heartCategoryButton = UIButton().then {
+    $0.setImage(R.Image.heart, for: .normal)
+    $0.setImage(R.Image.heartChecked, for: .selected)
+  }
+  var beerCategoryButton = UIButton().then {
+    $0.setImage(R.Image.beer, for: .normal)
+    $0.setImage(R.Image.beerChecked, for: .selected)
+  }
+  var cakeCategoryButton = UIButton().then {
+    $0.setImage(R.Image.cake, for: .normal)
+    $0.setImage(R.Image.cakeChecked, for: .selected)
+  }
+  var laundryCategoryButton = UIButton().then {
+    $0.setImage(R.Image.laundry, for: .normal)
+    $0.setImage(R.Image.laundryChecked, for: .selected)
+  }
+  var coffeeCategoryButton = UIButton().then {
+
+    $0.setImage(R.Image.coffee, for: .normal)
+    $0.setImage(R.Image.coffeeChecked, for: .selected)
+  }
 
   //MARK: - 생명주기
 
@@ -73,6 +97,7 @@ final class RulesCategoryEditView: UIView {
     self.init(frame: .zero)
     render()
     configUI(editType)
+    setUp()
   }
 
   override init(frame: CGRect) {
@@ -87,7 +112,7 @@ final class RulesCategoryEditView: UIView {
 
   private func render() {
     self.addSubViews([categoryTitleLabel, categorySettingView, categoryStackView])
-    categorySettingView.addSubViews([selectedCategoryView, guideLabel, categoryTextField, duplicatedGuideLabel])
+    categorySettingView.addSubViews([selectedCategoryImageView, guideLabel, categoryTextField, duplicatedGuideLabel])
     categoryStackView.addArrangedSubviews(categoryFirstStackView, categorySecondStackView)
     categoryFirstStackView.addArrangedSubviews(cleanCategoryButton, trashCategoryButton, lightCategoryButton, heartCategoryButton)
     categorySecondStackView.addArrangedSubviews(beerCategoryButton, cakeCategoryButton, laundryCategoryButton, coffeeCategoryButton)
@@ -102,13 +127,13 @@ final class RulesCategoryEditView: UIView {
       make.leading.trailing.equalToSuperview().inset(24)
       make.height.equalTo(100)
     }
-    selectedCategoryView.snp.makeConstraints { make in
+    selectedCategoryImageView.snp.makeConstraints { make in
       make.top.leading.bottom.equalToSuperview()
       make.size.equalTo(100)
     }
     guideLabel.snp.makeConstraints { make in
       make.top.equalToSuperview().offset(10)
-      make.leading.equalTo(selectedCategoryView.snp.trailing).offset(21)
+      make.leading.equalTo(selectedCategoryImageView.snp.trailing).offset(21)
     }
     categoryTextField.snp.makeConstraints { make in
       make.top.equalTo(guideLabel.snp.bottom).offset(8)
@@ -152,5 +177,27 @@ final class RulesCategoryEditView: UIView {
     case .update:
       categoryTitleLabel.text = "카테고리 수정"
     }
+  }
+}
+// MARK: - 라디오 버튼 기능
+extension RulesCategoryEditView {
+
+  private func setUp() {
+    (categoryFirstStackView.subviews +
+     categorySecondStackView.subviews).forEach {
+      guard let button = $0 as? UIButton else { return }
+      button.addTarget(self, action:  #selector(didTapCategory(_:)), for: .touchUpInside)
+    }
+  }
+
+  @objc private func didTapCategory(_ sender: UIButton) {
+
+    (categoryFirstStackView.subviews +
+     categorySecondStackView.subviews).forEach {
+
+      guard let button = $0 as? UIButton else { return }
+      button == sender ? (button.isSelected = true) : (button.isSelected = false)
+    }
+    selectedCategoryImageView.image = sender.imageView?.image
   }
 }

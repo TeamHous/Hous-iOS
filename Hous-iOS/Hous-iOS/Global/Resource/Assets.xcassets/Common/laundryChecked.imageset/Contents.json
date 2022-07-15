@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_laundry.png",
+      "filename" : "ic_laundry_check.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_laundry@2x.png",
+      "filename" : "ic_laundry_check@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_laundry@3x.png",
+      "filename" : "ic_laundry_check@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

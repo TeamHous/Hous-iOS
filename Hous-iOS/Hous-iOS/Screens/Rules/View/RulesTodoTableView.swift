@@ -18,7 +18,7 @@ final class RulesTodoTableView: UIView {
     static let itemWidth = screenWidth * 0.9
     static let todoCollectionItemSize = CGSize(width: itemWidth, height: 80)
     static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
-    static let todoCollectionItemSpacing = CGFloat(8)
+    static let todoCollectionItemSpacing = CGFloat(6)
   }
   
   var todoType: TodoType = .todayTodo

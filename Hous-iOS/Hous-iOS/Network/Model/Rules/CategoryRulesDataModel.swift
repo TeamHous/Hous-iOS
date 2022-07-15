@@ -21,7 +21,7 @@ struct Category: Codable {
 extension Category {
   static let sampleData: Categories = [
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "다섯글자임", categoryIcon: "CLEAN"),
-    Category(id: "62cc752dd7868591384e4ed4", categoryName: "파티", categoryIcon: "PARTY"),
+    Category(id: "62cc752dd7868591384e4ed4", categoryName: "하뚜하뚜", categoryIcon: "HEART"),
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "커피", categoryIcon: "COFFEE"),
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "팬케이크", categoryIcon: "CAKE"),
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "불끄세요", categoryIcon: "LIGHT"),

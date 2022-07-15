@@ -107,7 +107,12 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     cell.isSelected = true
 
-    indexPath.row != categories?.count ? (self.mainView.rulesType = .category) : (self.mainView.rulesType = .editCategory)
+    if indexPath.row != categories?.count {
+      self.mainView.rulesType = .category
+    } else {
+      self.mainView.rulesType = .editCategory
+      cell.categoryTitleLabel.isHidden = true
+    }
 
     self.mainView.todayTodoButton.isSelected = false
   }
