@@ -48,8 +48,8 @@ struct GreenAssignee: AssigneeProtocol {
 }
 
 struct NoAssignee: AssigneeProtocol {
-  var checkedFaceImage = R.Image.assignAdd
-  var faceImage = R.Image.assignAdd
+  var checkedFaceImage = R.Image.faceEmpty
+  var faceImage = R.Image.faceEmpty
   var color = R.Color.veryLightPinkFour
 }
 

@@ -22,6 +22,8 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
   
   weak var delegate: ComingEventsCollectionViewCellDelegate?
   
+  var homeData: HomeDataModel?
+  
   private var incomingEventsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
@@ -88,11 +90,14 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
 extension ComingEventsCollectionViewCell: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return EventDataModel.sampleData.count + 1
+    guard let data = homeData else { return 0 }
+    return data.eventList.count + 1
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = incomingEventsCollectionView.dequeueReusableCell(withReuseIdentifier: EventsCollectionViewCell.className, for: indexPath) as? EventsCollectionViewCell else { return UICollectionViewCell() }
+    guard let cell = incomingEventsCollectionView.dequeueReusableCell(withReuseIdentifier: EventsCollectionViewCell.className, for: indexPath) as? EventsCollectionViewCell,
+          let data = homeData
+    else { return UICollectionViewCell() }
     
     if indexPath.row == 0 {
       setAddEventButton(cell: cell)
@@ -102,8 +107,7 @@ extension ComingEventsCollectionViewCell: UICollectionViewDataSource {
       setEventButton(cell: cell)
     }
     
-    cell.setEventCellData(EventDataModel.sampleData[indexPath.row - 1])
-    cell.setEventImageData(EventDataModel.sampleData[indexPath.row - 1])
+    cell.setEventCellData(data.eventList[indexPath.row - 1])
     
     return cell
   }

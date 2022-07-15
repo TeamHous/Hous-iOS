@@ -58,7 +58,7 @@ class NavigationBarView: UIView {
 
     titleLabel.snp.makeConstraints { make in
       make.centerY.equalToSuperview().multipliedBy(1.5)
-      make.leading.equalToSuperview().inset(20)
+      make.leading.equalToSuperview().inset(24)
     }
 
     if tabType == .profile{

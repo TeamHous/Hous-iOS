@@ -64,11 +64,10 @@ class EventsCollectionViewCell: UICollectionViewCell {
     layer.cornerRadius = self.bounds.width / 4
   }
   
-  func setEventCellData(_ data: EventDataModel) {
-    d_dayLabel.text = data.ddayString
-  }
-  
-  func setEventImageData(_ data: EventDataModel) {
-    background3DIconImageView.image = data.eventImage
+  func setEventCellData(_ data: EventList) {
+    d_dayLabel.text = "D-\(data.dDay)"
+    
+    let factory = IconFactory.makeIcon(type: IconImage(rawValue: data.eventIcon.lowercased()) ?? .party)
+    background3DIconImageView.image = factory.bigIconImage
   }
 }

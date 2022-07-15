@@ -26,6 +26,8 @@ final class HomeViewController: UIViewController {
   }
   
   //MARK: Properties
+  private var homeData: HomeDataModel?
+  
   private var rules: [RulesDataModel]?
   private var todos: [TodoDataModel]?
   
@@ -47,7 +49,7 @@ final class HomeViewController: UIViewController {
     configUI()
     render()
     setCollectionView()
-    getRulesAndTodoList()
+    getHomeAPI()
   }
   
   //MARK: Custom Methods
@@ -56,9 +58,8 @@ final class HomeViewController: UIViewController {
     self.navigationController?.navigationBar.isHidden = true
   }
   
-  private func getRulesAndTodoList() {
-    rules = RulesDataModel.sampleData
-    todos = TodoDataModel.sampleData
+  private func getHomeAPI() {
+    homeData = HomeDataModel.sampleData
   }
   
   private func setCollectionView() {
@@ -114,11 +115,11 @@ extension HomeViewController: UICollectionViewDataSource {
     case 0..<2:
       return 1
     case 2:
-      return ProfileDataModel.sampleData.count + 1
+      guard let data = homeData else { return 0 }
+      return data.homieProfileList.count + 1
     default:
       return 0
     }
-    
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,36 +129,42 @@ extension HomeViewController: UICollectionViewDataSource {
       guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ComingEventsCollectionViewCell.className, for: indexPath) as? ComingEventsCollectionViewCell else { return UICollectionViewCell() }
       
       cell.delegate = self
+      cell.homeData = self.homeData
       
       return cell
     case HomeSection.rulesTodo.rawValue:
       guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: RulesTodoCollectionViewCell.className, for: indexPath) as? RulesTodoCollectionViewCell,
-            let rules = rules,
-            let todos = todos
+            let data = homeData
       else { return UICollectionViewCell() }
       
-      if todos.count == 0 {
+      if data.todoList.count == 0 {
         cell.emptyTodoLabel.isHidden = false
       }
-      if rules.count == 0 {
+      
+      if data.keyRulesList.count == 0 {
         cell.emptyRuleLabel.isHidden = false
       }
       
-      cell.setRulesData(rules)
-      cell.setTodosData(todos)
+      cell.setRulesData(data.keyRulesList)
+      cell.setTodosData(data.todoList)
       
       return cell
     case HomeSection.profiles.rawValue:
-      guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.className, for: indexPath) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
+      guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.className, for: indexPath) as? ProfileCollectionViewCell,
+            let data = homeData
+      else { return UICollectionViewCell() }
       
-      if indexPath.row == ProfileDataModel.sampleData.count {
-        cell.profileStack.isHidden = true
-        cell.codeViewStack.isHidden = false
+      if indexPath.row == data.homieProfileList.count {
+        cell.profileImage.isHidden = true
+        cell.profileNameLabel.isHidden = true
+        
+        cell.codeImage.isHidden = false
+        cell.codeLabel.isHidden = false
         
         return cell
       }
       
-      cell.setProfileData(ProfileDataModel.sampleData[indexPath.row])
+      cell.setProfileData(data.homieProfileList[indexPath.row])
       
       return cell
     default:
