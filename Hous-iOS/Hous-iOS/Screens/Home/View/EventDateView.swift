@@ -139,32 +139,32 @@ class EventDateView: UIView {
     
   }
   
-  
-  
+  func setDateLabel(date: String) {
+    guard let date = date.toDate() else { return }
+    
+    let year = date.year
+    let month = date.month
+    let day = date.day
+    
+    let attributes = [
+      NSAttributedString.Key.foregroundColor : UIColor.black,
+      .font : UIFont.font(.montserratMedium, ofSize: 15)
+    ]
+
+    yearDatePickerTextField.attributedPlaceholder = NSAttributedString(string: year.description, attributes: attributes)
+    monthDatePickerTextField.attributedPlaceholder = NSAttributedString(string: month.description, attributes: attributes)
+    dayDatePickerTextField.attributedPlaceholder = NSAttributedString(string: day.description, attributes: attributes)
+  }
 }
 
 //MARK: Objective-C methods
 extension EventDateView {
   @objc private func handleDatePickerData() {
     let dateformatter = DateFormatter()
-    dateformatter.dateStyle = .long
-    dateformatter.timeStyle = .none
+    dateformatter.dateFormat = "yyyy-MM-dd"
     let date = dateformatter.string(from: datePicker.date)
     
-    let year = date[date.startIndex..<date.index(date.startIndex, offsetBy: 4)]
-    
-    let month = date[date.index(date.startIndex, offsetBy: 6) ..< date.index(date.startIndex, offsetBy: 8)].description.replacingOccurrences(of: "월", with: "")
-    
-    let day = date[date.index(date.endIndex, offsetBy: -3) ..< date.index(before: date.endIndex)]
-    
-    let attributes = [
-      NSAttributedString.Key.foregroundColor : UIColor.black,
-      .font : UIFont.font(.montserratMedium, ofSize: 15)
-    ]
-    
-    yearDatePickerTextField.attributedPlaceholder = NSAttributedString(string: year.description, attributes: attributes)
-    monthDatePickerTextField.attributedPlaceholder = NSAttributedString(string: month.description, attributes: attributes)
-    dayDatePickerTextField.attributedPlaceholder = NSAttributedString(string: day.description, attributes: attributes)
+    setDateLabel(date: date)
   }
   
   @objc private func dismissDatePicker() {

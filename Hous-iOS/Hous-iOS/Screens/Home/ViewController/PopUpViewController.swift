@@ -11,6 +11,17 @@ import Then
 
 class PopUpViewController: UIViewController {
   
+  var selectedEventCase: IconImage = .party {
+    didSet {
+      iconStackView.subviews.forEach {
+        guard let iconView = $0 as? EventIconView else { return }
+        if selectedEventCase == iconView.eventCase {
+          self.setTouchedIcon(iconView)
+        }
+      }
+    }
+  }
+  
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let eventIconSize = CGSize(width: 44, height: 68)
@@ -19,21 +30,25 @@ class PopUpViewController: UIViewController {
   private let maxEventLength = 10
   
   private let partyIconImageView = EventIconView().then {
+    $0.eventCase = .party
     $0.tag = 0
     $0.iconImageView.image = R.Image.partyYellowSmall
   }
   
   private let cakeIconImageView = EventIconView().then {
+    $0.eventCase = .cake
     $0.tag = 1
     $0.iconImageView.image = R.Image.cakeYellowSmall
   }
   
   private let beerIconImageView = EventIconView().then {
+    $0.eventCase = .beer
     $0.tag = 2
     $0.iconImageView.image = R.Image.beerYellowSmall
   }
   
   private let coffeeIconImageView = EventIconView().then {
+    $0.eventCase = .coffee
     $0.tag = 3
     $0.iconImageView.image = R.Image.coffeeYellowSmall
   }
@@ -62,7 +77,7 @@ class PopUpViewController: UIViewController {
     $0.tintColor = .housBlack
   }
   
-  var eventImageView = UIImageView().then {
+  private var eventImageView = UIImageView().then {
     $0.contentMode = .scaleAspectFit
     $0.backgroundColor = R.Color.offWhite
     $0.image = R.Image.partyYellow
@@ -243,6 +258,18 @@ class PopUpViewController: UIViewController {
     participantsCollectionView.delegate = self
     participantsCollectionView.dataSource = self
   }
+  
+  func setPopUpData(_ data: EventDTO) {
+    let iconFactory = IconFactory.makeIcon(type: IconImage(rawValue: data.eventIcon.lowercased()) ?? .party)
+    
+    eventImageView.image = iconFactory.smallIconImage
+    eventTextField.text = data.eventName
+    
+    
+    let date = data.date
+    
+    eventDateView.setDateLabel(date: date)
+  }
 }
 
 
@@ -271,15 +298,19 @@ extension PopUpViewController {
       guard let eventIconView = $0 as? EventIconView else { return }
       
       if eventIconView == view.viewWithTag(view.tag) {
-        eventIconView.iconImageView.backgroundColor = .paleGold
-        eventIconView.iconImageView.alpha = 0.4
-        eventIconView.iconForegroundImageView.isHidden = false
-        eventImageView.image = eventIconView.iconImageView.image
+        setTouchedIcon(eventIconView)
       } else {
         eventIconView.iconImageView.backgroundColor = .offWhite
         eventIconView.iconForegroundImageView.isHidden = true
       }
     }
+  }
+  
+  func setTouchedIcon(_ iconView: EventIconView) {
+    iconView.iconImageView.backgroundColor = .paleGold
+    iconView.iconImageView.alpha = 0.4
+    iconView.iconForegroundImageView.isHidden = false
+    eventImageView.image = iconView.iconImageView.image
   }
 }
 

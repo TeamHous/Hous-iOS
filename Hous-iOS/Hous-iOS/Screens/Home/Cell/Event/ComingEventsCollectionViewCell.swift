@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ComingEventsCollectionViewCellDelegate: AnyObject {
-  func showPopup(_ icon: UIImage)
+  func showPopup(_ data: EventDTO)
 }
 
 
@@ -22,7 +22,10 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
   
   weak var delegate: ComingEventsCollectionViewCellDelegate?
   
+  //MARK: Network
+  
   var homeData: HomeDTO?
+  var eventData: EventDTO?
   
   private var incomingEventsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
@@ -71,20 +74,25 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
     cell.background3DIconImageView.isHidden = false
     cell.background3DIconImageView.alpha = 0.6
   }
+  
+  private func getEventInfo(id: String) {
+    // Request 후
+    eventData = EventDTO.sampleData
+  }
 }
 
 
 extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if indexPath.row == 0 {
-      delegate?.showPopup(R.Image.partyYellowSmall)
-      return
-    }
-    guard let eventIcon = EventDataModel.sampleData[indexPath.row - 1].eventImage else { return }
-    delegate?.showPopup(eventIcon)
+    guard let data = homeData else { return }
+    let eventId = data.eventList[indexPath.row - 1].id
+    
+    getEventInfo(id: eventId)
+    
+    guard let eventData = eventData else { return }
+    delegate?.showPopup(eventData)
   }
-  
 }
 
 extension ComingEventsCollectionViewCell: UICollectionViewDataSource {

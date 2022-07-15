@@ -9,6 +9,8 @@ import UIKit
 
 class EventIconView: UIView {
   
+  var eventCase: IconImage = .party
+  
   let iconImageView = UIImageView().then {
     $0.isUserInteractionEnabled = true
     $0.backgroundColor = .offWhite
