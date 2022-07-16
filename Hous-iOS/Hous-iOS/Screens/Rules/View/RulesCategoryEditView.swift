@@ -19,7 +19,11 @@ final class RulesCategoryEditView: UIView {
   //MARK: - 변수
 
   weak var delegate : RulesCategoryEditViewDelegate?
-  var editType: CategoryEditType = .add
+  var editType: CategoryEditType = .add {
+    didSet {
+      setText(editType)
+    }
+  }
 
   enum Size {
     static let selectedCategoryViewSize: CGFloat = 100
@@ -109,28 +113,24 @@ final class RulesCategoryEditView: UIView {
   }
   lazy var borderButton = BorderCustomButton().then {
     $0.configUI(font: .font(.spoqaHanSansNeoBold, ofSize: 18),
-                text: "작성 취소",
+                text: "",
                 borderColor: R.Color.softBlue, backColor: R.Color.paleGrey,
                 corner: 15)
     $0.addTarget(self, action: #selector(borderButtonDidTapped), for: .touchUpInside)
   }
   lazy var filledButton = FilledCustomButton().then {
     $0.configUI(font: .font(.spoqaHanSansNeoBold, ofSize: 18),
-                text: "추가하기", color: R.Color.softBlue, corner: 15)
+                text: "", color: R.Color.softBlue, corner: 15)
     $0.addTarget(self, action: #selector(filledButtonDidTapped), for: .touchUpInside)
   }
 
   //MARK: - 생명주기
 
-  convenience init(editType: CategoryEditType) {
-    self.init(frame: .zero)
-    render()
-    configUI(editType)
-    setUp()
-  }
-
   override init(frame: CGRect) {
     super.init(frame: frame)
+    render()
+    configUI()
+    setUp()
   }
 
   required init?(coder: NSCoder) {
@@ -196,7 +196,7 @@ final class RulesCategoryEditView: UIView {
     }
   }
 
-  private func configUI(_ editType: CategoryEditType) {
+  private func configUI() {
     self.layer.cornerRadius = 30
     self.backgroundColor = R.Color.paleGrey
 
@@ -206,13 +206,12 @@ final class RulesCategoryEditView: UIView {
       $0.distribution = .fillEqually
       $0.spacing = 12
     }
+  }
 
-    switch editType {
-    case .add:
-      categoryTitleLabel.text = "새로운 카테고리 추가"
-    case .update:
-      categoryTitleLabel.text = "카테고리 수정"
-    }
+  private func setText(_ editType: CategoryEditType) {
+    categoryTitleLabel.text = editType.editViewTitleText
+    borderButton.setTitle(editType.editViewBorderButtonText, for: .normal)
+    filledButton.setTitle(editType.editViewFilledButtonText, for: .normal)
   }
 }
 // MARK: - 라디오 버튼 기능

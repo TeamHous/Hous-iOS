@@ -44,7 +44,7 @@ class RulesHomeView: UIView {
 
   lazy var categoryTableView = RulesCategoryTableView()
   lazy var todoTableView = RulesTodoTableView()
-  lazy var categoryEditView = RulesCategoryEditView(editType: .add)
+  lazy var categoryEditView = RulesCategoryEditView()
   var rulesDisplayView = UIView()
   
   override init(frame: CGRect) {

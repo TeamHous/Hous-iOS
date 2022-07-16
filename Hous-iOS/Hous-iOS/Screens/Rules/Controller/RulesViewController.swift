@@ -131,6 +131,7 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
       isNavigatinHidden(isHidden: false)
     } else {
       self.mainView.rulesType = .editCategory
+      self.mainView.categoryEditView.editType = .add
       cell.categoryTitleLabel.isHidden = true
       isNavigatinHidden(isHidden: true)
     }
@@ -153,9 +154,9 @@ extension RulesViewController: RulesCategoryEditViewDelegate {
     popUp.modalTransitionStyle = .crossDissolve
     popUp.modalPresentationStyle = .overFullScreen
     popUp.setText(
-      titleText: viewType.titleText,
-      descriptionText: viewType.descriptionText,
-      buttonText: viewType.buttonText)
+      titleText: viewType.popupTitleText,
+      descriptionText: viewType.popupDescriptionText,
+      buttonText: viewType.popupButtonText)
     self.present(popUp, animated: true)
   }
 

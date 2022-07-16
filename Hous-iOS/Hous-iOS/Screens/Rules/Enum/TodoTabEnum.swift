@@ -22,7 +22,7 @@ enum TodayTodoType {
 enum CategoryEditType {
   case add, update
 
-  var titleText: String {
+  var popupTitleText: String {
     switch self {
     case .add:
       return "작성 취소"
@@ -31,7 +31,7 @@ enum CategoryEditType {
     }
   }
 
-  var descriptionText: String {
+  var popupDescriptionText: String {
     switch self {
     case .add:
       return "이 화면을 벗어나면\n작성한 내용이 모두 취소됩니다."
@@ -40,12 +40,39 @@ enum CategoryEditType {
     }
   }
 
-  var buttonText: String {
+  var popupButtonText: String {
     switch self {
     case .add:
       return "작성 취소하기"
     case .update:
       return "삭제"
+    }
+  }
+
+  var editViewTitleText: String {
+    switch self {
+    case .add:
+      return "새로운 카테고리 추가"
+    case .update:
+      return "카테고리 수정"
+    }
+  }
+
+  var editViewBorderButtonText: String {
+    switch self {
+    case .add:
+      return "작성 취소"
+    case .update:
+      return "삭제하기"
+    }
+  }
+
+  var editViewFilledButtonText: String {
+    switch self {
+    case .add:
+      return "추가하기"
+    case .update:
+      return "저장하기"
     }
   }
 
