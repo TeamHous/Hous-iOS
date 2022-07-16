@@ -67,13 +67,13 @@ class NavigationBarView: UIView {
 
       editingProfileButton.snp.makeConstraints {make in
         make.trailing.equalToSuperview().offset(-60)
-        make.top.equalTo(safeAreaLayoutGuide).offset(21)
+        make.top.equalTo(safeAreaLayoutGuide).multipliedBy(1.5)
         make.width.height.equalTo(24)
       }
 
       settingProfileButton.snp.makeConstraints {make in
         make.trailing.equalToSuperview().offset(-24)
-        make.top.equalTo(safeAreaLayoutGuide).offset(21)
+        make.top.equalTo(safeAreaLayoutGuide).multipliedBy(1.5)
         make.width.height.equalTo(24)
       }
     }
