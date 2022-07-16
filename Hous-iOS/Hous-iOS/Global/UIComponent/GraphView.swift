@@ -108,8 +108,8 @@ class GraphView : UIView {
     for i in 0...4{
       var point = Point(x: 0, y: 0)
       let angle : Double = Double(i) * (2/5) * pi
-      point.x = centerPoint.x - dataList[i] * cos((pi / 2) + angle)
-      point.y = centerPoint.y - dataList[i] * sin((pi / 2) + angle)
+      point.x = centerPoint.x - dataList[i] * cos((pi / 2) - angle)
+      point.y = centerPoint.y - dataList[i] * sin((pi / 2) - angle)
       points.append(point)
     }
     var averageDataPoint: Point = Point(x: 0, y: 0)

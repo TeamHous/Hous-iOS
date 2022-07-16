@@ -82,11 +82,11 @@ class ProfileGraphBoxView : UIView {
   }
   
   private func appendPersonalityAttributesItems(){
-    let personalityAttributesString = ["빛", "정리\n정돈", "외향", "냄새", "소음"]
+    let personalityAttributesString = ["빛", "소음", "냄새", "외향", "정리\n정돈"]
     for i in 0...4{
       let personalityAttributesItem = PersonalityAttribute()
       personalityAttributesItem.text = personalityAttributesString[i]
-      if i == 1{
+      if i == 4{
         personalityAttributesItem.numberOfLines = 2
       }
       personalityAttributes.append(personalityAttributesItem)
@@ -99,8 +99,8 @@ class ProfileGraphBoxView : UIView {
     for i in 0...4{
       var point = Point(x: 0, y: 0)
       let angle : Double = Double(i) * (2/5) * pi
-      point.x = centerPoint.x - dataList[i] * cos((pi / 2) + angle)
-      point.y = centerPoint.y - dataList[i] * sin((pi / 2) + angle)
+      point.x = centerPoint.x - dataList[i] * cos((pi / 2) - angle)
+      point.y = centerPoint.y - dataList[i] * sin((pi / 2) - angle)
       points.append(point)
       
     }
