@@ -24,6 +24,9 @@
 		9B55FBBF28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBBE28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift */; };
 		9B55FBC128832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC028832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift */; };
 		9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC228832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift */; };
+		9B55FBC62883453B0089B930 /* ProfileDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC52883453B0089B930 /* ProfileDescriptionView.swift */; };
+		9B55FBC82883454A0089B930 /* ProfileRecommendRuleTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC72883454A0089B930 /* ProfileRecommendRuleTitleView.swift */; };
+		9B55FBCA288345BC0089B930 /* ProfileRecommendRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC9288345BC0089B930 /* ProfileRecommendRuleView.swift */; };
 		9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */; };
 		9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */; };
 		9B648B8D2880542C005E9322 /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */; };
@@ -141,6 +144,9 @@
 		9B55FBBE28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B55FBC028832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultTextCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B55FBC228832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B55FBC52883453B0089B930 /* ProfileDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDescriptionView.swift; sourceTree = "<group>"; };
+		9B55FBC72883454A0089B930 /* ProfileRecommendRuleTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendRuleTitleView.swift; sourceTree = "<group>"; };
+		9B55FBC9288345BC0089B930 /* ProfileRecommendRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendRuleView.swift; sourceTree = "<group>"; };
 		9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingNavigationBarView.swift; sourceTree = "<group>"; };
 		9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -285,6 +291,9 @@
 			isa = PBXGroup;
 			children = (
 				9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */,
+				9B55FBC52883453B0089B930 /* ProfileDescriptionView.swift */,
+				9B55FBC72883454A0089B930 /* ProfileRecommendRuleTitleView.swift */,
+				9B55FBC9288345BC0089B930 /* ProfileRecommendRuleView.swift */,
 			);
 			path = ProfileTestResult;
 			sourceTree = "<group>";
@@ -880,6 +889,7 @@
 				B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */,
 				9B25BBDF2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift in Sources */,
 				B5084A3628799AEB00C38749 /* UIColor+Extension.swift in Sources */,
+				9B55FBCA288345BC0089B930 /* ProfileRecommendRuleView.swift in Sources */,
 				B5084A232879962100C38749 /* ComingEventsCollectionViewCell.swift in Sources */,
 				B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */,
 				B5E95ADC2881917B00CD2244 /* HomeDTO.swift in Sources */,
@@ -925,6 +935,7 @@
 				B80510E42876D6B10025B767 /* APIConstants.swift in Sources */,
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
+				9B55FBC82883454A0089B930 /* ProfileRecommendRuleTitleView.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
 				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
 				9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */,
@@ -951,6 +962,7 @@
 				9B55FBBF28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift in Sources */,
 				B8434437287D920900CD1BF5 /* RulesCategoryEditView.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
+				9B55FBC62883453B0089B930 /* ProfileDescriptionView.swift in Sources */,
 				9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */,
 				B5E95AE22881DB2A00CD2244 /* Date+Extension.swift in Sources */,
 				B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */,

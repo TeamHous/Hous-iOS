@@ -23,7 +23,7 @@ class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
   
   private let testButton = UIButton().then {
     $0.backgroundColor = .salmon
-    $0.setTitle("테스트 하러가기", for: .normal)
+    $0.setTitle("테스트 하러 가기", for: .normal)
     $0.setTitleColor(.white, for: .normal)
     $0.layer.cornerRadius = 10
     $0.layer.masksToBounds = true
