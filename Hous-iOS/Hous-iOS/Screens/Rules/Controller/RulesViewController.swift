@@ -128,14 +128,16 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if self.currentIndexPath != nil {
+      guard let selectedIndexPath = self.currentIndexPath else { return }
+      guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else { return }
+      selectedCell.isSelected = false
+    }
 
-    let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
-    guard let selectedIndexPath = self.currentIndexPath else { return }
-    guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
-
-    selectedCell.isSelected = false
-    self.mainView.todayTodoButton.isSelected = false
     self.currentIndexPath = indexPath
+    let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+    cell.isSelected = true
+    self.mainView.todayTodoButton.isSelected = false
 
     if indexPath.row != categories?.count {
       self.mainView.rulesType = .category
@@ -143,7 +145,7 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     } else {
       self.mainView.rulesType = .editCategory
       self.mainView.categoryEditView.editType = .add
-      cell.isSelected = true
+      cell.categoryTitleLabel.isHidden = true
       isNavigatinHidden(isHidden: true)
     }
   }
@@ -201,7 +203,6 @@ extension RulesViewController {
 
     if sender.state != .began { return }
     let collectionView = mainView.categoryCollectionView
-
     if let selectedIndexPath = self.currentIndexPath {
       guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
       selectedCell.isSelected = false
@@ -209,15 +210,16 @@ extension RulesViewController {
 
     let touchPoint = sender.location(in: collectionView)
     guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else {return}
-    self.currentIndexPath = indexPath
     guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
+    self.currentIndexPath = indexPath
 
-    cell.isSelected = true
     if indexPath.row != self.categories?.count {
+      self.currentIndexPath = indexPath
       self.mainView.categoryEditView.editType = .update
       self.mainView.todayTodoButton.isSelected = false
       self.mainView.rulesType = .editCategory
       self.isNavigatinHidden(isHidden: true)
+      cell.isSelected = true
     }
   }
 }
