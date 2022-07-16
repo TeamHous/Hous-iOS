@@ -18,6 +18,7 @@ enum TabType: String {
 class NavigationBarView: UIView {
   
   var moveToSettingViewController : (() -> Void)?
+  var moveToEditingViewController : (() -> Void)?
 
   private var titleLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
@@ -25,7 +26,7 @@ class NavigationBarView: UIView {
     $0.text = "Hous-"
   }
 
-  private let updateProfileButton = UIButton().then{
+  private let editingProfileButton = UIButton().then{
     $0.setImage(R.Image.updateProfile, for: .normal)
   }
 
@@ -50,21 +51,21 @@ class NavigationBarView: UIView {
   
   private func setup(){
     settingProfileButton.addTarget(self, action: #selector(tabSettingProfileButton), for: .touchUpInside)
+    editingProfileButton.addTarget(self, action: #selector(tabEditingProfileButton), for: .touchUpInside)
   }
 
   private func render(_ tabType: TabType) {
 
     self.addSubViews([titleLabel])
-
     titleLabel.snp.makeConstraints { make in
       make.centerY.equalToSuperview().multipliedBy(1.5)
       make.leading.equalToSuperview().inset(24)
     }
 
     if tabType == .profile{
-      self.addSubViews([updateProfileButton, settingProfileButton])
+      self.addSubViews([editingProfileButton, settingProfileButton])
 
-      updateProfileButton.snp.makeConstraints {make in
+      editingProfileButton.snp.makeConstraints {make in
         make.trailing.equalToSuperview().offset(-60)
         make.top.equalTo(safeAreaLayoutGuide).offset(21)
         make.width.height.equalTo(24)
@@ -86,5 +87,9 @@ class NavigationBarView: UIView {
 extension NavigationBarView {
   @objc func tabSettingProfileButton(){
     moveToSettingViewController!()
+  }
+  
+  @objc func tabEditingProfileButton(){
+    moveToEditingViewController!()
   }
 }

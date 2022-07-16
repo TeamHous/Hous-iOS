@@ -6,7 +6,7 @@
 //
 
 import UIKit
-  
+
 class ProfileEditingViewController : UIViewController {
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -15,11 +15,11 @@ class ProfileEditingViewController : UIViewController {
   private let profileEditingNavigationBarView = ProfileEditingNavigationBarView()
   
   private let profileEditingScrollView = UIScrollView().then {
-    $0.backgroundColor = .blue
+    $0.backgroundColor = .white
   }
   
   private let profileEditingScrollContentsView = ProfileEditingScrollContentsView().then() {
-    $0.backgroundColor = .yellow
+    $0.backgroundColor = .white
   }
   
   private let saveButton = UIButton().then {
@@ -39,20 +39,23 @@ class ProfileEditingViewController : UIViewController {
     render()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    setNavigationController()
+  }
+  
+  private func setNavigationController() {
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = true
+    }
+  }
   
   private func setup(){
     registerCell()
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-    profileEditingNavigationBarView.popNavigationController = {
-      // 이 부분은 하드 코딩 -> TabBar Controller를 Hidden 하는 방법으로 대체 예정
-      let transition = CATransition()
-      transition.duration = 0.3
-      transition.type = CATransitionType.push
-      transition.subtype = CATransitionSubtype.fromLeft
-      transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-      self.view.window!.layer.add(transition, forKey: kCATransition)
-      
-      self.dismiss(animated: false)
+    profileEditingNavigationBarView.popNavigationController = { [self] in
+      navigationController?.popViewController(animated: true)
     }
   }
   
@@ -72,7 +75,7 @@ class ProfileEditingViewController : UIViewController {
     }
     
     profileEditingScrollView.snp.makeConstraints {make in
-//      make.width.equalToSuperview()
+      //      make.width.equalToSuperview()
       make.leading.trailing.equalToSuperview()
       make.top.equalTo(profileEditingNavigationBarView.snp.bottom)
       make.bottom.equalTo(saveButton.snp.top).offset(-10)

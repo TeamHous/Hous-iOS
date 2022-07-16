@@ -67,6 +67,10 @@ class ProfileViewController : UIViewController {
       let profileSettingViewController = ProfileSettingViewController()
       navigationController?.pushViewController(profileSettingViewController, animated: true)
     }
+    navigationBarView.moveToEditingViewController = {  [self] in
+      let profileEditingViewController = ProfileEditingViewController()
+      navigationController?.pushViewController(profileEditingViewController, animated: true)
+    }
   }
   
   private func configUI() {
