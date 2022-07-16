@@ -54,7 +54,7 @@ class ProfileSettingViewController : UIViewController {
   private func setNavigationController() {
     self.navigationController?.setNavigationBarHidden(true, animated: false)
     if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
-      tvc.housTabbar.isHidden = false
+      tvc.housTabbar.isHidden = true
     }
   }
 
