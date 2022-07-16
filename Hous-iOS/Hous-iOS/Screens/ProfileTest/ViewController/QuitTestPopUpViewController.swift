@@ -29,19 +29,26 @@ class QuitTestPopViewController: UIViewController {
   }
   
   private let titleLabel = UILabel().then {
-    $0.text = "테스트를 완료하지 않았어요 \n 여기서 그만둘까요?"
-    $0.numberOfLines = 2
-    $0.lineBreakMode = .byWordWrapping
-    $0.lineBreakStrategy = .hangulWordPriority
+    $0.text = "테스트 중단"
+    $0.numberOfLines = 1
     $0.textAlignment = .center
+    $0.textColor = R.Color.greyishBrown
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
   }
   
   private let subtitleLabel = UILabel().then {
-    $0.text = "나중에 다시 할 수 있어요"
+    $0.text = "테스트를 완료하지 않았어요.\n여기서 그만두면 내용이 모두 삭제됩니다"
+    $0.numberOfLines = 2
+    $0.lineBreakMode = .byWordWrapping
+    $0.lineBreakStrategy = .hangulWordPriority
     $0.textAlignment = .center
-    $0.textColor = R.Color.veryLightPinkFive
-    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
+    $0.textColor = R.Color.brownGrey
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 14)
+  }
+  
+  private lazy var popUpCloseButton = UIButton().then {
+    $0.setImage(R.Image.popupCloseHome, for: .normal)
+    $0.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
   }
   
   private lazy var cancelButton = UIButton().then {
@@ -58,28 +65,7 @@ class QuitTestPopViewController: UIViewController {
     $0.layer.masksToBounds = true
     $0.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
   }
-  
-  private lazy var continueButton = UIButton().then {
-    var config = UIButton.Configuration.filled()
-    var container = AttributeContainer()
-    container.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     
-    config.baseBackgroundColor = R.Color.veryLightPinkThree
-    config.baseForegroundColor = R.Color.brownGrey
-    config.attributedTitle = AttributedString("계속하기", attributes: container)
-    
-    $0.configuration = config
-    $0.layer.cornerRadius = 15
-    $0.layer.masksToBounds = true
-    $0.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
-  }
-  
-  private lazy var buttonStackView = UIStackView(arrangedSubviews: [continueButton, cancelButton]).then {
-    $0.axis = .horizontal
-    $0.distribution = .fillEqually
-    $0.spacing = 9
-  }
-  
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,7 +77,7 @@ class QuitTestPopViewController: UIViewController {
   private func render() {
     self.view.addSubview(blurView)
     self.view.addSubview(popUpView)
-    popUpView.addSubViews([titleLabel, subtitleLabel, buttonStackView])
+    popUpView.addSubViews([titleLabel, subtitleLabel, cancelButton, popUpCloseButton])
     
     popUpView.snp.makeConstraints { make in
       make.center.equalToSuperview()
@@ -104,16 +90,21 @@ class QuitTestPopViewController: UIViewController {
       make.centerX.equalTo(popUpView)
     }
     
+    popUpCloseButton.snp.makeConstraints { make in
+      make.centerY.equalTo(titleLabel)
+      make.trailing.equalTo(popUpView).inset(24)
+    }
+    
     subtitleLabel.snp.makeConstraints { make in
-      make.top.equalTo(titleLabel.snp.bottom).offset(6)
+      make.top.equalTo(titleLabel.snp.bottom).offset(16)
       make.centerX.equalTo(titleLabel)
     }
     
-    buttonStackView.snp.makeConstraints { make in
-      make.top.equalTo(subtitleLabel.snp.bottom).offset(20)
-      make.leading.trailing.equalTo(popUpView).inset(19)
-      make.bottom.equalTo(popUpView).inset(16)
-      make.height.equalTo(50)
+    cancelButton.snp.makeConstraints { make in
+      make.top.equalTo(subtitleLabel.snp.bottom).offset(16)
+      make.leading.trailing.equalTo(popUpView).inset(24)
+      make.bottom.equalTo(popUpView).inset(24)
+      make.height.equalTo(40)
     }
   }
 }
