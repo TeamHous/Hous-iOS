@@ -257,7 +257,7 @@ class PopUpViewController: UIViewController {
       make.leading.trailing.equalTo(popUpView)
     }
   }
-  
+
   private func setTextField() {
     eventTextField.delegate = self
     

@@ -61,7 +61,6 @@ class ProfileEditingViewController : UIViewController {
   
   private func configUI(){
     view.backgroundColor = .white
-    
   }
   
   private func render(){
