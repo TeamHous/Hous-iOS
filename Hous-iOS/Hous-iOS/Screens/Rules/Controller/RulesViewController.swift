@@ -201,24 +201,22 @@ extension RulesViewController {
     if sender.state != .began { return }
     let collectionView = mainView.categoryCollectionView
 
-    if let selectedIndexPath = self.currentIndexPath {
-      guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
-      selectedCell.isSelected = false
-    }
+    guard let selectedIndexPath = self.currentIndexPath else { return }
+    guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
+
 
     let touchPoint = sender.location(in: collectionView)
-    if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
+    guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else {return}
+    guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
 
+    if indexPath.row != self.categories?.count {
+      self.mainView.todayTodoButton.isSelected = false
+      self.mainView.rulesType = .editCategory
+      self.isNavigatinHidden(isHidden: true)
       self.currentIndexPath = indexPath
-      guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
-
-      if indexPath.row != self.categories?.count {
-        self.mainView.todayTodoButton.isSelected = false
-        self.mainView.rulesType = .editCategory
-        self.isNavigatinHidden(isHidden: true)
-        cell.isSelected = true
-        self.mainView.categoryEditView.editType = .update
-      }
+      cell.isSelected = true
+      selectedCell.isSelected = false
+      self.mainView.categoryEditView.editType = .update
     }
   }
 }
