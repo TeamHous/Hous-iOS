@@ -25,6 +25,9 @@ extension Category {
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "커피", categoryIcon: "COFFEE"),
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "팬케이크", categoryIcon: "CAKE"),
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "불끄세요", categoryIcon: "LIGHT"),
+    Category(id: "62cc752dd7868591384e4ed4", categoryName: "빨래", categoryIcon: "LAUNDRY"),
+    Category(id: "62cc752dd7868591384e4ed4", categoryName: "빨래", categoryIcon: "LAUNDRY"),
+    Category(id: "62cc752dd7868591384e4ed4", categoryName: "빨래", categoryIcon: "LAUNDRY"),
     Category(id: "62cc752dd7868591384e4ed4", categoryName: "빨래", categoryIcon: "LAUNDRY")
   ]
 }

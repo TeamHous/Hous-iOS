@@ -11,7 +11,7 @@ import Then
 
 protocol RulesCategoryEditViewDelegate: AnyObject {
   func borderButtonTouched(viewType: CategoryEditType)
-  func filledButtonTouched()
+  func filledButtonTouched(viewType: CategoryEditType)
 }
 
 final class RulesCategoryEditView: UIView {
@@ -247,7 +247,7 @@ extension RulesCategoryEditView {
   }
 
   @objc private func filledButtonDidTapped() {
-    delegate?.filledButtonTouched()
+    delegate?.filledButtonTouched(viewType: editType)
   }
 }
 

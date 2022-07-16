@@ -19,9 +19,10 @@ import RxCocoa
  */
 final class RulesViewController: UIViewController {
 
-  var indexPath: IndexPath?
+  var currentIndexPath: IndexPath?
+  var closure: (() -> Void)?
 
-  var categories: Categories?
+  var categories: [Category]?
 
   let disposeBag = DisposeBag()
   var mainView = RulesHomeView()
@@ -108,7 +109,8 @@ extension RulesViewController {
 extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return Category.sampleData.count + 1
+    guard let categories = categories else { return 0 }
+    return categories.count + 1
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -142,7 +144,7 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     self.mainView.todayTodoButton.isSelected = false
-    self.indexPath = indexPath
+    self.currentIndexPath = indexPath
   }
 }
 
@@ -163,11 +165,33 @@ extension RulesViewController: RulesCategoryEditViewDelegate {
       titleText: viewType.popupTitleText,
       descriptionText: viewType.popupDescriptionText,
       buttonText: viewType.popupButtonText)
+    popUp.buttonAction = {
+      if viewType == .update {
+        //삭제
+        self.removeCell()
+      }
+      self.isNavigatinHidden(isHidden: false)
+      self.mainView.rulesType = .todo
+    }
     self.present(popUp, animated: true)
   }
 
-  func filledButtonTouched() {
+  func filledButtonTouched(viewType: CategoryEditType) {
     // 추가하기 서버통신
+  }
+
+  private func removeCell() {
+
+    guard let selectedIndexPath = self.currentIndexPath else { return }
+
+    self.mainView.categoryCollectionView.performBatchUpdates {
+      self.mainView.categoryCollectionView.performBatchUpdates {
+        self.mainView.categoryCollectionView.deleteItems(at: [selectedIndexPath])
+        self.categories?.remove(at: selectedIndexPath.row)
+      } completion: { [self] _ in
+        mainView.categoryCollectionView.reloadData()
+      }
+    }
   }
 }
 
@@ -177,24 +201,22 @@ extension RulesViewController {
     if sender.state != .began { return }
     let collectionView = mainView.categoryCollectionView
 
-    if let selectedIndexPath = self.indexPath {
+    if let selectedIndexPath = self.currentIndexPath {
       guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
       selectedCell.isSelected = false
     }
 
-    self.mainView.todayTodoButton.isSelected = false
-    self.mainView.rulesType = .editCategory
-    self.isNavigatinHidden(isHidden: true)
-
     let touchPoint = sender.location(in: collectionView)
-
     if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
-      
-      self.indexPath = indexPath
+
+      self.currentIndexPath = indexPath
       guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
 
-      cell.isSelected = true
       if indexPath.row != self.categories?.count {
+        self.mainView.todayTodoButton.isSelected = false
+        self.mainView.rulesType = .editCategory
+        self.isNavigatinHidden(isHidden: true)
+        cell.isSelected = true
         self.mainView.categoryEditView.editType = .update
       }
     }

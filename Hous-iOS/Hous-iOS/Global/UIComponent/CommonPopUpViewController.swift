@@ -12,7 +12,7 @@ import Then
 class CommonPopUpViewController: UIViewController {
 
   var buttonAction : (() -> Void)?
-  
+
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let assigneeSize = CGSize(width: 56, height: 82)
@@ -115,6 +115,7 @@ extension CommonPopUpViewController {
 
   @objc private func blueBigButtonTapped() {
     // 서버통신
+    self.buttonAction?()
     self.dismiss(animated: true)
   }
 }
