@@ -12,14 +12,14 @@ import RxSwift
 import RxCocoa
 
 /*
-            Closure  Delegate
+ Closure  Delegate
  viewController <- View <- View <- Cell
-                   View <- View
-                   View <- View
+ View <- View
+ View <- View
  */
 final class RulesViewController: UIViewController {
 
-//  override var hidesBottomBarWhenPushed: Bool { get { true } set { } }?÷
+  var indexPath: IndexPath?
 
   var categories: Categories?
 
@@ -35,6 +35,10 @@ final class RulesViewController: UIViewController {
     configUI()
     setUp()
     binding()
+
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+    longPress.delaysTouchesBegan = true
+    mainView.categoryCollectionView.addGestureRecognizer(longPress)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +85,7 @@ extension RulesViewController {
           self.mainView.todayTodoButton.isSelected = true
           self.mainView.rulesType = .todo
         }
+        self.mainView.categoryCollectionView.reloadData()
       }
       .disposed(by: disposeBag)
 
@@ -137,6 +142,7 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     self.mainView.todayTodoButton.isSelected = false
+    self.indexPath = indexPath
   }
 }
 
@@ -162,5 +168,35 @@ extension RulesViewController: RulesCategoryEditViewDelegate {
 
   func filledButtonTouched() {
     // 추가하기 서버통신
+  }
+}
+
+extension RulesViewController {
+  @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
+
+    if sender.state != .began { return }
+    let collectionView = mainView.categoryCollectionView
+
+    if let selectedIndexPath = self.indexPath {
+      guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
+      selectedCell.isSelected = false
+    }
+
+    self.mainView.todayTodoButton.isSelected = false
+    self.mainView.rulesType = .editCategory
+    self.isNavigatinHidden(isHidden: true)
+
+    let touchPoint = sender.location(in: collectionView)
+
+    if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
+      
+      self.indexPath = indexPath
+      guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
+
+      cell.isSelected = true
+      if indexPath.row != self.categories?.count {
+        self.mainView.categoryEditView.editType = .update
+      }
+    }
   }
 }

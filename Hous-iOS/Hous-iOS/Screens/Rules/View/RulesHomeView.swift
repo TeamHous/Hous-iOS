@@ -89,9 +89,7 @@ class RulesHomeView: UIView {
       make.bottom.equalToSuperview()
     }
   }
-}
 
-extension RulesHomeView {
   func updateRulesView(_ view: UIView, type: RulesType) {
     view.subviews.forEach { $0.removeFromSuperview() }
     switch rulesType {
