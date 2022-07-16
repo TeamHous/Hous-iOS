@@ -14,6 +14,8 @@ class ProfileTestInfoViewController: UIViewController {
     static let screenHeight = UIScreen.main.bounds.height
   }
   
+  private var profileTestData: [TestInfoList] = []
+  
   private let testStartImageView = UIImageView().then {
     $0.image = R.Image.testStartCheck
   }
@@ -52,6 +54,11 @@ class ProfileTestInfoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     render()
+    getProfileTest()
+  }
+  
+  private func getProfileTest() {
+    profileTestData = ProfileTestDTO.sampleData.first!.data
   }
   
   private func render() {
@@ -85,9 +92,15 @@ class ProfileTestInfoViewController: UIViewController {
 
 extension ProfileTestInfoViewController {
   @objc private func startProfileTest() {
-    let profileTest = ProfileTestViewController()
+    
+    let t = profileTestData.map {
+      TestCellItem(dto: $0)
+    }
+    
+    let profileTest = ProfileTestViewController(testCellItem: t)
     profileTest.modalTransitionStyle = .crossDissolve
     profileTest.modalPresentationStyle = .fullScreen
+    
     present(profileTest, animated: true)
   }
 }

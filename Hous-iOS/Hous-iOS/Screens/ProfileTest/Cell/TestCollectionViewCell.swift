@@ -10,7 +10,7 @@ import UIKit
 
 class TestCollectionViewCell: UICollectionViewCell {
   
-  var buttonAction: ((UIButton) -> Void)?
+  var buttonAction: ((UIButton, String) -> Void)?
   
   private let testTitleLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
@@ -26,7 +26,6 @@ class TestCollectionViewCell: UICollectionViewCell {
   }
   
   private lazy var optionButton1 = UIButton().then {
-//    /
     setOptionButton(sender: $0)
   }
   
@@ -54,14 +53,16 @@ class TestCollectionViewCell: UICollectionViewCell {
   }
   
   private func setOptionButton(sender: UIButton) {
-    var config = UIButton.Configuration.filled()
-    config.baseBackgroundColor = R.Color.whitishGrey
-    config.baseForegroundColor = R.Color.brownGreyTwo
+    sender.adjustsImageWhenHighlighted = false
+    sender.setBackgroundColor(R.Color.whitishGrey, for: .normal)
+    sender.setTitleColor(R.Color.brownGreyTwo, for: .normal)
+    
+    sender.setBackgroundColor(R.Color.veryLightPinkTwo, for: .selected)
+    sender.setTitleColor(R.Color.salmon, for: .selected)
     
     sender.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     sender.layer.cornerRadius = 15
     sender.layer.masksToBounds = true
-    sender.configuration = config
     sender.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
   }
   
@@ -87,27 +88,49 @@ class TestCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func setTestData(_ data: TestInfoList) {
+//  func setTestData(_ data: TestInfoList) {
+//    testTitleLabel.text = data.testTitle
+//    // url -> image
+////    testImageView.urlToImage(urlString: data.testImg)
+//
+//    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
+//    for (button, text) in sequence {
+//      button.setTitle(text, for: .normal)
+//      button.titleLabel?.textAlignment = .center
+//    }
+//  }
+  
+  
+  func setTestData(_ data: TestCellItem) {
     testTitleLabel.text = data.testTitle
     // url -> image
-//    testImageView.urlToImage(urlString: data.testImg)
+    // testImageView.urlToImage(urlString: data.testImg)
+    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers.keys)
     
-    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
     for (button, text) in sequence {
+      
+      guard let flag = data.testAnswers[text] else { return }
+      
+      button.isSelected = flag
       button.setTitle(text, for: .normal)
       button.titleLabel?.textAlignment = .center
     }
   }
+  
 }
 
 extension TestCollectionViewCell {
   @objc private func buttonPressed(_ sender: UIButton) {
-    var config = UIButton.Configuration.filled()
-    config.baseBackgroundColor = R.Color.veryLightPinkTwo
-    config.baseForegroundColor = R.Color.salmon
     
-    sender.configuration = config
+    deselectButtons([optionButton1, optionButton2, optionButton3])
+    sender.isSelected.toggle()
     
-    self.buttonAction?(sender)
+    self.buttonAction?(sender, sender.titleLabel?.text ?? "")
+  }
+  
+  private func deselectButtons(_ buttonList: [UIButton]) {
+    buttonList.forEach {
+      $0.isSelected = false
+    }
   }
 }
