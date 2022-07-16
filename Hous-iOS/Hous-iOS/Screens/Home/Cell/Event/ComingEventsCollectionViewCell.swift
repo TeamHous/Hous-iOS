@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ComingEventsCollectionViewCellDelegate: AnyObject {
-  func showPopup(_ data: EventDTO)
+  func showPopup(_ data: EventDTO?, row: Int)
 }
 
 
@@ -85,13 +85,18 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
 extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if indexPath.row == 0 {
+      delegate?.showPopup(nil, row: indexPath.row)
+      return
+    }
+    
     guard let data = homeData else { return }
     let eventId = data.eventList[indexPath.row - 1].id
     
     getEventInfo(id: eventId)
     
     guard let eventData = eventData else { return }
-    delegate?.showPopup(eventData)
+    delegate?.showPopup(eventData, row: indexPath.row)
   }
 }
 

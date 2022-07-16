@@ -22,6 +22,8 @@ class PopUpViewController: UIViewController {
     }
   }
   
+  var isDefaultPopUp: Bool = false
+  
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let eventIconSize = CGSize(width: 44, height: 68)
@@ -294,6 +296,10 @@ class PopUpViewController: UIViewController {
     eventDateView.setDateLabel(date: date)
   }
   
+  func setDefaultPopUpData(_ icon: UIImage) {
+    eventImageView.image = icon
+  }
+  
   private func getEventInfo() {
     eventData = EventDTO.sampleData
   }
@@ -366,8 +372,13 @@ extension PopUpViewController: UICollectionViewDataSource {
       
       let isSelected = isSelectedArray[indexPath.row]
       
-      cell.setParticipantData(homeData.homieProfileList[indexPath.row], isSelected: isSelected)
       
+      if isDefaultPopUp {
+        cell.setParticipantData(homeData.homieProfileList[indexPath.row], isSelected: nil)
+        return cell
+      }
+      
+      cell.setParticipantData(homeData.homieProfileList[indexPath.row], isSelected: isSelected)
       return cell
     }
 

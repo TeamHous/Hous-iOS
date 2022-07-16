@@ -244,15 +244,26 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: ComingEventsCollectionViewCellDelegate {
   
-  func showPopup(_ data: EventDTO) {
+  func showPopup(_ data: EventDTO?, row: Int) {
     let popUp = PopUpViewController()
     popUp.modalTransitionStyle = .crossDissolve
     popUp.modalPresentationStyle = .overFullScreen
     
-    popUp.setPopUpData(data)
-    
-    popUp.selectedEventCase = IconImage(rawValue: data.eventIcon.lowercased())!
     popUp.homeData = self.homeData
+    
+    if row == 0 {
+      popUp.setDefaultPopUpData(R.Image.partyYellowSmall)
+      popUp.isDefaultPopUp = true
+      present(popUp, animated: true)
+      return
+    }
+    
+    popUp.isDefaultPopUp = false
+    guard let eventData = data else { return }
+    
+    popUp.setPopUpData(eventData)
+    popUp.selectedEventCase = IconImage(rawValue: eventData.eventIcon.lowercased())!
+    
     present(popUp, animated: true)
   }
 }
