@@ -81,7 +81,7 @@ class ProfileCollectionViewCell: UICollectionViewCell {
   func setProfileData(_ data: HomieProfileList) {
     profileNameLabel.text = data.userName
     
-    let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: data.userName.lowercased()) ?? .none)
+    let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: data.typeColor.lowercased()) ?? .none)
     profileImage.image = factory.faceImage
     self.backgroundColor = factory.color.withAlphaComponent(0.5)
   }

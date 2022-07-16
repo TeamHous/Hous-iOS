@@ -252,6 +252,7 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
     popUp.setPopUpData(data)
     
     popUp.selectedEventCase = IconImage(rawValue: data.eventIcon.lowercased())!
+    popUp.homeData = self.homeData
     present(popUp, animated: true)
   }
 }

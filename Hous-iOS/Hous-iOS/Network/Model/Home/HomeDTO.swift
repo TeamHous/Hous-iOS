@@ -59,7 +59,8 @@ extension HomeDTO {
       TodoList(
         isCheck: true, todoName: "개발하기", createdAt: "2022-07-11T20:00:10.985Z")],
     homieProfileList: [
-      HomieProfileList(id: "62cc7420d7868591384e4eb0", userName: "고구마", typeName: "임시 디폴트", typeColor: "GRAY")
+      HomieProfileList(id: "62cc7420d7868591384e4eb0", userName: "고구마", typeName: "임시 디폴트", typeColor: "GRAY"),
+      HomieProfileList(id: "62cc7420d7868512384e4eb9", userName: "김민재", typeName: "임시 디폴트", typeColor: "RED")
     ],
     roomCode: "JEVY4Q2G"
   )

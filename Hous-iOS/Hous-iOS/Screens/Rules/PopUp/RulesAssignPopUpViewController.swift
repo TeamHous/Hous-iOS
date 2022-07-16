@@ -125,7 +125,7 @@ extension TodayTodoAssignPopUpViewController: UICollectionViewDataSource {
       guard let cell = assigneeCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell else { return UICollectionViewCell() }
 
       cell.contentView.isUserInteractionEnabled = true
-      cell.setParticipantData(ParticipantsDataModel.sampleData[indexPath.row])
+      cell.setParticipantData(HomeDTO.sampleData.homieProfileList[indexPath.row], isSelected: nil)
 
       return cell
     }

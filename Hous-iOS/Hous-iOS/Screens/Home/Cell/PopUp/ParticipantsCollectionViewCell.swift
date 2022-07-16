@@ -51,9 +51,19 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func setParticipantData(_ data: ParticipantsDataModel) {
-    participantButton.setBackgroundImage(data.participantImage, for: .normal)
-    participantButton.setBackgroundImage(R.Image.faceCheckedRed, for: .selected)
-    participantNameLabel.text = data.participantName
+  func setParticipantData(_ data: HomieProfileList, isSelected flag: Bool?) {
+    let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: data.typeColor.lowercased()) ?? .none)
+    
+    participantButton.setBackgroundImage(factory.faceImage, for: .normal)
+    participantButton.setBackgroundImage(factory.checkedFaceImage, for: .selected)
+    
+    if let flag = flag {
+      participantButton.isSelected = flag
+    } else {
+      participantButton.isSelected = false
+    }
+    
+    
+    participantNameLabel.text = data.userName
   }
 }

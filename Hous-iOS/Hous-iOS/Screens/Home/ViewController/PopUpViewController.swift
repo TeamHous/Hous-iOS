@@ -29,6 +29,9 @@ class PopUpViewController: UIViewController {
   
   private let maxEventLength = 10
   
+  var homeData: HomeDTO?
+  private var eventData: EventDTO?
+  
   private let partyIconImageView = EventIconView().then {
     $0.eventCase = .party
     $0.tag = 0
@@ -147,6 +150,8 @@ class PopUpViewController: UIViewController {
     $0.spacing = 15
   }
   
+  private var isSelectedArray: [Bool] = []
+  
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -154,6 +159,8 @@ class PopUpViewController: UIViewController {
     setTextField()
     setTapGesture()
     setCollectionView()
+    getEventInfo()
+    getEventParticipant()
   }
   
   override func viewDidLayoutSubviews() {
@@ -161,6 +168,23 @@ class PopUpViewController: UIViewController {
   }
   
   //MARK: Custom Methods
+  private func getEventParticipant() {
+    guard let eventData = eventData,
+          let homeData = homeData
+    else { return }
+
+    for homie in homeData.homieProfileList {
+      var flag = false
+      let homieId = homie.id
+      for participant in eventData.participant {
+        if participant.id == homieId {
+          flag = true
+        }
+        isSelectedArray.append(flag)
+      }
+    }
+  }
+  
   private func configUI() {
     eventImageView.layer.cornerRadius = eventImageView.frame.width / 2
   }
@@ -265,10 +289,13 @@ class PopUpViewController: UIViewController {
     eventImageView.image = iconFactory.smallIconImage
     eventTextField.text = data.eventName
     
-    
     let date = data.date
     
     eventDateView.setDateLabel(date: date)
+  }
+  
+  private func getEventInfo() {
+    eventData = EventDTO.sampleData
   }
 }
 
@@ -317,6 +344,7 @@ extension PopUpViewController {
 //MARK: Delegate & Datasource
 extension PopUpViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
     guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell else { return }
     
     cell.participantButton.isSelected.toggle()
@@ -325,16 +353,21 @@ extension PopUpViewController: UICollectionViewDelegate {
 
 extension PopUpViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return ParticipantsDataModel.sampleData.count
+    return homeData?.homieProfileList.count ?? 0
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if collectionView == participantsCollectionView {
-      guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell else { return UICollectionViewCell() }
+      guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell,
+            let homeData = homeData
+      else { return UICollectionViewCell() }
       
       cell.contentView.isUserInteractionEnabled = true
-      cell.setParticipantData(ParticipantsDataModel.sampleData[indexPath.row])
-
+      
+      let isSelected = isSelectedArray[indexPath.row]
+      
+      cell.setParticipantData(homeData.homieProfileList[indexPath.row], isSelected: isSelected)
+      
       return cell
     }
 

@@ -41,8 +41,7 @@ extension EventDTO {
     eventIcon: "BEER",
     date: "2023-11-15",
     participant: [
-      Participant(id: "62c871289bfca489f95f6a0a", userName: "고구마", typeIcon: "GRAY"),
-      Participant(id: "62c8712b9bfca489f95f6a0d", userName: "감자", typeIcon: "RED")
+      Participant(id: "62cc7420d7868591384e4eb0", userName: "고구마", typeIcon: "GRAY")
     ]
   )
 }
