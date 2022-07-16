@@ -262,9 +262,19 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
+		9B55FBB72883201D0089B930 /* ProfileEditing */ = {
+			isa = PBXGroup;
+			children = (
+				9BF7AB2128816235005B6E8A /* ProfileEditingNavigationBarView.swift */,
+				9B25BBDE2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift */,
+			);
+			path = ProfileEditing;
+			sourceTree = "<group>";
+		};
 		9B7D8602287C487C006C0BCE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B55FBB72883201D0089B930 /* ProfileEditing */,
 				9BF7AB1E288160A9005B6E8A /* ProfileSetting */,
 				9BF7AB1D28816087005B6E8A /* ProfileMain */,
 			);
@@ -325,8 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */,
-				9BF7AB2128816235005B6E8A /* ProfileEditingNavigationBarView.swift */,
-				9B25BBDE2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift */,
 			);
 			path = ProfileSetting;
 			sourceTree = "<group>";
