@@ -11,10 +11,15 @@ import Then
 import RxSwift
 import RxCocoa
 
+/*
+            Closure  Delegate
+ viewController <- View <- View <- Cell
+                   View <- View
+                   View <- View
+ */
 final class RulesViewController: UIViewController {
 
 //  override var hidesBottomBarWhenPushed: Bool { get { true } set { } }?÷
-
 
   var categories: Categories?
 
@@ -28,26 +33,25 @@ final class RulesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configUI()
-    setCollectionView()
-    setAction()
-    getCategories()
+    setUp()
     binding()
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
-    
   }
 
-  
+  // MARK: - Method
+
   private func configUI() {
     self.navigationController?.navigationBar.isHidden = true
   }
-  
-  private func setCollectionView() {
-    mainView.categoryCollectionView.delegate = self
-    mainView.categoryCollectionView.dataSource = self
+
+  private func setUp() {
+    setAction()
+    setCollectionView()
+    getCategories()
+    mainView.categoryEditView.delegate = self
   }
 
   private func setAction() {
@@ -57,6 +61,11 @@ final class RulesViewController: UIViewController {
       todayTodoAssignPopUp.modalPresentationStyle = .overFullScreen
       self.present(todayTodoAssignPopUp, animated: true)
     }
+  }
+
+  private func setCollectionView() {
+    mainView.categoryCollectionView.delegate = self
+    mainView.categoryCollectionView.dataSource = self
   }
 
   private func getCategories() {
@@ -135,5 +144,22 @@ extension RulesViewController {
     if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
       tvc.housTabbar.isHidden = isHidden
     }
+  }
+}
+
+extension RulesViewController: RulesCategoryEditViewDelegate {
+  func borderButtonTouched(viewType: CategoryEditType) {
+    let popUp = CommonPopUpViewController()
+    popUp.modalTransitionStyle = .crossDissolve
+    popUp.modalPresentationStyle = .overFullScreen
+    popUp.setText(
+      titleText: viewType.titleText,
+      descriptionText: viewType.descriptionText,
+      buttonText: viewType.buttonText)
+    self.present(popUp, animated: true)
+  }
+
+  func filledButtonTouched() {
+    // 추가하기 서버통신
   }
 }

@@ -9,9 +9,17 @@ import UIKit
 import SnapKit
 import Then
 
+protocol RulesCategoryEditViewDelegate: AnyObject {
+  func borderButtonTouched(viewType: CategoryEditType)
+  func filledButtonTouched()
+}
+
 final class RulesCategoryEditView: UIView {
 
   //MARK: - 변수
+
+  weak var delegate : RulesCategoryEditViewDelegate?
+  var editType: CategoryEditType = .add
 
   enum Size {
     static let selectedCategoryViewSize: CGFloat = 100
@@ -93,21 +101,23 @@ final class RulesCategoryEditView: UIView {
     $0.setImage(R.Image.coffeeChecked, for: .selected)
   }
 
-  var buttonStackView = UIStackView().then {
+  private var buttonStackView = UIStackView().then {
     $0.axis = .horizontal
     $0.distribution = .fillEqually
     $0.spacing = 15
     $0.alignment = .fill
   }
-  var cancelButton = BorderCustomButton().then {
+  lazy var borderButton = BorderCustomButton().then {
     $0.configUI(font: .font(.spoqaHanSansNeoBold, ofSize: 18),
                 text: "작성 취소",
                 borderColor: R.Color.softBlue, backColor: R.Color.paleGrey,
                 corner: 15)
+    $0.addTarget(self, action: #selector(borderButtonDidTapped), for: .touchUpInside)
   }
-  var addCategoryButton = FilledCustomButton().then {
+  lazy var filledButton = FilledCustomButton().then {
     $0.configUI(font: .font(.spoqaHanSansNeoBold, ofSize: 18),
                 text: "추가하기", color: R.Color.softBlue, corner: 15)
+    $0.addTarget(self, action: #selector(filledButtonDidTapped), for: .touchUpInside)
   }
 
   //MARK: - 생명주기
@@ -135,7 +145,7 @@ final class RulesCategoryEditView: UIView {
     categoryStackView.addArrangedSubviews(categoryFirstStackView, categorySecondStackView)
     categoryFirstStackView.addArrangedSubviews(cleanCategoryButton, trashCategoryButton, lightCategoryButton, heartCategoryButton)
     categorySecondStackView.addArrangedSubviews(beerCategoryButton, cakeCategoryButton, laundryCategoryButton, coffeeCategoryButton)
-    buttonStackView.addArrangedSubviews(cancelButton, addCategoryButton)
+    buttonStackView.addArrangedSubviews(borderButton, filledButton)
 
     categoryTitleLabel.snp.makeConstraints { make in
       make.top.equalToSuperview().offset(32)
@@ -227,6 +237,18 @@ extension RulesCategoryEditView {
       button == sender ? (button.isSelected = true) : (button.isSelected = false)
     }
     selectedCategoryImageView.image = sender.imageView?.image
+  }
+}
+
+extension RulesCategoryEditView {
+  // 이거 맞습니까 ? addTarget selector -> delegate -> closure의 향연 ...
+  @objc private func borderButtonDidTapped() {
+    print(#function)
+    delegate?.borderButtonTouched(viewType: editType)
+  }
+
+  @objc private func filledButtonDidTapped() {
+    delegate?.filledButtonTouched()
   }
 }
 

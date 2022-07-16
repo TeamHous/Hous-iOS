@@ -21,4 +21,32 @@ enum TodayTodoType {
 
 enum CategoryEditType {
   case add, update
+
+  var titleText: String {
+    switch self {
+    case .add:
+      return "작성 취소"
+    case .update:
+      return "카테고리 삭제"
+    }
+  }
+
+  var descriptionText: String {
+    switch self {
+    case .add:
+      return "이 화면을 벗어나면\n작성한 내용이 모두 취소됩니다."
+    case .update:
+      return "이 카테고리를 삭제하면 포함된 규칙이\n모두 사라집니다. 계속 진행 하시겠습니까?"
+    }
+  }
+
+  var buttonText: String {
+    switch self {
+    case .add:
+      return "작성 취소하기"
+    case .update:
+      return "삭제"
+    }
+  }
+
 }

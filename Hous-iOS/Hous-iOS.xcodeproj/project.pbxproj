@@ -74,6 +74,7 @@
 		B5F8584128806E95009474A1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8584028806E95009474A1 /* UIImageView+Extension.swift */; };
 		B80418C428808E450060A9C9 /* CategoryIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80418C328808E450060A9C9 /* CategoryIconFactory.swift */; };
 		B80418C6288189F20060A9C9 /* TwoCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80418C5288189F20060A9C9 /* TwoCustomButton.swift */; };
+		B80418CA2882CD950060A9C9 /* CommonPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80418C92882CD950060A9C9 /* CommonPopUpViewController.swift */; };
 		B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A12876D2D10025B767 /* AppDelegate.swift */; };
 		B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510A32876D2D10025B767 /* SceneDelegate.swift */; };
 		B80510AB2876D2D20025B767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80510AA2876D2D20025B767 /* Assets.xcassets */; };
@@ -181,6 +182,7 @@
 		B5F8584028806E95009474A1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B80418C328808E450060A9C9 /* CategoryIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconFactory.swift; sourceTree = "<group>"; };
 		B80418C5288189F20060A9C9 /* TwoCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoCustomButton.swift; sourceTree = "<group>"; };
+		B80418C92882CD950060A9C9 /* CommonPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopUpViewController.swift; sourceTree = "<group>"; };
 		B805109E2876D2D10025B767 /* Hous-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hous-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80510A12876D2D10025B767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B80510A32876D2D10025B767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */,
 				B80418C5288189F20060A9C9 /* TwoCustomButton.swift */,
 				9BBE243E2881BF3200712C69 /* FormTextField.swift */,
+				B80418C92882CD950060A9C9 /* CommonPopUpViewController.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				B5F8583D28805EEF009474A1 /* TestCollectionViewCell.swift in Sources */,
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
 				9BF7AB202881611C005B6E8A /* ProfileEditingViewController.swift in Sources */,
+				B80418CA2882CD950060A9C9 /* CommonPopUpViewController.swift in Sources */,
 				9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */,
 				B5E95ADE2881B63000CD2244 /* EventDTO.swift in Sources */,
 				B8434437287D920900CD1BF5 /* RulesCategoryEditView.swift in Sources */,

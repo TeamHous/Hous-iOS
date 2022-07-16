@@ -44,7 +44,7 @@ class RulesHomeView: UIView {
 
   lazy var categoryTableView = RulesCategoryTableView()
   lazy var todoTableView = RulesTodoTableView()
-  lazy var categoryView = RulesCategoryEditView(editType: .add)
+  lazy var categoryEditView = RulesCategoryEditView(editType: .add)
   var rulesDisplayView = UIView()
   
   override init(frame: CGRect) {
@@ -106,8 +106,8 @@ extension RulesHomeView {
           make.edges.equalToSuperview()
       }
     case .editCategory:
-      view.addSubview(categoryView)
-      categoryView.snp.makeConstraints { make in
+      view.addSubview(categoryEditView)
+      categoryEditView.snp.makeConstraints { make in
           make.edges.equalToSuperview()
       }
     }
