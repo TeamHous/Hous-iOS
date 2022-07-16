@@ -262,6 +262,18 @@ extension R.Image {
   static var testImage14: UIImage { .load(named: "testImage14")}
   static var testImage15: UIImage { .load(named: "testImage15")}
   static var testStartCheck: UIImage { .load(named: "testStartCheck")}
+  
+  //Profile-TestResult
+  static var resultImage1: UIImage { .load(named: "illu_result_01")}
+  static var resultImage2: UIImage { .load(named: "illu_result_02")}
+  static var resultImage3: UIImage { .load(named: "illu_result_03")}
+  static var resultImage4: UIImage { .load(named: "illu_result_04")}
+  static var resultImage5: UIImage { .load(named: "illu_result_05")}
+  static var resultCircle: UIImage { .load(named: "ic_cir1")}
+  static var resultTriangle: UIImage { .load(named: "ic_tri1")}
+  static var resultSquare: UIImage { .load(named: "ic_squ1")}
+  static var resultPentagon: UIImage { .load(named: "ic_pen1")}
+  static var resultHexagon: UIImage { .load(named: "ic_hex1")}
 }
 
 extension UIImage {
