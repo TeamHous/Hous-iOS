@@ -22,7 +22,7 @@ class EventDateView: UIView {
   private let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(dismissDatePicker))
   
   private lazy var toolBar = UIToolbar().then {
-    $0.setItems([flexibleButton, cancelButton, flexibleButton, doneButton, flexibleButton], animated: false)
+    $0.setItems([cancelButton, flexibleButton, doneButton], animated: false)
     $0.sizeToFit()
   }
   
@@ -50,6 +50,7 @@ class EventDateView: UIView {
   }
   
   private lazy var monthDatePickerTextField = UITextField().then {
+    $0.inputAccessoryView = toolBar
     $0.tintColor = .clear
     $0.inputView = datePicker
     $0.textAlignment = .center
@@ -68,6 +69,7 @@ class EventDateView: UIView {
   }
   
   private lazy var dayDatePickerTextField = UITextField().then {
+    $0.inputAccessoryView = toolBar
     $0.tintColor = .clear
     $0.inputView = datePicker
     $0.textAlignment = .center
