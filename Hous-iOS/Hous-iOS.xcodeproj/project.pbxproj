@@ -19,6 +19,8 @@
 		9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */; };
 		9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */; };
 		9B25BBDF2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25BBDE2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift */; };
+		9B55FBB9288321DF0089B930 /* ProfileTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBB8288321DF0089B930 /* ProfileTestResultViewController.swift */; };
+		9B55FBBC288323990089B930 /* ProfileTestResultNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */; };
 		9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */; };
 		9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */; };
 		9B648B8D2880542C005E9322 /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */; };
@@ -131,6 +133,8 @@
 		9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBackgroundView.swift; sourceTree = "<group>"; };
 		9B1F1C0F287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B25BBDE2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingScrollContentsView.swift; sourceTree = "<group>"; };
+		9B55FBB8288321DF0089B930 /* ProfileTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultViewController.swift; sourceTree = "<group>"; };
+		9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultNavigationBar.swift; sourceTree = "<group>"; };
 		9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingNavigationBarView.swift; sourceTree = "<group>"; };
 		9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -271,9 +275,18 @@
 			path = ProfileEditing;
 			sourceTree = "<group>";
 		};
+		9B55FBBA2883237E0089B930 /* ProfileTestResult */ = {
+			isa = PBXGroup;
+			children = (
+				9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */,
+			);
+			path = ProfileTestResult;
+			sourceTree = "<group>";
+		};
 		9B7D8602287C487C006C0BCE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B55FBBA2883237E0089B930 /* ProfileTestResult */,
 				9B55FBB72883201D0089B930 /* ProfileEditing */,
 				9BF7AB1E288160A9005B6E8A /* ProfileSetting */,
 				9BF7AB1D28816087005B6E8A /* ProfileMain */,
@@ -296,6 +309,7 @@
 				9B7D860A287C487C006C0BCE /* ProfileViewController.swift */,
 				9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */,
 				9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */,
+				9B55FBB8288321DF0089B930 /* ProfileTestResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -931,6 +945,8 @@
 				B843871E28795E0C003F7B75 /* NavigationBarView.swift in Sources */,
 				9B7D860E287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift in Sources */,
 				B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */,
+				9B55FBB9288321DF0089B930 /* ProfileTestResultViewController.swift in Sources */,
+				9B55FBBC288323990089B930 /* ProfileTestResultNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
