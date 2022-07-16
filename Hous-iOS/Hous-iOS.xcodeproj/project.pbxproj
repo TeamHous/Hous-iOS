@@ -21,6 +21,9 @@
 		9B25BBDF2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25BBDE2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift */; };
 		9B55FBB9288321DF0089B930 /* ProfileTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBB8288321DF0089B930 /* ProfileTestResultViewController.swift */; };
 		9B55FBBC288323990089B930 /* ProfileTestResultNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */; };
+		9B55FBBF28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBBE28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift */; };
+		9B55FBC128832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC028832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift */; };
+		9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B55FBC228832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift */; };
 		9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */; };
 		9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */; };
 		9B648B8D2880542C005E9322 /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */; };
@@ -135,6 +138,9 @@
 		9B25BBDE2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingScrollContentsView.swift; sourceTree = "<group>"; };
 		9B55FBB8288321DF0089B930 /* ProfileTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultViewController.swift; sourceTree = "<group>"; };
 		9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultNavigationBar.swift; sourceTree = "<group>"; };
+		9B55FBBE28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B55FBC028832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultTextCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B55FBC228832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B648B8828804DD4005E9322 /* ProfileSettingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingNavigationBarView.swift; sourceTree = "<group>"; };
 		9B648B8A28804E6E005E9322 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		9B648B8C2880542C005E9322 /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -283,6 +289,16 @@
 			path = ProfileTestResult;
 			sourceTree = "<group>";
 		};
+		9B55FBBD28832A9C0089B930 /* ProfileTestResult */ = {
+			isa = PBXGroup;
+			children = (
+				9B55FBBE28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift */,
+				9B55FBC028832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift */,
+				9B55FBC228832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift */,
+			);
+			path = ProfileTestResult;
+			sourceTree = "<group>";
+		};
 		9B7D8602287C487C006C0BCE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +313,7 @@
 		9B7D8605287C487C006C0BCE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				9B55FBBD28832A9C0089B930 /* ProfileTestResult */,
 				9BF7AB1C28816071005B6E8A /* ProfileSetting */,
 				9BF7AB1B28816069005B6E8A /* ProfileMain */,
 			);
@@ -910,7 +927,9 @@
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
 				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
+				9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */,
 				B5F8583F288069B6009474A1 /* ProfileTestDTO.swift in Sources */,
+				9B55FBC128832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift in Sources */,
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
@@ -929,6 +948,7 @@
 				B80418CA2882CD950060A9C9 /* CommonPopUpViewController.swift in Sources */,
 				9B1F1C10287E6DA100A15D82 /* ProfileGraphEmptyCollectionViewCell.swift in Sources */,
 				B5E95ADE2881B63000CD2244 /* EventDTO.swift in Sources */,
+				9B55FBBF28832AD40089B930 /* ProfileTestResultImageCollectionViewCell.swift in Sources */,
 				B8434437287D920900CD1BF5 /* RulesCategoryEditView.swift in Sources */,
 				9B7D860F287C487C006C0BCE /* ProfileGraphCollectionViewCell.swift in Sources */,
 				9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */,

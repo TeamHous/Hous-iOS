@@ -36,7 +36,7 @@ class ProfileTestResultNavigationBarView: UIView {
     
     navigationBackButton.snp.makeConstraints {make in
       make.centerY.equalToSuperview().multipliedBy(1.5)
-      make.trailing.equalToSuperview().offset(24)
+      make.trailing.equalToSuperview().inset(24)
     }
   }
 }
