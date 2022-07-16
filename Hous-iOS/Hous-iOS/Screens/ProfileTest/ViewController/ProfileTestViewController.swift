@@ -14,8 +14,13 @@ class ProfileTestViewController: UIViewController {
     static let screenHeight = UIScreen.main.bounds.height
   }
   
-  private let backwardButton = UIButton().then {
+  var testCellData: [TestCellItem]
+  
+  private var indexPathRow: Int?
+  
+  private lazy var backwardButton = UIButton().then {
     $0.setImage(R.Image.testBackwardButton, for: .normal)
+    $0.addTarget(self, action: #selector(scrollBackward), for: .touchUpInside)
   }
   
   private let testCountLabel = UILabel().then {
@@ -23,8 +28,9 @@ class ProfileTestViewController: UIViewController {
     $0.textColor = R.Color.brownGreyTwo
   }
   
-  private let forwardButton = UIButton().then {
+  private lazy var forwardButton = UIButton().then {
     $0.setImage(R.Image.testForwardButton, for: .normal)
+    $0.addTarget(self, action: #selector(scrollForward), for: .touchUpInside)
   }
   
   private lazy var testNavigationStackView = UIStackView(arrangedSubviews: [backwardButton, testCountLabel, forwardButton]).then {
@@ -53,13 +59,21 @@ class ProfileTestViewController: UIViewController {
     $0.collectionViewLayout = layout
     $0.showsHorizontalScrollIndicator = false
   }
+  
+  init(testCellItem: [TestCellItem]) {
+    self.testCellData = testCellItem
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     render()
     setTestCollectionView()
   }
-  
   
   private func render() {
     self.view.addSubViews([testNavigationStackView, quitButton, testCollectionView])
@@ -85,42 +99,14 @@ class ProfileTestViewController: UIViewController {
     testCollectionView.delegate = self
     testCollectionView.dataSource = self
   }
-}
-
-extension ProfileTestViewController: UICollectionViewDelegate {
-
-}
-
-extension ProfileTestViewController: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return ProfileTestDTO.sampleData.first?.data.count ?? 0
-  }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = testCollectionView.dequeueReusableCell(withReuseIdentifier: TestCollectionViewCell.className, for: indexPath) as? TestCollectionViewCell,
-          let data = ProfileTestDTO.sampleData.first?.data
-    else { return UICollectionViewCell() }
-    
-    cell.buttonAction = { sender in
-      if indexPath.row + 1 == data.count {
-        return
-      }
-      
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-        collectionView.scrollToItem(at: IndexPath(row: indexPath.row + 1, section: 0), at: .right, animated: true)
-        
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = R.Color.whitishGrey
-        config.baseForegroundColor = R.Color.brownGreyTwo
-        sender.configuration = config
-      }
-    }
-    
-    if indexPath.row == 0 {
+  private func setBackforwardButton() {
+    guard let index = indexPathRow else { return }
+    if index == 0 {
       self.backwardButton.alpha = 0
       self.backwardButton.isEnabled = false
       
-    } else if indexPath.row + 1 == data.count {
+    } else if index + 1 == testCellData.count {
       self.forwardButton.alpha = 0
       self.forwardButton.isEnabled = false
       
@@ -131,10 +117,53 @@ extension ProfileTestViewController: UICollectionViewDataSource {
       self.forwardButton.alpha = 1
       self.forwardButton.isEnabled = true
     }
+  }
+}
+
+extension ProfileTestViewController: UICollectionViewDelegate {
+
+}
+
+extension ProfileTestViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return testCellData.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = testCollectionView.dequeueReusableCell(withReuseIdentifier: TestCollectionViewCell.className, for: indexPath) as? TestCollectionViewCell
+    else { return UICollectionViewCell() }
     
-    testCountLabel.text = "\(data[indexPath.row].testIdx) / \(data.count)"
+    self.indexPathRow = indexPath.row
     
-    cell.setTestData(data[indexPath.row])
+    cell.buttonAction = { (sender, string) in
+      if indexPath.row + 1 == self.testCellData.count {
+        
+        let testAnswers = self.testCellData[indexPath.row].testAnswers.keys
+        testAnswers.forEach {
+          self.testCellData[indexPath.row].testAnswers[$0] = false
+        }
+        self.testCellData[indexPath.row].testAnswers[string] = sender.isSelected
+        return
+      }
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+        
+        collectionView.scrollToItem(at: IndexPath(row: indexPath.row + 1, section: 0), at: .right, animated: true)
+        
+        let testAnswers = testCellData[indexPath.row].testAnswers.keys
+        testAnswers.forEach {
+          testCellData[indexPath.row].testAnswers[$0] = false
+        }
+        testCellData[indexPath.row].testAnswers[string] = sender.isSelected
+      }
+    }
+    
+    setBackforwardButton()
+    
+    testCountLabel.text = "\(testCellData[indexPath.row].testIdx) / \(testCellData.count)"
+    
+    cell.setTestData(testCellData[indexPath.row])
+    
     return cell
   }
 }
@@ -167,5 +196,53 @@ extension ProfileTestViewController {
     popUp.modalPresentationStyle = .overFullScreen
     
     present(popUp, animated: true)
+  }
+  
+  @objc private func scrollBackward() {
+    guard var index = indexPathRow else { return }
+    print("뒤로가기 눌렀을 때 \(index - 1)")
+    if index <= 0 { return }
+    
+    testCollectionView.scrollToItem(at: IndexPath(row: index - 1, section: 0), at: .left, animated: true)
+    
+    index -= 1
+    indexPathRow = index
+    
+    setBackforwardButton()
+    testCountLabel.text = "\((index + 1).description) / \(testCellData.count)"
+  }
+  
+  @objc private func scrollForward() {
+    guard var index = indexPathRow else { return }
+    print("앞으로가기 눌렀을 때 \(index + 1)")
+    if index + 1 == testCellData.count { return }
+    
+    testCollectionView.scrollToItem(at: IndexPath(row: index + 1, section: 0), at: .right, animated: true)
+    
+    index += 1
+    indexPathRow = index
+    
+    setBackforwardButton()
+    testCountLabel.text = "\((index + 1).description) / \(testCellData.count)"
+  }
+}
+
+struct TestCellItem {
+  
+  let testTitle: String
+  let testIdx: Int
+  let testImg: String
+  var testAnswers: [String: Bool]
+  
+  init(dto: TestInfoList) {
+    self.testTitle = dto.testTitle
+    self.testIdx = dto.testIdx
+    self.testImg = dto.testImg
+    
+    var t: [String: Bool] = [:]
+    dto.testAnswers.forEach { answer in
+      t[answer] = false
+    }
+    self.testAnswers = t
   }
 }
