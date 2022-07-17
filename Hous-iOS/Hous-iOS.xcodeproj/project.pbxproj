@@ -117,13 +117,13 @@
 		B8438729287961EE003F7B75 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B8438728287961EE003F7B75 /* RxCocoa */; };
 		B843872B287961EE003F7B75 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B843872A287961EE003F7B75 /* RxRelay */; };
 		B843872D287961EE003F7B75 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B843872C287961EE003F7B75 /* RxSwift */; };
-		B843873128796397003F7B75 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B843873028796397003F7B75 /* Inject */; };
 		B84CF9B228844316008770F0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B128844316008770F0 /* APIConstants.swift */; };
 		B84CF9B6288453D3008770F0 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B5288453D3008770F0 /* TargetType.swift */; };
 		B84CF9BB288458EF008770F0 /* RulesMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BA288458EF008770F0 /* RulesMainAPITarget.swift */; };
 		B84CF9BD2884790E008770F0 /* RulesMainAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BC2884790E008770F0 /* RulesMainAPIService.swift */; };
 		B84CF9BF28847C41008770F0 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BE28847C41008770F0 /* HTTPStatusCode.swift */; };
 		B84CF9C128847CF0008770F0 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C028847CF0008770F0 /* CommonResponse.swift */; };
+		B84CF9C42884B8B2008770F0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B84CF9C32884B8B2008770F0 /* Inject */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -259,8 +259,8 @@
 				778A7A0E2879349100722CBB /* RxGesture in Frameworks */,
 				B843872D287961EE003F7B75 /* RxSwift in Frameworks */,
 				B843872B287961EE003F7B75 /* RxRelay in Frameworks */,
+				B84CF9C42884B8B2008770F0 /* Inject in Frameworks */,
 				B8438727287961EE003F7B75 /* Alamofire in Frameworks */,
-				B843873128796397003F7B75 /* Inject in Frameworks */,
 				B8438723287961EE003F7B75 /* SnapKit in Frameworks */,
 				B8438729287961EE003F7B75 /* RxCocoa in Frameworks */,
 				B8438725287961EE003F7B75 /* Then in Frameworks */,
@@ -850,7 +850,7 @@
 				B8438728287961EE003F7B75 /* RxCocoa */,
 				B843872A287961EE003F7B75 /* RxRelay */,
 				B843872C287961EE003F7B75 /* RxSwift */,
-				B843873028796397003F7B75 /* Inject */,
+				B84CF9C32884B8B2008770F0 /* Inject */,
 			);
 			productName = "Hous-iOS";
 			productReference = B805109E2876D2D10025B767 /* Hous-iOS.app */;
@@ -887,7 +887,7 @@
 				B80510DB2876D6540025B767 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */,
-				B843872F28796397003F7B75 /* XCRemoteSwiftPackageReference "Inject" */,
+				B84CF9C22884B8B2008770F0 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = B805109F2876D2D10025B767 /* Products */;
 			projectDirPath = "";
@@ -1049,6 +1049,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1117,6 +1118,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1178,8 +1180,10 @@
 		B80510B32876D2D20025B767 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -1206,8 +1210,10 @@
 		B80510B42876D2D20025B767 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -1295,12 +1301,12 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		B843872F28796397003F7B75 /* XCRemoteSwiftPackageReference "Inject" */ = {
+		B84CF9C22884B8B2008770F0 /* XCRemoteSwiftPackageReference "Inject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1341,9 +1347,9 @@
 			package = B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		B843873028796397003F7B75 /* Inject */ = {
+		B84CF9C32884B8B2008770F0 /* Inject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B843872F28796397003F7B75 /* XCRemoteSwiftPackageReference "Inject" */;
+			package = B84CF9C22884B8B2008770F0 /* XCRemoteSwiftPackageReference "Inject" */;
 			productName = Inject;
 		};
 /* End XCSwiftPackageProductDependency section */
