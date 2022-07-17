@@ -13,7 +13,7 @@ class ProfileTestResultViewController : UIViewController {
     static let screenWidth = UIScreen.main.bounds.width
     static let imageCellSize = CGSize(width: Size.screenWidth, height: 364)
     static let textCellSize = CGSize(width: Size.screenWidth, height: 328)
-    static let recommendCellSize = CGSize(width: Size.screenWidth, height: 224)
+    static let recommendCellSize = CGSize(width: Size.screenWidth, height: 100)
   }
   
   private let navigationBarView = ProfileTestResultNavigationBarView()
