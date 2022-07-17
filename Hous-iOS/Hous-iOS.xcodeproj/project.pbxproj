@@ -40,6 +40,7 @@
 		9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */; };
 		9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81422A287D3FE30073E533 /* ProfileGraphView.swift */; };
 		9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE243E2881BF3200712C69 /* FormTextField.swift */; };
+		9BCA29F7288433BC0032338D /* ProfileRecommendBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */; };
 		9BF7AB202881611C005B6E8A /* ProfileEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */; };
 		9BF7AB2228816235005B6E8A /* ProfileEditingNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7AB2128816235005B6E8A /* ProfileEditingNavigationBarView.swift */; };
 		B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */; };
@@ -161,6 +162,7 @@
 		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
 		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
 		9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingViewController.swift; sourceTree = "<group>"; };
 		9BF7AB2128816235005B6E8A /* ProfileEditingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingNavigationBarView.swift; sourceTree = "<group>"; };
 		B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -746,6 +748,7 @@
 			children = (
 				9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */,
 				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
+				9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */,
 				9B1F1C07287DD09700A15D82 /* GraphView.swift */,
 				9B1F1C0B287DF7C700A15D82 /* GraphBackgroundView.swift */,
 				B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */,
@@ -954,6 +957,7 @@
 				9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */,
 				B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */,
 				B5F8583D28805EEF009474A1 /* TestCollectionViewCell.swift in Sources */,
+				9BCA29F7288433BC0032338D /* ProfileRecommendBoxView.swift in Sources */,
 				B59C94752877094F005865CA /* NSObject+Extension.swift in Sources */,
 				9BF7AB202881611C005B6E8A /* ProfileEditingViewController.swift in Sources */,
 				B80418CA2882CD950060A9C9 /* CommonPopUpViewController.swift in Sources */,

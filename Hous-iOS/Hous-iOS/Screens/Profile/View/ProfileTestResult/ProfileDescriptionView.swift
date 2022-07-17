@@ -19,8 +19,8 @@ class ProfileDescriptionView : UIView {
     let attributedString = NSMutableAttributedString(string: "어떤 상황에서도 Happy -")
     let stringLength = attributedString.length
     
-    attributedString.addAttributes([.foregroundColor: UIColor.darkYellow, .font: UIFont.font(.spoqaHanSansNeoBold, ofSize: 18)], range: NSRange(location: 0, length : 9))
-    attributedString.addAttributes([.foregroundColor: UIColor.darkYellow, .font: UIFont.font(.montserratSemiBold, ofSize: 20)], range: NSRange(location: 9, length: stringLength - 9))
+    attributedString.addAttributes([.foregroundColor: UIColor.orangeYellow, .font: UIFont.font(.spoqaHanSansNeoBold, ofSize: 18)], range: NSRange(location: 0, length : 9))
+    attributedString.addAttributes([.foregroundColor: UIColor.orangeYellow, .font: UIFont.font(.montserratSemiBold, ofSize: 20)], range: NSRange(location: 9, length: stringLength - 9))
     
     recommendTitleLabel.attributedText = attributedString
     return recommendTitleLabel
