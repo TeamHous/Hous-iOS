@@ -79,8 +79,11 @@ extension R.Color {
   static var whitishGrey: UIColor {
     .dynamicColor(light: .whitishGrey, dark: .white)
   }
-  static var darkYellow: UIColor {
-    .dynamicColor(light: .darkYellow, dark: .white)
+  static var orangeYellow: UIColor {
+    .dynamicColor(light: .orangeYellow, dark: .white)
+  }
+  static var iceMint: UIColor {
+    .dynamicColor(light: .iceMint, dark: .white)
   }
 }
 
@@ -132,8 +135,11 @@ extension UIColor {
   @nonobjc class var easterGreen: UIColor {
     return UIColor(red: 143.0 / 255.0, green: 242.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
   }
-  @nonobjc class var darkYellow: UIColor {
+  @nonobjc class var orangeYellow: UIColor {
     return UIColor(red: 255.0 / 255.0, green: 189.0 / 255.0, blue: 21.0 / 255.0, alpha: 1.0)
+  }
+  @nonobjc class var iceMint: UIColor {
+    return UIColor(red: 240.0 / 255.0, green: 255.0 / 255.0, blue: 240.0 / 255.0, alpha: 1.0)
   }
   @nonobjc class var whitishGrey: UIColor {
     return UIColor(white: 250.0 / 255.0, alpha: 1.0)
