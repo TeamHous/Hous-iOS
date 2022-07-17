@@ -99,6 +99,6 @@ extension RulesMainAPITarget: TargetType {
   }
 
   var header: HeaderType {
-    return .basic
+    return .auth
   }
 }
