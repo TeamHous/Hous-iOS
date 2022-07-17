@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol TestCollectionViewCellDelegate: AnyObject {
+  func optionButtonDidTapped(_ sender: UIButton, _ tag: Int)
+}
+
 
 class TestCollectionViewCell: UICollectionViewCell {
   
-  var buttonAction: ((UIButton, String) -> Void)?
+  weak var delegate: TestCollectionViewCellDelegate?
   
   private let testTitleLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
@@ -26,14 +30,17 @@ class TestCollectionViewCell: UICollectionViewCell {
   }
   
   private lazy var optionButton1 = UIButton().then {
+    $0.tag = 0
     setOptionButton(sender: $0)
   }
   
   private lazy var optionButton2 = UIButton().then {
+    $0.tag = 1
     setOptionButton(sender: $0)
   }
   
   private lazy var optionButton3 = UIButton().then {
+    $0.tag = 2
     setOptionButton(sender: $0)
   }
   
@@ -88,31 +95,16 @@ class TestCollectionViewCell: UICollectionViewCell {
     }
   }
   
-//  func setTestData(_ data: TestInfoList) {
-//    testTitleLabel.text = data.testTitle
-//    // url -> image
-////    testImageView.urlToImage(urlString: data.testImg)
-//
-//    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
-//    for (button, text) in sequence {
-//      button.setTitle(text, for: .normal)
-//      button.titleLabel?.textAlignment = .center
-//    }
-//  }
-  
-  
   func setTestData(_ data: TestCellItem) {
     testTitleLabel.text = data.testTitle
     // url -> image
     // testImageView.urlToImage(urlString: data.testImg)
-    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers.keys)
     
-    for (button, text) in sequence {
-      
-      guard let flag = data.testAnswers[text] else { return }
-      
-      button.isSelected = flag
-      button.setTitle(text, for: .normal)
+    let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
+    
+    for (button, data) in sequence {
+      button.setTitle(data.optionText, for: .normal)
+      button.isSelected = data.isSelected
       button.titleLabel?.textAlignment = .center
     }
   }
@@ -123,14 +115,14 @@ extension TestCollectionViewCell {
   @objc private func buttonPressed(_ sender: UIButton) {
     
     deselectButtons([optionButton1, optionButton2, optionButton3])
-    sender.isSelected.toggle()
-    
-    self.buttonAction?(sender, sender.titleLabel?.text ?? "")
+    sender.isSelected = true
+    delegate?.optionButtonDidTapped(sender, sender.tag)
   }
   
-  private func deselectButtons(_ buttonList: [UIButton]) {
+  func deselectButtons(_ buttonList: [UIButton]) {
     buttonList.forEach {
       $0.isSelected = false
     }
   }
+  
 }

@@ -93,11 +93,12 @@ class ProfileTestInfoViewController: UIViewController {
 extension ProfileTestInfoViewController {
   @objc private func startProfileTest() {
     
-    let t = profileTestData.map {
+    let testCellData = profileTestData.map {
       TestCellItem(dto: $0)
     }
     
-    let profileTest = ProfileTestViewController(testCellItem: t)
+    
+    let profileTest = ProfileTestViewController(testCellItem: testCellData)
     profileTest.modalTransitionStyle = .crossDissolve
     profileTest.modalPresentationStyle = .fullScreen
     
