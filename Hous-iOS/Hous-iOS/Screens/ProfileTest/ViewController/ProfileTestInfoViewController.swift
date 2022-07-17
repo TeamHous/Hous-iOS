@@ -14,7 +14,7 @@ class ProfileTestInfoViewController: UIViewController {
     static let screenHeight = UIScreen.main.bounds.height
   }
   
-  private var profileTestData: [TestInfoList] = []
+  private var profileTestData: [TestInfoDTO] = []
   
   private let testStartImageView = UIImageView().then {
     $0.image = R.Image.testStartCheck
@@ -58,7 +58,7 @@ class ProfileTestInfoViewController: UIViewController {
   }
   
   private func getProfileTest() {
-    profileTestData = ProfileTestDTO.sampleData.first!.data
+    profileTestData = ProfileTestDTO.sampleData.data.typeTest
   }
   
   private func render() {
@@ -96,7 +96,6 @@ extension ProfileTestInfoViewController {
     let testCellData = profileTestData.map {
       TestCellItem(dto: $0)
     }
-    
     
     let profileTest = ProfileTestViewController(testCellItem: testCellData)
     profileTest.modalTransitionStyle = .crossDissolve
