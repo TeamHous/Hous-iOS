@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileDescriptionView : UIView {
+final class ProfileDescriptionView : UIView {
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width

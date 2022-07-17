@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTestResultViewController : UIViewController {
+final class ProfileTestResultViewController : UIViewController {
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width

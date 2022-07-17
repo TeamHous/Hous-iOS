@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileEditingScrollContentsView : UIView {
+final class ProfileEditingScrollContentsView : UIView {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
@@ -82,7 +82,6 @@ class ProfileEditingScrollContentsView : UIView {
   
   private func configUI(){
     self.backgroundColor = .white
-    
     for _ in 0...2 {
       let hashTagTextField = FormTextField(insetY: 12).then {
         $0.placeholder = "나를 소개하는 해시태그"

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileSettingCollectionViewCell: UICollectionViewCell {
+final class ProfileSettingCollectionViewCell: UICollectionViewCell {
   
   private var isNoti = false
   

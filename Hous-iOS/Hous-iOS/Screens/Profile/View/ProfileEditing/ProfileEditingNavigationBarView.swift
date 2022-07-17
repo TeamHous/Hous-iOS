@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileEditingNavigationBarView: UIView {
+final class ProfileEditingNavigationBarView: UIView {
   
   var popNavigationController : (() -> Void)?
   

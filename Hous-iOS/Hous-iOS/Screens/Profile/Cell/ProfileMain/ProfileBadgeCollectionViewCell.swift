@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileBadgeCollectionViewCell: UICollectionViewCell {
+final class ProfileBadgeCollectionViewCell: UICollectionViewCell {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class profileBadgeStackItemView : UIView {
+final class profileBadgeStackItemView : UIView {
   
-  private enum Size{
+  private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
     static let circleSize = CGSize(width: 70, height: 70)
@@ -37,11 +37,11 @@ class profileBadgeStackItemView : UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  private func configUI(){
+  private func configUI() {
     self.backgroundColor = .veryLightPinkTwo
   }
   
-  private func render(){
+  private func render() {
     self.addSubViews([circle, badgeImage, badgeLabel])
     
     circle.snp.makeConstraints {make in

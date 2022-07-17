@@ -7,9 +7,9 @@
 //
 import UIKit
 
-class ProfileViewController : UIViewController {
+final class ProfileViewController : UIViewController {
   
-  private enum Size{
+  private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let infoCellSize = CGSize(width: Size.screenWidth, height: 114)
     static let graphCellSize = CGSize(width: Size.screenWidth, height: 354)
@@ -31,12 +31,12 @@ class ProfileViewController : UIViewController {
   }()
   
   private let item: HousTabbarItem
- 
+  
   init(item: HousTabbarItem) {
     self.item = item
     super.init(nibName: nil, bundle: nil)
   }
-
+  
   required init?(coder: NSCoder) {
     fatalError("")
   }
@@ -80,19 +80,19 @@ class ProfileViewController : UIViewController {
   
   private func render() {
     view.addSubViews([navigationBarView, profileMainCollectionView])
-
+    
     navigationBarView.snp.makeConstraints { make in
       make.height.equalTo(60)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.trailing.equalToSuperview()
     }
-
+    
     profileMainCollectionView.snp.makeConstraints{ make in
       make.top.equalTo(navigationBarView.snp.bottom)
       make.bottom.equalToSuperview()
       make.trailing.leading.equalToSuperview()
     }
-  
+    
   }
   
   private func setDelegate() {

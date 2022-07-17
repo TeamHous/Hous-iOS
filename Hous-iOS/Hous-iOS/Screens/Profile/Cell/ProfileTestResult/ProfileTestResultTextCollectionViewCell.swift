@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
+final class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
@@ -56,6 +56,5 @@ class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
       make.top.equalTo(recommendRuleTitleView.snp.bottom).offset(8)
       make.width.height.equalTo(Size.recommendRuleViewSIze)
     }
-  
   }
 }

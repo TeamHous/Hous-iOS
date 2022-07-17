@@ -77,7 +77,7 @@ enum CellType: String {
   case good = "찰떡궁합"
 }
 
-class ProfileRecommendBoxView: UIView {
+final class ProfileRecommendBoxView: UIView {
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height

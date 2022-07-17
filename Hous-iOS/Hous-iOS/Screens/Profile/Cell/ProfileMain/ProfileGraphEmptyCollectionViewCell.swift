@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
+final class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
   
-  private enum Size{
-      static let screenWidth = UIScreen.main.bounds.width
-      static let screenHeight = UIScreen.main.bounds.height
-    }
+  private enum Size {
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
+  }
   
   private let titleLabel = UILabel().then {
     $0.text = "나의 성향"
@@ -45,7 +45,7 @@ class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder){
     fatalError("init(coder:) has not been implemented")
   }
-    
+  
   private func configUI(){
     self.backgroundColor = .white
   }

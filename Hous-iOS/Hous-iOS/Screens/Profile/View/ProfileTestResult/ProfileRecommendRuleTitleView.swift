@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileRecommendTitleView : UIView {
+final class ProfileRecommendTitleView : UIView {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width

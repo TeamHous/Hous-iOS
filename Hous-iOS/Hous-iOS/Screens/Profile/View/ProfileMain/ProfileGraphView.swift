@@ -6,12 +6,12 @@
 //
 import UIKit
 
-class ProfileGraphView : UIView {
+final class ProfileGraphView : UIView {
   
   private enum Size{
-      static let screenWidth = UIScreen.main.bounds.width
-      static let screenHeight = UIScreen.main.bounds.height
-    }
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
+  }
   
   var profileGraphView = GraphView()
   var profileGraphBackgroundView = GraphBackgroundView()
@@ -46,4 +46,4 @@ class ProfileGraphView : UIView {
     }
   }
 }
-  
+

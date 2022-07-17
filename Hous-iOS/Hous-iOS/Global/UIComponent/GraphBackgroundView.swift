@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class GraphBackgroundView : UIView {
+final class GraphBackgroundView : UIView {
   let graphShapeLayer = CAShapeLayer()
   let graphMaskLayer = CAShapeLayer()
   let backgroundShapeLayer = CAShapeLayer()

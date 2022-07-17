@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileRecommendRuleStackItemView : UIView {
+final class ProfileRecommendRuleStackItemView : UIView {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
@@ -56,15 +56,13 @@ class ProfileRecommendRuleStackItemView : UIView {
   
 }
 
-class ProfileRecommendRuleView : UIView {
+final class ProfileRecommendRuleView : UIView {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
   }
-  
-  
-  
+
   private let recommendRuleStackView = UIStackView().then {
     $0.distribution = .fillProportionally
     $0.alignment = .leading
@@ -93,7 +91,6 @@ class ProfileRecommendRuleView : UIView {
   }
   
   private func render(){
-    
     for i in 0...1 {
       let recommendRuleStackItem = ProfileRecommendRuleStackItemView()
       recommendRuleStackItem.setLabelText(recommendRuleList[i])

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileInfoCollectionViewCell: UICollectionViewCell {
+final class ProfileInfoCollectionViewCell: UICollectionViewCell {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width

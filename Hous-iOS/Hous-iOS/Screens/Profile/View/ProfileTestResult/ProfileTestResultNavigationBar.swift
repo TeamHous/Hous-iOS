@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTestResultNavigationBarView: UIView {
+final class ProfileTestResultNavigationBarView: UIView {
   
   var moveToProfileMainView : (() -> Void)?
   

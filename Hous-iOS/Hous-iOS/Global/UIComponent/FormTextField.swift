@@ -9,7 +9,7 @@
 
 import UIKit
 
-class FormTextField: UITextField {
+final class FormTextField: UITextField {
   var insetX: CGFloat = 20
   var insetY: CGFloat = 0
   

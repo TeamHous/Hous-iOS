@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileBadgeView : UIView {
+final class ProfileBadgeView : UIView {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width

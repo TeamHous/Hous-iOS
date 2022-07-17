@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalityAttribute : UILabel {
+final class PersonalityAttribute : UILabel {
   
   override init(frame: CGRect){
     super.init(frame: frame)
@@ -20,7 +20,7 @@ class PersonalityAttribute : UILabel {
   }
 }
 
-class ProfileGraphBoxView : UIView {
+final class ProfileGraphBoxView : UIView {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileSettingViewController : UIViewController {
+final class ProfileSettingViewController : UIViewController {
   
   let cellLabels = ["알림", "시스템 설정", "피드백 보내기"]
   

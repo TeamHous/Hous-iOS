@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileEditingViewController : UIViewController {
+final class ProfileEditingViewController : UIViewController {
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
   }

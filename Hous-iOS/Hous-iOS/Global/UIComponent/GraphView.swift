@@ -11,7 +11,7 @@ struct Point{
   var y : Double = 0
 }
 
-class GraphView : UIView {
+final class GraphView : UIView {
   
   let graphShapeLayer = CAShapeLayer()
   let graphMaskLayer = CAShapeLayer()

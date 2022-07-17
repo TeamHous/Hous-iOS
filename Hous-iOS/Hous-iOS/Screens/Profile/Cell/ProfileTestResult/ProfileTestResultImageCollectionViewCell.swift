@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTestResultImageCollectionViewCell : UICollectionViewCell {
+final class ProfileTestResultImageCollectionViewCell : UICollectionViewCell {
   
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width

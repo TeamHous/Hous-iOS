@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell {
+final class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell {
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
