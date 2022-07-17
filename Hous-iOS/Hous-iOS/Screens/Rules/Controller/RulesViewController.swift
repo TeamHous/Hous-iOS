@@ -36,6 +36,7 @@ final class RulesViewController: UIViewController {
     configUI()
     setUp()
     binding()
+    getRulesTodayTodo()
 
     let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
     longPress.delaysTouchesBegan = true
@@ -220,6 +221,16 @@ extension RulesViewController {
       self.mainView.rulesType = .editCategory
       self.isNavigatinHidden(isHidden: true)
       cell.isSelected = true
+    }
+  }
+}
+
+extension RulesViewController {
+
+  func getRulesTodayTodo() {
+    APIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
+      let responseResult = NetworkResultFactory.makeResult(resultType: result)
+      responseResult.resultMethod()
     }
   }
 }

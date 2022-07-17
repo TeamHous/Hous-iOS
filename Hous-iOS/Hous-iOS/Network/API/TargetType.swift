@@ -37,7 +37,7 @@ extension TargetType {
         switch header {
         case .basic:
             request.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-
+          request.setValue(ContentType.tokenSerial.rawValue, forHTTPHeaderField: HTTPHeaderField.authentication.rawValue)
         case .auth:
             request.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
             request.setValue(ContentType.tokenSerial.rawValue, forHTTPHeaderField: HTTPHeaderField.accesstoken.rawValue)

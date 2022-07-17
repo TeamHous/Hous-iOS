@@ -11,6 +11,8 @@ struct APIConstants {
   // MARK: - Base URL
   static let baseURL = "http://13.125.139.188:8000"
 
+  static let roomID = "62d4335e17e70062873f3d23"
+
   // MARK: - Home Path
 
   // 홈 화면 조회 GET

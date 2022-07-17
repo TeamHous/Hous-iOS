@@ -15,7 +15,7 @@ struct APIService {
 
 extension APIService {
   // 여기에 실질적 서버통신 코드 구현
-  func requestGetRulesTodayTodo(roomId: String, completion: @escaping (NetworkResult<RulesTodayTodo>) -> Void) {
+  func requestGetRulesTodayTodo(roomId: String, completion: @escaping (NetworkResult<RulesTodayTodoDTO>) -> Void) {
 
     let target = RulesMainAPITarget.getRulesMyTodo(roomId: roomId)
     AF.request(target)

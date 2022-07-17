@@ -24,6 +24,6 @@ enum HTTPHeaderField: String {
 enum ContentType: String {
     case json = "Application/json"
     case multiPart = "multipart/form-data"
-    case tokenSerial = "62d4335e17e70062873f3d23"
+    case tokenSerial = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyZDQ4ZDc4YmE2N2Y4MzdhYjA1NWViZiJ9LCJpYXQiOjE2NTgwOTcwMTYsImV4cCI6MTY2MDY4OTAxNn0.GC02eOsEpvCunh218KnhHNEYVbiPvuLEAkbggULhJS0"
     case userId = "1"
 }
