@@ -12,7 +12,6 @@ class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
-    static let descriptionViewSize = CGSize(width: Size.screenWidth - 48, height: 179)
     static let recommendRuleTitleViewSize = CGSize(width: Size.screenWidth - 48, height: 44)
     static let recommendRuleViewSIze = CGSize(width: Size.screenWidth - 48, height: 86)
   }
@@ -21,7 +20,7 @@ class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
   
   private let recommendRuleTitleView = ProfileRecommendTitleView()
   
-  private let recommendRuleView = ProfileRecommendView()
+  private let recommendRuleView = ProfileRecommendRuleView()
   
   override init(frame: CGRect){
     super.init(frame: frame)
@@ -43,7 +42,7 @@ class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
     descriptionView.snp.makeConstraints {make in
       make.centerX.equalToSuperview()
       make.top.equalToSuperview().offset(11)
-      make.width.height.equalTo(Size.descriptionViewSize)
+      make.width.equalTo(Size.screenWidth - 48)
     }
     
     recommendRuleTitleView.snp.makeConstraints {make in
