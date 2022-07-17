@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileTestResultNavigationBarView: UIView {
   
-  var popNavigationController : (() -> Void)?
+  var moveToProfileMainView : (() -> Void)?
   
   private let navigationBackButton = UIButton().then {
     $0.setTitle("완료", for: .normal)
@@ -43,7 +43,7 @@ class ProfileTestResultNavigationBarView: UIView {
 
 extension ProfileTestResultNavigationBarView {
   @objc func tabNavigationBackButton(){
-    popNavigationController!()
+    moveToProfileMainView!()
   }
 }
 

@@ -36,22 +36,21 @@ class ProfileTestResultViewController : UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    setNavigationController()
+    setTabBarVisibility()
   }
   
-  private func setNavigationController() {
+  private func setTabBarVisibility() {
     self.navigationController?.setNavigationBarHidden(true, animated: false)
     if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
-      tvc.housTabbar.isHidden = false
+      tvc.housTabbar.isHidden = true
     }
   }
   
   private func setup(){
     setDelegate()
     registerCell()
-    navigationBarView.popNavigationController = {  [self] in
-      let profileSettingViewController = ProfileSettingViewController()
-      navigationController?.pushViewController(profileSettingViewController, animated: true)
+    navigationBarView.moveToProfileMainView = {  [self] in
+     dismiss(animated: true)
     }
   }
   
