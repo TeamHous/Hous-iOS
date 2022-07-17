@@ -124,6 +124,7 @@
 		B84CF9BF28847C41008770F0 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BE28847C41008770F0 /* HTTPStatusCode.swift */; };
 		B84CF9C128847CF0008770F0 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C028847CF0008770F0 /* CommonResponse.swift */; };
 		B84CF9C42884B8B2008770F0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B84CF9C32884B8B2008770F0 /* Inject */; };
+		B84CF9C62884BBA5008770F0 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C52884BBA5008770F0 /* Todo.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -244,6 +245,7 @@
 		B84CF9BC2884790E008770F0 /* RulesMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesMainAPIService.swift; sourceTree = "<group>"; };
 		B84CF9BE28847C41008770F0 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		B84CF9C028847CF0008770F0 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
+		B84CF9C52884BBA5008770F0 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */,
+				B84CF9C52884BBA5008770F0 /* Todo.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F8583828802B4A009474A1 /* ProfileTestInfoViewController.swift in Sources */,
+				B84CF9C62884BBA5008770F0 /* Todo.swift in Sources */,
 				B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */,
 				B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */,
 				778A7A0928770C7400722CBB /* ViewController.swift in Sources */,
