@@ -97,7 +97,6 @@
 		B80510D22876D5D70025B767 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B80510CE2876D5D70025B767 /* Montserrat-SemiBold.otf */; };
 		B80510D32876D5D70025B767 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B80510CF2876D5D70025B767 /* Montserrat-Bold.otf */; };
 		B80510D42876D5D70025B767 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B80510D02876D5D70025B767 /* Montserrat-Regular.otf */; };
-		B80510E42876D6B10025B767 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E32876D6B10025B767 /* APIConstants.swift */; };
 		B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510E52876D6F10025B767 /* NetworkResult.swift */; };
 		B80510EB2876D7840025B767 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80510EA2876D7840025B767 /* HTTPHeaderField.swift */; };
 		B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */; };
@@ -119,6 +118,7 @@
 		B843872B287961EE003F7B75 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B843872A287961EE003F7B75 /* RxRelay */; };
 		B843872D287961EE003F7B75 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B843872C287961EE003F7B75 /* RxSwift */; };
 		B843873128796397003F7B75 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B843873028796397003F7B75 /* Inject */; };
+		B84CF9B228844316008770F0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B128844316008770F0 /* APIConstants.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -216,7 +216,6 @@
 		B80510CE2876D5D70025B767 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		B80510CF2876D5D70025B767 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		B80510D02876D5D70025B767 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
-		B80510E32876D6B10025B767 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B80510E52876D6F10025B767 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B80510EA2876D7840025B767 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
 		B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCategoryTableView.swift; sourceTree = "<group>"; };
@@ -234,6 +233,7 @@
 		B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871D28795E0B003F7B75 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		B84CF9B128844316008770F0 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
@@ -538,7 +538,6 @@
 				B80510E92876D7750025B767 /* Model */,
 				B80510E82876D7690025B767 /* HTTP */,
 				B80510E72876D7650025B767 /* API */,
-				B80510E32876D6B10025B767 /* APIConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -662,6 +661,7 @@
 		B80510E72876D7650025B767 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B84CF9B128844316008770F0 /* APIConstants.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -931,11 +931,11 @@
 				B80418C428808E450060A9C9 /* CategoryIconFactory.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
+				B84CF9B228844316008770F0 /* APIConstants.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
 				9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */,
 				B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */,
 				B843871428795805003F7B75 /* RulesHomeView.swift in Sources */,
-				B80510E42876D6B10025B767 /* APIConstants.swift in Sources */,
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				9B55FBC82883454A0089B930 /* ProfileRecommendRuleTitleView.swift in Sources */,
