@@ -119,6 +119,8 @@
 		B843872D287961EE003F7B75 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B843872C287961EE003F7B75 /* RxSwift */; };
 		B843873128796397003F7B75 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B843873028796397003F7B75 /* Inject */; };
 		B84CF9B228844316008770F0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B128844316008770F0 /* APIConstants.swift */; };
+		B84CF9B6288453D3008770F0 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B5288453D3008770F0 /* TargetType.swift */; };
+		B84CF9BB288458EF008770F0 /* RulesMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BA288458EF008770F0 /* RulesMainAPITarget.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -234,6 +236,8 @@
 		B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871D28795E0B003F7B75 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		B84CF9B128844316008770F0 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		B84CF9B5288453D3008770F0 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		B84CF9BA288458EF008770F0 /* RulesMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesMainAPITarget.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
@@ -661,7 +665,11 @@
 		B80510E72876D7650025B767 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B84CF9B9288458C1008770F0 /* Profile */,
+				B84CF9B8288458A3008770F0 /* Rules */,
+				B84CF9B728845896008770F0 /* Home */,
 				B84CF9B128844316008770F0 /* APIConstants.swift */,
+				B84CF9B5288453D3008770F0 /* TargetType.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -759,6 +767,28 @@
 				B80418C92882CD950060A9C9 /* CommonPopUpViewController.swift */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		B84CF9B728845896008770F0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B84CF9B8288458A3008770F0 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				B84CF9BA288458EF008770F0 /* RulesMainAPITarget.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		B84CF9B9288458C1008770F0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		B87BD3E2287F1FBC00FE232D /* Protocol */ = {
@@ -933,6 +963,7 @@
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
 				B84CF9B228844316008770F0 /* APIConstants.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
+				B84CF9B6288453D3008770F0 /* TargetType.swift in Sources */,
 				9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */,
 				B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */,
 				B843871428795805003F7B75 /* RulesHomeView.swift in Sources */,
@@ -978,6 +1009,7 @@
 				B87BD3EF2880273900FE232D /* RulesAssignPopUpViewController.swift in Sources */,
 				778A79FC287704E500722CBB /* Strings.swift in Sources */,
 				778A79FA287704D400722CBB /* SplashViewController.swift in Sources */,
+				B84CF9BB288458EF008770F0 /* RulesMainAPITarget.swift in Sources */,
 				B843871E28795E0C003F7B75 /* NavigationBarView.swift in Sources */,
 				9B7D860E287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift in Sources */,
 				B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */,
