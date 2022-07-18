@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - HomeDTO
-struct HomeDTO: Decodable {
+struct HomeDTO: Codable {
   let eventList: [EventList]
   let keyRulesList: [String]
   let todoList: [TodoList]
@@ -17,7 +17,7 @@ struct HomeDTO: Decodable {
 }
 
 // MARK: - EventList
-struct EventList: Decodable {
+struct EventList: Codable {
   let id: String
   let eventIcon: String
   let dDay: String
@@ -29,7 +29,7 @@ struct EventList: Decodable {
 }
 
 // MARK: - HomieProfileList
-struct HomieProfileList: Decodable {
+struct HomieProfileList: Codable {
   let id: String
   let userName: String
   let typeName: String
@@ -42,10 +42,9 @@ struct HomieProfileList: Decodable {
 }
 
 // MARK: - TodoList
-struct TodoList: Decodable {
-  let isCheck: Bool
-  let todoName: String
-  let createdAt: String
+struct TodoList: Codable {
+  let isChecked: Bool
+  let ruleName: String
 }
 
 extension HomeDTO {
@@ -57,7 +56,7 @@ extension HomeDTO {
     keyRulesList: ["상단규칙","개발개발"],
     todoList: [
       TodoList(
-        isCheck: true, todoName: "개발하기", createdAt: "2022-07-11T20:00:10.985Z")],
+        isChecked: true, ruleName: "개발하기")],
     homieProfileList: [
       HomieProfileList(id: "62cc7420d7868591384e4eb0", userName: "고구마", typeName: "임시 디폴트", typeColor: "GRAY"),
       HomieProfileList(id: "62cc7420d7868512384e4eb9", userName: "김민재", typeName: "임시 디폴트", typeColor: "RED")
