@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileViewController : UIViewController {
   
+  private var profileNetworkData : ProfileMainDTO?
+  
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let infoCellSize = CGSize(width: Size.screenWidth, height: 114)
@@ -46,6 +48,8 @@ final class ProfileViewController : UIViewController {
     setup()
     configUI()
     render()
+    getNetworkInfo()
+    dataBinding()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -156,3 +160,20 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
     }
   }
 }
+
+extension ProfileViewController {
+  
+  private func getNetworkInfo() {
+    ProfileMainAPIService.shared.requestGetProfileMain { result in
+      guard let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileMainDTO>,
+            let response = responseResult.response else { return }
+      
+      self.profileNetworkData = response
+    }
+  }
+  
+  private func dataBinding() {
+    
+  }
+}
+
