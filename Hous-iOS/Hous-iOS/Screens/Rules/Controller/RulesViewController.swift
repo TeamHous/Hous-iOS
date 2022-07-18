@@ -112,7 +112,7 @@ extension RulesViewController {
     self.isNavigatinHidden(isHidden: false)
   }
 
-  private func setMgyTodoTableView() {
+  private func setMyTodoTableView() {
     let todoView = self.mainView.todoTableView
 
     self.mainView.rulesType = .todo
