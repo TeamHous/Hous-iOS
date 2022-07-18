@@ -8,7 +8,8 @@
 import UIKit
 
 protocol ComingEventsCollectionViewCellDelegate: AnyObject {
-  func showPopup(_ data: EventDTO?, row: Int)
+  func showPopup(_ data: EventDTO, row: Int)
+  func showNewEventPopup(_ image: UIImage)
 }
 
 
@@ -24,8 +25,16 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
   
   //MARK: Network
   
-  var homeData: HomeDTO?
-  var eventData: EventDTO?
+  var homeData: HomeDTO? {
+    didSet {
+      incomingEventsCollectionView.reloadData()
+    }
+  }
+  
+  var eventData: [EventList] = []
+  
+  // Event Detail DTO
+  private var eventDetailDTO: EventDTO = EventDTO(id: "", eventName: "", eventIcon: "", date: "", participants: [])
   
   private var incomingEventsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
@@ -74,37 +83,38 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
     cell.background3DIconImageView.isHidden = false
     cell.background3DIconImageView.alpha = 0.6
   }
-  
-  private func getEventInfo(id: String) {
-    // Request 후
-    eventData = EventDTO.sampleData
-  }
 }
 
 
 extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+//    if indexPath.row == 0 {
+//      delegate?.showNewEventPopup(R.Image.partyYellowSmall)
+//      return
+//    }
+    var eventId = ""
     if indexPath.row == 0 {
-      delegate?.showPopup(nil, row: indexPath.row)
-      return
+      eventId = eventData[indexPath.row].id
+    } else {
+      eventId = eventData[indexPath.row - 1].id
     }
     
-    guard let data = homeData else { return }
-    let eventId = data.eventList[indexPath.row - 1].id
+    getEventInfoAPI(id: eventId) { response in
+      self.eventDetailDTO = response
+      print(response)
+      self.delegate?.showPopup(self.eventDetailDTO, row: indexPath.row)
+    }
     
-    getEventInfo(id: eventId)
-    
-    guard let eventData = eventData else { return }
-    delegate?.showPopup(eventData, row: indexPath.row)
   }
 }
 
 extension ComingEventsCollectionViewCell: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard let data = homeData else { return 0 }
-    return data.eventList.count + 1
+    
+    return eventData.count + 1
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -144,4 +154,25 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegateFlowLayout {
     return 8
   }
   
+}
+
+
+extension ComingEventsCollectionViewCell {
+  
+  func getEventInfoAPI(id: String, completion: @escaping (EventDTO) -> Void) {
+    HomeMainAPIService.shared.requestGetEventDetail(roomId: APIConstants.roomID, eventId: id) { result in
+      
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<EventDTO> {
+        guard let response = responseResult.response else { return }
+        
+        print(#function)
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+      
+    }
+  }
 }

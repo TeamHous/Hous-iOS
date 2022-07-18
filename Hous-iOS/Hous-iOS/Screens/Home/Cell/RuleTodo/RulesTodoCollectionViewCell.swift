@@ -142,25 +142,30 @@ class RulesTodoCollectionViewCell: UICollectionViewCell {
     todoBackground.layer.cornerRadius = 16
   }
   
-  func setRulesData(_ data: [String]) {
+  func setRulesData(_ data: [String], _ totalCount: Int) {
     
     data.forEach { item in
       let label = RulesTodosView()
       label.checkButton.isHidden = true
       label.setRulesLabelData(rule: item)
-      
+      if ruleLabelStackView.subviews.count == totalCount {
+        return
+      }
       ruleLabelStackView.addArrangedSubview(label)
     }
   }
   
-  func setTodosData(_ data: [TodoList]) {
+  func setTodosData(_ data: [TodoList], _ totalCount: Int) {
     
     data.forEach { item in
       let label = RulesTodosView()
       label.circleImageView.isHidden = true
-      label.setRulesLabelData(rule: item.todoName)
-      label.setCheckButton(item.isCheck)
+      label.setRulesLabelData(rule: item.ruleName)
+      label.setCheckButton(item.isChecked)
       
+      if todoLabelStackView.subviews.count == totalCount {
+        return
+      }
       todoLabelStackView.addArrangedSubview(label)
     }
   }

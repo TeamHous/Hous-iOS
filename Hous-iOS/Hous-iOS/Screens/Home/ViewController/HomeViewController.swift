@@ -26,7 +26,11 @@ final class HomeViewController: UIViewController {
   }
   
   //MARK: Properties
-  private var homeData: HomeDTO?
+  private var homeData: HomeDTO = HomeDTO(eventList: [], keyRulesList: [], todoList: [], homieProfileList: [], roomCode: "") {
+    didSet {
+      homeCollectionView.reloadData()
+    }
+  }
   
   var navigationBarView = NavigationBarView(tabType: .home)
   
@@ -46,6 +50,10 @@ final class HomeViewController: UIViewController {
     configUI()
     render()
     setCollectionView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
     getHomeAPI()
   }
   
@@ -53,10 +61,6 @@ final class HomeViewController: UIViewController {
   private func configUI() {
     self.view.backgroundColor = .white
     self.navigationController?.navigationBar.isHidden = true
-  }
-  
-  private func getHomeAPI() {
-    homeData = HomeDTO.sampleData
   }
   
   private func setCollectionView() {
@@ -101,7 +105,6 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     return CGSize.zero
-    
   }
 }
 
@@ -112,8 +115,7 @@ extension HomeViewController: UICollectionViewDataSource {
     case 0..<2:
       return 1
     case 2:
-      guard let data = homeData else { return 0 }
-      return data.homieProfileList.count + 1
+      return homeData.homieProfileList.count + 1
     default:
       return 0
     }
@@ -126,32 +128,39 @@ extension HomeViewController: UICollectionViewDataSource {
       guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ComingEventsCollectionViewCell.className, for: indexPath) as? ComingEventsCollectionViewCell else { return UICollectionViewCell() }
       
       cell.delegate = self
+      
       cell.homeData = self.homeData
+      cell.eventData = self.homeData.eventList
       
       return cell
     case HomeSection.rulesTodo.rawValue:
-      guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: RulesTodoCollectionViewCell.className, for: indexPath) as? RulesTodoCollectionViewCell,
-            let data = homeData
+      guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: RulesTodoCollectionViewCell.className, for: indexPath) as? RulesTodoCollectionViewCell
       else { return UICollectionViewCell() }
       
-      if data.todoList.count == 0 {
+      let keyRulesCount = homeData.keyRulesList.count
+      let todoListCount = homeData.todoList.count
+      
+      if homeData.todoList.count == 0 {
         cell.emptyTodoLabel.isHidden = false
+      } else {
+        cell.emptyTodoLabel.isHidden = true
       }
       
-      if data.keyRulesList.count == 0 {
+      if homeData.keyRulesList.count == 0 {
         cell.emptyRuleLabel.isHidden = false
+      } else {
+        cell.emptyRuleLabel.isHidden = true
       }
       
-      cell.setRulesData(data.keyRulesList)
-      cell.setTodosData(data.todoList)
+      cell.setRulesData(homeData.keyRulesList, keyRulesCount)
+      cell.setTodosData(homeData.todoList, todoListCount)
       
       return cell
     case HomeSection.profiles.rawValue:
-      guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.className, for: indexPath) as? ProfileCollectionViewCell,
-            let data = homeData
+      guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.className, for: indexPath) as? ProfileCollectionViewCell
       else { return UICollectionViewCell() }
       
-      if indexPath.row == data.homieProfileList.count {
+      if indexPath.row == homeData.homieProfileList.count {
         cell.profileImage.isHidden = true
         cell.profileNameLabel.isHidden = true
         
@@ -159,9 +168,15 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.codeLabel.isHidden = false
         
         return cell
+      } else {
+        cell.profileImage.isHidden = false
+        cell.profileNameLabel.isHidden = false
+        
+        cell.codeImage.isHidden = true
+        cell.codeLabel.isHidden = true
       }
       
-      cell.setProfileData(data.homieProfileList[indexPath.row])
+      cell.setProfileData(homeData.homieProfileList[indexPath.row])
       
       return cell
     default:
@@ -244,12 +259,22 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: ComingEventsCollectionViewCellDelegate {
   
-  func showPopup(_ data: EventDTO?, row: Int) {
+  func showNewEventPopup(_ image: UIImage) {
     let popUp = PopUpViewController()
     popUp.modalTransitionStyle = .crossDissolve
     popUp.modalPresentationStyle = .overFullScreen
     
-    popUp.homeData = self.homeData
+    popUp.setDefaultPopUpData(image)
+    present(popUp, animated: true)
+  }
+  
+  func showPopup(_ data: EventDTO, row: Int) {
+    
+    let popUp = PopUpViewController()
+    popUp.modalTransitionStyle = .crossDissolve
+    popUp.modalPresentationStyle = .overFullScreen
+    
+    popUp.eventData = data
     
     if row == 0 {
       popUp.setDefaultPopUpData(R.Image.partyYellowSmall)
@@ -259,11 +284,24 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
     }
     
     popUp.isDefaultPopUp = false
-    guard let eventData = data else { return }
     
-    popUp.setPopUpData(eventData)
-    popUp.selectedEventCase = IconImage(rawValue: eventData.eventIcon.lowercased())!
+    popUp.setPopUpData(data)
+    popUp.selectedEventCase = IconImage(rawValue: data.eventIcon.lowercased()) ?? .party
     
     present(popUp, animated: true)
+  }
+}
+
+extension HomeViewController {
+  func getHomeAPI() {
+    HomeMainAPIService.shared.requestGetHomeMain(roomId: APIConstants.roomID) { result in
+      guard let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<HomeDTO>,
+            let response = responseResult.response
+      else { return }
+      
+      self.homeData = response
+      
+      responseResult.resultMethod()
+    }
   }
 }
