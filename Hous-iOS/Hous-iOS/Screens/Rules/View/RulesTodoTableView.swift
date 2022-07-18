@@ -14,16 +14,14 @@ final class RulesTodoTableView: UIView {
   var leftAssigneeViewAction : (() -> Void)?
 
   var todayTodoRulesData: [TodayTodoRulesDTO] = [] {
-    didSet {
-      self.todoType = .todayTodo
-      self.todoCollectionView.reloadData()
-    }
+    didSet { self.todoType = .todayTodo }
+  }
+  var myTodoRulesData: [RulesMyTodoDTO] = [] {
+    didSet { self.todoType = .myTodo }
   }
 
   var todoType: TodoType = .todayTodo {
-    didSet {
-      self.todoCollectionView.reloadData()
-    }
+    didSet { self.todoCollectionView.reloadData() }
   }
   
   enum Size {
@@ -102,7 +100,12 @@ final class RulesTodoTableView: UIView {
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return todayTodoRulesData.count
+    switch todoType {
+    case .todayTodo:
+      return todayTodoRulesData.count
+    case .myTodo:
+      return myTodoRulesData.count
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,8 +120,14 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
       return cell
 
     case .myTodo:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath) as? MyTodoCollectionViewCell else { return UICollectionViewCell() }
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath) as? MyTodoCollectionViewCell else { print("가드렛?")
+        return UICollectionViewCell() }
 
+      cell.checkButtonAction = {
+        cell.checkBoxButton.isSelected ?
+        (cell.checkBoxButton.isSelected = false) : (cell.checkBoxButton.isSelected = true)
+      }
+      cell.setMyTodoCell(self.myTodoRulesData[indexPath.row])
       return cell
     }
   }

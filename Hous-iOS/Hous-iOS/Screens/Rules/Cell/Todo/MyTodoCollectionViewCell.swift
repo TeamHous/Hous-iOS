@@ -8,7 +8,9 @@
 import UIKit
 
 class MyTodoCollectionViewCell: UICollectionViewCell {
-  
+
+  var checkButtonAction: (() -> Void)?
+
   var todoTitleLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 16)
     $0.text = "거실 청소기 돌리기"
@@ -18,6 +20,8 @@ class MyTodoCollectionViewCell: UICollectionViewCell {
   }
   var checkBoxButton = UIButton().then {
     $0.setImage(R.Image.myTodoUnchecked, for: .normal)
+    $0.setImage(R.Image.myTodoChecked, for: .selected)
+    $0.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
   }
   
   override init(frame: CGRect) {
@@ -28,6 +32,10 @@ class MyTodoCollectionViewCell: UICollectionViewCell {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+
+  @objc func checkButtonClicked() {
+      checkButtonAction?()
   }
   
   private func render() {
@@ -55,5 +63,17 @@ class MyTodoCollectionViewCell: UICollectionViewCell {
   private func configure() {
     self.layer.cornerRadius = 15
     self.backgroundColor = R.Color.paleLavender
+  }
+}
+
+extension MyTodoCollectionViewCell {
+
+  func setMyTodoCell(_ item: RulesMyTodoDTO) {
+    self.checkBoxButton.isSelected = item.isChecked
+    self.todoTitleLabel.text = item.ruleName
+    guard let categoryType = CategoryIconImage(rawValue: item.categoryIcon.lowercased()) else { return }
+
+    let categoryIcon = CategoryIconFactory.makeIcon(type: categoryType)
+    self.categoryImageView.image = categoryIcon.unCheckedImage
   }
 }

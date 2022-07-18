@@ -6,40 +6,34 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
-//class RulesViewModel {
-//
-//  let rulesTodayTodoData = PublishSubject<RulesTodayTodoDTO>()
-//
-//  struct Input {
-//    let todayTodoButtonTap : ControlProperty<Void>
-//    let myTodoButtonTap: ControlEvent<Void>
-//  }
-//
-//  struct Output {
-//    let genderSelected: Observable<GenderFilter>
-//    let todoButtonClicked: ControlEvent<Void>
-//  }
-//
-//
-//  return Output(genderSelected: genderObservable, floatingButtonClicked: floatingObservable)
-//}
-//
-//func getRulesTodayTodo() {
-//  RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
-//
-//    if let responseResult = NetworkResultFactory.makeResult(resultType: result)
-//        as? Success<RulesTodayTodoDTO> {
-//      rulesTodayTodoData = responseResult.response ??
-//      RulesTodayTodoDTO(homeRuleCategories: [], todayTodoRules: [])
-//
-//      print(rulesTodayTodoData)
-//    } else {
-//      let responseResult = NetworkResultFactory.makeResult(resultType: result)
-//      responseResult.resultMethod()
-//    }
-//
-//  }
-//}
+class RulesViewModel {
+
+  func getRulesTodayTodo(completion: @escaping (RulesTodayTodoDTO) -> Void) {
+    RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
+
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<RulesTodayTodoDTO> {
+        guard let response = responseResult.response else { return }
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+
+  func getRulesMyTodo(completion: @escaping ([RulesMyTodoDTO]) -> Void) {
+    RulesMainAPIService.shared.requestGetRulesMyTodo(roomId: APIConstants.roomID) { result in
+
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<[RulesMyTodoDTO]> {
+        guard let response = responseResult.response else { return }
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+}

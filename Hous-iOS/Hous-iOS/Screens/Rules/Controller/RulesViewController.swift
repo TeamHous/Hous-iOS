@@ -33,6 +33,7 @@ final class RulesViewController: UIViewController {
 
   let disposeBag = DisposeBag()
   var mainView = RulesHomeView()
+  var viewModel = RulesViewModel()
 
   override func loadView() {
     self.view = mainView
@@ -48,10 +49,7 @@ final class RulesViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    getRulesTodayTodo { response in
-      self.rulesTodayTodoData = response
-      self.setTodayTodoTableView()
-    }
+    getServer()
   }
 
   // MARK: - Method
@@ -87,7 +85,7 @@ extension RulesViewController {
     mainView.todayTodoButton.rx.tap
       .subscribe { _ in
         if !self.mainView.todayTodoButton.isSelected {
-          self.setMyTodoTableView()
+          self.setTodayTodoTableView()
         }
       }
       .disposed(by: disposeBag)
@@ -113,6 +111,7 @@ extension RulesViewController {
     todoView.myTodoButton.isSelected = false
     todoView.todoType = .todayTodo
     todoView.todayTodoRulesData = self.rulesTodayTodoData.todayTodoRules
+    self.isNavigatinHidden(isHidden: false)
   }
 
   private func setMyTodoTableView() {
@@ -123,6 +122,7 @@ extension RulesViewController {
     print(#function)
     todoView.myTodoButton.isSelected = true
     todoView.todoType = .myTodo
+    self.isNavigatinHidden(isHidden: false)
   }
 
   private func longPress() {
@@ -134,19 +134,15 @@ extension RulesViewController {
 
 extension RulesViewController {
 
-  func getRulesTodayTodo(completion: @escaping (RulesTodayTodoDTO) -> Void) {
-    RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
+  private func getServer() {
+    viewModel.getRulesTodayTodo { response in
+      self.rulesTodayTodoData = response
+      self.setTodayTodoTableView()
+    }
 
-      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
-          as? Success<RulesTodayTodoDTO> {
-        guard let response = responseResult.response else { return }
-
-        print(#function)
-        completion(response)
-      } else {
-        let responseResult = NetworkResultFactory.makeResult(resultType: result)
-        responseResult.resultMethod()
-      }
+    viewModel.getRulesMyTodo { response in
+      self.mainView.todoTableView.myTodoRulesData = response
+      self.setMyTodoTableView()
     }
   }
 }

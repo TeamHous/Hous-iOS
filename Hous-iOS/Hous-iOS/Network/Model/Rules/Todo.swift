@@ -41,3 +41,16 @@ struct TodayMembersWithTypeColorDTO: Codable {
   let userName: String
   let typeColor: String
 }
+
+// getRulesMyTodo
+struct RulesMyTodoDTO: Codable {
+  let id: String
+  let categoryIcon: String
+  let ruleName: String
+  let isChecked: Bool
+
+  enum CodingKeys: String, CodingKey {
+      case id = "_id"
+      case categoryIcon, ruleName, isChecked
+  }
+}
