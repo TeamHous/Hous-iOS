@@ -8,16 +8,16 @@
 import Foundation
 import Alamofire
 
-struct APIService {
-    static let shared = APIService()
+struct RulesMainAPIService {
+    static let shared = RulesMainAPIService()
     private init() {}
 }
 
-extension APIService {
+extension RulesMainAPIService {
   // 여기에 실질적 서버통신 코드 구현
   func requestGetRulesTodayTodo(roomId: String, completion: @escaping (NetworkResult<RulesTodayTodoDTO>) -> Void) {
 
-    let target = RulesMainAPITarget.getRulesMyTodo(roomId: roomId)
+    let target = RulesMainAPITarget.getRulesTodayTodo(roomId: roomId)
     AF.request(target)
       .responseData { dataResponse in
         responseData(dataResponse, completion: completion)
@@ -25,23 +25,24 @@ extension APIService {
   }
 }
 
-extension APIService {
+extension RulesMainAPIService {
 
     func responseData<T: Codable>(_ dataResponse: AFDataResponse<Data>, completion: @escaping (NetworkResult<T>) -> Void) {
 
         switch dataResponse.result {
         case .success:
-
             switch dataResponse.response?.statusCode {
             case HTTPStatusCode.SERVER_ERROR.rawValue:
                 completion(.serverErr)
             default:
                 guard let data = dataResponse.value else { return }
                 guard let decodedData = try? JSONDecoder().decode(CommonResponse<T>.self, from: data) else {
+                  print("대체왜")
                     return completion(.pathErr)
                 }
 
                 guard let data = decodedData.data else {
+                  print("여기로온듯?")
                     return completion(.requestErr(decodedData.message))
                 }
 

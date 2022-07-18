@@ -116,7 +116,7 @@ class TodayTodoManyAssignedView: UIView {
 
 class TodayTodoOneAssignedView: UIView {
 
-  private var assigneeImageView = UIImageView()
+  var assigneeImageView = UIImageView()
 
   convenience init(color: AssigneeColor) {
     self.init(frame: .zero)

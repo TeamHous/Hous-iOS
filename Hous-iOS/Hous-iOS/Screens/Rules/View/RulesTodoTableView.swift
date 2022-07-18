@@ -12,6 +12,16 @@ import Then
 final class RulesTodoTableView: UIView {
 
   var leftAssigneeViewAction : (() -> Void)?
+
+  var todayTodoRulesData: [TodayTodoRulesDTO] = [] {
+    didSet {
+      print(todayTodoRulesData.count)
+      self.todoType = .todayTodo
+      self.todoCollectionView.reloadData()
+    }
+  }
+
+  var todoType: TodoType = .todayTodo
   
   enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -20,8 +30,6 @@ final class RulesTodoTableView: UIView {
     static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
     static let todoCollectionItemSpacing = CGFloat(6)
   }
-  
-  var todoType: TodoType = .todayTodo
   
   private var todayTodoLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
@@ -54,14 +62,11 @@ final class RulesTodoTableView: UIView {
       $0.register(cell: TodayTodoCollectionViewCell.self)
       $0.register(cell: MyTodoCollectionViewCell.self)
     }
-
-  var items: [String] = []
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     render()
-    todoCollectionView.delegate = self
-    todoCollectionView.dataSource = self
+    setCollectionView()
   }
   
   required init?(coder: NSCoder) {
@@ -85,24 +90,31 @@ final class RulesTodoTableView: UIView {
       make.bottom.equalToSuperview()
     }
   }
+
+  private func setCollectionView() {
+    todoCollectionView.delegate = self
+    todoCollectionView.dataSource = self
+  }
 }
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    
-    return 8
+    print(todayTodoRulesData.count)
+    return todayTodoRulesData.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
+    print(todoType)
     switch todoType {
     case .todayTodo:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath) as? TodayTodoCollectionViewCell else { return UICollectionViewCell() }
 
       cell.delegate = self
-      cell.setLeftRoundView(type: .notAssigned)
-      // many랑 one didSet 처리해주기
+      print("여기까진 오나요 ?")
+      cell.setTodayTodoCell(self.todayTodoRulesData[indexPath.row])
+
       return cell
+
     case .myTodo:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath)
       return cell

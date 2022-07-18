@@ -30,7 +30,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     $0.font = .systemFont(ofSize: 16)
     $0.text = "화장실 청소"
   }
-  var managerLabel = UILabel().then {
+  var assigneesLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 13)
     $0.textColor = R.Color.lightPeriwinkle
     $0.text = "담당자 선택하기"
@@ -44,7 +44,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   var doneCheckBoxImageView = UIImageView().then {
     $0.image = R.Image.rulesChecked
   }
-  var notiDotView = UIView().then {
+  var tmpAssigneeDotView = UIView().then {
     $0.backgroundColor = R.Color.softBlue
     $0.makeRounded(cornerRadius: 4)
   }
@@ -53,6 +53,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     super.init(frame: frame)
     render()
     configUI()
+    print("왜안되누")
   }
   
   required init?(coder: NSCoder) {
@@ -61,9 +62,9 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
   
   private func render() {
     
-    self.addSubViews([labelStackView, leftAssigneeView, doneCheckBoxImageView, notiDotView])
+    self.addSubViews([labelStackView, leftAssigneeView, doneCheckBoxImageView, tmpAssigneeDotView])
     labelStackView.addArrangedSubview(todoTitleLabel)
-    labelStackView.addArrangedSubview(managerLabel)
+    labelStackView.addArrangedSubview(assigneesLabel)
     
     labelStackView.snp.makeConstraints { make in
       make.top.bottom.equalToSuperview().inset(20)
@@ -82,7 +83,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
       make.centerY.equalTo(labelStackView.snp.centerY)
     }
 
-    notiDotView.snp.makeConstraints { make in
+    tmpAssigneeDotView.snp.makeConstraints { make in
       make.top.trailing.equalToSuperview().inset(12)
       make.size.equalTo(8)
     }
@@ -96,31 +97,56 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
 
 extension TodayTodoCollectionViewCell {
 
-    func setLeftRoundView(type: TodayTodoType) {
-      switch type {
-      case .notAssigned:
-        leftAssigneeView.addSubview(addAssignView)
-        addAssignView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-      case .manyAssinged:
-        leftAssigneeView.addSubview(manyAssignedView)
-        manyAssignedView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-      case .oneAssinged:
-        leftAssigneeView.addSubview(oneAssignedView)
-        oneAssignedView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+  func setTodayTodoCell(_ item: TodayTodoRulesDTO) {
+
+    self.todoTitleLabel.text = item.ruleName
+    self.doneCheckBoxImageView.isHidden = !item.isAllChecked
+    self.tmpAssigneeDotView.isHidden = !item.isTmpMember
+    self.assigneesLabel.textColor = R.Color.softBlue
+
+    // 0명일 때, 1명일 때, 2명 이상일 때
+    let assigneeCount = item.todayMembersWithTypeColor.count
+    var leftView = UIView()
+    print(assigneeCount)
+    if assigneeCount == 0 {
+      leftView = addAssignView
+      self.assigneesLabel.text = "담당자 선택하기"
+      self.assigneesLabel.textColor = R.Color.lightPeriwinkle
+
+    } else if assigneeCount == 1 {
+      leftView = oneAssignedView
+      guard let oneAssignee = item.todayMembersWithTypeColor.first,
+            let assigneeColor = AssigneeColor(rawValue: oneAssignee.typeColor.lowercased()) else { return }
+
+      let assigneeImage = AssigneeFactory.makeAssignee(type: assigneeColor)
+      self.oneAssignedView.assigneeImageView.image = assigneeImage.faceImage
+
+      self.assigneesLabel.text = oneAssignee.userName
+
+    } else {
+      leftView = manyAssignedView
+      let assignees = item.todayMembersWithTypeColor
+      var assigneesColor: [String] = []
+      var assigneesLabelText: [String] = []
+      assignees.forEach {
+        assigneesLabelText.append($0.userName)
+        assigneesColor.append($0.typeColor)
       }
+      self.manyAssignedView.setCircle(count: assigneeCount, colors: assigneesColor)
+      self.assigneesLabel.text = assigneesLabelText.joined(separator: ", ")
     }
+
+    leftAssigneeView.addSubview(leftView)
+    leftView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
+  }
 }
 
 extension TodayTodoCollectionViewCell {
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-      super.touchesBegan(touches, with: event)
+    super.touchesBegan(touches, with: event)
 
     guard let touch = touches.reversed().first else { return }
     if touch.view == self.addAssignView ||

@@ -22,7 +22,14 @@ final class RulesViewController: UIViewController {
   var currentIndexPath: IndexPath?
   var closure: (() -> Void)?
 
-  var categories: [Category]?
+  var rulesTodayTodoData: RulesTodayTodoDTO = RulesTodayTodoDTO(homeRuleCategories: [], todayTodoRules: []) {
+    didSet{
+      print(#function)
+      DispatchQueue.main.async {
+        self.mainView.categoryCollectionView.reloadData()
+      }
+    }
+  }
 
   let disposeBag = DisposeBag()
   var mainView = RulesHomeView()
@@ -36,15 +43,15 @@ final class RulesViewController: UIViewController {
     configUI()
     setUp()
     binding()
-    getRulesTodayTodo()
-
-    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
-    longPress.delaysTouchesBegan = true
-    mainView.categoryCollectionView.addGestureRecognizer(longPress)
+    longPress()
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    getRulesTodayTodo { response in
+      self.rulesTodayTodoData = response
+      self.setTodayTodoTableView()
+    }
   }
 
   // MARK: - Method
@@ -56,8 +63,6 @@ final class RulesViewController: UIViewController {
   private func setUp() {
     setAction()
     setCollectionView()
-    getCategories()
-    mainView.categoryEditView.delegate = self
   }
 
   private func setAction() {
@@ -72,57 +77,99 @@ final class RulesViewController: UIViewController {
   private func setCollectionView() {
     mainView.categoryCollectionView.delegate = self
     mainView.categoryCollectionView.dataSource = self
-  }
-
-  private func getCategories() {
-    categories = Category.sampleData
+    mainView.categoryEditView.delegate = self
   }
 }
 
 extension RulesViewController {
+
   private func binding() {
     mainView.todayTodoButton.rx.tap
       .subscribe { _ in
         if !self.mainView.todayTodoButton.isSelected {
-          self.mainView.todayTodoButton.isSelected = true
-          self.mainView.rulesType = .todo
+          self.setMyTodoTableView()
         }
-        self.mainView.categoryCollectionView.reloadData()
       }
       .disposed(by: disposeBag)
 
     let todoView = self.mainView.todoTableView
     todoView.myTodoButton.rx.tap
       .subscribe { _ in
-        if todoView.todoType == .todayTodo {
-          todoView.todoType = .myTodo
-          todoView.myTodoButton.isSelected = true
+        if todoView.myTodoButton.isSelected {
+          self.setTodayTodoTableView()
         } else {
-          todoView.todoType = .todayTodo
-          todoView.myTodoButton.isSelected = false
+          self.setMyTodoTableView()
         }
-        todoView.todoCollectionView.reloadData()
       }
       .disposed(by: disposeBag)
   }
+
+  private func setTodayTodoTableView() {
+    let todoView = self.mainView.todoTableView
+
+    self.mainView.rulesType = .todo
+    self.mainView.todayTodoButton.isSelected = true
+    print(#function)
+    todoView.myTodoButton.isSelected = false
+    todoView.todoType = .todayTodo
+    todoView.todayTodoRulesData = self.rulesTodayTodoData.todayTodoRules
+  }
+
+  private func setMyTodoTableView() {
+    let todoView = self.mainView.todoTableView
+
+    self.mainView.rulesType = .todo
+    self.mainView.todayTodoButton.isSelected = true
+    print(#function)
+    todoView.myTodoButton.isSelected = true
+    todoView.todoType = .myTodo
+  }
+
+  private func longPress() {
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+    longPress.delaysTouchesBegan = true
+    mainView.categoryCollectionView.addGestureRecognizer(longPress)
+  }
 }
+
+extension RulesViewController {
+
+  func getRulesTodayTodo(completion: @escaping (RulesTodayTodoDTO) -> Void) {
+    RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
+
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<RulesTodayTodoDTO> {
+        guard let response = responseResult.response else { return }
+
+        print(#function)
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+}
+
+// MARK: - CollectionView
 
 extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard let categories = categories else { return 0 }
-    return categories.count + 1
+    let categoryData = rulesTodayTodoData.homeRuleCategories
+    return categoryData.count + 1
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.className, for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
 
-    if indexPath.row == categories?.count {
+    if indexPath.row == rulesTodayTodoData.homeRuleCategories.count {
       cell.categoryImageView.image = R.Image.categoryAdd
       cell.isSelected = false
     } else {
-      cell.setCategory(categories![indexPath.row])
+      let categoryData = rulesTodayTodoData.homeRuleCategories
+      cell.setCategory(categoryData[indexPath.row])
     }
 
     return cell
@@ -140,7 +187,9 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     cell.isSelected = true
     self.mainView.todayTodoButton.isSelected = false
 
-    if indexPath.row != categories?.count {
+     let categoryData = rulesTodayTodoData.homeRuleCategories
+
+    if indexPath.row != categoryData.count {
       self.mainView.rulesType = .category
       isNavigatinHidden(isHidden: false)
     } else {
@@ -152,15 +201,10 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
   }
 }
 
-extension RulesViewController {
-  private func isNavigatinHidden(isHidden: Bool) {
-    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
-      tvc.housTabbar.isHidden = isHidden
-    }
-  }
-}
+// MARK: - Action
 
 extension RulesViewController: RulesCategoryEditViewDelegate {
+
   func borderButtonTouched(viewType: CategoryEditType) {
     let popUp = CommonPopUpViewController()
     popUp.modalTransitionStyle = .crossDissolve
@@ -171,7 +215,6 @@ extension RulesViewController: RulesCategoryEditViewDelegate {
       buttonText: viewType.popupButtonText)
     popUp.buttonAction = {
       if viewType == .update {
-        //삭제
         self.removeCell()
       }
       self.isNavigatinHidden(isHidden: false)
@@ -185,17 +228,15 @@ extension RulesViewController: RulesCategoryEditViewDelegate {
   }
 
   private func removeCell() {
-
-    guard let selectedIndexPath = self.currentIndexPath else { return }
-
-    self.mainView.categoryCollectionView.performBatchUpdates {
-      self.mainView.categoryCollectionView.performBatchUpdates {
-        self.mainView.categoryCollectionView.deleteItems(at: [selectedIndexPath])
-        self.categories?.remove(at: selectedIndexPath.row)
-      } completion: { [self] _ in
-        mainView.categoryCollectionView.reloadData()
-      }
-    }
+//    개인적인 처리보단 서버통신 한번 더 / 나중에 쓸 수도 있으니까 탄발 봐주세요 ...
+//    guard let selectedIndexPath = self.currentIndexPath else { return }
+//
+//    self.mainView.categoryCollectionView.performBatchUpdates {
+//      self.mainView.categoryCollectionView.deleteItems(at: [selectedIndexPath])
+//      self.[데이터].remove(at: selectedIndexPath.row)
+//    } completion: { [self] _ in
+//      mainView.categoryCollectionView.reloadData()
+//    }
   }
 }
 
@@ -214,7 +255,7 @@ extension RulesViewController {
     guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
     self.currentIndexPath = indexPath
 
-    if indexPath.row != self.categories?.count {
+    if indexPath.row != self.rulesTodayTodoData.homeRuleCategories.count {
       self.currentIndexPath = indexPath
       self.mainView.categoryEditView.editType = .update
       self.mainView.todayTodoButton.isSelected = false
@@ -226,11 +267,9 @@ extension RulesViewController {
 }
 
 extension RulesViewController {
-
-  func getRulesTodayTodo() {
-    APIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
-      let responseResult = NetworkResultFactory.makeResult(resultType: result)
-      responseResult.resultMethod()
+  private func isNavigatinHidden(isHidden: Bool) {
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = isHidden
     }
   }
 }

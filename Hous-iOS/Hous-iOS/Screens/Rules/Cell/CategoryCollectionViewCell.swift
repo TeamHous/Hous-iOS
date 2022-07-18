@@ -56,7 +56,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
 extension CategoryCollectionViewCell {
 
-  func setCategory(_ item: Category) {
+  func setCategory(_ item: HomeRuleCategoriesDTO) {
     guard let categoryIconType = CategoryIconImage(rawValue: item.categoryIcon.lowercased()) else { return }
     let categoryIcon = CategoryIconFactory.makeIcon(type: categoryIconType)
     self.categoryImageView.image = categoryIcon.unCheckedImage

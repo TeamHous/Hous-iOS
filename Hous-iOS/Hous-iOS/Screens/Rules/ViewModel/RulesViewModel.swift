@@ -11,11 +11,11 @@ import RxCocoa
 
 //class RulesViewModel {
 //
-//  var disposeBag = DisposeBag()
+//  let rulesTodayTodoData = PublishSubject<RulesTodayTodoDTO>()
 //
 //  struct Input {
-//    let rulesType : ControlProperty<RulesType>
-//    let todoButtonTap: ControlEvent<Void>
+//    let todayTodoButtonTap : ControlProperty<Void>
+//    let myTodoButtonTap: ControlEvent<Void>
 //  }
 //
 //  struct Output {
@@ -24,6 +24,22 @@ import RxCocoa
 //  }
 //
 //
-//    return Output(genderSelected: genderObservable, floatingButtonClicked: floatingObservable)
+//  return Output(genderSelected: genderObservable, floatingButtonClicked: floatingObservable)
+//}
+//
+//func getRulesTodayTodo() {
+//  RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
+//
+//    if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+//        as? Success<RulesTodayTodoDTO> {
+//      rulesTodayTodoData = responseResult.response ??
+//      RulesTodayTodoDTO(homeRuleCategories: [], todayTodoRules: [])
+//
+//      print(rulesTodayTodoData)
+//    } else {
+//      let responseResult = NetworkResultFactory.makeResult(resultType: result)
+//      responseResult.resultMethod()
+//    }
+//
 //  }
 //}
