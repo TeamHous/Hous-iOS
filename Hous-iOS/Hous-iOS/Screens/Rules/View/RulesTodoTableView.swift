@@ -20,7 +20,11 @@ final class RulesTodoTableView: UIView {
     }
   }
 
-  var todoType: TodoType = .todayTodo
+  var todoType: TodoType = .todayTodo {
+    didSet {
+      self.todoCollectionView.reloadData()
+    }
+  }
   
   enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -113,8 +117,8 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
       return cell
 
     case .myTodo:
-      print("왜 안찍히쥬")
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath) as? MyTodoCollectionViewCell else { return UICollectionViewCell() }
+
       return cell
     }
   }
