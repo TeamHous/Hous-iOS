@@ -63,6 +63,8 @@
 		B5084A43287CAC1300C38749 /* EventIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A42287CAC1300C38749 /* EventIconView.swift */; };
 		B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */; };
 		B528CF9E288026D20070C4BB /* KeyRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */; };
+		B534F9462884E8E200624BAA /* HomeMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */; };
+		B534F9482884E8F000624BAA /* HomeMainAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9472884E8F000624BAA /* HomeMainAPIService.swift */; };
 		B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
@@ -199,6 +201,8 @@
 		B5084A42287CAC1300C38749 /* EventIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIconView.swift; sourceTree = "<group>"; };
 		B5084A44287D6C1000C38749 /* EventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateView.swift; sourceTree = "<group>"; };
 		B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsDataModel.swift; sourceTree = "<group>"; };
+		B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMainAPITarget.swift; path = "Hous-iOS/Network/Model/Home/HomeMainAPITarget.swift"; sourceTree = SOURCE_ROOT; };
+		B534F9472884E8F000624BAA /* HomeMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMainAPIService.swift; path = "Hous-iOS/Network/Model/Home/HomeMainAPIService.swift"; sourceTree = SOURCE_ROOT; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -804,6 +808,8 @@
 		B84CF9B728845896008770F0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */,
+				B534F9472884E8F000624BAA /* HomeMainAPIService.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -967,6 +973,7 @@
 				B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */,
 				B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */,
 				B59C946D2877090F005865CA /* UILabel+Extension.swift in Sources */,
+				B534F9482884E8F000624BAA /* HomeMainAPIService.swift in Sources */,
 				9B7D860B287C487C006C0BCE /* ProfileBadgeView.swift in Sources */,
 				B528CF9E288026D20070C4BB /* KeyRulesCollectionViewCell.swift in Sources */,
 				B5084A2B2879972A00C38749 /* PopUpViewController.swift in Sources */,
@@ -999,6 +1006,7 @@
 				B5E95AE02881DB1100CD2244 /* String+Extension.swift in Sources */,
 				B843442E287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift in Sources */,
 				9BCA29FD288561690032338D /* ProfileEditingDTO.swift in Sources */,
+				B534F9462884E8E200624BAA /* HomeMainAPITarget.swift in Sources */,
 				B80418C428808E450060A9C9 /* CategoryIconFactory.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,

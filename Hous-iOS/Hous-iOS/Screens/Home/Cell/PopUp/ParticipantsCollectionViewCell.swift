@@ -51,7 +51,7 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func setParticipantData(_ data: HomieProfileList, isSelected flag: Bool?) {
+  func setParticipantData(_ data: Participant, isSelected flag: Bool?) {
     let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: data.typeColor.lowercased()) ?? .none)
     
     participantButton.setBackgroundImage(factory.faceImage, for: .normal)
@@ -62,7 +62,6 @@ class ParticipantsCollectionViewCell: UICollectionViewCell {
     } else {
       participantButton.isSelected = false
     }
-    
     
     participantNameLabel.text = data.userName
   }

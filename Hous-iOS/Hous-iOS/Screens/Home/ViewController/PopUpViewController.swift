@@ -31,8 +31,7 @@ class PopUpViewController: UIViewController {
   
   private let maxEventLength = 10
   
-  var homeData: HomeDTO?
-  private var eventData: EventDTO?
+  var eventData: EventDTO?
   
   private let partyIconImageView = EventIconView().then {
     $0.eventCase = .party
@@ -152,8 +151,6 @@ class PopUpViewController: UIViewController {
     $0.spacing = 15
   }
   
-  private var isSelectedArray: [Bool] = []
-  
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -161,8 +158,6 @@ class PopUpViewController: UIViewController {
     setTextField()
     setTapGesture()
     setCollectionView()
-    getEventInfo()
-    getEventParticipant()
   }
   
   override func viewDidLayoutSubviews() {
@@ -170,23 +165,6 @@ class PopUpViewController: UIViewController {
   }
   
   //MARK: Custom Methods
-  private func getEventParticipant() {
-    guard let eventData = eventData,
-          let homeData = homeData
-    else { return }
-
-    for homie in homeData.homieProfileList {
-      var flag = false
-      let homieId = homie.id
-      for participant in eventData.participant {
-        if participant.id == homieId {
-          flag = true
-        }
-        isSelectedArray.append(flag)
-      }
-    }
-  }
-  
   private func configUI() {
     eventImageView.layer.cornerRadius = eventImageView.frame.width / 2
   }
@@ -299,10 +277,6 @@ class PopUpViewController: UIViewController {
   func setDefaultPopUpData(_ icon: UIImage) {
     eventImageView.image = icon
   }
-  
-  private func getEventInfo() {
-    eventData = EventDTO.sampleData
-  }
 }
 
 
@@ -359,26 +333,26 @@ extension PopUpViewController: UICollectionViewDelegate {
 
 extension PopUpViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeData?.homieProfileList.count ?? 0
+    
+    return eventData?.participants.count ?? 0
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if collectionView == participantsCollectionView {
       guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell,
-            let homeData = homeData
+            let eventData = eventData
       else { return UICollectionViewCell() }
       
       cell.contentView.isUserInteractionEnabled = true
       
-      let isSelected = isSelectedArray[indexPath.row]
-      
+      let isSelected = eventData.participants[indexPath.row].isChecked
       
       if isDefaultPopUp {
-        cell.setParticipantData(homeData.homieProfileList[indexPath.row], isSelected: nil)
+        cell.setParticipantData(eventData.participants[indexPath.row], isSelected: nil)
         return cell
       }
       
-      cell.setParticipantData(homeData.homieProfileList[indexPath.row], isSelected: isSelected)
+      cell.setParticipantData(eventData.participants[indexPath.row], isSelected: isSelected)
       return cell
     }
 
