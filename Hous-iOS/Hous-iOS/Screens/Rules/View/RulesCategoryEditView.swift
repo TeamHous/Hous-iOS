@@ -242,7 +242,6 @@ extension RulesCategoryEditView {
 extension RulesCategoryEditView {
   // 이거 맞습니까 ? addTarget selector -> delegate -> closure의 향연 ...
   @objc private func borderButtonDidTapped() {
-    print(#function)
     delegate?.borderButtonTouched(viewType: editType)
   }
 

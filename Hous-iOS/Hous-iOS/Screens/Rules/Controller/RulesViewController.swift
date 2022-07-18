@@ -24,7 +24,6 @@ final class RulesViewController: UIViewController {
 
   var rulesTodayTodoData: RulesTodayTodoDTO = RulesTodayTodoDTO(homeRuleCategories: [], todayTodoRules: []) {
     didSet{
-      print(#function)
       DispatchQueue.main.async {
         self.mainView.categoryCollectionView.reloadData()
       }
@@ -107,19 +106,17 @@ extension RulesViewController {
 
     self.mainView.rulesType = .todo
     self.mainView.todayTodoButton.isSelected = true
-    print(#function)
     todoView.myTodoButton.isSelected = false
     todoView.todoType = .todayTodo
     todoView.todayTodoRulesData = self.rulesTodayTodoData.todayTodoRules
     self.isNavigatinHidden(isHidden: false)
   }
 
-  private func setMyTodoTableView() {
+  private func setMgyTodoTableView() {
     let todoView = self.mainView.todoTableView
 
     self.mainView.rulesType = .todo
     self.mainView.todayTodoButton.isSelected = true
-    print(#function)
     todoView.myTodoButton.isSelected = true
     todoView.todoType = .myTodo
     self.isNavigatinHidden(isHidden: false)
