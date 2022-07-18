@@ -45,6 +45,7 @@ class TodayTodoManyAssignedView: UIView {
     $0.axis = .vertical
     $0.alignment = .fill
     $0.distribution = .fillEqually
+    $0.spacing = 0
   }
 
   override init(frame: CGRect) {
@@ -60,6 +61,9 @@ class TodayTodoManyAssignedView: UIView {
   private func render() {
     self.addSubview(stackView)
     stackView.addArrangedSubviews(firstlineStackView, secondlineStackView)
+    firstlineStackView.addArrangedSubviews(topLeftView, topRightView)
+    secondlineStackView.addArrangedSubviews(bottomLeftView, bottomRightView)
+
     stackView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
@@ -75,6 +79,7 @@ class TodayTodoManyAssignedView: UIView {
       stackView.axis = .horizontal
       stackView.alignment = .fill
       stackView.distribution = .fillEqually
+      stackView.spacing = 0
     }
 
     [topLeftView, topRightView, bottomLeftView, bottomRightView].forEach { view in
@@ -86,22 +91,20 @@ class TodayTodoManyAssignedView: UIView {
   // 세개일 때 [bottomLeftView, topRightView, topLeftView]
   // 네개일 때 [bottomLeftView, topRightView, topLeftView, bottomRightView]
   func setCircle(count: Int, colors: [String]) {
-
+    let allAssigneeView = [bottomLeftView, topRightView, topLeftView, bottomRightView]
     var assigneeView: [UIView] = []
     var colorsCase: [UIColor] = []
+
     for color in colors {
-      let colorCase = AssigneeColor(rawValue: color)!,
+      let colorCase = AssigneeColor(rawValue: color.lowercased())!,
           assignee = AssigneeFactory.makeAssignee(type: colorCase)
       colorsCase.append(assignee.color)
     }
+
     // 숨김처리 및 보여지는 뷰 배열에 append
     if count == 2 {
-      [topLeftView, bottomRightView].forEach {
-        $0.isHidden = true
-        assigneeView = [bottomLeftView, topRightView]
-      }
+      assigneeView = [bottomLeftView, topRightView]
     } else if count == 3 {
-      bottomRightView.isHidden = true
       assigneeView = [bottomLeftView, topRightView, topLeftView]
     } else {
       assigneeView = [bottomLeftView, topRightView, topLeftView, bottomRightView]
@@ -111,6 +114,10 @@ class TodayTodoManyAssignedView: UIView {
     for (color, view) in sequence {
       view.backgroundColor = color
     }
+    let leftArray = allAssigneeView.filter { !assigneeView.contains($0) }
+    for view in leftArray {
+      view.backgroundColor = .clear
+    }
   }
 }
 
@@ -118,14 +125,9 @@ class TodayTodoOneAssignedView: UIView {
 
   var assigneeImageView = UIImageView()
 
-  convenience init(color: AssigneeColor) {
-    self.init(frame: .zero)
-    render()
-    configUI(color)
-  }
-
   override init(frame: CGRect) {
     super.init(frame: frame)
+    render()
   }
 
   required init?(coder: NSCoder) {
@@ -137,10 +139,5 @@ class TodayTodoOneAssignedView: UIView {
     assigneeImageView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
-  }
-
-  private func configUI(_ color: AssigneeColor) {
-    let assignee = AssigneeFactory.makeAssignee(type: color)
-    assigneeImageView.image = assignee.faceImage
   }
 }

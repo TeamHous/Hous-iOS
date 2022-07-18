@@ -8,7 +8,7 @@
 import UIKit
 
 enum AssigneeColor: String {
-  case yellow, blue, purple, red, green, none
+  case yellow, blue, purple, red, green, gray, none
 }
 
 protocol AssigneeProtocol {
@@ -47,10 +47,16 @@ struct GreenAssignee: AssigneeProtocol {
   var color = R.Color.easterGreen
 }
 
+struct GrayAssignee: AssigneeProtocol {
+  var checkedFaceImage = R.Image.faceCheckedRed
+  var faceImage = R.Image.faceEmpty
+  var color = R.Color.veryLightPinkFour
+}
+
 struct NoAssignee: AssigneeProtocol {
   var checkedFaceImage = R.Image.faceCheckedBlue
   var faceImage = R.Image.faceEmpty
-  var color = R.Color.veryLightPinkFour
+  var color = R.Color.lightPeriwinkle
 }
 
 struct AssigneeFactory {
@@ -67,6 +73,8 @@ struct AssigneeFactory {
       return RedAssignee()
     case .green:
       return GreenAssignee()
+    case .gray:
+      return GrayAssignee()
     case .none:
       return NoAssignee()
     }

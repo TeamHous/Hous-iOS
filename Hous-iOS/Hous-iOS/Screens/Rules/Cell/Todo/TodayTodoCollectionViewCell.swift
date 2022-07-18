@@ -53,7 +53,6 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     super.init(frame: frame)
     render()
     configUI()
-    print("왜안되누")
   }
   
   required init?(coder: NSCoder) {
@@ -107,7 +106,7 @@ extension TodayTodoCollectionViewCell {
     // 0명일 때, 1명일 때, 2명 이상일 때
     let assigneeCount = item.todayMembersWithTypeColor.count
     var leftView = UIView()
-    print(assigneeCount)
+
     if assigneeCount == 0 {
       leftView = addAssignView
       self.assigneesLabel.text = "담당자 선택하기"
@@ -120,7 +119,6 @@ extension TodayTodoCollectionViewCell {
 
       let assigneeImage = AssigneeFactory.makeAssignee(type: assigneeColor)
       self.oneAssignedView.assigneeImageView.image = assigneeImage.faceImage
-
       self.assigneesLabel.text = oneAssignee.userName
 
     } else {

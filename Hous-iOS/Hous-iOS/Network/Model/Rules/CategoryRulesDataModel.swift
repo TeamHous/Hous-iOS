@@ -46,6 +46,6 @@ extension CategoryRulesDataModel {
     CategoryRulesDataModel(assigneeColor: [.blue, .green], assigneeCount: 2, ruleTitle: "거실 청소기 돌리기"),
     CategoryRulesDataModel(assigneeColor: [.blue, .green, .red, .yellow], assigneeCount: 4, ruleTitle: "저녁 거실불 점등"),
     CategoryRulesDataModel(assigneeColor: [.red], assigneeCount: 1, ruleTitle: "화장실 청소"),
-    CategoryRulesDataModel(assigneeColor: [.none], assigneeCount: 0, ruleTitle: "와우와우와우")
+    CategoryRulesDataModel(assigneeColor: [.gray], assigneeCount: 0, ruleTitle: "와우와우와우")
   ]
 }

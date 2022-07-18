@@ -15,7 +15,6 @@ final class RulesTodoTableView: UIView {
 
   var todayTodoRulesData: [TodayTodoRulesDTO] = [] {
     didSet {
-      print(todayTodoRulesData.count)
       self.todoType = .todayTodo
       self.todoCollectionView.reloadData()
     }
@@ -99,24 +98,23 @@ final class RulesTodoTableView: UIView {
 
 extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    print(todayTodoRulesData.count)
     return todayTodoRulesData.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    print(todoType)
+
     switch todoType {
     case .todayTodo:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTodoCollectionViewCell.className, for: indexPath) as? TodayTodoCollectionViewCell else { return UICollectionViewCell() }
 
       cell.delegate = self
-      print("여기까진 오나요 ?")
       cell.setTodayTodoCell(self.todayTodoRulesData[indexPath.row])
 
       return cell
 
     case .myTodo:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath)
+      print("왜 안찍히쥬")
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath) as? MyTodoCollectionViewCell else { return UICollectionViewCell() }
       return cell
     }
   }
