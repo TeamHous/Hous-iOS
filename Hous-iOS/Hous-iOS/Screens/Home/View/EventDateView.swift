@@ -9,6 +9,8 @@ import UIKit
 
 class EventDateView: UIView {
   
+  var eventDate = ""
+  
   private lazy var datePicker = UIDatePicker().then {
     $0.preferredDatePickerStyle = .wheels
     $0.datePickerMode = .date
@@ -164,9 +166,9 @@ extension EventDateView {
   @objc private func handleDatePickerData() {
     let dateformatter = DateFormatter()
     dateformatter.dateFormat = "yyyy-MM-dd"
-    let date = dateformatter.string(from: datePicker.date)
+    eventDate = dateformatter.string(from: datePicker.date)
     
-    setDateLabel(date: date)
+    setDateLabel(date: eventDate)
   }
   
   @objc private func dismissDatePicker() {

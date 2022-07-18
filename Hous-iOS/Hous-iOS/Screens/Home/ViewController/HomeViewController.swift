@@ -272,7 +272,7 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
     
     let popUp = PopUpViewController()
     popUp.modalTransitionStyle = .crossDissolve
-    popUp.modalPresentationStyle = .overFullScreen
+    popUp.modalPresentationStyle = .currentContext
     
     popUp.eventData = data
     

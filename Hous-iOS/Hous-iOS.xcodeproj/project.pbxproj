@@ -65,6 +65,7 @@
 		B528CF9E288026D20070C4BB /* KeyRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */; };
 		B534F9462884E8E200624BAA /* HomeMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */; };
 		B534F9482884E8F000624BAA /* HomeMainAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9472884E8F000624BAA /* HomeMainAPIService.swift */; };
+		B534F94A288609A000624BAA /* CreateEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9492886099F00624BAA /* CreateEventDTO.swift */; };
 		B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
@@ -203,6 +204,7 @@
 		B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsDataModel.swift; sourceTree = "<group>"; };
 		B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMainAPITarget.swift; path = "Hous-iOS/Network/Model/Home/HomeMainAPITarget.swift"; sourceTree = SOURCE_ROOT; };
 		B534F9472884E8F000624BAA /* HomeMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMainAPIService.swift; path = "Hous-iOS/Network/Model/Home/HomeMainAPIService.swift"; sourceTree = SOURCE_ROOT; };
+		B534F9492886099F00624BAA /* CreateEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDTO.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			children = (
 				B5E95ADB2881917B00CD2244 /* HomeDTO.swift */,
 				B5E95ADD2881B63000CD2244 /* EventDTO.swift */,
+				B534F9492886099F00624BAA /* CreateEventDTO.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 				B843871A28795881003F7B75 /* TodayTodoCollectionViewCell.swift in Sources */,
 				B5BD75D128801F4C00B98D35 /* IconFactory.swift in Sources */,
 				B80510C72876D38A0025B767 /* UIFont+Extension.swift in Sources */,
+				B534F94A288609A000624BAA /* CreateEventDTO.swift in Sources */,
 				9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */,
 				B80510C32876D36A0025B767 /* HomeViewController.swift in Sources */,
 				B87BD3EF2880273900FE232D /* RulesAssignPopUpViewController.swift in Sources */,

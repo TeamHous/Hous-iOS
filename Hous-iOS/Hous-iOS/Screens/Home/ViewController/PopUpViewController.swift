@@ -22,6 +22,8 @@ class PopUpViewController: UIViewController {
     }
   }
   
+  var participants: [String] = []
+  
   var isDefaultPopUp: Bool = false
   
   private enum Size {
@@ -133,7 +135,7 @@ class PopUpViewController: UIViewController {
     $0.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
   }
   
-  private let saveButton = UIButton().then {
+  private lazy var saveButton = UIButton().then {
     var config = UIButton.Configuration.plain()
     var container = AttributeContainer()
     container.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
@@ -143,6 +145,7 @@ class PopUpViewController: UIViewController {
     $0.backgroundColor = .paleGold
     $0.tintColor = .white
     $0.layer.cornerRadius = 10
+    $0.addTarget(self, action: #selector(saveEvent), for: .touchUpInside)
   }
   
   private lazy var buttonStackView = UIStackView(arrangedSubviews: [cancelButton, saveButton]).then {
@@ -313,6 +316,17 @@ extension PopUpViewController {
     }
   }
   
+  @objc private func saveEvent() {
+    
+    guard let eventName = eventTextField.text else { return }
+    let eventIcon = selectedEventCase.rawValue.uppercased()
+    let date = eventDateView.eventDate
+    let participants = self.participants
+    
+    postNewEvent(eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
+    self.dismiss(animated: true)
+  }
+  
   func setTouchedIcon(_ iconView: EventIconView) {
     iconView.iconImageView.backgroundColor = .paleGold
     iconView.iconImageView.alpha = 0.4
@@ -328,6 +342,11 @@ extension PopUpViewController: UICollectionViewDelegate {
     guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell else { return }
     
     cell.participantButton.isSelected.toggle()
+    if cell.participantButton.isSelected {
+      guard let participantId = eventData?.participants[indexPath.row].id else { return }
+      if participants.contains(participantId) { return }
+      self.participants.append(participantId)
+    }
   }
 }
 
@@ -385,5 +404,24 @@ extension PopUpViewController: UITextFieldDelegate {
     }
     
     return true
+  }
+}
+
+extension PopUpViewController {
+  func postNewEvent(eventName: String, eventIcon: String, date: String, participants: [String]) {
+    HomeMainAPIService.shared.requestPostNewEvent(roomId: APIConstants.roomID, eventName: eventName, eventIcon: eventIcon, date: date, participants: participants) { result in
+      
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<CreateEventDTO> {
+        guard let _ = responseResult.response else { return }
+        
+        print(#function)
+        
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+      
+    }
   }
 }
