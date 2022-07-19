@@ -26,7 +26,7 @@ final class ProfileTestResultViewController : UIViewController {
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
     return cv
   }()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -50,7 +50,7 @@ final class ProfileTestResultViewController : UIViewController {
     setDelegate()
     registerCell()
     navigationBarView.moveToProfileMainView = {  [self] in
-     dismiss(animated: true)
+      dismiss(animated: true)
     }
   }
   
@@ -61,13 +61,13 @@ final class ProfileTestResultViewController : UIViewController {
   
   private func render() {
     view.addSubViews([navigationBarView, profileTestResultCollectionView])
-
+    
     navigationBarView.snp.makeConstraints { make in
       make.height.equalTo(60)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.trailing.equalToSuperview()
     }
-
+    
     profileTestResultCollectionView.snp.makeConstraints{ make in
       make.top.equalTo(navigationBarView.snp.bottom)
       make.bottom.equalToSuperview()
@@ -122,6 +122,22 @@ extension ProfileTestResultViewController: UICollectionViewDelegateFlowLayout, U
       return Size.recommendCellSize
     default:
       return CGSize(width: 0, height: 0)
+    }
+  }
+}
+
+
+extension ProfileTestResultViewController {
+  
+  private func getNetworkInfo(completion: @escaping (ProfileTestResultDTO) -> Void) {
+    ProfileTestResultAPIService.shared.requestGetTestResult(typeId: APIConstants.typeId) { result in
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileTestResultDTO> {
+        guard let response = responseResult.response else {return}
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
     }
   }
 }

@@ -40,6 +40,9 @@
 		9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */; };
 		9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81422A287D3FE30073E533 /* ProfileGraphView.swift */; };
 		9BA5DAA22885C75E00D3735E /* ProfileResultPersonalityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */; };
+		9BA5DAA42887069300D3735E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA32887069300D3735E /* APIConstants.swift */; };
+		9BA5DAA6288720C800D3735E /* ProfileTestResultAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA5288720C800D3735E /* ProfileTestResultAPITarget.swift */; };
+		9BA5DAA8288720DA00D3735E /* ProfileTestResultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA7288720DA00D3735E /* ProfileTestResultAPIService.swift */; };
 		9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE243E2881BF3200712C69 /* FormTextField.swift */; };
 		9BCA29F7288433BC0032338D /* ProfileRecommendBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */; };
 		9BCA29F9288560EE0032338D /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F8288560EE0032338D /* ProfileDTO.swift */; };
@@ -178,6 +181,9 @@
 		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
 		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResultPersonalityType.swift; sourceTree = "<group>"; };
+		9BA5DAA32887069300D3735E /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		9BA5DAA5288720C800D3735E /* ProfileTestResultAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTestResultAPITarget.swift; path = "Hous-iOS/Network/API/ProfileTestResultAPITarget.swift"; sourceTree = SOURCE_ROOT; };
+		9BA5DAA7288720DA00D3735E /* ProfileTestResultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTestResultAPIService.swift; path = "Hous-iOS/Network/API/ProfileTestResultAPIService.swift"; sourceTree = SOURCE_ROOT; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
 		9BCA29F8288560EE0032338D /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDTO.swift; path = "Hous-iOS/Global/UIComponent/ProfileDTO.swift"; sourceTree = SOURCE_ROOT; };
@@ -832,6 +838,17 @@
 			path = Rules;
 			sourceTree = "<group>";
 		};
+		B84CF9B9288458C1008770F0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9BCA2A0028857BE10032338D /* ProfileMainAPITarget.swift */,
+				9BCA2A0228857C020032338D /* ProfileMainAPIService.swift */,
+				9BA5DAA5288720C800D3735E /* ProfileTestResultAPITarget.swift */,
+				9BA5DAA7288720DA00D3735E /* ProfileTestResultAPIService.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B87BD3E2287F1FBC00FE232D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,6 +1037,7 @@
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				9B55FBC82883454A0089B930 /* ProfileRecommendRuleTitleView.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
+				9BA5DAA6288720C800D3735E /* ProfileTestResultAPITarget.swift in Sources */,
 				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
 				9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */,
 				B5F8583F288069B6009474A1 /* ProfileTestDTO.swift in Sources */,
@@ -1029,6 +1047,7 @@
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
 				9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */,
+				9BA5DAA8288720DA00D3735E /* ProfileTestResultAPIService.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
 				B5F858352880278D009474A1 /* EventDateView.swift in Sources */,
 				B8587377288810A900912768 /* AssigneePopupViewModel.swift in Sources */,

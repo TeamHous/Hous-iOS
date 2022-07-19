@@ -17,7 +17,7 @@ final class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
   private let titleLabel = UILabel().then {
     $0.text = "나의 성향"
     $0.textColor = .black
-    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
     $0.backgroundColor = .white
   }
   
