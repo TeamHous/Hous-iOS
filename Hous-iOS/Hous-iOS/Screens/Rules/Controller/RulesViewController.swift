@@ -119,14 +119,12 @@ extension RulesViewController {
   }
 
   private func setMyTodoTableView() {
-
     let todoView = self.mainView.todoTableView
     self.mainView.rulesType = .todo
     self.mainView.todayTodoButton.isSelected = true
     todoView.myTodoButton.isSelected = true
     todoView.todoType = .myTodo
     self.isNavigatinHidden(isHidden: false)
-
     if mainView.todoTableView.myTodoRulesData.isEmpty {
       mainView.todoTableView.todoCollectionView.isHidden = true
       mainView.todoTableView.myTodoEmptyLabel.isHidden = false
