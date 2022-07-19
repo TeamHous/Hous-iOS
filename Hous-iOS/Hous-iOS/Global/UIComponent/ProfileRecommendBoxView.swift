@@ -28,7 +28,7 @@ final class ProfileRecommendBoxView: UIView {
     $0.textColor = .housBlack
   }
   
-  private let personalityImageView = UIImageView().then {
+  let personalityImageView = UIImageView().then {
     $0.image = nil
   }
   

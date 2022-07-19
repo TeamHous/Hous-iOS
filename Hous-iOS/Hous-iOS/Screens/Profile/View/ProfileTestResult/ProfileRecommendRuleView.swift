@@ -15,7 +15,7 @@ final class ProfileRecommendRuleStackItemView : UIView {
     static let imageSize = CGSize(width: 14, height: 14)
   }
   
-  private let indexImageView = UIImageView().then {
+  let indexImageView = UIImageView().then {
     $0.image = R.Image.resultCircle
   }
   
@@ -72,7 +72,7 @@ final class ProfileRecommendRuleView : UIView {
   
   private var recommendRuleStackItems: [ProfileRecommendRuleStackItemView] = []
   
-  private var recommendRuleList = ["밥 먹고 바로 설거지하기", "샤워 후 머리카락 치우기"]
+  var recommendRuleList = ["밥 먹고 바로 설거지하기", "샤워 후 머리카락 치우기"]
   
   override init(frame: CGRect) {
     super.init(frame: frame)

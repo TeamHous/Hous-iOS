@@ -14,7 +14,7 @@ final class ProfileRecommendTitleView : UIView {
     static let screenHeight = UIScreen.main.bounds.height
   }
   
-  private let recommendTitleLabel: UILabel = {
+  let recommendTitleLabel: UILabel = {
     let recommendTitleLabel = UILabel()
     let attributedString = NSMutableAttributedString(string: "동글이와 함께 정하면 좋은 Rule!")
     let stringLength = attributedString.length
