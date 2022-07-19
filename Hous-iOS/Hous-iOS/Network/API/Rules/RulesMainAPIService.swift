@@ -31,6 +31,15 @@ extension RulesMainAPIService {
         responseData(dataResponse, completion: completion)
       }
   }
+
+  func requestUpdateRulesMyTodoState(roomId: String, ruleId: String, isCheck: Bool, completion: @escaping (NetworkResult<UpdateRulesMyTodoDTO>) -> Void) {
+
+    let target = RulesMainAPITarget.updateMyTodoState(roomId: roomId, ruleId: ruleId, isCheck: isCheck)
+    AF.request(target)
+      .responseData { dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
 }
 
 extension RulesMainAPIService {

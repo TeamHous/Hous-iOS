@@ -9,7 +9,6 @@ import UIKit
 
 protocol TodayTodoCollectionViewCellDelegate: AnyObject {
   func leftAssigneeViewTouched()
-  // func cellTouched()
 }
 
 class TodayTodoCollectionViewCell: UICollectionViewCell {

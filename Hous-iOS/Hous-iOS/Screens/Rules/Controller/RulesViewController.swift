@@ -69,6 +69,12 @@ final class RulesViewController: UIViewController {
       todayTodoAssignPopUp.modalPresentationStyle = .overFullScreen
       self.present(todayTodoAssignPopUp, animated: true)
     }
+
+    mainView.todoTableView.checkButtonUpdateAction = { ruleId, isCheck in
+      self.viewModel.updateRulesMyTodoState(roomId: "", ruleId: ruleId, isCheck: isCheck) { response in
+        print(response.isCheck)
+      }
+    }
   }
 
   private func setCollectionView() {
@@ -132,11 +138,18 @@ extension RulesViewController {
 extension RulesViewController {
 
   private func getServer() {
+    getRulesTodayTodo()
+    getRulesMyTodo()
+  }
+
+  private func getRulesTodayTodo() {
     viewModel.getRulesTodayTodo { response in
       self.rulesTodayTodoData = response
       self.setTodayTodoTableView()
     }
+  }
 
+  private func getRulesMyTodo() {
     viewModel.getRulesMyTodo { response in
       self.mainView.todoTableView.myTodoRulesData = response
       self.setMyTodoTableView()
@@ -180,7 +193,7 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     cell.isSelected = true
     self.mainView.todayTodoButton.isSelected = false
 
-     let categoryData = rulesTodayTodoData.homeRuleCategories
+    let categoryData = rulesTodayTodoData.homeRuleCategories
 
     if indexPath.row != categoryData.count {
       self.mainView.rulesType = .category
@@ -221,15 +234,15 @@ extension RulesViewController: RulesCategoryEditViewDelegate {
   }
 
   private func removeCell() {
-//    개인적인 처리보단 서버통신 한번 더 / 나중에 쓸 수도 있으니까 탄발 봐주세요 ...
-//    guard let selectedIndexPath = self.currentIndexPath else { return }
-//
-//    self.mainView.categoryCollectionView.performBatchUpdates {
-//      self.mainView.categoryCollectionView.deleteItems(at: [selectedIndexPath])
-//      self.[데이터].remove(at: selectedIndexPath.row)
-//    } completion: { [self] _ in
-//      mainView.categoryCollectionView.reloadData()
-//    }
+    //    개인적인 처리보단 서버통신 한번 더 / 나중에 쓸 수도 있으니까 탄발 봐주세요 ...
+    //    guard let selectedIndexPath = self.currentIndexPath else { return }
+    //
+    //    self.mainView.categoryCollectionView.performBatchUpdates {
+    //      self.mainView.categoryCollectionView.deleteItems(at: [selectedIndexPath])
+    //      self.[데이터].remove(at: selectedIndexPath.row)
+    //    } completion: { [self] _ in
+    //      mainView.categoryCollectionView.reloadData()
+    //    }
   }
 }
 

@@ -54,3 +54,9 @@ struct RulesMyTodoDTO: Codable {
       case categoryIcon, ruleName, isChecked
   }
 }
+
+// updateRulesMyTodoState
+struct UpdateRulesMyTodoDTO: Codable {
+  let isCheck: Bool
+  let todoRuleName: String
+}

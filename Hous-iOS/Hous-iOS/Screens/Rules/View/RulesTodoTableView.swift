@@ -12,6 +12,7 @@ import Then
 final class RulesTodoTableView: UIView {
 
   var leftAssigneeViewAction : (() -> Void)?
+  var checkButtonUpdateAction: ((_ ruleId: String, _ isCheck: Bool) -> Void)?
 
   var todayTodoRulesData: [TodayTodoRulesDTO] = [] {
     didSet { self.todoType = .todayTodo }
@@ -120,21 +121,26 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
       return cell
 
     case .myTodo:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath) as? MyTodoCollectionViewCell else { print("가드렛?")
-        return UICollectionViewCell() }
-
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyTodoCollectionViewCell.className, for: indexPath) as? MyTodoCollectionViewCell else { return UICollectionViewCell() }
+      cell.delegate = self
+      let ruleId = cell.setMyTodoCell(self.myTodoRulesData[indexPath.row])
       cell.checkButtonAction = {
         cell.checkBoxButton.isSelected ?
         (cell.checkBoxButton.isSelected = false) : (cell.checkBoxButton.isSelected = true)
+        cell.delegate?.updateCheckStatus(ruleId: ruleId, isCheck: cell.checkBoxButton.isSelected)
       }
-      cell.setMyTodoCell(self.myTodoRulesData[indexPath.row])
       return cell
     }
   }
 }
 
-extension RulesTodoTableView: TodayTodoCollectionViewCellDelegate {
+extension RulesTodoTableView: TodayTodoCollectionViewCellDelegate,
+                              MyTodoCheckUpdateDelegate {
   func leftAssigneeViewTouched() {
     leftAssigneeViewAction?()
+  }
+
+  func updateCheckStatus(ruleId: String, isCheck: Bool) {
+    checkButtonUpdateAction?(ruleId, isCheck)
   }
 }

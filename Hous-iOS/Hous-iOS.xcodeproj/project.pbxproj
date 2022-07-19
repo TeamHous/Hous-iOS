@@ -117,7 +117,6 @@
 		B8438729287961EE003F7B75 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B8438728287961EE003F7B75 /* RxCocoa */; };
 		B843872B287961EE003F7B75 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B843872A287961EE003F7B75 /* RxRelay */; };
 		B843872D287961EE003F7B75 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B843872C287961EE003F7B75 /* RxSwift */; };
-		B84CF9B228844316008770F0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B128844316008770F0 /* APIConstants.swift */; };
 		B84CF9B6288453D3008770F0 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9B5288453D3008770F0 /* TargetType.swift */; };
 		B84CF9BB288458EF008770F0 /* RulesMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BA288458EF008770F0 /* RulesMainAPITarget.swift */; };
 		B84CF9BD2884790E008770F0 /* RulesMainAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9BC2884790E008770F0 /* RulesMainAPIService.swift */; };
@@ -125,6 +124,7 @@
 		B84CF9C128847CF0008770F0 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C028847CF0008770F0 /* CommonResponse.swift */; };
 		B84CF9C42884B8B2008770F0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B84CF9C32884B8B2008770F0 /* Inject */; };
 		B84CF9C62884BBA5008770F0 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C52884BBA5008770F0 /* Todo.swift */; };
+		B858737328861BA100912768 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858737228861BA100912768 /* APIConstants.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -239,13 +239,13 @@
 		B843871928795881003F7B75 /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871B287958A5003F7B75 /* MyTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843871D28795E0B003F7B75 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
-		B84CF9B128844316008770F0 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B84CF9B5288453D3008770F0 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		B84CF9BA288458EF008770F0 /* RulesMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesMainAPITarget.swift; sourceTree = "<group>"; };
 		B84CF9BC2884790E008770F0 /* RulesMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesMainAPIService.swift; sourceTree = "<group>"; };
 		B84CF9BE28847C41008770F0 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		B84CF9C028847CF0008770F0 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
 		B84CF9C52884BBA5008770F0 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		B858737228861BA100912768 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
@@ -677,8 +677,8 @@
 				B84CF9B9288458C1008770F0 /* Profile */,
 				B84CF9B8288458A3008770F0 /* Rules */,
 				B84CF9B728845896008770F0 /* Home */,
-				B84CF9B128844316008770F0 /* APIConstants.swift */,
 				B84CF9B5288453D3008770F0 /* TargetType.swift */,
+				B858737228861BA100912768 /* APIConstants.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -932,6 +932,7 @@
 				B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */,
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
 				B5084A3F287C1C9400C38749 /* ParticipantsCollectionViewCell.swift in Sources */,
+				B858737328861BA100912768 /* APIConstants.swift in Sources */,
 				B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */,
 				9B25BBDF2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift in Sources */,
 				B5084A3628799AEB00C38749 /* UIColor+Extension.swift in Sources */,
@@ -976,7 +977,6 @@
 				B80418C428808E450060A9C9 /* CategoryIconFactory.swift in Sources */,
 				B80510A22876D2D10025B767 /* AppDelegate.swift in Sources */,
 				778A7A0B28770EB700722CBB /* HousTabbar.swift in Sources */,
-				B84CF9B228844316008770F0 /* APIConstants.swift in Sources */,
 				B80510E62876D6F10025B767 /* NetworkResult.swift in Sources */,
 				B84CF9B6288453D3008770F0 /* TargetType.swift in Sources */,
 				9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */,

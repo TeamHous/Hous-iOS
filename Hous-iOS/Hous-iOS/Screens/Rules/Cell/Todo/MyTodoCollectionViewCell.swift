@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol MyTodoCheckUpdateDelegate {
+  func updateCheckStatus(ruleId: String, isCheck: Bool)
+}
+
 class MyTodoCollectionViewCell: UICollectionViewCell {
 
   var checkButtonAction: (() -> Void)?
+  var delegate: MyTodoCheckUpdateDelegate?
 
   var todoTitleLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 16)
@@ -18,7 +23,7 @@ class MyTodoCollectionViewCell: UICollectionViewCell {
   var categoryImageView = UIImageView().then {
     $0.image = R.Image.heart
   }
-  var checkBoxButton = UIButton().then {
+  lazy var checkBoxButton = UIButton().then {
     $0.setImage(R.Image.myTodoUnchecked, for: .normal)
     $0.setImage(R.Image.myTodoChecked, for: .selected)
     $0.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
@@ -68,12 +73,14 @@ class MyTodoCollectionViewCell: UICollectionViewCell {
 
 extension MyTodoCollectionViewCell {
 
-  func setMyTodoCell(_ item: RulesMyTodoDTO) {
+  func setMyTodoCell(_ item: RulesMyTodoDTO) -> String {
     self.checkBoxButton.isSelected = item.isChecked
     self.todoTitleLabel.text = item.ruleName
-    guard let categoryType = CategoryIconImage(rawValue: item.categoryIcon.lowercased()) else { return }
+    guard let categoryType = CategoryIconImage(rawValue: item.categoryIcon.lowercased()) else { return "" }
 
     let categoryIcon = CategoryIconFactory.makeIcon(type: categoryType)
     self.categoryImageView.image = categoryIcon.unCheckedImage
+
+    return item.id
   }
 }
