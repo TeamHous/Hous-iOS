@@ -71,7 +71,7 @@ final class RulesViewController: UIViewController {
     }
 
     mainView.todoTableView.checkButtonUpdateAction = { ruleId, isCheck in
-      self.viewModel.updateRulesMyTodoState(roomId: "", ruleId: ruleId, isCheck: isCheck) { response in
+      self.viewModel.updateRulesMyTodoState(roomId: APIConstants.roomID, ruleId: ruleId, isCheck: isCheck) { response in
         print(response.isCheck)
       }
     }
