@@ -22,4 +22,12 @@ extension Date {
     let calendar = Calendar.current
     return calendar.component(.day, from: self)
   }
+  
+  func formatted(_ format: String) -> String {
+      let formatter = DateFormatter()
+      formatter.dateFormat = format
+      formatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+
+      return formatter.string(from: self)
+  }
 }
