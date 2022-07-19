@@ -36,8 +36,8 @@ class CategoryAssigneeCircleView: UIView {
     self.makeRounded(cornerRadius: Size.circleSize/2)
   }
 
-  func setColor(_ color: AssigneeColor) {
-    let assignee = AssigneeFactory.makeAssignee(type: color)
+  func setColor(_ color: String) {
+    let assignee = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: color.lowercased()) ?? .none)
     self.backgroundColor = assignee.color
   }
 }

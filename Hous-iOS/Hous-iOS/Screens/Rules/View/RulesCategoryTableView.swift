@@ -13,6 +13,13 @@ final class RulesCategoryTableView: UIView {
 
   var testText = "기본기본기본"
 
+  var keyRulesData: [KeyRulesDTO] = [] {
+    didSet { categoryCollectionView.reloadData() }
+  }
+  var rulesData: [RulesDTO] = [] {
+    didSet { categoryCollectionView.reloadData() }
+  }
+
   //MARK: - Enum
 
   enum CategorySection: Int {
@@ -28,8 +35,6 @@ final class RulesCategoryTableView: UIView {
   }
 
   //MARK: - 변수
-
-  var categoryRules: [CategoryRulesDataModel]?
 
   var categoryCollectionView = UICollectionView(
     frame: .zero,
@@ -51,7 +56,6 @@ final class RulesCategoryTableView: UIView {
     render()
     configUI()
     setCollectionView()
-    getCategoryRules()
   }
 
   required init?(coder: NSCoder) {
@@ -59,10 +63,6 @@ final class RulesCategoryTableView: UIView {
   }
 
   //MARK: - Setting
-
-  private func getCategoryRules() {
-    categoryRules = CategoryRulesDataModel.sampleData
-  }
 
   private func setCollectionView() {
     categoryCollectionView.delegate = self
@@ -92,9 +92,9 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch section {
     case CategorySection.keyRules.rawValue:
-      return 3
+      return keyRulesData.count
     case CategorySection.rules.rawValue:
-      return CategoryRulesDataModel.sampleData.count
+      return rulesData.count
     case CategorySection.add.rawValue:
       return 1
     default:
@@ -106,12 +106,14 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
 
     switch indexPath.section {
     case 0:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.className, for: indexPath)
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.className, for: indexPath) as? KeyRulesCollectionViewCell else { return UICollectionViewCell() }
+
+      let ruleId = cell.setKeyRulesCell(keyRulesData[indexPath.row])
       return cell
     case 1:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulesCollectionViewCell.className, for: indexPath) as? RulesCollectionViewCell else { return UICollectionViewCell() }
 
-      cell.setCategoryAssigneeData(categoryRules![indexPath.row])
+      let ruleId = cell.setRulesCell(rulesData[indexPath.row])
       return cell
     case 2:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddRulesCollectionViewCell.className, for: indexPath)

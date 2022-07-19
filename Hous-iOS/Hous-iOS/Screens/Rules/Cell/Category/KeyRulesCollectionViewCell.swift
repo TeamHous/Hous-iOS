@@ -40,4 +40,9 @@ class KeyRulesCollectionViewCell: UICollectionViewCell {
     self.layer.cornerRadius = 15
     self.backgroundColor = R.Color.lightPeriwinkle
   }
+
+  func setKeyRulesCell(_ item: KeyRulesDTO) -> String {
+    self.rulesTitleLabel.text = item.ruleName
+    return item.id
+  }
 }

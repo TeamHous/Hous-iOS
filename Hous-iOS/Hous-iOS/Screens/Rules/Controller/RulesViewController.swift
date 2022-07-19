@@ -143,16 +143,25 @@ extension RulesViewController {
   }
 
   private func getRulesTodayTodo() {
-    viewModel.getRulesTodayTodo { response in
+    viewModel.getRulesTodayTodo(roomId: APIConstants.roomID) { response in
       self.rulesTodayTodoData = response
       self.setTodayTodoTableView()
     }
   }
 
   private func getRulesMyTodo() {
-    viewModel.getRulesMyTodo { response in
+    viewModel.getRulesMyTodo(roomId: APIConstants.roomID) { response in
       self.mainView.todoTableView.myTodoRulesData = response
       self.setMyTodoTableView()
+    }
+  }
+
+  private func getRulesByCategory(categoryId: String) {
+    viewModel.getRulesByCategory(roomId: APIConstants.roomID, categoryId: categoryId) {
+      response in
+      let categoryView = self.mainView.categoryTableView
+      categoryView.keyRulesData = response.keyRules
+      categoryView.rulesData = response.rules
     }
   }
 }
@@ -189,13 +198,13 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     self.currentIndexPath = indexPath
-    let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+    guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
     cell.isSelected = true
     self.mainView.todayTodoButton.isSelected = false
 
     let categoryData = rulesTodayTodoData.homeRuleCategories
-
     if indexPath.row != categoryData.count {
+      getRulesByCategory(categoryId: cell.categoryId ?? "")
       self.mainView.rulesType = .category
       isNavigatinHidden(isHidden: false)
     } else {

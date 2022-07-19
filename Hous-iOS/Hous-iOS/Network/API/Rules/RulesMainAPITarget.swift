@@ -52,7 +52,7 @@ extension RulesMainAPITarget: TargetType {
     case .updateTodayTodoAssignee(let roomId, let ruleId, _):
       return "/room/\(roomId)/rule/\(ruleId)/today"
 
-    case .getRulesByCategory(let roomId, let categoryId, _,_,_,_):
+    case .getRulesByCategory(let roomId, let categoryId):
       return "/room/\(roomId)/category/\(categoryId)/rule"
 
     case .postNewCategory(let roomId, _,_):

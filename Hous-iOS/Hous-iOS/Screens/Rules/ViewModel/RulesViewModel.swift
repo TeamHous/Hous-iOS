@@ -9,8 +9,8 @@ import Foundation
 
 class RulesViewModel {
 
-  func getRulesTodayTodo(completion: @escaping (RulesTodayTodoDTO) -> Void) {
-    RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: APIConstants.roomID) { result in
+  func getRulesTodayTodo(roomId: String, completion: @escaping (RulesTodayTodoDTO) -> Void) {
+    RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: roomId) { result in
 
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<RulesTodayTodoDTO> {
@@ -26,8 +26,8 @@ class RulesViewModel {
 
 extension RulesViewModel {
 
-  func getRulesMyTodo(completion: @escaping ([RulesMyTodoDTO]) -> Void) {
-    RulesMainAPIService.shared.requestGetRulesMyTodo(roomId: APIConstants.roomID) { result in
+  func getRulesMyTodo(roomId: String, completion: @escaping ([RulesMyTodoDTO]) -> Void) {
+    RulesMainAPIService.shared.requestGetRulesMyTodo(roomId: roomId) { result in
 
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<[RulesMyTodoDTO]> {
@@ -44,7 +44,7 @@ extension RulesViewModel {
 extension RulesViewModel {
 
   func updateRulesMyTodoState(roomId: String, ruleId: String, isCheck: Bool, completion: @escaping (UpdateRulesMyTodoDTO) -> Void) {
-    RulesMainAPIService.shared.requestUpdateRulesMyTodoState(roomId: APIConstants.roomID, ruleId: ruleId, isCheck: isCheck) { result in
+    RulesMainAPIService.shared.requestUpdateRulesMyTodoState(roomId: roomId, ruleId: ruleId, isCheck: isCheck) { result in
 
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<UpdateRulesMyTodoDTO> {
@@ -59,7 +59,7 @@ extension RulesViewModel {
 }
 
 extension RulesViewModel {
-  
+
   func getRulesByCategory(roomId: String, categoryId: String, completion: @escaping (RulesByCategoryDTO) -> Void) {
     RulesMainAPIService.shared.requestGetRulesByCategory(roomId: roomId, categoryId: categoryId) { result in
 

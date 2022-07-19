@@ -27,6 +27,12 @@ class RulesCollectionViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
+  override func prepareForReuse() {
+    self.assigneeView.assignedCircleStackView.subviews.forEach {
+      $0.removeFromSuperview()
+    }
+  }
+
   private func render() {
 
     self.addSubViews([assigneeView, rulesTitleLabel])
@@ -52,17 +58,19 @@ class RulesCollectionViewCell: UICollectionViewCell {
     self.backgroundColor = .white
   }
 
-  func setCategoryAssigneeData(_ item: CategoryRulesDataModel) {
+  func setRulesCell(_ item: RulesDTO) -> String {
 
-    self.rulesTitleLabel.text = item.ruleTitle
-    assigneeView.assignedNumLabel.text = String(item.assigneeCount)
+    self.rulesTitleLabel.text = item.ruleName
+    assigneeView.assignedNumLabel.text = String(item.membersCnt)
     
-    var color = item.assigneeColor
+    var color = item.typeColors
     if (color.count > 2) { color = Array(color.prefix(3)) }
+    if color.count == 0 { color.append("NONE") }
     color.forEach { color in
       let view = CategoryAssigneeCircleView()
       view.setColor(color)
       assigneeView.assignedCircleStackView.addArrangedSubview(view)
     }
+    return item.id
   }
 }

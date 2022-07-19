@@ -10,6 +10,8 @@ import SnapKit
 import Then
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+
+  var categoryId: String?
   
   var categoryImageView = UIImageView().then {
     $0.image = R.Image.clean
@@ -61,5 +63,6 @@ extension CategoryCollectionViewCell {
     let categoryIcon = CategoryIconFactory.makeIcon(type: categoryIconType)
     self.categoryImageView.image = categoryIcon.unCheckedImage
     self.categoryTitleLabel.text = item.categoryName
+    self.categoryId = item.id
   }
 }
