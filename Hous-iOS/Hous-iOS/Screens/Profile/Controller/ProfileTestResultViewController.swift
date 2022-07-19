@@ -10,22 +10,25 @@ import UIKit
 struct ProfileTestResultDataPack {
   
   let userNameLabel: String
-  let personality : PersonalityType
+  let personalityType : PersonalityType
   let personalityTypeLabel: String
-  let personalityImageView: UIImage
+  let personalityImage: UIImage?
   let personalityTitleLabel: String
   let personalityDescriptionLabel: String
   let recommandTitleLabel: String
-  let goodTitleLabel: String
+  let recommandRuleLabel: [String]
   let goodPersonalityLabel: String
-  let goodPersonalityImageView: UIImage
-  let badTitleLabel: String
+  let goodPersonalityImage: UIImage?
   let badPersonalityLabel: String
-  let badPersonalityImageView: UIImage
+  let badPersonalityImage: UIImage?
   
 }
 
 final class ProfileTestResultViewController : UIViewController {
+  
+  private var profileNetworkResponse: ProfileTestResultDTO?
+  
+  private var profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: "", personalityType: .empty, personalityTypeLabel: "", personalityImage: UIImage(), personalityTitleLabel: "", personalityDescriptionLabel: "", recommandTitleLabel: "", recommandRuleLabel: [], goodPersonalityLabel: "", goodPersonalityImage: UIImage(), badPersonalityLabel: "", badPersonalityImage: UIImage())
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -131,7 +134,7 @@ extension ProfileTestResultViewController: UICollectionViewDelegateFlowLayout, U
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    switch indexPath.row{
+    switch indexPath.row {
     case 0:
       return Size.imageCellSize
     case 1:
@@ -147,6 +150,67 @@ extension ProfileTestResultViewController: UICollectionViewDelegateFlowLayout, U
 
 extension ProfileTestResultViewController {
   
+  private func convertResponseToDataPack(_ profileNetworkResponse : ProfileTestResultDTO?) {
+    let url: URL?
+    
+    let userNameLabel = profileNetworkResponse!.userName
+    let personalityType : PersonalityType
+    
+    switch profileNetworkResponse!.typeColor {
+    case "RED" : personalityType = .triangle
+    case "BLUE" : personalityType = .rectangle
+    case "YELLOW" : personalityType = .round
+    case "GREEN" : personalityType = .hexagon
+    case "PURPLE" : personalityType = .pentagon
+    default : personalityType = .empty
+    }
+    
+    
+    let personalityTypeLabel = personalityType.personalityTitleText
+    
+    url = URL(string: profileNetworkResponse!.typeImg)
+    var personalityImage: UIImage?
+    DispatchQueue.global().async {
+      let data = try? Data(contentsOf: url!)
+      DispatchQueue.main.async {
+        personalityImage = UIImage(data: data!)
+      }
+    }
+    
+    let personalityTitleLabel = profileNetworkResponse!.typeOneComment
+    let personalityDescriptionLabel = profileNetworkResponse!.typeDesc
+    let recommandTitleLabel = profileNetworkResponse!.typeRulesTitle
+    
+    var recommandRuleLabel: [String] = []
+    profileNetworkResponse!.typeRules.forEach {
+      recommandRuleLabel.append($0)
+    }
+    
+    let goodPersonalityLabel = profileNetworkResponse!.good.typeName
+    
+    url = URL(string: profileNetworkResponse!.good.typeImg)
+    var goodPersonalityImage: UIImage?
+    DispatchQueue.global().async {
+      let data = try? Data(contentsOf: url!)
+      DispatchQueue.main.async {
+        goodPersonalityImage = UIImage(data: data!)
+      }
+    }
+    
+    let badPersonalityLabel = profileNetworkResponse!.bad.typeName
+    
+    url = URL(string: profileNetworkResponse!.good.typeImg)
+    var badPersonalityImage: UIImage?
+    DispatchQueue.global().async {
+      let data = try? Data(contentsOf: url!)
+      DispatchQueue.main.async {
+        badPersonalityImage = UIImage(data: data!)
+      }
+    }
+    
+    self.profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: userNameLabel, personalityType: personalityType, personalityTypeLabel: personalityTypeLabel, personalityImage: personalityImage, personalityTitleLabel: personalityTitleLabel, personalityDescriptionLabel: personalityDescriptionLabel, recommandTitleLabel: recommandTitleLabel, recommandRuleLabel: recommandRuleLabel, goodPersonalityLabel: goodPersonalityLabel, goodPersonalityImage: goodPersonalityImage, badPersonalityLabel: badPersonalityLabel, badPersonalityImage: badPersonalityImage)
+  }
+  
   private func getNetworkInfo(completion: @escaping (ProfileTestResultDTO) -> Void) {
     ProfileTestResultAPIService.shared.requestGetTestResult(typeId: APIConstants.typeId) { result in
       if let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileTestResultDTO> {
@@ -159,3 +223,4 @@ extension ProfileTestResultViewController {
     }
   }
 }
+
