@@ -159,6 +159,17 @@ class EventDateView: UIView {
     monthDatePickerTextField.attributedPlaceholder = NSAttributedString(string: month.description, attributes: attributes)
     dayDatePickerTextField.attributedPlaceholder = NSAttributedString(string: day.description, attributes: attributes)
   }
+  
+  func getCurrentDateText() -> String {
+    guard let year = yearDatePickerTextField.placeholder?.description,
+          let month = monthDatePickerTextField.placeholder?.description,
+          let day =  dayDatePickerTextField.placeholder?.description
+    else { return "" }
+    
+    let currentDate = "\(year)-\(month)-\(day)"
+    
+    return currentDate
+  }
 }
 
 //MARK: Objective-C methods

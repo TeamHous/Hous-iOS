@@ -42,6 +42,16 @@ extension HomeMainAPIService {
       }
   }
   
+  func requestUpdateEventDetail(roomId: String, eventId: String, eventName: String, eventIcon: String, participants: [String], date: String, completion: @escaping (NetworkResult<CreateEventDTO>) -> Void) {
+    
+    let target = HomeMainAPITarget.updateEventDetail(roomId: roomId, eventId: eventId, eventName: eventName, eventIcon: eventIcon, participants: participants, date: date)
+    AF.request(target)
+      .responseData { dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
+  
+  
 }
 
 extension HomeMainAPIService {

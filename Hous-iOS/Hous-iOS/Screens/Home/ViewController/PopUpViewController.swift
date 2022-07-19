@@ -24,6 +24,8 @@ class PopUpViewController: UIViewController {
   
   var participants: [String] = []
   
+  private var eventId: String = ""
+  
   var isDefaultPopUp: Bool = false
   
   private enum Size {
@@ -161,6 +163,16 @@ class PopUpViewController: UIViewController {
     setTextField()
     setTapGesture()
     setCollectionView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    eventData?.participants.forEach { p in
+      if p.isChecked { self.participants.append(p.id) }
+    }
+    
+    print(self.participants)
   }
   
   override func viewDidLayoutSubviews() {
@@ -309,6 +321,7 @@ extension PopUpViewController {
       
       if eventIconView == view.viewWithTag(view.tag) {
         setTouchedIcon(eventIconView)
+        selectedEventCase = eventIconView.eventCase
       } else {
         eventIconView.iconImageView.backgroundColor = .offWhite
         eventIconView.iconForegroundImageView.isHidden = true
@@ -317,13 +330,26 @@ extension PopUpViewController {
   }
   
   @objc private func saveEvent() {
-    
     guard let eventName = eventTextField.text else { return }
     let eventIcon = selectedEventCase.rawValue.uppercased()
-    let date = eventDateView.eventDate
+    var date = eventDateView.eventDate
     let participants = self.participants
     
-    postNewEvent(eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
+    print("eventName", eventName)
+    print("eventIcon", eventIcon)
+    print("date", date)
+    print("participants", participants)
+    
+    if isDefaultPopUp {
+      postNewEvent(eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
+    } else {
+      let eventId = eventData?.id ?? ""
+      date = eventDateView.getCurrentDateText()
+      print("patch event date", date)
+      print("eventId", eventId)
+      updateEventDetail(eventName: eventName, eventIcon: eventIcon, eventId: eventId, date: date, participants: participants)
+    }
+    
     self.dismiss(animated: true)
   }
   
@@ -339,14 +365,22 @@ extension PopUpViewController {
 extension PopUpViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell else { return }
+    guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell
+    else { return }
     
     cell.participantButton.isSelected.toggle()
     if cell.participantButton.isSelected {
       guard let participantId = eventData?.participants[indexPath.row].id else { return }
       if participants.contains(participantId) { return }
       self.participants.append(participantId)
+      
+    } else {
+      guard let participantId = eventData?.participants[indexPath.row].id else { return }
+      if let index = participants.firstIndex(of: participantId) {
+        participants.remove(at: index)
+      }
     }
+    
   }
 }
 
@@ -421,7 +455,22 @@ extension PopUpViewController {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
         responseResult.resultMethod()
       }
-      
+    }
+  }
+  
+  func updateEventDetail(eventName: String, eventIcon: String, eventId: String, date: String, participants: [String]) {
+    HomeMainAPIService.shared.requestUpdateEventDetail(roomId: APIConstants.roomID, eventId: eventId, eventName: eventName, eventIcon: eventIcon, participants: participants, date: date) { result in
+      print(date)
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<CreateEventDTO> {
+        guard let _ = responseResult.response else { return }
+        
+        print(#function)
+        
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
     }
   }
 }
