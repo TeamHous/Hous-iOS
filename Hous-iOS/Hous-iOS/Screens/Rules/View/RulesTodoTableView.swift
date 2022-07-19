@@ -32,6 +32,14 @@ final class RulesTodoTableView: UIView {
     static let todoCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
     static let todoCollectionItemSpacing = CGFloat(6)
   }
+
+  var myTodoEmptyLabel = UILabel().then {
+    $0.textColor = R.Color.lightPeriwinkle
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
+    $0.text = "아직 내 담당의 to-do가 없어요!"
+    $0.numberOfLines = 0
+    $0.isHidden = true
+  }
   
   private var todayTodoLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
@@ -76,7 +84,12 @@ final class RulesTodoTableView: UIView {
   }
   
   private func render() {
-    self.addSubViews([todayTodoLabel, myTodoButton, todoCollectionView])
+    self.addSubViews([myTodoEmptyLabel, todayTodoLabel, myTodoButton, todoCollectionView])
+
+    myTodoEmptyLabel.snp.makeConstraints { make in
+      make.centerY.equalToSuperview().multipliedBy(0.8)
+      make.centerX.equalToSuperview()
+    }
     
     todayTodoLabel.snp.makeConstraints { make in
       make.leading.equalToSuperview().inset(20)

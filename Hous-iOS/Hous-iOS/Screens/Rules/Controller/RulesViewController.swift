@@ -118,6 +118,8 @@ extension RulesViewController {
     todoView.todoType = .todayTodo
     todoView.todayTodoRulesData = self.rulesTodayTodoData.todayTodoRules
     self.isNavigatinHidden(isHidden: false)
+
+    mainView.todoTableView.myTodoEmptyLabel.isHidden = true
   }
 
   private func setMyTodoTableView() {
@@ -128,6 +130,12 @@ extension RulesViewController {
     todoView.myTodoButton.isSelected = true
     todoView.todoType = .myTodo
     self.isNavigatinHidden(isHidden: false)
+
+    if mainView.todoTableView.myTodoRulesData.isEmpty {
+      mainView.todoTableView.todoCollectionView.isHidden = true
+      mainView.todoTableView.myTodoEmptyLabel.isHidden = false
+    }
+
   }
 
   private func hideCategoryLabel() {
