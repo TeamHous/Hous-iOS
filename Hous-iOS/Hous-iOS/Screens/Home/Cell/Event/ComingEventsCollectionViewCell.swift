@@ -103,7 +103,6 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
     
     getEventInfoAPI(id: eventId) { response in
       self.eventDetailDTO = response
-      print(response)
       self.delegate?.showPopup(self.eventDetailDTO, row: indexPath.row)
     }
     
@@ -165,8 +164,6 @@ extension ComingEventsCollectionViewCell {
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<EventDTO> {
         guard let response = responseResult.response else { return }
-        
-        print(#function)
         completion(response)
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)

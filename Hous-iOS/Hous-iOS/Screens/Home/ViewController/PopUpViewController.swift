@@ -171,8 +171,6 @@ class PopUpViewController: UIViewController {
     eventData?.participants.forEach { p in
       if p.isChecked { self.participants.append(p.id) }
     }
-    
-    print(self.participants)
   }
   
   override func viewDidLayoutSubviews() {
@@ -304,8 +302,6 @@ extension PopUpViewController {
     }
     
     let eventId = eventData?.id ?? ""
-    print("삭제할때 이벤트아이디=================")
-    print(eventId)
     deleteEvent(eventId: eventId)
     self.dismiss(animated: true)
   }
@@ -455,8 +451,6 @@ extension PopUpViewController {
           as? Success<CreateEventDTO> {
         guard let _ = responseResult.response else { return }
         
-        print(#function)
-        
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
         responseResult.resultMethod()
@@ -466,12 +460,10 @@ extension PopUpViewController {
   
   func updateEventDetail(eventName: String, eventIcon: String, eventId: String, date: String, participants: [String]) {
     HomeMainAPIService.shared.requestUpdateEventDetail(roomId: APIConstants.roomID, eventId: eventId, eventName: eventName, eventIcon: eventIcon, participants: participants, date: date) { result in
-      print(date)
+      
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<CreateEventDTO> {
         guard let _ = responseResult.response else { return }
-        
-        print(#function)
         
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
@@ -486,8 +478,6 @@ extension PopUpViewController {
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<String> {
         guard let _ = responseResult.response else { return }
-        
-        print(#function)
         
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
