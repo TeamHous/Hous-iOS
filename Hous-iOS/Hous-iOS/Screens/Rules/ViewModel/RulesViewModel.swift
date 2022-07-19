@@ -57,3 +57,20 @@ extension RulesViewModel {
     }
   }
 }
+
+extension RulesViewModel {
+  
+  func getRulesByCategory(roomId: String, categoryId: String, completion: @escaping (RulesByCategoryDTO) -> Void) {
+    RulesMainAPIService.shared.requestGetRulesByCategory(roomId: roomId, categoryId: categoryId) { result in
+
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<RulesByCategoryDTO> {
+        guard let response = responseResult.response else { return }
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+}

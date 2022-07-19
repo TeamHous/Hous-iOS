@@ -41,7 +41,7 @@ extension RulesMainAPIService {
       }
   }
 
-  func requestGetRulesByCategory(roomId: String, categoryId: String, isCheck: Bool, completion: @escaping (NetworkResult<RulesByCategoryDTO>) -> Void) {
+  func requestGetRulesByCategory(roomId: String, categoryId: String, completion: @escaping (NetworkResult<RulesByCategoryDTO>) -> Void) {
 
     let target = RulesMainAPITarget.getRulesByCategory(roomId: roomId, categoryId: categoryId)
     AF.request(target)
