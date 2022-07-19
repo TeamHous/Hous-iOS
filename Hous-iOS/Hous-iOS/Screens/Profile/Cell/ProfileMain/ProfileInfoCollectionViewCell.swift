@@ -100,7 +100,7 @@ final class ProfileInfoCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func dataBinding(_ dataPack : ProfileNetworkDataPack){
+  func setData(_ dataPack : ProfileNetworkDataPack){
     self.profileImage.image = dataPack.personalityType.profileImage
     self.userName.text = dataPack.userName
     
@@ -142,6 +142,6 @@ final class ProfileInfoCollectionViewCell: UICollectionViewCell {
         tags.append(tag)
       }
     }
-    tags.forEach {tagGuideStackView.addArrangedSubview($0)}    
+    tags.forEach {tagGuideStackView.addArrangedSubview($0)}
   }
 }

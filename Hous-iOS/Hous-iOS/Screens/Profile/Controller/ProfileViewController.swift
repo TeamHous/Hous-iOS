@@ -11,7 +11,7 @@ struct ProfileNetworkDataPack {
   let userName, userJob, statusMessage: String
   let hashTag: [String]
   let personalityType: PersonalityType
-  let typeScore: [Int]
+  let typeScore: [Double]
   let notificationState: Bool
   let isEmptyView: Bool
 }
@@ -133,7 +133,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
     switch indexPath.row{
     case 0:
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileInfoCollectionViewCell.className, for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
-      cell.dataBinding(profileNetworkDataPack)
+      cell.setData(profileNetworkDataPack)
       return cell
       
     case 1:
@@ -142,6 +142,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
         return cell
       }
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileGraphCollectionViewCell.className, for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
+      cell.setData(profileNetworkDataPack)
       return cell
       
     case 2:
@@ -175,8 +176,10 @@ extension ProfileViewController {
   
   // 서버로부터 가져오는 데이터 형식은 Response 형식으로 관리합니다.
   // 뷰에 직접적으로 적용할 수 있는 데이터 형식은 DataPack 형식으로 관리합니다.
-  // Response 형식의 데이터를 DataPack 형식으 전환하는 로직은
+  // Response 형식의 데이터를 DataPack 형식으로 전환하는 로직은
   // convertResponseToDataPack 함수에만 구현합니다.
+  // DataPack 형식의 데이터를 View에 적용하는 기능은
+  // setData 함수에만 구현합니다.
   
   private func convertResponseToDataPack(_ profileNetworkResponse : ProfileDTO?) {
     let userName = profileNetworkResponse!.userName
@@ -195,7 +198,11 @@ extension ProfileViewController {
     default : personalityType = .empty
     }
     
-    let typeScore = profileNetworkResponse!.typeScore
+    let typeScoreInt = profileNetworkResponse!.typeScore
+    var typeScore: [Double] = []
+    typeScoreInt.forEach {
+      typeScore.append(Double(10 * $0 - 10))
+    }
     let notificationState = profileNetworkResponse!.notificationState
     let isEmptyView = personalityType == .empty ? true : false
     

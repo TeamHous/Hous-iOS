@@ -32,13 +32,13 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
   }
   
-  let profileGraphBoxView = ProfileGraphBoxView()
+  var profileGraphBoxView = ProfileGraphBoxView()
   
   override init(frame: CGRect){
     super.init(frame: frame)
     configUI()
-    render()
   }
+  
   
   required init?(coder: NSCoder){
     fatalError("init(coder:) has not been implemented")
@@ -68,7 +68,17 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func dataBinding(_ dataPack: ProfileNetworkDataPack) {
-//    self.profileGraphBoxView.profileGraphView.
+  func setData(_ dataPack: ProfileNetworkDataPack) {
+    self.profileGraphBoxView = ProfileGraphBoxView(dataPack: dataPack)
+    
+    render()
+    
+    self.profileGraphBoxView.backgroundColor = dataPack.personalityType.backgroundColor
+    self.profileGraphBoxView.personalityLabel.text = dataPack.personalityType.personalityTitleText
+    self.profileGraphBoxView.personalityLabel.textColor = dataPack.personalityType.profileMainColor
+    self.profileGraphBoxView.profileGraphView.backgroundColor = dataPack.personalityType.backgroundColor
+    self.profileGraphBoxView.profileGraphView.profileGraphView.dataList = dataPack.typeScore
+    self.profileGraphBoxView.profileGraphView.profileGraphBackgroundView.backgroundShapeLayer.fillColor = dataPack.personalityType.graphbackGroundColor.cgColor
+    self.profileGraphBoxView.profileGraphView.profileGraphView.graphShapeLayer.fillColor = dataPack.personalityType.profileMainColor.cgColor
   }
 }

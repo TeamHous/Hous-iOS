@@ -17,12 +17,12 @@ final class GraphView : UIView {
   let graphMaskLayer = CAShapeLayer()
   let backgroundShapeLayer = CAShapeLayer()
   let backgroundMaskLayer = CAShapeLayer()
-  var dataList : [Double] = [0, 0, 0, 0, 0]
+  var dataList : [Double] = [10, 10, 10, 10, 10]
   var paths : [[CGPoint]] = [[CGPoint()]]
   
-  convenience init(dataList: [Double]) {
+  convenience init(dataPack: ProfileNetworkDataPack) {
     self.init(frame: .zero)
-    self.dataList = dataList
+    self.dataList = dataPack.typeScore
     self.paths = self.setUpGraphPaths(dataList)
   }
   

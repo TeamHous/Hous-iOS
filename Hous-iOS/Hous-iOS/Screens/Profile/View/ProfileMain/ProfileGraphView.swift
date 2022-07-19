@@ -12,14 +12,18 @@ final class ProfileGraphView : UIView {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
   }
-  private var dataList: [Double] = []
-  private var profileGraphView = GraphView(dataList: [60, 60, 60, 60, 60])
-  private var profileGraphBackgroundView = GraphBackgroundView()
+  var profileGraphView = GraphView()
+  var profileGraphBackgroundView = GraphBackgroundView()
+  
+  convenience init(dataPack: ProfileNetworkDataPack) {
+    self.init(frame: .zero)
+    self.profileGraphView = GraphView(dataPack: dataPack)
+    configUI()
+    render()
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    configUI()
-    render()
   }
   
   required init?(coder: NSCoder) {

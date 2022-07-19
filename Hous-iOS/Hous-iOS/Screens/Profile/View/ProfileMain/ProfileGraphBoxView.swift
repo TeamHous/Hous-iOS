@@ -37,12 +37,17 @@ final class ProfileGraphBoxView : UIView {
   
   private var personalityAttributes : [UILabel] = []
   
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  convenience init(dataPack: ProfileNetworkDataPack) {
+    self.init(frame: .zero)
+    self.profileGraphView = ProfileGraphView(dataPack: dataPack)
     appendPersonalityAttributesItems()
     configUI()
     render()
+  }
+  
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
   }
   
   required init?(coder: NSCoder) {
