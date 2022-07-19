@@ -40,6 +40,7 @@
 		9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */; };
 		9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81422A287D3FE30073E533 /* ProfileGraphView.swift */; };
 		9BA5DAA22885C75E00D3735E /* ProfileResultPersonalityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */; };
+		9BA5DAA42887069300D3735E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA32887069300D3735E /* APIConstants.swift */; };
 		9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE243E2881BF3200712C69 /* FormTextField.swift */; };
 		9BCA29F7288433BC0032338D /* ProfileRecommendBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */; };
 		9BCA29F9288560EE0032338D /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F8288560EE0032338D /* ProfileDTO.swift */; };
@@ -131,7 +132,6 @@
 		B84CF9C128847CF0008770F0 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C028847CF0008770F0 /* CommonResponse.swift */; };
 		B84CF9C42884B8B2008770F0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B84CF9C32884B8B2008770F0 /* Inject */; };
 		B84CF9C62884BBA5008770F0 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C52884BBA5008770F0 /* Todo.swift */; };
-		B858737328861BA100912768 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858737228861BA100912768 /* APIConstants.swift */; };
 		B85873752886DA7500912768 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85873742886DA7500912768 /* PlusButton.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
@@ -176,6 +176,7 @@
 		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
 		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResultPersonalityType.swift; sourceTree = "<group>"; };
+		9BA5DAA32887069300D3735E /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
 		9BCA29F8288560EE0032338D /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDTO.swift; path = "Hous-iOS/Global/UIComponent/ProfileDTO.swift"; sourceTree = SOURCE_ROOT; };
@@ -260,7 +261,6 @@
 		B84CF9BE28847C41008770F0 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		B84CF9C028847CF0008770F0 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
 		B84CF9C52884BBA5008770F0 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		B858737228861BA100912768 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B85873742886DA7500912768 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
@@ -698,7 +698,7 @@
 				B84CF9B8288458A3008770F0 /* Rules */,
 				B84CF9B728845896008770F0 /* Home */,
 				B84CF9B5288453D3008770F0 /* TargetType.swift */,
-				B858737228861BA100912768 /* APIConstants.swift */,
+				9BA5DAA32887069300D3735E /* APIConstants.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -956,7 +956,6 @@
 				B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */,
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
 				B5084A3F287C1C9400C38749 /* ParticipantsCollectionViewCell.swift in Sources */,
-				B858737328861BA100912768 /* APIConstants.swift in Sources */,
 				B5084A21287995E700C38749 /* ProfileCollectionViewCell.swift in Sources */,
 				9B25BBDF2881E0AE00B05A31 /* ProfileEditingScrollContentsView.swift in Sources */,
 				B5084A3628799AEB00C38749 /* UIColor+Extension.swift in Sources */,
@@ -1020,6 +1019,7 @@
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
+				9BA5DAA42887069300D3735E /* APIConstants.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
 				9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
