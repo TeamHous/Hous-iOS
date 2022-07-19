@@ -16,6 +16,28 @@ enum PersonalityType: String {
   case hexagon = "육각이"
   case empty = "default"
   
+  var ruleRecommendImage: UIImage {
+    switch self {
+    case .round:
+      return R.Image.resultCircle
+      
+    case .triangle:
+      return R.Image.resultTriangle
+      
+    case .rectangle:
+      return R.Image.resultSquare
+      
+    case .pentagon:
+      return R.Image.resultPentagon
+    
+    case .hexagon:
+      return R.Image.resultHexagon
+    
+    case .empty:
+      return R.Image.resultHexagon
+    }
+  }
+  
   var profileImage: UIImage {
     switch self {
     case .round:

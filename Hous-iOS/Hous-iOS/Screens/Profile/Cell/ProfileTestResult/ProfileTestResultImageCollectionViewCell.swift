@@ -66,4 +66,10 @@ final class ProfileTestResultImageCollectionViewCell : UICollectionViewCell {
       make.width.height.equalTo(Size.imageSize)
     }
   }
+  
+  func setData(_ dataPack: ProfileTestResultDataPack){
+    self.userNameLabel.text =  dataPack.userNameLabel
+    self.personalityTypeLabel.text = dataPack.personalityTypeLabel
+    self.personalityImageView.image = dataPack.personalityImage
+  }
 }

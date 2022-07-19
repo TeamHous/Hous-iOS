@@ -36,7 +36,7 @@ final class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
     self.backgroundColor = .white
   }
   
-  private func render(){
+  private func render() {
     self.addSubViews([descriptionView, recommendRuleTitleView, recommendRuleView])
     
     descriptionView.snp.makeConstraints {make in
@@ -55,6 +55,19 @@ final class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
       make.centerX.equalToSuperview()
       make.top.equalTo(recommendRuleTitleView.snp.bottom).offset(8)
       make.width.height.equalTo(Size.recommendRuleViewSIze)
+    }
+  }
+  
+  func setData(_ dataPack: ProfileTestResultDataPack) {
+    self.descriptionView.personalityTitleLabel.text = dataPack.personalityTitleLabel
+    self.descriptionView.personalityTitleLabel.textColor = dataPack.personalityType.textColor
+    self.descriptionView.personalityDescriptionLabel.text = dataPack.personalityDescriptionLabel
+    self.descriptionView.backgroundColor = dataPack.personalityType.backgroundColor
+    
+    self.recommendRuleTitleView.recommendTitleLabel.attributedText = NSMutableAttributedString(string: dataPack.recommandTitleLabel)
+    
+    for (index, item) in dataPack.recommandRuleLabel.enumerated() {
+      self.recommendRuleView.recommendRuleList[index] = item
     }
   }
 }

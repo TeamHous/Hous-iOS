@@ -20,9 +20,9 @@ final class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell 
     $0.spacing = 11
   }
   
-  private let badRecommendView = ProfileRecommendBoxView(personalityType: .hexagon, cellType: .bad)
+  private var badRecommendView = ProfileRecommendBoxView(personalityType: .hexagon, cellType: .bad)
   
-  private let goodRecommmendView = ProfileRecommendBoxView(personalityType: .triangle, cellType: .good)
+  private var goodRecommmendView = ProfileRecommendBoxView(personalityType: .triangle, cellType: .good)
   
   override init(frame: CGRect){
     super.init(frame: frame)
@@ -47,5 +47,12 @@ final class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell 
       make.top.equalToSuperview().offset(24)
       make.height.equalTo(Size.stackViewHeight)
     }
+  }
+  
+  func setData(_ dataPack: ProfileTestResultDataPack) {
+    self.badRecommendView = ProfileRecommendBoxView(personalityType: dataPack.badPersonalityType, cellType: .bad)
+    self.badRecommendView.personalityImageView.image = dataPack.badPersonalityImage
+    self.goodRecommmendView = ProfileRecommendBoxView(personalityType: dataPack.goodPersonalityType, cellType: .good)
+    self.goodRecommmendView.personalityImageView.image = dataPack.goodPersonalityImage
   }
 }
