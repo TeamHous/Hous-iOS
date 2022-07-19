@@ -58,5 +58,4 @@ struct RulesMyTodoDTO: Codable {
 // updateRulesMyTodoState
 struct UpdateRulesMyTodoDTO: Codable {
   let isCheck: Bool
-  let todoRuleName: String
 }
