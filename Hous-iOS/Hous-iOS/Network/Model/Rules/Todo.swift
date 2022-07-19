@@ -59,3 +59,31 @@ struct RulesMyTodoDTO: Codable {
 struct UpdateRulesMyTodoDTO: Codable {
   let isCheck: Bool
 }
+
+// getRulesByCategory
+struct RulesByCategoryDTO: Codable {
+  let keyRules: [KeyRulesDTO]
+  let rules: [RulesDTO]
+}
+
+struct KeyRulesDTO: Codable {
+  let id: String
+  let ruleName: String
+
+  enum CodingKeys: String, CodingKey {
+      case id = "_id"
+      case ruleName
+  }
+}
+
+struct RulesDTO: Codable {
+  let id: String
+  let ruleName: String
+  let membersCnt: Int
+  let typeColors: [String]
+
+  enum CodingKeys: String, CodingKey {
+      case id = "_id"
+      case ruleName, membersCnt, typeColors
+  }
+}
