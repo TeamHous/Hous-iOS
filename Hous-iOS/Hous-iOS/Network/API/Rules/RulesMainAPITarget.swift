@@ -14,7 +14,7 @@ enum RulesMainAPITarget {
   case updateMyTodoState(roomId: String, ruleId: String, isCheck: Bool)
   case getTodayTodoAssignee(roomId: String, ruleId: String)
   case updateTodayTodoAssignee(roomId: String, ruleId: String, tmpRuleMembers: [String])
-  case getRulesByCategory(roomId: String, categoryId: String, status: Int, success: Bool, message: String, data: String)
+  case getRulesByCategory(roomId: String, categoryId: String)
   case postNewCategory(roomId: String, categoryName: String, categoryIcon: String)
   case updateCategory(roomId: String, eventId: String, email: String, password: String, userName: String, gender: String, birthday: String)
   case deleteCategory(roomId: String, eventId: String)

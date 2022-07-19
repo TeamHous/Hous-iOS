@@ -40,6 +40,15 @@ extension RulesMainAPIService {
         responseData(dataResponse, completion: completion)
       }
   }
+
+  func requestGetRulesByCategory(roomId: String, categoryId: String, isCheck: Bool, completion: @escaping (NetworkResult<RulesByCategoryDTO>) -> Void) {
+
+    let target = RulesMainAPITarget.getRulesByCategory(roomId: roomId, categoryId: categoryId)
+    AF.request(target)
+      .responseData { dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
 }
 
 extension RulesMainAPIService {
