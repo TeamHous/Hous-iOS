@@ -99,6 +99,14 @@ final class HomeViewController: UIViewController {
     }
   }
   
+  private func setHomieProfileCell(cell: ProfileCollectionViewCell, profileIsHidden: Bool) {
+    cell.profileImage.isHidden = profileIsHidden
+    cell.profileNameLabel.isHidden = profileIsHidden
+    
+    cell.codeImage.isHidden = !profileIsHidden
+    cell.codeLabel.isHidden = !profileIsHidden
+  }
+  
 }
 
 
@@ -171,19 +179,10 @@ extension HomeViewController: UICollectionViewDataSource {
       else { return UICollectionViewCell() }
       
       if indexPath.row == homeData.homieProfileList.count {
-        cell.profileImage.isHidden = true
-        cell.profileNameLabel.isHidden = true
-        
-        cell.codeImage.isHidden = false
-        cell.codeLabel.isHidden = false
-        
+        setHomieProfileCell(cell: cell, profileIsHidden: true)
         return cell
       } else {
-        cell.profileImage.isHidden = false
-        cell.profileNameLabel.isHidden = false
-        
-        cell.codeImage.isHidden = true
-        cell.codeLabel.isHidden = true
+        setHomieProfileCell(cell: cell, profileIsHidden: false)
       }
       
       cell.setProfileData(homeData.homieProfileList[indexPath.row])
@@ -268,16 +267,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 
 extension HomeViewController: ComingEventsCollectionViewCellDelegate {
-  
-  func showNewEventPopup(_ image: UIImage) {
-    isNavigatinHidden(isHidden: true)
-    let popUp = PopUpViewController()
-    popUp.modalTransitionStyle = .crossDissolve
-    popUp.modalPresentationStyle = .overFullScreen
-    
-    popUp.setDefaultPopUpData(image)
-    present(popUp, animated: true)
-  }
   
   func showPopup(_ data: EventDTO, row: Int) {
     isNavigatinHidden(isHidden: true)

@@ -148,9 +148,7 @@ class RulesTodoCollectionViewCell: UICollectionViewCell {
       let label = RulesTodosView()
       label.checkButton.isHidden = true
       label.setRulesLabelData(rule: item)
-      if ruleLabelStackView.subviews.count == totalCount {
-        return
-      }
+      if ruleLabelStackView.subviews.count == totalCount { return }
       ruleLabelStackView.addArrangedSubview(label)
     }
   }
@@ -163,9 +161,7 @@ class RulesTodoCollectionViewCell: UICollectionViewCell {
       label.setRulesLabelData(rule: item.ruleName)
       label.setCheckButton(item.isChecked)
       
-      if todoLabelStackView.subviews.count == totalCount {
-        return
-      }
+      if todoLabelStackView.subviews.count == totalCount { return }
       todoLabelStackView.addArrangedSubview(label)
     }
   }

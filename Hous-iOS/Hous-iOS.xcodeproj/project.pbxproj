@@ -40,7 +40,6 @@
 		9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */; };
 		9B81422B287D3FE30073E533 /* ProfileGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B81422A287D3FE30073E533 /* ProfileGraphView.swift */; };
 		9BA5DAA22885C75E00D3735E /* ProfileResultPersonalityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */; };
-		9BA5DAA42887069300D3735E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA32887069300D3735E /* APIConstants.swift */; };
 		9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE243E2881BF3200712C69 /* FormTextField.swift */; };
 		9BCA29F7288433BC0032338D /* ProfileRecommendBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */; };
 		9BCA29F9288560EE0032338D /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F8288560EE0032338D /* ProfileDTO.swift */; };
@@ -65,6 +64,7 @@
 		B528CF9E288026D20070C4BB /* KeyRulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */; };
 		B534F9462884E8E200624BAA /* HomeMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */; };
 		B534F9482884E8F000624BAA /* HomeMainAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9472884E8F000624BAA /* HomeMainAPIService.swift */; };
+		B534F94C2887131D00624BAA /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F94B2887131D00624BAA /* APIConstants.swift */; };
 		B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
@@ -178,7 +178,6 @@
 		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
 		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResultPersonalityType.swift; sourceTree = "<group>"; };
-		9BA5DAA32887069300D3735E /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
 		9BCA29F8288560EE0032338D /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDTO.swift; path = "Hous-iOS/Global/UIComponent/ProfileDTO.swift"; sourceTree = SOURCE_ROOT; };
@@ -203,6 +202,7 @@
 		B5084A46287D943F00C38749 /* ParticipantsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsDataModel.swift; sourceTree = "<group>"; };
 		B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMainAPITarget.swift; path = "Hous-iOS/Network/Model/Home/HomeMainAPITarget.swift"; sourceTree = SOURCE_ROOT; };
 		B534F9472884E8F000624BAA /* HomeMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMainAPIService.swift; path = "Hous-iOS/Network/Model/Home/HomeMainAPIService.swift"; sourceTree = SOURCE_ROOT; };
+		B534F94B2887131D00624BAA /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -702,7 +702,7 @@
 				B84CF9B8288458A3008770F0 /* Rules */,
 				B84CF9B728845896008770F0 /* Home */,
 				B84CF9B5288453D3008770F0 /* TargetType.swift */,
-				9BA5DAA32887069300D3735E /* APIConstants.swift */,
+				B534F94B2887131D00624BAA /* APIConstants.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -995,6 +995,7 @@
 				B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */,
 				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
 				B5F8584128806E95009474A1 /* UIImageView+Extension.swift in Sources */,
+				B534F94C2887131D00624BAA /* APIConstants.swift in Sources */,
 				B5084A292879970F00C38749 /* HeaderCollectionReusableView.swift in Sources */,
 				9B648B8D2880542C005E9322 /* ProfileSettingCollectionViewCell.swift in Sources */,
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
@@ -1027,7 +1028,6 @@
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
-				9BA5DAA42887069300D3735E /* APIConstants.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
 				9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,

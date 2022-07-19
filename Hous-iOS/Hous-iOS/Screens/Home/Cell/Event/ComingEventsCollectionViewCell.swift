@@ -9,7 +9,6 @@ import UIKit
 
 protocol ComingEventsCollectionViewCellDelegate: AnyObject {
   func showPopup(_ data: EventDTO, row: Int)
-  func showNewEventPopup(_ image: UIImage)
 }
 
 
@@ -89,7 +88,6 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
 extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
     var eventId = ""
     if indexPath.row == 0 {
       eventId = eventData[indexPath.row].id
