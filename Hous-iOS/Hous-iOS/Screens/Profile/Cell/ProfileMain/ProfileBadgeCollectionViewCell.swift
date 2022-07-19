@@ -10,7 +10,7 @@ import UIKit
 
 final class ProfileBadgeCollectionViewCell: UICollectionViewCell {
   
-  private enum Size{
+  private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
     static let detailInfoButton = CGSize(width: 74, height: 20)

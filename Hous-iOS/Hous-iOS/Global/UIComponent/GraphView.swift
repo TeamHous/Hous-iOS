@@ -17,12 +17,17 @@ final class GraphView : UIView {
   let graphMaskLayer = CAShapeLayer()
   let backgroundShapeLayer = CAShapeLayer()
   let backgroundMaskLayer = CAShapeLayer()
-  var dataList : [Double] = [60, 60, 40, 60, 60]
+  var dataList : [Double] = [0, 0, 0, 0, 0]
   var paths : [[CGPoint]] = [[CGPoint()]]
+  
+  convenience init(dataList: [Double]) {
+    self.init(frame: .zero)
+    self.dataList = dataList
+    self.paths = self.setUpGraphPaths(dataList)
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    self.paths = self.setUpGraphPaths(dataList)
   }
   
   required init?(coder: NSCoder) {

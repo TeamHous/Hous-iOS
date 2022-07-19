@@ -67,4 +67,8 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
       make.height.equalTo(290)
     }
   }
+  
+  func dataBinding(_ dataPack: ProfileNetworkDataPack) {
+//    self.profileGraphBoxView.profileGraphView.
+  }
 }

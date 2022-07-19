@@ -12,9 +12,9 @@ final class ProfileGraphView : UIView {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
   }
-  
-  var profileGraphView = GraphView()
-  var profileGraphBackgroundView = GraphBackgroundView()
+  private var dataList: [Double] = []
+  private var profileGraphView = GraphView(dataList: [60, 60, 60, 60, 60])
+  private var profileGraphBackgroundView = GraphBackgroundView()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
