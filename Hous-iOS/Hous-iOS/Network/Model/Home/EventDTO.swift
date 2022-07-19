@@ -35,14 +35,18 @@ struct Participant: Codable {
   }
 }
 
-//extension EventDTO {
-//  static let sampleData: EventDTO = EventDTO(
-//    id: "62c940dfa940516bebb8c668",
-//    eventName: "혜정이 생파",
-//    eventIcon: "BEER",
-//    date: "2023-11-15",
-//    participants: [
-//      Participant(id: "62cc7420d7868591384e4eb0", userName: "고구마", typeColor: "GRAY", isChecked: false)
-//    ]
-//  )
-//}
+
+// POST - Create Event DTO
+
+struct CreateEventDTO: Codable {
+  let id: String
+  let eventName: String
+  let eventIcon: String
+  let date: String
+  let participants: [String]
+  
+  enum CodingKeys: String, CodingKey {
+    case id = "_id"
+    case eventName, eventIcon, date, participants
+  }
+}
