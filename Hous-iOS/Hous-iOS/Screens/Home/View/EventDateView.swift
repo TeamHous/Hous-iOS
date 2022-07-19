@@ -173,6 +173,7 @@ class EventDateView: UIView {
 }
 
 //MARK: Objective-C methods
+
 extension EventDateView {
   @objc private func handleDatePickerData() {
     let dateformatter = DateFormatter()

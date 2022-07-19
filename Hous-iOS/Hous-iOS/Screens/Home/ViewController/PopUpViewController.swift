@@ -9,7 +9,18 @@ import UIKit
 import SnapKit
 import Then
 
-class PopUpViewController: UIViewController {
+final class PopUpViewController: UIViewController {
+  
+  private enum Size {
+    static let screenWidth = UIScreen.main.bounds.width
+    static let eventIconSize = CGSize(width: 44, height: 68)
+    static let popUpWidth = UIScreen.main.bounds.width * (272/375)
+    static let popUpHeight = Size.popUpWidth * (439/272)
+  }
+  
+  //MARK: Properties
+  
+  var isDefaultPopUp: Bool = false
   
   var selectedEventCase: IconImage = .party {
     didSet {
@@ -22,20 +33,13 @@ class PopUpViewController: UIViewController {
     }
   }
   
-  var participants: [String] = []
+  var eventData: EventDTO?
+  
+  private var participants: [String] = []
   
   private var eventId: String = ""
   
-  var isDefaultPopUp: Bool = false
-  
-  private enum Size {
-    static let screenWidth = UIScreen.main.bounds.width
-    static let eventIconSize = CGSize(width: 44, height: 68)
-  }
-  
   private let maxEventLength = 10
-  
-  var eventData: EventDTO?
   
   private let partyIconImageView = EventIconView().then {
     $0.eventCase = .party
@@ -157,6 +161,7 @@ class PopUpViewController: UIViewController {
   }
   
   //MARK: Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     render()
@@ -190,8 +195,8 @@ class PopUpViewController: UIViewController {
     
     popUpView.snp.makeConstraints { make in
       make.center.equalToSuperview()
-      make.width.equalTo(UIScreen.main.bounds.width * (272/375))
-      make.height.equalTo(UIScreen.main.bounds.height * (439/812))
+      make.width.equalTo(Size.popUpWidth)
+      make.height.equalTo(Size.popUpHeight)
     }
     
     titleLabel.snp.makeConstraints { make in
@@ -290,6 +295,13 @@ class PopUpViewController: UIViewController {
   func setDefaultPopUpData(_ icon: UIImage) {
     eventImageView.image = icon
   }
+  
+  func setTouchedIcon(_ iconView: EventIconView) {
+    iconView.iconImageView.backgroundColor = .paleGold
+    iconView.iconImageView.alpha = 0.4
+    iconView.iconForegroundImageView.isHidden = false
+    eventImageView.image = iconView.iconImageView.image
+  }
 }
 
 
@@ -354,16 +366,10 @@ extension PopUpViewController {
     
     self.dismiss(animated: true)
   }
-  
-  func setTouchedIcon(_ iconView: EventIconView) {
-    iconView.iconImageView.backgroundColor = .paleGold
-    iconView.iconImageView.alpha = 0.4
-    iconView.iconForegroundImageView.isHidden = false
-    eventImageView.image = iconView.iconImageView.image
-  }
 }
 
 //MARK: Delegate & Datasource
+
 extension PopUpViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
@@ -382,7 +388,6 @@ extension PopUpViewController: UICollectionViewDelegate {
         participants.remove(at: index)
       }
     }
-    
   }
 }
 
@@ -442,6 +447,8 @@ extension PopUpViewController: UITextFieldDelegate {
     return true
   }
 }
+
+//MARK: Network
 
 extension PopUpViewController {
   func postNewEvent(eventName: String, eventIcon: String, date: String, participants: [String]) {

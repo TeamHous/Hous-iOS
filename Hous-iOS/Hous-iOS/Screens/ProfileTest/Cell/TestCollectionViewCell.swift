@@ -124,5 +124,4 @@ extension TestCollectionViewCell {
       $0.isSelected = false
     }
   }
-  
 }

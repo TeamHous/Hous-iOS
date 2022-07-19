@@ -67,6 +67,7 @@ class QuitTestPopViewController: UIViewController {
   }
     
   //MARK: Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     render()

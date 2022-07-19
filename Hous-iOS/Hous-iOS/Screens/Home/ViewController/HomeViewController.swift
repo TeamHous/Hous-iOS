@@ -26,15 +26,17 @@ final class HomeViewController: UIViewController {
   }
   
   //MARK: Properties
+  
+  var navigationBarView = NavigationBarView(tabType: .home)
+  
   private var homeData: HomeDTO = HomeDTO(eventList: [], keyRulesList: [], todoList: [], homieProfileList: [], roomCode: "") {
     didSet {
       homeCollectionView.reloadData()
     }
   }
   
-  var navigationBarView = NavigationBarView(tabType: .home)
-  
   //MARK: UI Compononents
+  
   private let homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
@@ -45,6 +47,7 @@ final class HomeViewController: UIViewController {
   }
   
   //MARK: LifeCycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configUI()
@@ -55,9 +58,15 @@ final class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     getHomeAPI()
+    showNavigation()
   }
   
   //MARK: Custom Methods
+  
+  private func showNavigation() {
+    isNavigatinHidden(isHidden: false)
+  }
+  
   private func configUI() {
     self.view.backgroundColor = .white
     self.navigationController?.navigationBar.isHidden = true
@@ -94,6 +103,7 @@ final class HomeViewController: UIViewController {
 
 
 //MARK: Delegate & Datasource
+
 extension HomeViewController: UICollectionViewDelegate {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 3
@@ -260,6 +270,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: ComingEventsCollectionViewCellDelegate {
   
   func showNewEventPopup(_ image: UIImage) {
+    isNavigatinHidden(isHidden: true)
     let popUp = PopUpViewController()
     popUp.modalTransitionStyle = .crossDissolve
     popUp.modalPresentationStyle = .overFullScreen
@@ -269,7 +280,7 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
   }
   
   func showPopup(_ data: EventDTO, row: Int) {
-    
+    isNavigatinHidden(isHidden: true)
     let popUp = PopUpViewController()
     popUp.modalTransitionStyle = .crossDissolve
     popUp.modalPresentationStyle = .currentContext
@@ -291,6 +302,17 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
     present(popUp, animated: true)
   }
 }
+
+
+extension HomeViewController {
+  private func isNavigatinHidden(isHidden: Bool) {
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = isHidden
+    }
+  }
+}
+
+//MARK: Network
 
 extension HomeViewController {
   func getHomeAPI() {

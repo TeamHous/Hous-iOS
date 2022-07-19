@@ -90,10 +90,6 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-//    if indexPath.row == 0 {
-//      delegate?.showNewEventPopup(R.Image.partyYellowSmall)
-//      return
-//    }
     var eventId = ""
     if indexPath.row == 0 {
       eventId = eventData[indexPath.row].id
@@ -155,6 +151,7 @@ extension ComingEventsCollectionViewCell: UICollectionViewDelegateFlowLayout {
   
 }
 
+//MARK: Network
 
 extension ComingEventsCollectionViewCell {
   
@@ -169,7 +166,6 @@ extension ComingEventsCollectionViewCell {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
         responseResult.resultMethod()
       }
-      
     }
   }
 }

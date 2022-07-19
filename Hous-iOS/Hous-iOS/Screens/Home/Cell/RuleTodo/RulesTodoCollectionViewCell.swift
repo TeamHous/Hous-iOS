@@ -169,6 +169,4 @@ class RulesTodoCollectionViewCell: UICollectionViewCell {
       todoLabelStackView.addArrangedSubview(label)
     }
   }
-  
-  
 }
