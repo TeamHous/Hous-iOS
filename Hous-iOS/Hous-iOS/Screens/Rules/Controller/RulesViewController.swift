@@ -35,10 +35,7 @@ final class RulesViewController: UIViewController {
   var viewModel = RulesViewModel()
 
   override func loadView() {
-    self.view = mainView
-    DispatchQueue.main.async {
-      self.setTodayTodoTableView()
-    }
+    self.view = self.mainView
   }
   
   override func viewDidLoad() {
@@ -51,7 +48,7 @@ final class RulesViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    getServer()
+    getRulesTodayTodo()
   }
 
   // MARK: - Method
@@ -94,7 +91,7 @@ extension RulesViewController {
       .subscribe { _ in
         if !self.mainView.todayTodoButton.isSelected {
           self.mainView.todoTableView.myTodoButton.isSelected ?
-          self.setMyTodoTableView() : self.setTodayTodoTableView()
+          self.getRulesMyTodo() : self.getRulesTodayTodo()
           self.hideCategoryLabel()
         }
       }
@@ -103,31 +100,27 @@ extension RulesViewController {
     let todoView = self.mainView.todoTableView
     todoView.myTodoButton.rx.tap
       .subscribe { _ in
-        if todoView.myTodoButton.isSelected {
-          self.setTodayTodoTableView()
-        } else {
-          self.setMyTodoTableView()
-        }
+        todoView.myTodoButton.isSelected ?
+        self.getRulesTodayTodo() : self.getRulesMyTodo()
       }
       .disposed(by: disposeBag)
   }
 
   private func setTodayTodoTableView() {
     let todoView = self.mainView.todoTableView
-
     self.mainView.rulesType = .todo
     self.mainView.todayTodoButton.isSelected = true
     todoView.myTodoButton.isSelected = false
     todoView.todoType = .todayTodo
     todoView.todayTodoRulesData = self.rulesTodayTodoData.todayTodoRules
     self.isNavigatinHidden(isHidden: false)
-
+    mainView.todoTableView.todoCollectionView.isHidden = false
     mainView.todoTableView.myTodoEmptyLabel.isHidden = true
   }
 
   private func setMyTodoTableView() {
-    let todoView = self.mainView.todoTableView
 
+    let todoView = self.mainView.todoTableView
     self.mainView.rulesType = .todo
     self.mainView.todayTodoButton.isSelected = true
     todoView.myTodoButton.isSelected = true
@@ -157,11 +150,6 @@ extension RulesViewController {
 }
 
 extension RulesViewController {
-
-  private func getServer() {
-    getRulesTodayTodo()
-    getRulesMyTodo()
-  }
 
   private func getRulesTodayTodo() {
     viewModel.getRulesTodayTodo(roomId: APIConstants.roomID) { response in
