@@ -10,7 +10,7 @@ import Alamofire
 
 // user/profile
 
-struct ProfileMainDTO: Codable {
+struct ProfileDTO: Codable {
   let userName, job, introduction: String
   let hashTag: [String]
   let typeName, typeColor: String

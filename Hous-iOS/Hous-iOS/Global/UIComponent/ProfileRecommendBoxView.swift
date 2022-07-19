@@ -7,71 +7,6 @@
 
 import UIKit
 
-enum PersonalityType : String {
-  case round = "동글이"
-  case triangle = "셋돌이"
-  case rectangle = "네각이"
-  case pentagon = "오각이"
-  case hexagon = "육각이"
-  
-  var backgroundColor: UIColor {
-    switch self {
-    case .round:
-      return R.Color.offWhite
-      
-    case .triangle:
-      return R.Color.veryLightPinkTwo
-      
-    case .rectangle:
-      return R.Color.paleGrey
-      
-    case .pentagon:
-      return R.Color.paleGreyTwo
-      
-    case .hexagon:
-      return R.Color.iceMint
-    }
-  }
-  
-  var textColor: UIColor {
-    switch self {
-    case .round:
-      return R.Color.orangeYellow
-      
-    case .triangle:
-      return R.Color.salmon
-      
-    case .rectangle:
-      return R.Color.softBlue
-      
-    case .pentagon:
-      return R.Color.lilac
-      
-    case .hexagon:
-      return R.Color.easterGreen
-    }
-  }
-  
-  var personalityTitleText : String {
-    switch self {
-    case .round:
-      return "늘 행복한 동글이"
-      
-    case .triangle:
-      return "슈퍼 팔로워 셋돌이"
-      
-    case .rectangle:
-      return "룸메 맞춤형 네각이"
-      
-    case .pentagon:
-      return "하이레벨 오각이"
-      
-    case .hexagon:
-      return "룰 세터 육각이"
-    }
-  }
-}
-
 enum CellType: String {
   case bad = "맞춰가요"
   case good = "찰떡궁합"
@@ -102,7 +37,6 @@ final class ProfileRecommendBoxView: UIView {
     configUI(personalityType: personalityType, cellType: cellType)
     render()
   }
-  
   
   override init(frame: CGRect) {
     super.init(frame: frame)

@@ -9,28 +9,28 @@ import Alamofire
 import UIKit
 
 enum ProfileMainAPITarget {
-  case getProfileMain
+  case getProfile
 }
 
 extension ProfileMainAPITarget: TargetType {
   
   var method: HTTPMethod {
     switch self {
-    case .getProfileMain:
+    case .getProfile:
       return .get
     }
   }
   
   var path: String {
     switch self {
-    case .getProfileMain:
+    case .getProfile:
       return "/user/profile"
     }
   }
   
   var parameters: RequestParams {
     switch self {
-    case .getProfileMain:
+    case .getProfile:
       return .requestPlain
     }
   }

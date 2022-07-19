@@ -8,10 +8,10 @@
 import UIKit
 
 public struct R {
-
+  
   public struct Color { }
   public struct Image { }
-
+  
 }
 
 extension R.Color {
@@ -85,6 +85,9 @@ extension R.Color {
   static var iceMint: UIColor {
     .dynamicColor(light: .iceMint, dark: .white)
   }
+  static var blueMint: UIColor {
+    .dynamicColor(light: .blueMint, dark: .white)
+  }
 }
 
 extension UIColor {
@@ -141,6 +144,9 @@ extension UIColor {
   @nonobjc class var iceMint: UIColor {
     return UIColor(red: 240.0 / 255.0, green: 255.0 / 255.0, blue: 240.0 / 255.0, alpha: 1.0)
   }
+  @nonobjc class var blueMint: UIColor {
+    return UIColor(red: 209.0 / 255.0, green: 249.0 / 255.0, blue: 208.0 / 255.0, alpha: 1.0)
+  }
   @nonobjc class var whitishGrey: UIColor {
     return UIColor(white: 250.0 / 255.0, alpha: 1.0)
   }
@@ -179,7 +185,7 @@ extension R.Image {
   static var laundry: UIImage { .load(named: "laundry") }
   static var light: UIImage { .load(named: "light") }
   static var trash: UIImage { .load(named: "trash") }
-
+  
   static var beerChecked: UIImage { .load(named: "beerChecked") }
   static var cakeChecked: UIImage { .load(named: "cakeChecked") }
   static var cleanChecked: UIImage { .load(named: "cleanChecked") }
@@ -255,6 +261,7 @@ extension R.Image {
   static var updateProfile: UIImage { .load(named: "updateProfile") }
   static var viewMoreButton: UIImage { .load(named: "viewMoreButton") }
   static var viewMoreSettingButton: UIImage { .load(named: "viewMoreSettingButton") }
+  static var profileEmpty: UIImage{ .load(named: "profileEmpty")}
   
   // Profile-Test
   static var testBackwardButton: UIImage { .load(named: "testBackwardButton")}
@@ -290,11 +297,11 @@ extension R.Image {
 }
 
 extension UIImage {
-    static func load(named imageName: String) -> UIImage {
-        guard let image = UIImage(named: imageName) else {
-            return UIImage()
-        }
-        image.accessibilityIdentifier = imageName
-        return image
+  static func load(named imageName: String) -> UIImage {
+    guard let image = UIImage(named: imageName) else {
+      return UIImage()
     }
+    image.accessibilityIdentifier = imageName
+    return image
+  }
 }

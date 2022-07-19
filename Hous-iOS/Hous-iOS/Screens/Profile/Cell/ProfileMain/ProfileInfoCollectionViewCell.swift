@@ -18,62 +18,69 @@ final class ProfileInfoCollectionViewCell: UICollectionViewCell {
     $0.image = R.Image.facePurple
   }
   
-  private lazy var profileGuideStackView = UIStackView().then {
+  private var profileGuideStackView = UIStackView().then {
     $0.alignment = .leading
     $0.distribution = .fillProportionally
     $0.axis = .vertical
     $0.spacing = 4
   }
   
-  var userName = UILabel().then {
-    $0.text = "최인영"
+  private var tagGuideStackView = UIStackView().then {
+    $0.alignment = .center
+    $0.distribution = .fillProportionally
+    $0.axis = .horizontal
+    $0.spacing = 8
+  }
+  
+  private var userName = UILabel().then {
+    $0.text = "이름"
     $0.textColor = .black
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 20)
     $0.backgroundColor = .white
   }
   
-  var userJob = UILabel().then {
-    $0.text = "대학생"
-    $0.textColor = .red
+  private var userJob = UILabel().then {
+    $0.text = "직업"
+    $0.textColor = .veryLightPinkFour
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.backgroundColor = .white
   }
   
-  var statusMessage = UILabel().then {
-    $0.text = "낮에 자고 밤에 일하는 부엉이"
+  private var statusMessage = UILabel().then {
+    $0.text = "상태 메시지"
     $0.textColor = .gray
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.backgroundColor = .white
   }
   
-  // Tag 는 차후 서버 붙일 때 구조 List로 변경
+  private var tags : [BasePaddingLabel] = []
   
-  var tag1 = BasePaddingLabel(padding: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)).then {
-    $0.text = "이의진"
-    $0.textColor = .white
-    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
-    $0.backgroundColor = .lilac
-    $0.layer.cornerRadius = 10
-    $0.layer.masksToBounds = true
-  }
   
   override init(frame: CGRect){
     super.init(frame: frame)
-    configUI()
     render()
   }
+  
   
   required init?(coder: NSCoder){
     fatalError("init(coder:) has not been implemented")
   }
   
-  private func configUI(){
+  override func prepareForReuse() {
+    tagGuideStackView.subviews.forEach {
+      $0.removeFromSuperview()
+    }
+  }
+  
+  private func configUI(datapack: ProfileNetworkDataPack){
     self.backgroundColor = .white
   }
   
   private func render(){
     self.addSubViews([profileImage, userJob, profileGuideStackView])
-    [userName, statusMessage, tag1].forEach {profileGuideStackView.addArrangedSubview($0)}
+    tags.forEach {tagGuideStackView.addArrangedSubview($0)}
+    [userName, statusMessage, tagGuideStackView].forEach { profileGuideStackView.addArrangedSubview($0)}
+    
     
     profileImage.snp.makeConstraints { make in
       make.centerY.equalToSuperview()
@@ -93,8 +100,48 @@ final class ProfileInfoCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func setProfile(color : UIColor){
-    self.tag1.backgroundColor = color
-    self.profileImage.image = R.Image.faceEmpty
+  func dataBinding(_ dataPack : ProfileNetworkDataPack){
+    self.profileImage.image = dataPack.personalityType.profileImage
+    self.userName.text = dataPack.userName
+    
+    if dataPack.userJob == "" {
+      self.userJob.textColor = .veryLightPinkFour
+      self.userJob.text = "직업"
+    } else {
+      self.userJob.textColor = .salmon
+      self.userJob.text = dataPack.userJob
+    }
+    
+    if dataPack.statusMessage == "" {
+      self.statusMessage.text = "소개와 태그를 작성해주세요"
+    } else {
+      self.statusMessage.text = dataPack.statusMessage
+    }
+    
+    tags = []
+    if dataPack.hashTag.count == 0 {
+      let tag = BasePaddingLabel(padding: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)).then {
+        $0.text = ""
+        $0.textColor = .white
+        $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 10
+        $0.layer.masksToBounds = true
+      }
+      tags.append(tag)
+    } else {
+      for item in dataPack.hashTag {
+        let tag = BasePaddingLabel(padding: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)).then {
+          $0.text = item
+          $0.textColor = .white
+          $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+          $0.backgroundColor = dataPack.personalityType.profileMainColor
+          $0.layer.cornerRadius = 10
+          $0.layer.masksToBounds = true
+        }
+        tags.append(tag)
+      }
+    }
+    tags.forEach {tagGuideStackView.addArrangedSubview($0)}    
   }
 }

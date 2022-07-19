@@ -15,8 +15,8 @@ struct ProfileMainAPIService {
 
 extension ProfileMainAPIService {
   
-  func requestGetProfileMain(completion: @escaping(NetworkResult<ProfileMainDTO>) -> Void) {
-    let target = ProfileMainAPITarget.getProfileMain
+  func requestGetProfileMain(completion: @escaping(NetworkResult<ProfileDTO>) -> Void) {
+    let target = ProfileMainAPITarget.getProfile
     AF.request(target)
       .responseData {dataResponse in
         responseData(dataResponse, completion: completion)
