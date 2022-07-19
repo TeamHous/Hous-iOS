@@ -13,6 +13,7 @@ enum HomeMainAPITarget {
   case getEventDetail(roomId: String, eventId: String)
   case postNewEvent(roomId: String, eventName: String, eventIcon: String, date: String, participants: [String])
   case updateEventDetail(roomId: String, eventId: String, eventName: String, eventIcon: String, participants: [String], date: String)
+  case deleteEvent(roomId: String, eventId: String)
 }
 
 extension HomeMainAPITarget: TargetType {
@@ -24,6 +25,8 @@ extension HomeMainAPITarget: TargetType {
       return .post
     case .updateEventDetail:
       return .put
+    case .deleteEvent:
+      return .delete
     }
   }
   
@@ -37,12 +40,14 @@ extension HomeMainAPITarget: TargetType {
       return "/room/\(roomId)/event"
     case .updateEventDetail(let roomId, let eventId, _, _, _, _):
       return "/room/\(roomId)/event/\(eventId)"
+    case .deleteEvent(let roomId, let eventId):
+      return "/room/\(roomId)/event/\(eventId)"
     }
   }
   
   var parameters: RequestParams {
     switch self {
-    case .getHomeMain, .getEventDetail:
+    case .getHomeMain, .getEventDetail, .deleteEvent:
       return .requestPlain
     case .postNewEvent(_, let eventName, let eventIcon, let date, let participants):
       let body: [String: Any] = [

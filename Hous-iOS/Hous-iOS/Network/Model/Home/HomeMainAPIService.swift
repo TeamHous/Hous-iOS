@@ -51,6 +51,14 @@ extension HomeMainAPIService {
       }
   }
   
+  func requestDeleteEvent(roomId: String, eventId: String, completion: @escaping (NetworkResult<CreateEventDTO>) -> Void) {
+    
+    let target = HomeMainAPITarget.deleteEvent(roomId: APIConstants.roomID, eventId: eventId)
+    AF.request(target)
+      .responseData { dataResponse in
+        responseWithNoData(dataResponse, completion: completion)
+      }
+  }
   
 }
 

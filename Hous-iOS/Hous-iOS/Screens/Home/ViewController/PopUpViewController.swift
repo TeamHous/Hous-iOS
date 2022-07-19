@@ -134,7 +134,7 @@ class PopUpViewController: UIViewController {
   
   private lazy var popUpCloseButton = UIButton().then {
     $0.setImage(R.Image.popupCloseHome, for: .normal)
-    $0.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
+    $0.addTarget(self, action: #selector(dismissPopUp), for: .touchUpInside)
   }
   
   private lazy var saveButton = UIButton().then {
@@ -298,6 +298,19 @@ class PopUpViewController: UIViewController {
 //MARK: Objective-C methods
 extension PopUpViewController {
   @objc private func cancelButtonDidTapped() {
+    if isDefaultPopUp {
+      self.dismiss(animated: true)
+      return
+    }
+    
+    let eventId = eventData?.id ?? ""
+    print("삭제할때 이벤트아이디=================")
+    print(eventId)
+    deleteEvent(eventId: eventId)
+    self.dismiss(animated: true)
+  }
+  
+  @objc private func dismissPopUp() {
     self.dismiss(animated: true)
   }
   
@@ -335,18 +348,11 @@ extension PopUpViewController {
     var date = eventDateView.eventDate
     let participants = self.participants
     
-    print("eventName", eventName)
-    print("eventIcon", eventIcon)
-    print("date", date)
-    print("participants", participants)
-    
     if isDefaultPopUp {
       postNewEvent(eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
     } else {
       let eventId = eventData?.id ?? ""
       date = eventDateView.getCurrentDateText()
-      print("patch event date", date)
-      print("eventId", eventId)
       updateEventDetail(eventName: eventName, eventIcon: eventIcon, eventId: eventId, date: date, participants: participants)
     }
     
@@ -463,6 +469,22 @@ extension PopUpViewController {
       print(date)
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<CreateEventDTO> {
+        guard let _ = responseResult.response else { return }
+        
+        print(#function)
+        
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+  
+  func deleteEvent(eventId: String) {
+    HomeMainAPIService.shared.requestDeleteEvent(roomId: APIConstants.roomID, eventId: eventId) { result in
+      
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<String> {
         guard let _ = responseResult.response else { return }
         
         print(#function)
