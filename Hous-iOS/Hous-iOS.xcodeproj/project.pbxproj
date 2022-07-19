@@ -83,7 +83,6 @@
 		B5E95ADE2881B63000CD2244 /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E95ADD2881B63000CD2244 /* EventDTO.swift */; };
 		B5E95AE02881DB1100CD2244 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E95ADF2881DB1100CD2244 /* String+Extension.swift */; };
 		B5E95AE22881DB2A00CD2244 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E95AE12881DB2A00CD2244 /* Date+Extension.swift */; };
-		B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */; };
 		B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84344232879A36600CD1BF5 /* RulesCategoryTableView.swift */; };
 		B5F858352880278D009474A1 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5084A44287D6C1000C38749 /* EventDateView.swift */; };
 		B5F8583828802B4A009474A1 /* ProfileTestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8583728802B4A009474A1 /* ProfileTestInfoViewController.swift */; };
@@ -250,7 +249,6 @@
 		B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRulesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B843442D287C90E800CD1BF5 /* CategoryRulesAssigneeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesAssigneeView.swift; sourceTree = "<group>"; };
 		B843442F287C9F9900CD1BF5 /* CategoryAssigneeCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAssigneeCircleView.swift; sourceTree = "<group>"; };
-		B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRulesDataModel.swift; sourceTree = "<group>"; };
 		B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
 		B8434436287D920900CD1BF5 /* RulesCategoryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCategoryEditView.swift; sourceTree = "<group>"; };
 		B843871328795805003F7B75 /* RulesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHomeView.swift; sourceTree = "<group>"; };
@@ -525,7 +523,6 @@
 		B5E95AD928818A9600CD2244 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
-				B8434431287CA7AC00CD1BF5 /* CategoryRulesDataModel.swift */,
 				B84CF9C52884BBA5008770F0 /* Todo.swift */,
 			);
 			path = Rules;
@@ -957,7 +954,6 @@
 				B5F8583828802B4A009474A1 /* ProfileTestInfoViewController.swift in Sources */,
 				B84CF9C62884BBA5008770F0 /* Todo.swift in Sources */,
 				B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */,
-				B5ED92522880245D00E3C10F /* CategoryRulesDataModel.swift in Sources */,
 				778A7A0928770C7400722CBB /* ViewController.swift in Sources */,
 				B5084A47287D943F00C38749 /* ParticipantsDataModel.swift in Sources */,
 				B80510C12876D3610025B767 /* RulesViewController.swift in Sources */,
