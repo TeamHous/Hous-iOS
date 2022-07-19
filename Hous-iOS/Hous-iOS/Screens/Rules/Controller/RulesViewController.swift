@@ -90,7 +90,9 @@ extension RulesViewController {
     mainView.todayTodoButton.rx.tap
       .subscribe { _ in
         if !self.mainView.todayTodoButton.isSelected {
-          self.setTodayTodoTableView()
+          self.mainView.todoTableView.myTodoButton.isSelected ?
+          self.setMyTodoTableView() : self.setTodayTodoTableView()
+          self.hideCategoryLabel()
         }
       }
       .disposed(by: disposeBag)
@@ -126,6 +128,14 @@ extension RulesViewController {
     todoView.myTodoButton.isSelected = true
     todoView.todoType = .myTodo
     self.isNavigatinHidden(isHidden: false)
+  }
+
+  private func hideCategoryLabel() {
+    let collectionView = mainView.categoryCollectionView
+    if let selectedIndexPath = self.currentIndexPath {
+      guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
+      selectedCell.isSelected = false
+    }
   }
 
   private func longPress() {
