@@ -10,7 +10,7 @@ import UIKit
 class RulesHomeView: UIView {
   
   enum Size {
-    static let horizontalButtonViewHeight = 110
+    static let horizontalButtonViewHeight = 95
     static let categoryCollectionItemSize = CGSize(width: 60, height: horizontalButtonViewHeight)
     static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
   }

@@ -36,6 +36,9 @@ final class RulesViewController: UIViewController {
 
   override func loadView() {
     self.view = mainView
+    DispatchQueue.main.async {
+      self.setTodayTodoTableView()
+    }
   }
   
   override func viewDidLoad() {

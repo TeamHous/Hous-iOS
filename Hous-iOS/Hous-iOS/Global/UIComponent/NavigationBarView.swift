@@ -58,7 +58,7 @@ class NavigationBarView: UIView {
     
     self.addSubViews([titleLabel])
     titleLabel.snp.makeConstraints { make in
-      make.centerY.equalToSuperview().multipliedBy(1.5)
+      make.centerY.equalToSuperview().multipliedBy(1.3)
       make.leading.equalToSuperview().inset(24)
     }
     
