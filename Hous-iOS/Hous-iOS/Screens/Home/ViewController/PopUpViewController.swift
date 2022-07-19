@@ -302,6 +302,12 @@ final class PopUpViewController: UIViewController {
     iconView.iconForegroundImageView.isHidden = false
     eventImageView.image = iconView.iconImageView.image
   }
+  
+  func setAddingEventPopUp() {
+    popUpCloseButton.isHidden = true
+    cancelButton.setTitle("취소", for: .normal)
+    cancelButton.addTarget(self, action: #selector(dismissPopUp), for: .touchUpInside)
+  }
 }
 
 

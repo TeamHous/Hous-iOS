@@ -83,6 +83,6 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     
     let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: data.typeColor.lowercased()) ?? .none)
     profileImage.image = factory.faceImage
-    self.backgroundColor = factory.color.withAlphaComponent(0.5)
+    self.backgroundColor = factory.profileBackgroundColor
   }
 }

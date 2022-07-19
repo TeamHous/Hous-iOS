@@ -279,6 +279,8 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
     if row == 0 {
       popUp.setDefaultPopUpData(R.Image.partyYellowSmall)
       popUp.isDefaultPopUp = true
+      
+      popUp.setAddingEventPopUp()
       present(popUp, animated: true)
       return
     }
