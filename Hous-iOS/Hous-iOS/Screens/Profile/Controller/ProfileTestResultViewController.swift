@@ -7,6 +7,24 @@
 
 import UIKit
 
+struct ProfileTestResultDataPack {
+  
+  let userNameLabel: String
+  let personality : PersonalityType
+  let personalityTypeLabel: String
+  let personalityImageView: UIImage
+  let personalityTitleLabel: String
+  let personalityDescriptionLabel: String
+  let recommandTitleLabel: String
+  let goodTitleLabel: String
+  let goodPersonalityLabel: String
+  let goodPersonalityImageView: UIImage
+  let badTitleLabel: String
+  let badPersonalityLabel: String
+  let badPersonalityImageView: UIImage
+  
+}
+
 final class ProfileTestResultViewController : UIViewController {
   
   private enum Size {
