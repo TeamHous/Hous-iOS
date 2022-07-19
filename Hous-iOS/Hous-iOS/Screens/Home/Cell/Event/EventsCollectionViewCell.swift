@@ -65,7 +65,11 @@ class EventsCollectionViewCell: UICollectionViewCell {
   }
   
   func setEventCellData(_ data: EventList) {
-    d_dayLabel.text = "D-\(data.dDay)"
+    if data.dDay == "0" {
+      d_dayLabel.text = "D-Day"
+    } else {
+      d_dayLabel.text = "D-\(data.dDay)"
+    }
     
     let factory = IconFactory.makeIcon(type: IconImage(rawValue: data.eventIcon.lowercased()) ?? .party)
     background3DIconImageView.image = factory.bigIconImage
