@@ -208,6 +208,7 @@ extension R.Image {
   static var faceCheckedPurple: UIImage { .load(named: "faceCheckedPurple") }
   static var faceCheckedRed: UIImage { .load(named: "faceCheckedRed") }
   static var faceCheckedYellow: UIImage { .load(named: "faceCheckedYellow") }
+  static var faceCheckedGray: UIImage { .load(named: "faceCheckedGray") }
   
   // Tab
   static var homeTabUnselected: UIImage { .load(named: "homeTabUnselected") }
