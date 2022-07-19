@@ -12,6 +12,10 @@ class EventDateView: UIView {
   var eventDate = ""
   
   private lazy var datePicker = UIDatePicker().then {
+    var components = DateComponents()
+    components.day = 0
+    let minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+    $0.minimumDate = minDate
     $0.preferredDatePickerStyle = .wheels
     $0.datePickerMode = .date
     $0.locale = Locale(identifier: "ko-KR")
@@ -34,10 +38,14 @@ class EventDateView: UIView {
   }
   
   private lazy var yearDatePickerTextField = UITextField().then {
-    $0.inputAccessoryView = toolBar
-    $0.tintColor = .clear
-    $0.inputView = datePicker
-    $0.textAlignment = .center
+    $0.text = Date.now.year.description
+    setDateTextField($0)
+//    $0.text = Date.now.year.description
+//    $0.font = .font(.montserratMedium, ofSize: 15)
+//    $0.inputAccessoryView = toolBar
+//    $0.tintColor = .clear
+//    $0.inputView = datePicker
+//    $0.textAlignment = .center
   }
   
   private let yearLabel = UILabel().then {
@@ -52,10 +60,14 @@ class EventDateView: UIView {
   }
   
   private lazy var monthDatePickerTextField = UITextField().then {
-    $0.inputAccessoryView = toolBar
-    $0.tintColor = .clear
-    $0.inputView = datePicker
-    $0.textAlignment = .center
+    $0.text = Date.now.month.description
+    setDateTextField($0)
+//    $0.text = Date.now.month.description
+//    $0.font = .font(.montserratMedium, ofSize: 15)
+//    $0.inputAccessoryView = toolBar
+//    $0.tintColor = .clear
+//    $0.inputView = datePicker
+//    $0.textAlignment = .center
   }
   
   private let monthLabel = UILabel().then {
@@ -71,10 +83,14 @@ class EventDateView: UIView {
   }
   
   private lazy var dayDatePickerTextField = UITextField().then {
-    $0.inputAccessoryView = toolBar
-    $0.tintColor = .clear
-    $0.inputView = datePicker
-    $0.textAlignment = .center
+    $0.text = Date.now.day.description
+    setDateTextField($0)
+//    $0.text = Date.now.day.description
+//    $0.font = .font(.montserratMedium, ofSize: 15)
+//    $0.inputAccessoryView = toolBar
+//    $0.tintColor = .clear
+//    $0.inputView = datePicker
+//    $0.textAlignment = .center
   }
   
   private let dayLabel = UILabel().then {
@@ -143,30 +159,33 @@ class EventDateView: UIView {
     
   }
   
+  private func setDateTextField(_ textField: UITextField) {
+    textField.font = .font(.montserratMedium, ofSize: 15)
+    textField.inputAccessoryView = toolBar
+    textField.tintColor = .clear
+    textField.inputView = datePicker
+    textField.textAlignment = .center
+  }
+  
   func setDateLabel(date: String) {
     guard let date = date.toDate() else { return }
     
     let year = date.year
     let month = date.month
     let day = date.day
-    
-    let attributes = [
-      NSAttributedString.Key.foregroundColor : UIColor.black,
-      .font : UIFont.font(.montserratMedium, ofSize: 15)
-    ]
-
-    yearDatePickerTextField.attributedPlaceholder = NSAttributedString(string: year.description, attributes: attributes)
-    monthDatePickerTextField.attributedPlaceholder = NSAttributedString(string: month.description, attributes: attributes)
-    dayDatePickerTextField.attributedPlaceholder = NSAttributedString(string: day.description, attributes: attributes)
+        
+    yearDatePickerTextField.text = year.description
+    monthDatePickerTextField.text = month.description
+    dayDatePickerTextField.text = day.description
   }
   
   func getCurrentDateText() -> String {
-    guard let year = yearDatePickerTextField.placeholder?.description,
-          let month = monthDatePickerTextField.placeholder?.description,
-          let day =  dayDatePickerTextField.placeholder?.description
+    guard let year = yearDatePickerTextField.text?.description,
+          let month = monthDatePickerTextField.text?.description,
+          let day =  dayDatePickerTextField.text?.description
     else { return "" }
     
-    let currentDate = "\(year)-\(month)-\(day)"
+    guard let currentDate = "\(year)-\(month)-\(day)".toDate()?.formatted("yyyy-MM-dd") else { return "" }
     
     return currentDate
   }

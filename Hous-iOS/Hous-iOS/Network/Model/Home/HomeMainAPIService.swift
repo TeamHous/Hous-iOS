@@ -36,6 +36,7 @@ extension HomeMainAPIService {
   func requestPostNewEvent(roomId: String, eventName: String, eventIcon: String, date: String, participants: [String], completion: @escaping (NetworkResult<CreateEventDTO>) -> Void) {
     
     let target = HomeMainAPITarget.postNewEvent(roomId: roomId, eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
+    
     AF.request(target)
       .responseData { dataResponse in
         responseData(dataResponse, completion: completion)

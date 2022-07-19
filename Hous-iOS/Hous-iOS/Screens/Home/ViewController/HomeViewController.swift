@@ -56,7 +56,7 @@ final class HomeViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
+    super.viewWillAppear(animated)
     getHomeAPI()
     showNavigation()
   }
@@ -268,22 +268,36 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: ComingEventsCollectionViewCellDelegate {
   
+  func showNewEventPopup(_ image: UIImage) {
+    
+    isNavigatinHidden(isHidden: true)
+    let popUp = PopUpViewController()
+    
+    popUp.delegate = self
+    
+    popUp.modalTransitionStyle = .crossDissolve
+    popUp.modalPresentationStyle = .overFullScreen
+    popUp.isDefaultPopUp = true
+    
+    popUp.homieProfileList = self.homeData.homieProfileList
+    
+    popUp.setDefaultPopUpData(image)
+    popUp.selectedEventCase = .party
+    
+    
+    present(popUp, animated: true)
+  }
+  
   func showPopup(_ data: EventDTO, row: Int) {
     isNavigatinHidden(isHidden: true)
     let popUp = PopUpViewController()
+    
+    popUp.delegate = self
+    
     popUp.modalTransitionStyle = .crossDissolve
-    popUp.modalPresentationStyle = .currentContext
+    popUp.modalPresentationStyle = .overCurrentContext
     
     popUp.eventData = data
-    
-    if row == 0 {
-      popUp.setDefaultPopUpData(R.Image.partyYellowSmall)
-      popUp.isDefaultPopUp = true
-      
-      popUp.setAddingEventPopUp()
-      present(popUp, animated: true)
-      return
-    }
     
     popUp.isDefaultPopUp = false
     
@@ -294,6 +308,12 @@ extension HomeViewController: ComingEventsCollectionViewCellDelegate {
   }
 }
 
+extension HomeViewController: PopUpViewControllerDelegate {
+  func donePopUpVC() {
+    getHomeAPI()
+    showNavigation()
+  }
+}
 
 extension HomeViewController {
   private func isNavigatinHidden(isHidden: Bool) {

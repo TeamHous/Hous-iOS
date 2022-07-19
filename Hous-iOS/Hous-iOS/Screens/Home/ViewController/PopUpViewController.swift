@@ -9,6 +9,11 @@ import UIKit
 import SnapKit
 import Then
 
+protocol PopUpViewControllerDelegate: AnyObject {
+  func donePopUpVC()
+}
+
+
 final class PopUpViewController: UIViewController {
   
   private enum Size {
@@ -19,6 +24,8 @@ final class PopUpViewController: UIViewController {
   }
   
   //MARK: Properties
+  
+  weak var delegate: PopUpViewControllerDelegate?
   
   var isDefaultPopUp: Bool = false
   
@@ -34,6 +41,12 @@ final class PopUpViewController: UIViewController {
   }
   
   var eventData: EventDTO?
+  
+  var homieProfileList: [HomieProfileList] = [] {
+    didSet {
+      participantsCollectionView.reloadData()
+    }
+  }
   
   private var participants: [String] = []
   
@@ -172,10 +185,12 @@ final class PopUpViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
-    eventData?.participants.forEach { p in
-      if p.isChecked { self.participants.append(p.id) }
-    }
+    setParticipantsList()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    delegate?.donePopUpVC()
   }
   
   override func viewDidLayoutSubviews() {
@@ -183,6 +198,13 @@ final class PopUpViewController: UIViewController {
   }
   
   //MARK: Custom Methods
+  
+  private func setParticipantsList() {
+    eventData?.participants.forEach { p in
+      if p.isChecked { self.participants.append(p.id) }
+    }
+  }
+  
   private func configUI() {
     eventImageView.layer.cornerRadius = eventImageView.frame.width / 2
   }
@@ -359,14 +381,14 @@ extension PopUpViewController {
   @objc private func saveEvent() {
     guard let eventName = eventTextField.text else { return }
     let eventIcon = selectedEventCase.rawValue.uppercased()
-    var date = eventDateView.eventDate
+    let date = eventDateView.getCurrentDateText()
     let participants = self.participants
     
     if isDefaultPopUp {
       postNewEvent(eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
     } else {
       let eventId = eventData?.id ?? ""
-      date = eventDateView.getCurrentDateText()
+//      date = eventDateView.getCurrentDateText()
       updateEventDetail(eventName: eventName, eventIcon: eventIcon, eventId: eventId, date: date, participants: participants)
     }
     
@@ -383,6 +405,18 @@ extension PopUpViewController: UICollectionViewDelegate {
     else { return }
     
     cell.participantButton.isSelected.toggle()
+    
+    if isDefaultPopUp {
+      if cell.participantButton.isSelected {
+        let participantId = homieProfileList[indexPath.row].id
+        if participants.contains(participantId) { return }
+        self.participants.append(participantId)
+      }
+      
+      print(self.participants)
+      return
+    }
+    
     if cell.participantButton.isSelected {
       guard let participantId = eventData?.participants[indexPath.row].id else { return }
       if participants.contains(participantId) { return }
@@ -399,30 +433,29 @@ extension PopUpViewController: UICollectionViewDelegate {
 
 extension PopUpViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    if isDefaultPopUp {
+      print(self.homieProfileList.count)
+      return self.homieProfileList.count
+    }
     
     return eventData?.participants.count ?? 0
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    if collectionView == participantsCollectionView {
-      guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell,
-            let eventData = eventData
-      else { return UICollectionViewCell() }
-      
-      cell.contentView.isUserInteractionEnabled = true
-      
-      let isSelected = eventData.participants[indexPath.row].isChecked
-      
-      if isDefaultPopUp {
-        cell.setParticipantData(eventData.participants[indexPath.row], isSelected: nil)
-        return cell
-      }
-      
-      cell.setParticipantData(eventData.participants[indexPath.row], isSelected: isSelected)
+    
+    guard let cell = participantsCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell
+    else { return UICollectionViewCell() }
+    
+    cell.contentView.isUserInteractionEnabled = true
+    
+    if isDefaultPopUp {
+      cell.setDefaultParticipantData(self.homieProfileList[indexPath.row], isSelected: nil)
       return cell
     }
-
-    return UICollectionViewCell()
+    guard let eventData = eventData else { return UICollectionViewCell() }
+    let isSelected = eventData.participants[indexPath.row].isChecked
+    cell.setParticipantData(eventData.participants[indexPath.row], isSelected: isSelected)
+    return cell
   }
 }
 

@@ -9,6 +9,7 @@ import UIKit
 
 protocol ComingEventsCollectionViewCellDelegate: AnyObject {
   func showPopup(_ data: EventDTO, row: Int)
+  func showNewEventPopup(_ image: UIImage)
 }
 
 
@@ -88,18 +89,22 @@ class ComingEventsCollectionViewCell: UICollectionViewCell {
 extension ComingEventsCollectionViewCell: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    var eventId = ""
-    if indexPath.row == 0 {
-      eventId = eventData[indexPath.row].id
+    
+    if eventData.isEmpty || indexPath.row == 0 {
+      delegate?.showNewEventPopup(R.Image.partyYellowSmall)
     } else {
-      eventId = eventData[indexPath.row - 1].id
+      var eventId = ""
+      if indexPath.row == 0 {
+        eventId = eventData[indexPath.row].id
+      } else {
+        eventId = eventData[indexPath.row - 1].id
+      }
+      
+      getEventInfoAPI(id: eventId) { response in
+        self.eventDetailDTO = response
+        self.delegate?.showPopup(self.eventDetailDTO, row: indexPath.row)
+      }
     }
-    
-    getEventInfoAPI(id: eventId) { response in
-      self.eventDetailDTO = response
-      self.delegate?.showPopup(self.eventDetailDTO, row: indexPath.row)
-    }
-    
   }
 }
 
