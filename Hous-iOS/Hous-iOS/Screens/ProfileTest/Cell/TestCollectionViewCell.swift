@@ -31,17 +31,14 @@ class TestCollectionViewCell: UICollectionViewCell {
   
   private lazy var optionButton1 = UIButton().then {
     $0.tag = 0
-    setOptionButton(sender: $0)
   }
   
   private lazy var optionButton2 = UIButton().then {
     $0.tag = 1
-    setOptionButton(sender: $0)
   }
   
   private lazy var optionButton3 = UIButton().then {
     $0.tag = 2
-    setOptionButton(sender: $0)
   }
   
   private lazy var buttonStackView = UIStackView(arrangedSubviews: [optionButton1, optionButton2, optionButton3]).then {
@@ -59,17 +56,33 @@ class TestCollectionViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  private func setOptionButton(sender: UIButton) {
-    sender.adjustsImageWhenHighlighted = false
-    sender.setBackgroundColor(R.Color.whitishGrey, for: .normal)
-    sender.setTitleColor(R.Color.brownGreyTwo, for: .normal)
+  private func setOptionButton(sender: UIButton, optionText: String) {
+    var configuration = UIButton.Configuration.filled()
+    configuration.automaticallyUpdateForSelection = false
     
-    sender.setBackgroundColor(R.Color.veryLightPinkTwo, for: .selected)
-    sender.setTitleColor(R.Color.salmon, for: .selected)
+    var container = AttributeContainer()
+    container.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     
-    sender.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
+    let handler: UIButton.ConfigurationUpdateHandler = { button in
+      switch button.state {
+      case .selected:
+        button.configuration?.baseBackgroundColor = R.Color.veryLightPinkTwo
+        button.configuration?.baseForegroundColor = R.Color.salmon
+      default:
+        button.configuration?.baseBackgroundColor = R.Color.whitishGrey
+        button.configuration?.baseForegroundColor = R.Color.brownGreyTwo
+      }
+    }
+    
+    configuration.attributedTitle = AttributedString(optionText, attributes: container)
+    
     sender.layer.cornerRadius = 15
     sender.layer.masksToBounds = true
+    
+    sender.configuration = configuration
+    sender.configurationUpdateHandler = handler
+    sender.titleLabel?.textAlignment = .center
+    
     sender.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
   }
   
@@ -103,9 +116,9 @@ class TestCollectionViewCell: UICollectionViewCell {
     let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
     
     for (button, data) in sequence {
-      button.setTitle(data.optionText, for: .normal)
+      
+      setOptionButton(sender: button, optionText: data.optionText)
       button.isSelected = data.isSelected
-      button.titleLabel?.textAlignment = .center
     }
   }
   

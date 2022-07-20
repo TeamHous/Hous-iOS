@@ -382,13 +382,11 @@ extension PopUpViewController {
     guard let eventName = eventTextField.text else { return }
     let eventIcon = selectedEventCase.rawValue.uppercased()
     let date = eventDateView.getCurrentDateText()
-    let participants = self.participants
     
     if isDefaultPopUp {
       postNewEvent(eventName: eventName, eventIcon: eventIcon, date: date, participants: participants)
     } else {
       let eventId = eventData?.id ?? ""
-//      date = eventDateView.getCurrentDateText()
       updateEventDetail(eventName: eventName, eventIcon: eventIcon, eventId: eventId, date: date, participants: participants)
     }
     

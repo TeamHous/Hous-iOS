@@ -28,7 +28,7 @@ final class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
     $0.backgroundColor = .white
   }
   
-  private let testButton = UIButton().then {
+  private lazy var testButton = UIButton().then {
     $0.backgroundColor = .salmon
     $0.setTitle("테스트 하러 가기", for: .normal)
     $0.setTitleColor(.white, for: .normal)
