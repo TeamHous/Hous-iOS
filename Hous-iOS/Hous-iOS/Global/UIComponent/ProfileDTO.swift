@@ -11,11 +11,15 @@ import Alamofire
 // user/profile
 
 struct ProfileDTO: Codable {
-  let userName, job, introduction: String
+  let userName: String
+  let job: String
+  let introduction: String
   let hashTag: [String]
-  let typeName, typeId, typeColor: String
+  let typeId: String
+  let typeName: String
+  let typeColor: String
   let typeScore: [Int]
-  let notificationState: Bool
+  let notificationState: Bool?
   
   enum CodingKeys: String, CodingKey {
     case userName
