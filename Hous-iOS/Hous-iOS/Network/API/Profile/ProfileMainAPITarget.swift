@@ -42,4 +42,3 @@ extension ProfileMainAPITarget: TargetType {
     return .auth
   }
 }
-
