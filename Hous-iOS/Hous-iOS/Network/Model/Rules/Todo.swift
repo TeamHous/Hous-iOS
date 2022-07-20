@@ -114,3 +114,16 @@ struct UpdateTodayTodoAssigneeDTO: Codable {
 }
 
 // postNewCategory
+
+struct PostNewCategoryDTO: Codable {
+  let id: String
+  let roomId: String
+  let ruleCategoryName: String
+  let ruleCategoryIcon: String
+  let ruleCnt: Int
+
+  enum CodingKeys: String, CodingKey {
+      case id = "_id"
+      case roomId, ruleCategoryName, ruleCategoryIcon, ruleCnt
+  }
+}
