@@ -310,7 +310,7 @@ struct TestCellItem {
   let testType: String
   var testAnswers: [ButtonState]
   
-  init(dto: TestInfoDTO) {
+  init(dto: TypeTestDTO) {
     self.testTitle = dto.question
     self.testIdx = dto.testNum
     self.testImg = dto.questionImg

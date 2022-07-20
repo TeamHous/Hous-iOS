@@ -14,7 +14,7 @@ class ProfileTestInfoViewController: UIViewController {
     static let screenHeight = UIScreen.main.bounds.height
   }
   
-  private var profileTestData: [TestInfoDTO] = []
+  private var profileTestData: [TypeTestDTO] = []
   
   private let testStartImageView = UIImageView().then {
     $0.image = R.Image.testStartCheck
