@@ -19,11 +19,11 @@ final class ProfileRecommendBoxView: UIView {
     static let imageSize = CGSize(width: 120, height: 120)
   }
   
-  private let titleLabel = UILabel().then {
+  let titleLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
   }
   
-  private let personalityLabel = UILabel().then {
+  let personalityLabel = UILabel().then {
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.textColor = .housBlack
   }

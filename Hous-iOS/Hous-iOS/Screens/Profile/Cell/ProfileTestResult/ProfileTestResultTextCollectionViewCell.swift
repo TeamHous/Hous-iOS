@@ -64,10 +64,17 @@ final class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
     self.descriptionView.personalityDescriptionLabel.text = dataPack.personalityDescriptionLabel
     self.descriptionView.backgroundColor = dataPack.personalityType.backgroundColor
     
-    self.recommendRuleTitleView.recommendTitleLabel.attributedText = NSMutableAttributedString(string: dataPack.recommandTitleLabel)
+    self.recommendRuleTitleView.recommendTitleLabel.text = dataPack.recommandTitleLabel
+    self.recommendRuleTitleView.recommendTitleLabel.textColor = dataPack.personalityType.textColor
+    self.recommendRuleTitleView.backgroundColor = dataPack.personalityType.backgroundColor
     
     for (index, item) in dataPack.recommandRuleLabel.enumerated() {
-      self.recommendRuleView.recommendRuleList[index] = item
+      self.recommendRuleView.recommendRuleStackItems[index].setLabelText(item)
     }
+    
+    self.recommendRuleView.backgroundColor = dataPack.personalityType.backgroundColor
+    self.recommendRuleView.recommendRuleStackItems[0].indexImageView.image = dataPack.personalityType.ruleRecommendImage
+    self.recommendRuleView.recommendRuleStackItems[1].indexImageView.image = dataPack.personalityType.ruleRecommendImage
+    
   }
 }

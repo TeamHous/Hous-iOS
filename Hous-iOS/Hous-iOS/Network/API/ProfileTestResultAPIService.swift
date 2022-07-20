@@ -15,8 +15,8 @@ struct ProfileTestResultAPIService {
 
 extension ProfileTestResultAPIService {
   
-  func requestGetTestResult(typeId: String, completion: @escaping(NetworkResult<ProfileDTO>) -> Void) {
-    let target = ProfileTestResultAPITarget.getTestResult(typeId: typeId)
+  func requestGetTestResult(completion: @escaping(NetworkResult<ProfileTestResultDTO>) -> Void) {
+    let target = ProfileTestResultAPITarget.getTestResult
     AF.request(target)
       .responseData {dataResponse in
         responseData(dataResponse, completion: completion)

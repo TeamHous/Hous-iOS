@@ -11,6 +11,7 @@ struct ProfileNetworkDataPack {
   let userName, userJob, statusMessage: String
   let hashTag: [String]
   let personalityType: PersonalityType
+  let typeId: String
   let typeScore: [Double]
   let notificationState: Bool
   let isEmptyView: Bool
@@ -20,7 +21,7 @@ final class ProfileViewController : UIViewController {
   
   private var profileNetworkResponse : ProfileDTO?
 
-  private var profileNetworkDataPack = ProfileNetworkDataPack(userName: "", userJob: "", statusMessage: "", hashTag: [], personalityType: .empty, typeScore: [], notificationState: false, isEmptyView: true)
+  private var profileNetworkDataPack = ProfileNetworkDataPack(userName: "", userJob: "", statusMessage: "", hashTag: [], personalityType: .empty, typeId: "", typeScore: [], notificationState: false, isEmptyView: true)
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -199,6 +200,7 @@ extension ProfileViewController {
     default : personalityType = .empty
     }
     
+    let typeId = profileNetworkResponse!.typeId
     let typeScoreInt = profileNetworkResponse!.typeScore
     var typeScore: [Double] = []
     typeScoreInt.forEach {
@@ -207,14 +209,20 @@ extension ProfileViewController {
     let notificationState = profileNetworkResponse!.notificationState
     let isEmptyView = personalityType == .empty ? true : false
     
-    self.profileNetworkDataPack = ProfileNetworkDataPack(userName: userName, userJob: userJob, statusMessage: statusMessage, hashTag: hashTag, personalityType: personalityType, typeScore: typeScore, notificationState: notificationState, isEmptyView: isEmptyView)
+    print(typeId)
+    
+    self.profileNetworkDataPack = ProfileNetworkDataPack(userName: userName, userJob: userJob, statusMessage: statusMessage, hashTag: hashTag, personalityType: personalityType, typeId: typeId, typeScore: typeScore, notificationState: notificationState, isEmptyView: isEmptyView)
   }
   
   private func getNetworkInfo(completion: @escaping (ProfileDTO) -> Void) {
     ProfileMainAPIService.shared.requestGetProfileMain { result in
-      guard let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileDTO>,
-            let response = responseResult.response else { return }
-      completion(response)
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileDTO> {
+        guard let response = responseResult.response else {return}
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
     }
   }
 }

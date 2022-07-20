@@ -12,17 +12,17 @@ struct ProfileTestResultDataPack {
   let userNameLabel: String
   let personalityType : PersonalityType
   let personalityTypeLabel: String
-  let personalityImage: UIImage?
+  let personalityImageURL: String
   let personalityTitleLabel: String
   let personalityDescriptionLabel: String
   let recommandTitleLabel: String
   let recommandRuleLabel: [String]
   let goodPersonalityType: PersonalityType
   let goodPersonalityLabel: String
-  let goodPersonalityImage: UIImage?
+  let goodPersonalityImageURL: String
   let badPersonalityType: PersonalityType
   let badPersonalityLabel: String
-  let badPersonalityImage: UIImage?
+  let badPersonalityImageURL: String
   
 }
 
@@ -30,7 +30,7 @@ final class ProfileTestResultViewController : UIViewController {
   
   private var profileNetworkResponse: ProfileTestResultDTO?
   
-  private var profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: "", personalityType: .empty, personalityTypeLabel: "", personalityImage: UIImage(), personalityTitleLabel: "", personalityDescriptionLabel: "", recommandTitleLabel: "", recommandRuleLabel: [],goodPersonalityType: .empty, goodPersonalityLabel: "", goodPersonalityImage: UIImage(), badPersonalityType: .empty,  badPersonalityLabel: "", badPersonalityImage: UIImage())
+  private var profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: "", personalityType: .empty, personalityTypeLabel: "", personalityImageURL: "", personalityTitleLabel: "", personalityDescriptionLabel: "", recommandTitleLabel: "", recommandRuleLabel: [],goodPersonalityType: .empty, goodPersonalityLabel: "", goodPersonalityImageURL: "", badPersonalityType: .empty,  badPersonalityLabel: "", badPersonalityImageURL: "")
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -53,6 +53,11 @@ final class ProfileTestResultViewController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+    getNetworkInfo() {response in
+      self.profileNetworkResponse = response
+      self.convertResponseToDataPack(self.profileNetworkResponse)
+      self.profileTestResultCollectionView.reloadData()
+    }
     configUI()
     render()
   }
@@ -119,14 +124,17 @@ extension ProfileTestResultViewController: UICollectionViewDelegateFlowLayout, U
     switch indexPath.row {
     case 0:
       guard let cell = profileTestResultCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileTestResultImageCollectionViewCell.className, for: indexPath) as? ProfileTestResultImageCollectionViewCell else {return UICollectionViewCell()}
+      cell.setData(profileNetworkDataPack)
       return cell
       
     case 1:
       guard let cell = profileTestResultCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileTestResultTextCollectionViewCell.className, for: indexPath) as? ProfileTestResultTextCollectionViewCell else {return UICollectionViewCell()}
+      cell.setData(profileNetworkDataPack)
       return cell
       
     case 2:
       guard let cell = profileTestResultCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileTestResultRecommendCollectionViewCell.className, for: indexPath) as? ProfileTestResultRecommendCollectionViewCell else {return UICollectionViewCell()}
+      cell.setData(self.profileNetworkDataPack)
       return cell
       
     default:
@@ -153,7 +161,6 @@ extension ProfileTestResultViewController: UICollectionViewDelegateFlowLayout, U
 extension ProfileTestResultViewController {
   
   private func convertResponseToDataPack(_ profileNetworkResponse : ProfileTestResultDTO?) {
-    let url: URL?
     
     let userNameLabel = profileNetworkResponse!.userName + "님은"
     let personalityType : PersonalityType
@@ -170,14 +177,7 @@ extension ProfileTestResultViewController {
     
     let personalityTypeLabel = personalityType.personalityTitleText
     
-    url = URL(string: profileNetworkResponse!.typeImg)
-    var personalityImage: UIImage?
-    DispatchQueue.global().async {
-      let data = try? Data(contentsOf: url!)
-      DispatchQueue.main.async {
-        personalityImage = UIImage(data: data!)
-      }
-    }
+    let personalityImageURL = profileNetworkResponse!.typeImg
     
     let personalityTitleLabel = profileNetworkResponse!.typeOneComment
     let personalityDescriptionLabel = profileNetworkResponse!.typeDesc
@@ -188,54 +188,42 @@ extension ProfileTestResultViewController {
       recommandRuleLabel.append($0)
     }
     
-    let goodPersonlityType: PersonalityType
+    var goodPersonalityType: PersonalityType
     switch profileNetworkResponse!.good.typeName {
-    case "늘 행복한 동글이": goodPersonlityType = .round
-    case "슈퍼 팔로워 셋돌이": goodPersonlityType = .triangle
-    case "룸메 맞춤형 네각이": goodPersonlityType = .rectangle
-    case "하이레벨 오각이": goodPersonlityType = .pentagon
-    case "룰 세터 육각이": goodPersonlityType = .hexagon
-    default: goodPersonlityType = .empty
+    case "늘 행복한 동글이": goodPersonalityType = .round
+    case "슈퍼 팔로워 셋돌이": goodPersonalityType = .triangle
+    case "룸메 맞춤형 네각이": goodPersonalityType = .rectangle
+    case "하이레벨 오각이": goodPersonalityType = .pentagon
+    case "룰 세터 육각이": goodPersonalityType = .hexagon
+    default: goodPersonalityType = .empty
     }
     
     let goodPersonalityLabel = profileNetworkResponse!.good.typeName
     
-    url = URL(string: profileNetworkResponse!.good.typeImg)
-    var goodPersonalityImage: UIImage?
-    DispatchQueue.global().async {
-      let data = try? Data(contentsOf: url!)
-      DispatchQueue.main.async {
-        goodPersonalityImage = UIImage(data: data!)
-      }
-    }
+    let goodPersonalityImageURL = profileNetworkResponse!.good.typeImg
     
     let badPersonalityType: PersonalityType
     switch profileNetworkResponse!.bad.typeName {
-    case "늘 행복한 동글이": goodPersonlityType = .round
-    case "슈퍼 팔로워 셋돌이": goodPersonlityType = .triangle
-    case "룸메 맞춤형 네각이": goodPersonlityType = .rectangle
-    case "하이레벨 오각이": goodPersonlityType = .pentagon
-    case "룰 세터 육각이": goodPersonlityType = .hexagon
-    default: goodPersonlityType = .empty
+    case "늘 행복한 동글이": badPersonalityType = .round
+    case "슈퍼 팔로워 셋돌이": badPersonalityType = .triangle
+    case "룸메 맞춤형 네각이": badPersonalityType = .rectangle
+    case "하이레벨 오각이": badPersonalityType = .pentagon
+    case "룰 세터 육각이": badPersonalityType = .hexagon
+    default: badPersonalityType = .empty
     }
     
     
     let badPersonalityLabel = profileNetworkResponse!.bad.typeName
     
-    url = URL(string: profileNetworkResponse!.bad.typeImg)
-    var badPersonalityImage: UIImage?
-    DispatchQueue.global().async {
-      let data = try? Data(contentsOf: url!)
-      DispatchQueue.main.async {
-        badPersonalityImage = UIImage(data: data!)
-      }
-    }
+    let badPersonalityImageURL = profileNetworkResponse!.bad.typeImg
     
-    self.profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: userNameLabel, personalityType: personalityType, personalityTypeLabel: personalityTypeLabel, personalityImage: personalityImage, personalityTitleLabel: personalityTitleLabel, personalityDescriptionLabel: personalityDescriptionLabel, recommandTitleLabel: recommandTitleLabel, recommandRuleLabel: recommandRuleLabel, goodPersonalityType: goodPersonlityType,  goodPersonalityLabel: goodPersonalityLabel, goodPersonalityImage: goodPersonalityImage,badPersonalityType: badPersonalityType, badPersonalityLabel: badPersonalityLabel, badPersonalityImage: badPersonalityImage)
+    
+    self.profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: userNameLabel, personalityType: personalityType, personalityTypeLabel: personalityTypeLabel, personalityImageURL: personalityImageURL, personalityTitleLabel: personalityTitleLabel, personalityDescriptionLabel: personalityDescriptionLabel, recommandTitleLabel: recommandTitleLabel, recommandRuleLabel: recommandRuleLabel, goodPersonalityType: goodPersonalityType,  goodPersonalityLabel: goodPersonalityLabel, goodPersonalityImageURL: goodPersonalityImageURL ,badPersonalityType: badPersonalityType, badPersonalityLabel: badPersonalityLabel, badPersonalityImageURL: badPersonalityImageURL)
+    
   }
   
   private func getNetworkInfo(completion: @escaping (ProfileTestResultDTO) -> Void) {
-    ProfileTestResultAPIService.shared.requestGetTestResult(typeId: APIConstants.typeId) { result in
+    ProfileTestResultAPIService.shared.requestGetTestResult{ result in
       if let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileTestResultDTO> {
         guard let response = responseResult.response else {return}
         completion(response)

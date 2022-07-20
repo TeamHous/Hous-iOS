@@ -9,7 +9,7 @@ import Alamofire
 import UIKit
 
 enum ProfileTestResultAPITarget {
-  case getTestResult(typeId: String)
+  case getTestResult
 }
 
 extension ProfileTestResultAPITarget: TargetType {
@@ -23,14 +23,14 @@ extension ProfileTestResultAPITarget: TargetType {
   
   var path: String {
     switch self {
-    case .getTestResult(let typeId):
-      return "/user/me/type/\(typeId)"
+    case .getTestResult:
+      return "/user/me/type"
     }
   }
   
   var parameters: RequestParams {
     switch self {
-    case .getTestResult(_):
+    case .getTestResult:
       return .requestPlain
     }
   }
