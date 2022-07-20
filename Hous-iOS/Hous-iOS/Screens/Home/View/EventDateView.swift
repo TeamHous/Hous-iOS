@@ -15,7 +15,12 @@ class EventDateView: UIView {
     var components = DateComponents()
     components.day = 0
     let minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+    components.day = 365
+    let maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+    
     $0.minimumDate = minDate
+    $0.maximumDate = maxDate
+    
     $0.preferredDatePickerStyle = .wheels
     $0.datePickerMode = .date
     $0.locale = Locale(identifier: "ko-KR")
