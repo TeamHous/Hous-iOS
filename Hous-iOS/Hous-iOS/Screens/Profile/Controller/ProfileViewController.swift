@@ -182,6 +182,13 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
       }
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileGraphCollectionViewCell.className, for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
       cell.setData(profileNetworkDataPack)
+      cell.moveToTestResultView = { [self] in
+        let profileResultView = ProfileTestResultViewController()
+        profileResultView.modalTransitionStyle = .crossDissolve
+        profileResultView.modalPresentationStyle = .fullScreen
+        
+        present(profileResultView, animated: true)
+      }
       return cell
       
     case 2:

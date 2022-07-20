@@ -10,6 +10,8 @@ import UIKit
 
 final class ProfileGraphCollectionViewCell: UICollectionViewCell {
   
+  var moveToTestResultView :(() -> Void)?
+  
   private enum Size{
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
@@ -30,6 +32,7 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
     $0.backgroundColor = .white
     $0.semanticContentAttribute = .forceRightToLeft
     $0.titleLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
+    $0.addTarget(self, action: #selector(tabDetailButton), for:.touchUpInside)
   }
   
   var profileGraphBoxView = ProfileGraphBoxView()
@@ -44,7 +47,7 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
       $0.removeFromSuperview()
     }
   }
-
+  
   
   
   required init?(coder: NSCoder){
@@ -87,5 +90,12 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
     self.profileGraphBoxView.profileGraphView.profileGraphView.dataList = dataPack.typeScore
     self.profileGraphBoxView.profileGraphView.profileGraphBackgroundView.backgroundShapeLayer.fillColor = dataPack.personalityType.graphbackGroundColor.cgColor
     self.profileGraphBoxView.profileGraphView.profileGraphView.graphShapeLayer.fillColor = dataPack.personalityType.profileMainColor.cgColor
+  }
+}
+
+extension ProfileGraphCollectionViewCell {
+  
+  @objc private func tabDetailButton() {
+    moveToTestResultView?()
   }
 }
