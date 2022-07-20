@@ -13,7 +13,7 @@ import Alamofire
 struct ProfileDTO: Codable {
   let userName, job, introduction: String
   let hashTag: [String]
-  let typeName, typeColor: String
+  let typeName, typeId, typeColor: String
   let typeScore: [Int]
   let notificationState: Bool
   
@@ -23,6 +23,7 @@ struct ProfileDTO: Codable {
     case introduction
     case hashTag
     case typeName
+    case typeId
     case typeColor
     case typeScore
     case notificationState

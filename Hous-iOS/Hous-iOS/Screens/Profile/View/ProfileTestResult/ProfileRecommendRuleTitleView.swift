@@ -14,17 +14,9 @@ final class ProfileRecommendTitleView : UIView {
     static let screenHeight = UIScreen.main.bounds.height
   }
   
-  let recommendTitleLabel: UILabel = {
-    let recommendTitleLabel = UILabel()
-    let attributedString = NSMutableAttributedString(string: "동글이와 함께 정하면 좋은 Rule!")
-    let stringLength = attributedString.length
-    
-    attributedString.addAttributes([.foregroundColor: UIColor.orangeYellow, .font: UIFont.font(.spoqaHanSansNeoBold, ofSize: 18)], range: NSRange(location: 0, length : 14))
-    attributedString.addAttributes([.foregroundColor: UIColor.orangeYellow, .font: UIFont.font(.montserratSemiBold, ofSize: 20)], range: NSRange(location: 14, length: stringLength - 14))
-    
-    recommendTitleLabel.attributedText = attributedString
-    return recommendTitleLabel
-  }()
+  let recommendTitleLabel = UILabel().then {
+    $0.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+  }
     
   override init(frame: CGRect) {
     super.init(frame: frame)

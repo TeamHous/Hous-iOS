@@ -50,9 +50,13 @@ final class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell 
   }
   
   func setData(_ dataPack: ProfileTestResultDataPack) {
-    self.badRecommendView = ProfileRecommendBoxView(personalityType: dataPack.badPersonalityType, cellType: .bad)
-    self.badRecommendView.personalityImageView.image = dataPack.badPersonalityImage
-    self.goodRecommmendView = ProfileRecommendBoxView(personalityType: dataPack.goodPersonalityType, cellType: .good)
-    self.goodRecommmendView.personalityImageView.image = dataPack.goodPersonalityImage
+    self.badRecommendView.backgroundColor = dataPack.badPersonalityType.backgroundColor
+    self.badRecommendView.titleLabel.textColor = dataPack.badPersonalityType.textColor
+    self.badRecommendView.personalityLabel.text = dataPack.badPersonalityLabel
+    self.badRecommendView.personalityImageView.urlToImage(urlString: dataPack.badPersonalityImageURL)
+    self.goodRecommmendView.backgroundColor = dataPack.goodPersonalityType.backgroundColor
+    self.goodRecommmendView.titleLabel.textColor = dataPack.goodPersonalityType.textColor
+    self.goodRecommmendView.personalityLabel.text = dataPack.goodPersonalityLabel
+    self.goodRecommmendView.personalityImageView.urlToImage(urlString: dataPack.goodPersonalityImageURL)
   }
 }

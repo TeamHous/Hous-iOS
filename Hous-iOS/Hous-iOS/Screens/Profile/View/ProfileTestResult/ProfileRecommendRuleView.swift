@@ -70,7 +70,7 @@ final class ProfileRecommendRuleView : UIView {
     $0.axis = .vertical
   }
   
-  private var recommendRuleStackItems: [ProfileRecommendRuleStackItemView] = []
+  var recommendRuleStackItems: [ProfileRecommendRuleStackItemView] = []
   
   var recommendRuleList = ["밥 먹고 바로 설거지하기", "샤워 후 머리카락 치우기"]
   
