@@ -8,11 +8,7 @@
 import UIKit
 import Alamofire
 
-struct ProfileTestDTO: Codable {
-  let data: TestContentsDTO
-}
-
-struct TestContentsDTO: Codable {
+struct TypeTestsDTO: Codable {
   let typeTests: [TypeTestDTO]
 }
 
@@ -32,16 +28,4 @@ struct TypeTestDTO: Codable {
     case answers
     case questionType
   }
-}
-
-extension ProfileTestDTO {
-  static let sampleData: ProfileTestDTO = ProfileTestDTO(data: TestContentsDTO(typeTests: [
-    TypeTestDTO(id: "123", question: "알람 소리에 눈을 뜬 당신 \n 방 안은 어떤가요?", testNum: 1, questionImg: "123", answers: ["1번 테스트 선택지1", "선택지2", "선택지3"], questionType: "LIGHT"),
-    TypeTestDTO(id: "123", question: "외출 준비를 하려는데 \n 샴푸통이 비어있는 것 같다", testNum: 2, questionImg: "123", answers: ["2번 테스트 선택지1", "선택지2", "선택지3"], questionType: "NOISE"),
-    TypeTestDTO(id: "123", question: "옷을 입으려 옷장을 열었다. \n 옷장의 상태는?", testNum: 3, questionImg: "123", answers: ["잠에서 일어나 친구에게 \n 스탠드 불을 줄여달라고 이야기한다", "선택지2", "선택지3"], questionType: "SMELL"),
-    TypeTestDTO(id: "123", question: "집을 나가는 순간, 룸메이트가 \n 옷을 내밀며 냄새가 나는지 묻는다면?", testNum: 4, questionImg: "123", answers: ["선택지1", "선택지2", "선택지3"], questionType: "PERSONALITY"),
-    TypeTestDTO(id: "123", question: "약속장소를 가는 길, \n 묘한 향이 나는 것 같다.", testNum: 5, questionImg: "123", answers: ["선택지1", "선택지2", "선택지3"], questionType: "CLEAN"),
-    TypeTestDTO(id: "123", question: "ddddddddddd, \n 묘한 향이 나는 것 같다.", testNum: 5, questionImg: "123", answers: ["선택지1", "선택지2", "선택지3"], questionType: "CLEAN"),
-    TypeTestDTO(id: "123", question: "rrrrrrrrrrr, \n 묘한 향이 나는 것 같다.", testNum: 5, questionImg: "123", answers: ["선택지1", "선택지2", "선택지3"], questionType: "CLEAN"),
-  ]))
 }
