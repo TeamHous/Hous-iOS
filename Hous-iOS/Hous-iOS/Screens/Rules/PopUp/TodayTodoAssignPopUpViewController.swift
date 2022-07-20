@@ -13,10 +13,15 @@ final class TodayTodoAssignPopUpViewController: UIViewController {
 
   var viewModel = AssigneePopupViewModel()
   var todayTodoAssigneeData: TodayTodoAssigneeDTO = TodayTodoAssigneeDTO(id: "", homies: []) {
-    didSet { self.assigneeCollectionView.reloadData() }
+    didSet {
+      self.setAssigneesList()
+      self.assigneeCollectionView.reloadData()
+    }
   }
-
   var ruleId = ""
+  var assignees: [String] = []
+
+  weak var delegate: PopUpViewControllerDelegate?
 
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -53,9 +58,10 @@ final class TodayTodoAssignPopUpViewController: UIViewController {
     $0.showsHorizontalScrollIndicator = false
   }
 
-  private let saveButton = FilledCustomButton().then {
+  private lazy var saveButton = FilledCustomButton().then {
     $0.configUI(font: .font(.spoqaHanSansNeoMedium, ofSize: 16),
                 text: "저장", color: .softBlue, corner: 10)
+    $0.addTarget(self, action: #selector(saveAssignee), for: .touchUpInside)
   }
 
   //MARK: Life Cycle
@@ -68,6 +74,11 @@ final class TodayTodoAssignPopUpViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     getTodayTodoAssignee()
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    delegate?.donePopUpVC()
   }
 
   private func render() {
@@ -118,12 +129,31 @@ extension TodayTodoAssignPopUpViewController {
       self.todayTodoAssigneeData = response
     }
   }
+
+  private func updateTodayTodoAssignee(tmpRuleMembers: [String]) {
+    viewModel.updateTodayTodoAssignee(roomId: APIConstants.roomID, ruleId: self.ruleId, tmpRuleMembers: tmpRuleMembers) {
+      self.dismiss(animated: true)
+    }
+  }
 }
 
 //MARK: Objective-C methods
 extension TodayTodoAssignPopUpViewController {
   @objc private func cancelButtonDidTapped() {
     self.dismiss(animated: true)
+  }
+
+  @objc private func saveAssignee() {
+    self.updateTodayTodoAssignee(tmpRuleMembers: self.assignees)
+  }
+}
+
+// MARK: Custom Methods
+extension TodayTodoAssignPopUpViewController {
+  private func setAssigneesList() {
+    todayTodoAssigneeData.homies.forEach { homie in
+      if homie.isChecked { self.assignees.append(homie.id) }
+    }
   }
 }
 
@@ -133,6 +163,18 @@ extension TodayTodoAssignPopUpViewController: UICollectionViewDelegate {
     guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell else { return }
 
     cell.participantButton.isSelected.toggle()
+
+    let homieId = todayTodoAssigneeData.homies[indexPath.row].id
+
+    if cell.participantButton.isSelected {
+      if !assignees.contains(homieId) {
+        self.assignees.append(homieId)
+      }
+    } else {
+      if let index = assignees.firstIndex(of: homieId) {
+        self.assignees.remove(at: index)
+      }
+    }
   }
 }
 

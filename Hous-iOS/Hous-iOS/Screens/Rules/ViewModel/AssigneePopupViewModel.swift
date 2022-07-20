@@ -22,4 +22,17 @@ class AssigneePopupViewModel {
       }
     }
   }
+
+  func updateTodayTodoAssignee(roomId: String, ruleId: String, tmpRuleMembers: [String], completion: @escaping () -> Void) {
+    RulesMainAPIService.shared.requestUpdateTodayTodoAssignee(roomId: roomId, ruleId: ruleId, tmpRuleMembers: tmpRuleMembers) { result in
+
+      if NetworkResultFactory.makeResult(resultType: result)
+          is Success<UpdateTodayTodoAssigneeDTO> {
+        completion()
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
 }

@@ -226,7 +226,11 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 // MARK: - Action
 
-extension RulesViewController: RulesCategoryEditViewDelegate {
+extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControllerDelegate {
+
+  func donePopUpVC() {
+    getRulesTodayTodo()
+  }
 
   func borderButtonTouched(viewType: CategoryEditType) {
     let popUp = CommonPopUpViewController()
