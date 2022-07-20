@@ -7,9 +7,19 @@
 
 import UIKit
 
-class AddRulesCollectionViewCell: UICollectionViewCell {
+protocol PlusButtonDelegate: AnyObject {
+  func didTapPlusButton()
+}
 
-  var plusButton = PlusButton()
+final class AddRulesCollectionViewCell: UICollectionViewCell {
+
+  private lazy var plusButton:  PlusButton = {
+    let button = PlusButton()
+    button.addTarget(self, action: #selector(didTapPlusButton), for: .touchUpInside)
+    return button
+  }()
+
+  weak var plusButtonDelegate: PlusButtonDelegate?
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -18,6 +28,11 @@ class AddRulesCollectionViewCell: UICollectionViewCell {
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+
+  @objc
+  func didTapPlusButton() {
+    plusButtonDelegate?.didTapPlusButton()
   }
 
   private func render() {

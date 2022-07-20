@@ -49,6 +49,8 @@ final class RulesCategoryTableView: UIView {
       $0.register(cell: EmptyCategoryCollectionViewCell.self)
     }
 
+  var actions: (() -> Void)?
+
   //MARK: - 생명주기
 
   override init(frame: CGRect) {
@@ -122,7 +124,13 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
       _ = cell.setRulesCell(rulesData[indexPath.row])
       return cell
     case 2:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddRulesCollectionViewCell.className, for: indexPath)
+      guard let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: AddRulesCollectionViewCell.className,
+        for: indexPath
+      ) as? AddRulesCollectionViewCell else { return UICollectionViewCell() }
+
+      cell.plusButtonDelegate = self
+
       return cell
     default :
       return UICollectionViewCell()
@@ -165,4 +173,9 @@ extension RulesCategoryTableView: UICollectionViewDelegateFlowLayout {
   }
 }
 
+extension RulesCategoryTableView: PlusButtonDelegate {
+  func didTapPlusButton() {
+    actions?()
+  }
 
+}

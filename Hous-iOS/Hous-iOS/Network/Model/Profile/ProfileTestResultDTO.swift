@@ -29,4 +29,3 @@ struct Bad: Codable {
 }
 
 
-

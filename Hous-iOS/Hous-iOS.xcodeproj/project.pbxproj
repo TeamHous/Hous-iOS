@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		774F1393288809F5009138B7 /* AddRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F1392288809F5009138B7 /* AddRulesViewController.swift */; };
 		778A79FA287704D400722CBB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A79F9287704D400722CBB /* SplashViewController.swift */; };
 		778A79FC287704E500722CBB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A79FB287704E500722CBB /* Strings.swift */; };
 		778A79FF2877061E00722CBB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 778A7A012877061E00722CBB /* Localizable.strings */; };
@@ -155,6 +156,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		774F1392288809F5009138B7 /* AddRulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRulesViewController.swift; sourceTree = "<group>"; };
 		778A79F9287704D400722CBB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		778A79FB287704E500722CBB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		778A7A002877061E00722CBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -199,6 +201,12 @@
 		9BBB07BB2888AA6A003EAA09 /* ProfileTestResultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultAPIService.swift; sourceTree = "<group>"; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
+		9BCA29F8288560EE0032338D /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileDTO.swift"; sourceTree = SOURCE_ROOT; };
+		9BCA29FA2885611B0032338D /* ProfileSettingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileSettingDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileSettingDTO.swift"; sourceTree = SOURCE_ROOT; };
+		9BCA29FC288561690032338D /* ProfileEditingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileEditingDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileEditingDTO.swift"; sourceTree = SOURCE_ROOT; };
+		9BCA29FE2885618F0032338D /* ProfileTestResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTestResultDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileTestResultDTO.swift"; sourceTree = SOURCE_ROOT; };
+		9BCA2A0028857BE10032338D /* ProfileMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileMainAPITarget.swift; path = "Hous-iOS/Network/API/Profile/ProfileMainAPITarget.swift"; sourceTree = SOURCE_ROOT; };
+		9BCA2A0228857C020032338D /* ProfileMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileMainAPIService.swift; path = "Hous-iOS/Network/API/Profile/ProfileMainAPIService.swift"; sourceTree = SOURCE_ROOT; };
 		9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingViewController.swift; sourceTree = "<group>"; };
 		9BF7AB2128816235005B6E8A /* ProfileEditingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingNavigationBarView.swift; sourceTree = "<group>"; };
 		B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -316,6 +324,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		774F138E288807D8009138B7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */,
+				B534F9472884E8F000624BAA /* HomeMainAPIService.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		774F138F2888083A009138B7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9BCA29F8288560EE0032338D /* ProfileDTO.swift */,
+				9BCA29FE2885618F0032338D /* ProfileTestResultDTO.swift */,
+				9BCA29FA2885611B0032338D /* ProfileSettingDTO.swift */,
+				9BCA29FC288561690032338D /* ProfileEditingDTO.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		778A79F8287704C800722CBB /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -818,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				B80510C02876D3610025B767 /* RulesViewController.swift */,
+				774F1392288809F5009138B7 /* AddRulesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1052,6 +1081,7 @@
 				B59C946F2877091E005865CA /* UIButton+Extension.swift in Sources */,
 				B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */,
 				B59C947728770961005865CA /* UITableView+Extension.swift in Sources */,
+				774F1393288809F5009138B7 /* AddRulesViewController.swift in Sources */,
 				9B648B8E28805D28005E9322 /* ProfileViewController.swift in Sources */,
 				B5A7D19A28809B180037F210 /* QuitTestPopUpViewController.swift in Sources */,
 				B5E95AE02881DB1100CD2244 /* String+Extension.swift in Sources */,

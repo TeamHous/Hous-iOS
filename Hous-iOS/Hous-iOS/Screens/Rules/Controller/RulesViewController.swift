@@ -82,6 +82,13 @@ final class RulesViewController: UIViewController {
         print(response.isCheck)
       }
     }
+
+    mainView.categoryTableView.actions = { [weak self] in
+
+      let addRulesViewController = AddRulesViewController()
+      self?.navigationController?.pushViewController(addRulesViewController, animated: true)
+    }
+
   }
 
   private func setCollectionView() {
