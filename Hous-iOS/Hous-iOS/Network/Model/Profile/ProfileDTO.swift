@@ -15,7 +15,7 @@ struct ProfileDTO: Codable {
   let hashTag: [String]
   let typeName, typeId, typeColor: String
   let typeScore: [Int]
-  let notificationState: Bool
+  let notificationState: Bool?
   
   enum CodingKeys: String, CodingKey {
     case userName
