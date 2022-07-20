@@ -134,6 +134,7 @@
 		B84CF9C42884B8B2008770F0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = B84CF9C32884B8B2008770F0 /* Inject */; };
 		B84CF9C62884BBA5008770F0 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CF9C52884BBA5008770F0 /* Todo.swift */; };
 		B85873752886DA7500912768 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85873742886DA7500912768 /* PlusButton.swift */; };
+		B8587377288810A900912768 /* AssigneePopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8587376288810A900912768 /* AssigneePopupViewModel.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -264,6 +265,7 @@
 		B84CF9C028847CF0008770F0 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
 		B84CF9C52884BBA5008770F0 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		B85873742886DA7500912768 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		B8587376288810A900912768 /* AssigneePopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneePopupViewModel.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 			isa = PBXGroup;
 			children = (
 				B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */,
+				B8587376288810A900912768 /* AssigneePopupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1028,6 +1031,7 @@
 				9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
 				B5F858352880278D009474A1 /* EventDateView.swift in Sources */,
+				B8587377288810A900912768 /* AssigneePopupViewModel.swift in Sources */,
 				B5084A27287996EE00C38749 /* RulesTodoView.swift in Sources */,
 				9BCA2A0128857BE20032338D /* ProfileMainAPITarget.swift in Sources */,
 				9BF7AB2228816235005B6E8A /* ProfileEditingNavigationBarView.swift in Sources */,

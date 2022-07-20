@@ -58,6 +58,11 @@ class TodayTodoAssignPopUpViewController: UIViewController {
     setCollectionView()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+  }
+
   private func render() {
 
     self.view.addSubView(blurView)
@@ -96,6 +101,13 @@ class TodayTodoAssignPopUpViewController: UIViewController {
     assigneeCollectionView.register(cell: ParticipantsCollectionViewCell.self)
     assigneeCollectionView.delegate = self
     assigneeCollectionView.dataSource = self
+  }
+}
+
+//MARK: server
+extension TodayTodoAssignPopUpViewController {
+  private func getTodayTodoAssignee() {
+    
   }
 }
 

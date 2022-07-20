@@ -92,17 +92,5 @@ struct RulesDTO: Codable {
 
 struct TodayTodoAssigneeDTO: Codable {
   let id: String
-  let homies: [HomiesDTO]
-}
-
-struct HomiesDTO: Codable {
-  let id: String
-  let userName: String
-  let isChecked: Bool
-  let typeColor: String
-
-  enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case userName, isChecked, typeColor
-  }
+  let homies: [Participant]
 }

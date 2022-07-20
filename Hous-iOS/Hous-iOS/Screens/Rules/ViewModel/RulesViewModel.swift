@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RulesViewModel {
+final class RulesViewModel {
 
   func getRulesTodayTodo(roomId: String, completion: @escaping (RulesTodayTodoDTO) -> Void) {
     RulesMainAPIService.shared.requestGetRulesTodayTodo(roomId: roomId) { result in
