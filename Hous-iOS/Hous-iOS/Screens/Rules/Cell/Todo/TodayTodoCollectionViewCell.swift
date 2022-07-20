@@ -153,9 +153,22 @@ extension TodayTodoCollectionViewCell {
     super.touchesBegan(touches, with: event)
 
     guard let touch = touches.reversed().first else { return }
+    let manyAssignedView = [self.manyAssignedView.topLeftView,
+                            self.manyAssignedView.topRightView,
+                            self.manyAssignedView.bottomLeftView,
+                            self.manyAssignedView.bottomRightView]
+    var manyAssignedViewSubviewsTouched = false
+    manyAssignedView.forEach {
+      if touch.view == $0 {
+        manyAssignedViewSubviewsTouched = true
+        return
+      }
+    }
+
     if touch.view == self.addAssignView ||
-        touch.view == self.manyAssignedView ||
-        touch.view == self.oneAssignedView {
+        touch.view == self.oneAssignedView ||
+        manyAssignedViewSubviewsTouched
+    {
       delegate?.leftAssigneeViewTouched(ruleId: self.ruleId)
     } else {
       // 나머지 부분 터치 시 기능 구현 예정

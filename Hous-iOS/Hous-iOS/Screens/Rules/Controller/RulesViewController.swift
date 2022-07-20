@@ -65,6 +65,7 @@ final class RulesViewController: UIViewController {
   private func setAction() {
     mainView.todoTableView.leftAssigneeViewAction = { ruleId in
       let todayTodoAssignPopUp = TodayTodoAssignPopUpViewController()
+      todayTodoAssignPopUp.delegate = self
       todayTodoAssignPopUp.ruleId = ruleId
       todayTodoAssignPopUp.modalTransitionStyle = .crossDissolve
       todayTodoAssignPopUp.modalPresentationStyle = .overFullScreen
@@ -229,7 +230,8 @@ extension RulesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControllerDelegate {
 
   func donePopUpVC() {
-    getRulesTodayTodo()
+    self.getRulesTodayTodo()
+    self.mainView.todoTableView.todoCollectionView.reloadData()
   }
 
   func borderButtonTouched(viewType: CategoryEditType) {

@@ -114,7 +114,3 @@ struct UpdateTodayTodoAssigneeDTO: Codable {
 }
 
 // postNewCategory
-
-struct PostNewCategory {
-  <#fields#>
-}
