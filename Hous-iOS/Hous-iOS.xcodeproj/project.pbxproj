@@ -42,10 +42,6 @@
 		9BA5DAA22885C75E00D3735E /* ProfileResultPersonalityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */; };
 		9BBB079A28889454003EAA09 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB079928889454003EAA09 /* ProfileDTO.swift */; };
 		9BBB079C28889474003EAA09 /* ProfileTestResultDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB079B28889474003EAA09 /* ProfileTestResultDTO.swift */; };
-		9BBB079F2888949E003EAA09 /* ProfileMainAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB079E2888949E003EAA09 /* ProfileMainAPITarget.swift */; };
-		9BBB07A1288894DE003EAA09 /* ProfileMainAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB07A0288894DE003EAA09 /* ProfileMainAPIService.swift */; };
-		9BBB07A728889722003EAA09 /* ProfileTestResultAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB07A628889722003EAA09 /* ProfileTestResultAPITarget.swift */; };
-		9BBB07A928889730003EAA09 /* ProfileTestResultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB07A828889730003EAA09 /* ProfileTestResultAPIService.swift */; };
 		9BBE243F2881BF3200712C69 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE243E2881BF3200712C69 /* FormTextField.swift */; };
 		9BCA29F7288433BC0032338D /* ProfileRecommendBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */; };
 		9BF7AB202881611C005B6E8A /* ProfileEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */; };
@@ -182,10 +178,6 @@
 		9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResultPersonalityType.swift; sourceTree = "<group>"; };
 		9BBB079928889454003EAA09 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
 		9BBB079B28889474003EAA09 /* ProfileTestResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultDTO.swift; sourceTree = "<group>"; };
-		9BBB079E2888949E003EAA09 /* ProfileMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainAPITarget.swift; sourceTree = "<group>"; };
-		9BBB07A0288894DE003EAA09 /* ProfileMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainAPIService.swift; sourceTree = "<group>"; };
-		9BBB07A628889722003EAA09 /* ProfileTestResultAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultAPITarget.swift; sourceTree = "<group>"; };
-		9BBB07A828889730003EAA09 /* ProfileTestResultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultAPIService.swift; sourceTree = "<group>"; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
 		9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingViewController.swift; sourceTree = "<group>"; };
@@ -383,17 +375,6 @@
 			children = (
 				9BBB079928889454003EAA09 /* ProfileDTO.swift */,
 				9BBB079B28889474003EAA09 /* ProfileTestResultDTO.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		9BBB079D28889487003EAA09 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				9BBB079E2888949E003EAA09 /* ProfileMainAPITarget.swift */,
-				9BBB07A0288894DE003EAA09 /* ProfileMainAPIService.swift */,
-				9BBB07A628889722003EAA09 /* ProfileTestResultAPITarget.swift */,
-				9BBB07A828889730003EAA09 /* ProfileTestResultAPIService.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1003,7 +984,6 @@
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */,
 				B84CF9BD2884790E008770F0 /* RulesMainAPIService.swift in Sources */,
-				9BBB07A1288894DE003EAA09 /* ProfileMainAPIService.swift in Sources */,
 				B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */,
 				B5F8583A2880531A009474A1 /* ProfileTestViewController.swift in Sources */,
 				B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */,
@@ -1032,9 +1012,7 @@
 				778A7A07287708A600722CBB /* HousTabbarItem.swift in Sources */,
 				B80510A42876D2D10025B767 /* SceneDelegate.swift in Sources */,
 				9B55FBC82883454A0089B930 /* ProfileRecommendRuleTitleView.swift in Sources */,
-				9BBB07A728889722003EAA09 /* ProfileTestResultAPITarget.swift in Sources */,
 				B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */,
-				9BBB079F2888949E003EAA09 /* ProfileMainAPITarget.swift in Sources */,
 				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
 				9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */,
 				B5F8583F288069B6009474A1 /* ProfileTestDTO.swift in Sources */,
@@ -1044,7 +1022,6 @@
 				B534F9532888110600624BAA /* ProfileTestAPITarget.swift in Sources */,
 				9B7D860C287C487C006C0BCE /* CircleView.swift in Sources */,
 				B843871C287958A5003F7B75 /* MyTodoCollectionViewCell.swift in Sources */,
-				9BBB07A928889730003EAA09 /* ProfileTestResultAPIService.swift in Sources */,
 				9B1F1C0C287DF7C700A15D82 /* GraphBackgroundView.swift in Sources */,
 				B59C94732877093E005865CA /* Adjusted+Extension.swift in Sources */,
 				B5F858352880278D009474A1 /* EventDateView.swift in Sources */,
