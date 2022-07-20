@@ -98,7 +98,7 @@ class TestCollectionViewCell: UICollectionViewCell {
   func setTestData(_ data: TestCellItem) {
     testTitleLabel.text = data.testTitle
     // url -> image
-    // testImageView.urlToImage(urlString: data.testImg)
+     testImageView.urlToImage(urlString: data.testImg)
     
     let sequence = zip([optionButton1, optionButton2, optionButton3], data.testAnswers)
     

@@ -141,6 +141,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
     case 1:
       if profileNetworkDataPack.isEmptyView {
         guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileGraphEmptyCollectionViewCell.className, for: indexPath) as? ProfileGraphEmptyCollectionViewCell else {return UICollectionViewCell()}
+        cell.delegate = self
         return cell
       }
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileGraphCollectionViewCell.className, for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
@@ -227,3 +228,13 @@ extension ProfileViewController {
   }
 }
 
+extension ProfileViewController: ProfileGraphEmptyCollectionViewCellDelegate {
+  func moveToTypeTestInfo() {
+    let typeTestInfoVC = ProfileTestInfoViewController()
+    
+    typeTestInfoVC.modalPresentationStyle = .fullScreen
+    typeTestInfoVC.modalTransitionStyle = .crossDissolve
+    
+    present(typeTestInfoVC, animated: true)
+  }
+}

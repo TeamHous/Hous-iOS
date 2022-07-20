@@ -63,7 +63,7 @@ class QuitTestPopViewController: UIViewController {
     $0.configuration = config
     $0.layer.cornerRadius = 15
     $0.layer.masksToBounds = true
-    $0.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
+    $0.addTarget(self, action: #selector(quitTest), for: .touchUpInside)
   }
     
   //MARK: Life Cycle
@@ -116,5 +116,9 @@ class QuitTestPopViewController: UIViewController {
 extension QuitTestPopViewController {
   @objc private func cancelButtonDidTapped() {
     self.dismiss(animated: true)
+  }
+  
+  @objc private func quitTest() {
+    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
   }
 }

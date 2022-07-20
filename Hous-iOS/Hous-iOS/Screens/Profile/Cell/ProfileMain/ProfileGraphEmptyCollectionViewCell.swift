@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol ProfileGraphEmptyCollectionViewCellDelegate: AnyObject {
+  func moveToTypeTestInfo()
+}
+
+
 final class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
   }
+  
+  weak var delegate: ProfileGraphEmptyCollectionViewCellDelegate?
   
   private let titleLabel = UILabel().then {
     $0.text = "나의 성향"
@@ -28,6 +35,7 @@ final class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
     $0.layer.cornerRadius = 10
     $0.layer.masksToBounds = true
     $0.titleLabel?.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+    $0.addTarget(self, action: #selector(testButtonDidTapped), for: .touchUpInside)
   }
   
   private let profileGraphEmptyBoxView = UIView().then {
@@ -71,3 +79,8 @@ final class ProfileGraphEmptyCollectionViewCell: UICollectionViewCell {
   }
 }
 
+extension ProfileGraphEmptyCollectionViewCell {
+  @objc private func testButtonDidTapped() {
+    delegate?.moveToTypeTestInfo()
+  }
+}

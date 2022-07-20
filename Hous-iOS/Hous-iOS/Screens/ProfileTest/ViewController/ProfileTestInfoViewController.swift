@@ -51,14 +51,16 @@ class ProfileTestInfoViewController: UIViewController {
     $0.addTarget(self, action: #selector(startProfileTest), for: .touchUpInside)
   }
   
+  //MARK: Life-Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     render()
-    getProfileTest()
   }
   
-  private func getProfileTest() {
-    profileTestData = ProfileTestDTO.sampleData.data.typeTest
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    getProfileTest()
   }
   
   private func render() {
@@ -102,5 +104,26 @@ extension ProfileTestInfoViewController {
     profileTest.modalPresentationStyle = .fullScreen
     
     present(profileTest, animated: true)
+  }
+}
+
+//MARK: Network
+
+extension ProfileTestInfoViewController {
+  private func getProfileTest() {
+    ProfileTestAPIService.shared.requestGetTypeTest { result in
+      
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<TypeTestsDTO> {
+        guard let response = responseResult.response else { return }
+        
+        self.profileTestData = response.typeTests
+        
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+      
+    }
   }
 }
