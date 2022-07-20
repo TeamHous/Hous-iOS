@@ -118,6 +118,16 @@ extension HomeViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
+    if indexPath.row == homeData.homieProfileList.count {
+      UIPasteboard.general.string = homeData.roomCode
+      if let str = UIPasteboard.general.string {
+        print(str)
+        // 토스트 메시지 라이브러리로 띄우기 야호
+        // 클립보드에 복사됨
+      }
+      return
+    }
+    
     let profileHomeVC = ProfileViewController(item: .profile)
     
     profileHomeVC.isPresentedFromHomeVC = true
@@ -283,7 +293,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     default:
       return 0
     }
-    
   }
 }
 
