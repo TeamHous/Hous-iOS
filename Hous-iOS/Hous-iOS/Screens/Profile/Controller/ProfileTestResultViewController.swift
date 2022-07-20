@@ -28,6 +28,8 @@ struct ProfileTestResultDataPack {
 
 final class ProfileTestResultViewController : UIViewController {
   
+  var isFromTypeTest = false
+  
   private var profileNetworkResponse: ProfileTestResultDTO?
   
   private var profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: "", personalityType: .empty, personalityTypeLabel: "", personalityImageURL: "", personalityTitleLabel: "", personalityDescriptionLabel: "", recommandTitleLabel: "", recommandRuleLabel: [],goodPersonalityType: .empty, goodPersonalityLabel: "", goodPersonalityImageURL: "", badPersonalityType: .empty,  badPersonalityLabel: "", badPersonalityImageURL: "")
@@ -78,7 +80,11 @@ final class ProfileTestResultViewController : UIViewController {
     setDelegate()
     registerCell()
     navigationBarView.moveToProfileMainView = {  [self] in
-      dismiss(animated: true)
+      if isFromTypeTest {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+      } else {
+        dismiss(animated: true)
+      }
     }
   }
   
