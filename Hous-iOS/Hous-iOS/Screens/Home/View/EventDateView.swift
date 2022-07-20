@@ -45,12 +45,6 @@ class EventDateView: UIView {
   private lazy var yearDatePickerTextField = UITextField().then {
     $0.text = Date.now.year.description
     setDateTextField($0)
-//    $0.text = Date.now.year.description
-//    $0.font = .font(.montserratMedium, ofSize: 15)
-//    $0.inputAccessoryView = toolBar
-//    $0.tintColor = .clear
-//    $0.inputView = datePicker
-//    $0.textAlignment = .center
   }
   
   private let yearLabel = UILabel().then {
@@ -67,12 +61,6 @@ class EventDateView: UIView {
   private lazy var monthDatePickerTextField = UITextField().then {
     $0.text = Date.now.month.description
     setDateTextField($0)
-//    $0.text = Date.now.month.description
-//    $0.font = .font(.montserratMedium, ofSize: 15)
-//    $0.inputAccessoryView = toolBar
-//    $0.tintColor = .clear
-//    $0.inputView = datePicker
-//    $0.textAlignment = .center
   }
   
   private let monthLabel = UILabel().then {
@@ -90,12 +78,6 @@ class EventDateView: UIView {
   private lazy var dayDatePickerTextField = UITextField().then {
     $0.text = Date.now.day.description
     setDateTextField($0)
-//    $0.text = Date.now.day.description
-//    $0.font = .font(.montserratMedium, ofSize: 15)
-//    $0.inputAccessoryView = toolBar
-//    $0.tintColor = .clear
-//    $0.inputView = datePicker
-//    $0.textAlignment = .center
   }
   
   private let dayLabel = UILabel().then {

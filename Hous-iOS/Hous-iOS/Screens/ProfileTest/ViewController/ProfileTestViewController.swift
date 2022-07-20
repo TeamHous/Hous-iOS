@@ -215,9 +215,8 @@ extension ProfileTestViewController {
   
   @objc private func scrollBackward() {
     
-    if testIndex <= 0 {
-      return
-    }
+    if testIndex <= 0 { return }
+    
     testIndex -= 1
     
     isMovedBackward = true
@@ -281,6 +280,11 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
       // 나의 테스트 성향 점수 변경
       self.updateTest(typeScore: finalScore)
       
+      let testResultVC = ProfileTestResultViewController()
+      testResultVC.modalPresentationStyle = .fullScreen
+      
+      testResultVC.isFromTypeTest = true
+      self.present(testResultVC, animated: true)
       return
       
     } else {
