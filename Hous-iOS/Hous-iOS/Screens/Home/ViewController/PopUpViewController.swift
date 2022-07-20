@@ -412,8 +412,6 @@ extension PopUpViewController: UICollectionViewDelegate {
         if participants.contains(participantId) { return }
         self.participants.append(participantId)
       }
-      
-      print(self.participants)
       return
     }
     
@@ -434,7 +432,6 @@ extension PopUpViewController: UICollectionViewDelegate {
 extension PopUpViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if isDefaultPopUp {
-      print(self.homieProfileList.count)
       return self.homieProfileList.count
     }
     

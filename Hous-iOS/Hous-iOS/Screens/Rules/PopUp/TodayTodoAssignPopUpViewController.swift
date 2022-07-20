@@ -115,7 +115,6 @@ final class TodayTodoAssignPopUpViewController: UIViewController {
 extension TodayTodoAssignPopUpViewController {
   private func getTodayTodoAssignee() {
     viewModel.getTodayTodoAssignee(roomId: APIConstants.roomID, ruleId: self.ruleId) { response in
-      print(response)
       self.todayTodoAssigneeData = response
     }
   }
