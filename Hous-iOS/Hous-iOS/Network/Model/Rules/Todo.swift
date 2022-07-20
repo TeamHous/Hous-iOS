@@ -99,3 +99,16 @@ struct TodayTodoAssigneeDTO: Codable {
       case homies
   }
 }
+
+// updateTodayTodoAssignee
+
+struct UpdateTodayTodoAssigneeDTO: Codable {
+  let id: String
+  let ruleName: String
+  let tmpRuleMembers: [String]
+
+  enum CodingKeys: String, CodingKey {
+      case id = "_id"
+      case ruleName, tmpRuleMembers
+  }
+}
