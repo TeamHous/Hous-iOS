@@ -253,6 +253,11 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
     
     if testIndex + 1 == testCellData.count {
       
+      let type = testCellData[testIndex].testType
+      let score = tag + 1
+      
+      questionTypeScoreList[testIndex] = Test(testType: type, score: score)
+      
       for item in questionTypeScoreList {
         switch item.questionType {
         case QuestionType.light.rawValue : finalScore[0] += item.score
@@ -272,6 +277,10 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
       
       // select button -> true
       self.testCellData[testIndex].testAnswers[tag].isSelected = true
+      
+      // 나의 테스트 성향 점수 변경
+      self.updateTest(typeScore: finalScore)
+      
       return
       
     } else {
@@ -297,6 +306,22 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
         testCellData[testIndex - 1].testAnswers[tag].isSelected = true
         
         setBackforwardButton(index: testIndex + 1)
+      }
+    }
+  }
+}
+
+extension ProfileTestViewController {
+  
+  private func updateTest(typeScore: [Int]) {
+    ProfileTestAPIService.shared.requestUpdateTest(typeScore: typeScore) { result in
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<UpdateTestDTO> {
+        guard let response = responseResult.response else { return }
+        responseResult.resultMethod()
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
       }
     }
   }

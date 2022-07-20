@@ -25,6 +25,16 @@ extension ProfileTestAPIService {
       }
   }
   
+  func requestUpdateTest(typeScore: [Int], completion: @escaping (NetworkResult<UpdateTestDTO>) -> Void) {
+    
+    let target = ProfileTestAPITarget.updateTest(typeScore: typeScore)
+    print(target)
+    AF.request(target)
+      .responseData { dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
+  
 }
 
 extension ProfileTestAPIService {

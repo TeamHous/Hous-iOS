@@ -10,6 +10,7 @@ import UIKit
 
 enum ProfileTestAPITarget {
   case getTestContent
+  case updateTest(typeScore: [Int])
 }
 
 extension ProfileTestAPITarget: TargetType {
@@ -17,6 +18,8 @@ extension ProfileTestAPITarget: TargetType {
     switch self {
     case .getTestContent:
       return .get
+    case .updateTest(_):
+      return .put
     }
   }
   
@@ -24,6 +27,8 @@ extension ProfileTestAPITarget: TargetType {
     switch self {
     case .getTestContent:
       return "/type/test"
+    case .updateTest(_):
+      return "/user/type/test"
     }
   }
   
@@ -31,6 +36,11 @@ extension ProfileTestAPITarget: TargetType {
     switch self {
     case .getTestContent:
       return .requestPlain
+    case .updateTest(let typeScore):
+      let body: [String: Any] = [
+        "typeScore": typeScore
+      ]
+      return .requestBody(body)
     }
   }
   

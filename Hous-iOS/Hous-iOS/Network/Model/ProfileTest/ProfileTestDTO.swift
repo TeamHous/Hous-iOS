@@ -29,3 +29,15 @@ struct TypeTestDTO: Codable {
     case questionType
   }
 }
+
+// updateTest
+struct UpdateTestDTO: Codable {
+  let id: String
+  let typeId: String
+  let typeScore: [Int]
+  
+  enum CodingKeys: String, CodingKey {
+    case id = "_id"
+    case typeId, typeScore
+  }
+}
