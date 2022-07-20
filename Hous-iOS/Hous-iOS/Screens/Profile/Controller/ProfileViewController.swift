@@ -13,14 +13,26 @@ struct ProfileNetworkDataPack {
   let personalityType: PersonalityType
   let typeId: String
   let typeScore: [Double]
-  let notificationState: Bool
+  let notificationState: Bool?
   let isEmptyView: Bool
 }
 
 final class ProfileViewController : UIViewController {
   
+  var isPresentedFromHomeVC = false {
+    didSet {
+      if isPresentedFromHomeVC {
+        self.navigationBarView.isHidden = true
+      }
+    }
+  }
+  
+  var userId = ""
+  
+  private var homieProfileData: ProfileDTO?
+  
   private var profileNetworkResponse : ProfileDTO?
-
+  
   private var profileNetworkDataPack = ProfileNetworkDataPack(userName: "", userJob: "", statusMessage: "", hashTag: [], personalityType: .empty, typeId: "", typeScore: [], notificationState: false, isEmptyView: true)
   
   private enum Size {
@@ -31,7 +43,12 @@ final class ProfileViewController : UIViewController {
     static let graphEmptyCellSize = CGSize(width: Size.screenWidth, height: 180)
   }
   
-  private let navigationBarView = NavigationBarView(tabType: .profile)
+  var navigationBarView = NavigationBarView(tabType: .profile)
+  var homieNavigationBarView = ProfileSettingNavigationBarView().then {
+    $0.titleLabel.text = "룸메이트 프로필"
+    $0.titleLabel.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
+    $0.isHidden = true
+  }
   
   private let profileMainCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -55,11 +72,7 @@ final class ProfileViewController : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    getNetworkInfo { response in
-      self.profileNetworkResponse = response
-      self.convertResponseToDataPack(self.profileNetworkResponse)
-      self.profileMainCollectionView.reloadData()
-    }
+    getData()
     setup()
     configUI()
     render()
@@ -69,6 +82,22 @@ final class ProfileViewController : UIViewController {
     super.viewWillAppear(animated)
     setNavigationController()
     profileMainCollectionView.reloadData()
+  }
+  
+  private func getData() {
+    if isPresentedFromHomeVC {
+      getHomeDetail(userId: self.userId) { response in
+        self.profileNetworkResponse = response
+        self.convertResponseToDataPack(self.profileNetworkResponse)
+        self.profileMainCollectionView.reloadData()
+      }
+    } else {
+      getNetworkInfo { response in
+        self.profileNetworkResponse = response
+        self.convertResponseToDataPack(self.profileNetworkResponse)
+        self.profileMainCollectionView.reloadData()
+      }
+    }
   }
   
   private func setNavigationController() {
@@ -97,9 +126,15 @@ final class ProfileViewController : UIViewController {
   }
   
   private func render() {
-    view.addSubViews([navigationBarView, profileMainCollectionView])
+    view.addSubViews([navigationBarView, homieNavigationBarView, profileMainCollectionView])
     
     navigationBarView.snp.makeConstraints { make in
+      make.height.equalTo(60)
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.leading.trailing.equalToSuperview()
+    }
+    
+    homieNavigationBarView.snp.makeConstraints { make in
       make.height.equalTo(60)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.trailing.equalToSuperview()
@@ -128,6 +163,7 @@ final class ProfileViewController : UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    if isPresentedFromHomeVC { return 2 }
     return 3
   }
   
@@ -185,14 +221,17 @@ extension ProfileViewController {
   // setData 함수에만 구현합니다.
   
   private func convertResponseToDataPack(_ profileNetworkResponse : ProfileDTO?) {
-    let userName = profileNetworkResponse!.userName
-    let userJob = profileNetworkResponse!.job
-    let statusMessage = profileNetworkResponse!.introduction
-    let hashTag = profileNetworkResponse!.hashTag
+    guard let profileNetworkResponse = profileNetworkResponse else { return }
+    
+    let userName = profileNetworkResponse.userName
+    let userJob = profileNetworkResponse.job
+    let statusMessage = profileNetworkResponse.introduction
+    let hashTag = profileNetworkResponse.hashTag
     
     let personalityType: PersonalityType
+    let typeId = profileNetworkResponse.typeId
     
-    switch profileNetworkResponse!.typeColor {
+    switch profileNetworkResponse.typeColor {
     case "RED" : personalityType = .triangle
     case "BLUE" : personalityType = .rectangle
     case "YELLOW" : personalityType = .round
@@ -201,18 +240,16 @@ extension ProfileViewController {
     default : personalityType = .empty
     }
     
-    let typeId = profileNetworkResponse!.typeId
-    let typeScoreInt = profileNetworkResponse!.typeScore
+    let typeScoreInt = profileNetworkResponse.typeScore
+    
     var typeScore: [Double] = []
     typeScoreInt.forEach {
       typeScore.append(Double(10 * $0 - 10))
     }
-    let notificationState = profileNetworkResponse!.notificationState
+    let notificationState = profileNetworkResponse.notificationState
     let isEmptyView = personalityType == .empty ? true : false
     
-    print(typeId)
-    
-    self.profileNetworkDataPack = ProfileNetworkDataPack(userName: userName, userJob: userJob, statusMessage: statusMessage, hashTag: hashTag, personalityType: personalityType, typeId: typeId, typeScore: typeScore, notificationState: notificationState, isEmptyView: isEmptyView)
+    self.profileNetworkDataPack = ProfileNetworkDataPack(userName: userName, userJob: userJob, statusMessage: statusMessage, hashTag: hashTag, personalityType: personalityType, typeId: typeId, typeScore: typeScore, notificationState: notificationState ?? false, isEmptyView: isEmptyView)
   }
   
   private func getNetworkInfo(completion: @escaping (ProfileDTO) -> Void) {
@@ -236,5 +273,26 @@ extension ProfileViewController: ProfileGraphEmptyCollectionViewCellDelegate {
     typeTestInfoVC.modalTransitionStyle = .crossDissolve
     
     present(typeTestInfoVC, animated: true)
+  }
+}
+
+// MARK: Network
+
+extension ProfileViewController {
+  func getHomeDetail(userId: String, completion : @escaping (ProfileDTO) -> Void) {
+    ProfileMainAPIService.shared.requestGetHomieDetail(userId: userId) { result in
+      
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<ProfileDTO> {
+        guard let response = responseResult.response else { return }
+        
+        self.homieProfileData = response
+        completion(response)
+        
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
   }
 }

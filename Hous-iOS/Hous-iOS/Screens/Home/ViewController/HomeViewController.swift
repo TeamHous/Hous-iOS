@@ -113,6 +113,28 @@ final class HomeViewController: UIViewController {
 //MARK: Delegate & Datasource
 
 extension HomeViewController: UICollectionViewDelegate {
+  
+  // profile touched
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    let profileHomeVC = ProfileViewController(item: .profile)
+    
+    profileHomeVC.isPresentedFromHomeVC = true
+    
+    let homieId = homeData.homieProfileList[indexPath.item].id
+    profileHomeVC.userId = homieId
+    
+    profileHomeVC.homieNavigationBarView.isHidden = false
+    profileHomeVC.navigationBarView.isHidden = true
+    
+    profileHomeVC.homieNavigationBarView.popNavigationController = { [self] in
+      navigationController?.popViewController(animated: true)
+    }
+    
+    self.navigationController?.pushViewController(profileHomeVC, animated: true)
+  }
+  
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 3
   }

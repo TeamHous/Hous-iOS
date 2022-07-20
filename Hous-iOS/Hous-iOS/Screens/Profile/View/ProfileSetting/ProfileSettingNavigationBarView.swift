@@ -11,7 +11,7 @@ final class ProfileSettingNavigationBarView: UIView {
   
   var popNavigationController : (() -> Void)?
   
-  private var titleLabel = UILabel().then {
+  var titleLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
     $0.font = .font(.montserratSemiBold, ofSize: 26)
     $0.text = "Settings"
@@ -52,7 +52,7 @@ final class ProfileSettingNavigationBarView: UIView {
 
 extension ProfileSettingNavigationBarView {
   @objc func tabNavigationBackButton(){
-    popNavigationController!()
+    popNavigationController?()
   }
 }
 

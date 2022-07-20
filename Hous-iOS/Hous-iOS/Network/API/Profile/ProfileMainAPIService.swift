@@ -22,6 +22,15 @@ extension ProfileMainAPIService {
         responseData(dataResponse, completion: completion)
       }
   }
+  
+  func requestGetHomieDetail(userId: String, completion: @escaping(NetworkResult<ProfileDTO>) -> Void) {
+    let target = ProfileMainAPITarget.getHomieDetail(userId: userId)
+    
+    AF.request(target)
+      .responseData {dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
 }
 
 extension ProfileMainAPIService {
