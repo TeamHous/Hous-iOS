@@ -168,7 +168,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    switch indexPath.row{
+    switch indexPath.row {
     case 0:
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileInfoCollectionViewCell.className, for: indexPath) as? ProfileInfoCollectionViewCell else {return UICollectionViewCell()}
       cell.setData(profileNetworkDataPack)
@@ -195,7 +195,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    switch indexPath.row{
+    switch indexPath.row {
     case 0:
       return Size.infoCellSize
     case 1:

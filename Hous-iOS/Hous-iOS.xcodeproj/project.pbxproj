@@ -180,8 +180,6 @@
 		9B814228287D3F940073E533 /* ProfileGraphBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphBoxView.swift; sourceTree = "<group>"; };
 		9B81422A287D3FE30073E533 /* ProfileGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGraphView.swift; sourceTree = "<group>"; };
 		9BA5DAA12885C75E00D3735E /* ProfileResultPersonalityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResultPersonalityType.swift; sourceTree = "<group>"; };
-		9BA5DAA5288720C800D3735E /* ProfileTestResultAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTestResultAPITarget.swift; path = "Hous-iOS/Network/API/ProfileTestResultAPITarget.swift"; sourceTree = SOURCE_ROOT; };
-		9BA5DAA7288720DA00D3735E /* ProfileTestResultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTestResultAPIService.swift; path = "Hous-iOS/Network/API/ProfileTestResultAPIService.swift"; sourceTree = SOURCE_ROOT; };
 		9BBB079928889454003EAA09 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
 		9BBB079B28889474003EAA09 /* ProfileTestResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultDTO.swift; sourceTree = "<group>"; };
 		9BBB079E2888949E003EAA09 /* ProfileMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainAPITarget.swift; sourceTree = "<group>"; };
@@ -400,15 +398,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		9BDBB30E2888904B009DCFB8 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				9BA5DAA5288720C800D3735E /* ProfileTestResultAPITarget.swift */,
-				9BA5DAA7288720DA00D3735E /* ProfileTestResultAPIService.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		9BF7AB1B28816069005B6E8A /* ProfileMain */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,7 +576,6 @@
 			children = (
 				B80510A02876D2D10025B767 /* Hous-iOS */,
 				B805109F2876D2D10025B767 /* Products */,
-				9BDBB30E2888904B009DCFB8 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
