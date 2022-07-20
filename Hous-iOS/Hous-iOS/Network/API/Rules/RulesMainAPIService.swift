@@ -49,6 +49,16 @@ extension RulesMainAPIService {
         responseData(dataResponse, completion: completion)
       }
   }
+
+  func requestGetTodayTodoAssignee(roomId: String, ruleId: String, completion: @escaping (NetworkResult<TodayTodoAssigneeDTO>) -> Void) {
+
+    let target = RulesMainAPITarget.getTodayTodoAssignee(roomId: roomId, ruleId: ruleId)
+    print(target)
+    AF.request(target)
+      .responseData { dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
 }
 
 extension RulesMainAPIService {

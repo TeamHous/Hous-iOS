@@ -9,7 +9,14 @@ import UIKit
 import SnapKit
 import Then
 
-class TodayTodoAssignPopUpViewController: UIViewController {
+final class TodayTodoAssignPopUpViewController: UIViewController {
+
+  var viewModel = AssigneePopupViewModel()
+  var todayTodoAssigneeData: TodayTodoAssigneeDTO = TodayTodoAssigneeDTO(id: "", homies: []) {
+    didSet { self.assigneeCollectionView.reloadData() }
+  }
+
+  var ruleId = ""
 
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
@@ -60,7 +67,7 @@ class TodayTodoAssignPopUpViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    getTodayTodoAssignee()
   }
 
   private func render() {
@@ -107,7 +114,10 @@ class TodayTodoAssignPopUpViewController: UIViewController {
 //MARK: server
 extension TodayTodoAssignPopUpViewController {
   private func getTodayTodoAssignee() {
-    
+    viewModel.getTodayTodoAssignee(roomId: APIConstants.roomID, ruleId: self.ruleId) { response in
+      print(response)
+      self.todayTodoAssigneeData = response
+    }
   }
 }
 
@@ -129,7 +139,7 @@ extension TodayTodoAssignPopUpViewController: UICollectionViewDelegate {
 
 extension TodayTodoAssignPopUpViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return ParticipantsDataModel.sampleData.count
+    return todayTodoAssigneeData.homies.count
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -137,8 +147,7 @@ extension TodayTodoAssignPopUpViewController: UICollectionViewDataSource {
       guard let cell = assigneeCollectionView.dequeueReusableCell(withReuseIdentifier: ParticipantsCollectionViewCell.className, for: indexPath) as? ParticipantsCollectionViewCell else { return UICollectionViewCell() }
 
       cell.contentView.isUserInteractionEnabled = true
-//      cell.setParticipantData(HomeDTO.sampleData.homieProfileList[indexPath.row], isSelected: nil)
-
+      cell.setParticipantData(todayTodoAssigneeData.homies[indexPath.row], isSelected: nil)
       return cell
     }
 

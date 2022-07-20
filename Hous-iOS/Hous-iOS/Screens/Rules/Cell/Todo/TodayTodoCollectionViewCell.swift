@@ -8,12 +8,13 @@
 import UIKit
 
 protocol TodayTodoCollectionViewCellDelegate: AnyObject {
-  func leftAssigneeViewTouched()
+  func leftAssigneeViewTouched(ruleId: String)
 }
 
 class TodayTodoCollectionViewCell: UICollectionViewCell {
 
   weak var delegate: TodayTodoCollectionViewCellDelegate?
+  var ruleId = "" //이거맞냐
 
   enum Size {
     static let leftRoundViewSize: CGFloat = 40
@@ -101,6 +102,8 @@ extension TodayTodoCollectionViewCell {
 
   func setTodayTodoCell(_ item: TodayTodoRulesDTO) {
 
+    self.ruleId = item.id
+
     self.todoTitleLabel.text = item.ruleName
     self.doneCheckBoxImageView.isHidden = !item.isAllChecked
     self.tmpAssigneeDotView.isHidden = !item.isTmpMember
@@ -153,7 +156,7 @@ extension TodayTodoCollectionViewCell {
     if touch.view == self.addAssignView ||
         touch.view == self.manyAssignedView ||
         touch.view == self.oneAssignedView {
-      delegate?.leftAssigneeViewTouched()
+      delegate?.leftAssigneeViewTouched(ruleId: self.ruleId)
     } else {
       // 나머지 부분 터치 시 기능 구현 예정
     }

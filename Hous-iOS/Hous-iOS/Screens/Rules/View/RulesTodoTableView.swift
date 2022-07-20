@@ -11,7 +11,7 @@ import Then
 
 final class RulesTodoTableView: UIView {
 
-  var leftAssigneeViewAction : (() -> Void)?
+  var leftAssigneeViewAction : ((String) -> Void)?
   var checkButtonUpdateAction: ((_ ruleId: String, _ isCheck: Bool) -> Void)?
 
   var todayTodoRulesData: [TodayTodoRulesDTO] = [] {
@@ -149,8 +149,8 @@ extension RulesTodoTableView: UICollectionViewDataSource, UICollectionViewDelega
 
 extension RulesTodoTableView: TodayTodoCollectionViewCellDelegate,
                               MyTodoCheckUpdateDelegate {
-  func leftAssigneeViewTouched() {
-    leftAssigneeViewAction?()
+  func leftAssigneeViewTouched(ruleId: String) {
+    leftAssigneeViewAction?(ruleId)
   }
 
   func updateCheckStatus(ruleId: String, isCheck: Bool) {

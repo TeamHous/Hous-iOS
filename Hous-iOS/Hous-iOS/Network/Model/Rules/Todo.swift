@@ -93,4 +93,9 @@ struct RulesDTO: Codable {
 struct TodayTodoAssigneeDTO: Codable {
   let id: String
   let homies: [Participant]
+
+  enum CodingKeys: String, CodingKey {
+      case id = "_id"
+      case homies
+  }
 }
