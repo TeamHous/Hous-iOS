@@ -112,3 +112,9 @@ struct UpdateTodayTodoAssigneeDTO: Codable {
       case ruleName, tmpRuleMembers
   }
 }
+
+// postNewCategory
+
+struct PostNewCategory {
+  <#fields#>
+}
