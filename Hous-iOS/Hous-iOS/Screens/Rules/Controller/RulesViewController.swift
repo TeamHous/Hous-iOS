@@ -255,7 +255,6 @@ extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControlle
   func filledButtonTouched(viewType: CategoryEditType, categoryName: String, categoryIcon: String) {
     viewModel.postNewCategory(roomId: APIConstants.roomID, categoryName: categoryName, categoryIcon: categoryIcon) { response in
       self.getRulesTodayTodo()
-      //self.mainView.rulesType = .todo
     }
   }
 
@@ -277,6 +276,7 @@ extension RulesViewController {
 
     if sender.state != .began { return }
     let collectionView = mainView.categoryCollectionView
+
     if let selectedIndexPath = self.currentIndexPath {
       guard let selectedCell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryCollectionViewCell else {return}
       selectedCell.isSelected = false
@@ -286,14 +286,16 @@ extension RulesViewController {
     guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else {return}
     guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
     self.currentIndexPath = indexPath
-
-    if indexPath.row != self.rulesTodayTodoData.homeRuleCategories.count {
-      self.currentIndexPath = indexPath
-      self.mainView.categoryEditView.editType = .update
-      self.mainView.todayTodoButton.isSelected = false
-      self.mainView.rulesType = .editCategory
-      self.isNavigatinHidden(isHidden: true)
-      cell.isSelected = true
+    DispatchQueue.main.async {
+      if indexPath.row != self.rulesTodayTodoData.homeRuleCategories.count {
+        self.currentIndexPath = indexPath
+        self.mainView.categoryEditView.editType = .update
+        self.mainView.categoryEditView.setCategoryInfo(categoryName: cell.categoryName, categoryIcon: cell.categoryICon)
+        self.mainView.todayTodoButton.isSelected = false
+        self.mainView.rulesType = .editCategory
+        self.isNavigatinHidden(isHidden: true)
+        cell.isSelected = true
+      }
     }
   }
 }

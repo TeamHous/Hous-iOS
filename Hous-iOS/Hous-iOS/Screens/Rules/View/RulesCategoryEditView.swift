@@ -13,7 +13,7 @@ protocol RulesCategoryEditViewDelegate: AnyObject {
   func borderButtonTouched(viewType: CategoryEditType)
   func filledButtonTouched(viewType: CategoryEditType, categoryName: String, categoryIcon: String)
 }
-
+// stackview foreach refactor needed
 final class RulesCategoryEditView: UIView {
 
   //MARK: - 변수
@@ -22,17 +22,20 @@ final class RulesCategoryEditView: UIView {
   var editType: CategoryEditType = .add {
     didSet {
       setText(editType)
+      if editType == .add { setInitialView() }
     }
   }
-  var selectedButton: CategoryButton?
+  var selectedButton: CategoryButton? {
+    didSet {
+      selectedButton?.isSelected = true
+    }
+  }
 
   enum Size {
     static let selectedCategoryViewSize: CGFloat = 100
     static let bottomButtonHeight: CGFloat = 48
     static let maxCategoryLength = 5
   }
-
-  //var originalCategoryData: [CategoryDataModel]? .add면 nil, .update면 data 유
 
   private var categoryTitleLabel = UILabel().then {
     $0.textColor = R.Color.housBlack
@@ -206,16 +209,33 @@ final class RulesCategoryEditView: UIView {
     filledButton.setTitle(editType.editViewFilledButtonText, for: .normal)
   }
 
-  func setInitialView() {
+  private func unselectAllButton() {
     (categoryFirstStackView.subviews +
      categorySecondStackView.subviews).forEach {
       guard let button = $0 as? CategoryButton else { return }
       button.isSelected = false
     }
+  }
+
+  func setInitialView() {
+    self.unselectAllButton()
     selectedCategoryImageView.image = R.Image.clean
-    self.cleanCategoryButton.isSelected = true
     self.selectedButton = cleanCategoryButton
     self.categoryTextField.text = ""
+  }
+
+  func setCategoryInfo(categoryName: String, categoryIcon: String) {
+    self.unselectAllButton()
+    guard let iconType = CategoryIconImage(rawValue: categoryIcon.lowercased()) else { print("나가니?")
+      return }
+    let icon = CategoryIconFactory.makeIcon(type: iconType)
+    self.categoryTextField.text = categoryName
+    selectedCategoryImageView.image = icon.unCheckedImage
+    (categoryFirstStackView.subviews +
+     categorySecondStackView.subviews).forEach {
+      guard let button = $0 as? CategoryButton else { return }
+      if button.categoryIcon == iconType { selectedButton = button }
+    }
   }
 }
 // MARK: - 라디오 버튼 기능

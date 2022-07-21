@@ -90,4 +90,18 @@ extension RulesViewModel {
       }
     }
   }
+
+  func updateCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String, completion: @escaping (CategoryDTO) -> Void) {
+    RulesMainAPIService.shared.requestUpdateCategory(roomId: roomId, categoryId: categoryId, categoryName: categoryName, categoryIcon: categoryIcon) { result in
+
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<CategoryDTO> {
+        guard let response = responseResult.response else { return }
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
 }

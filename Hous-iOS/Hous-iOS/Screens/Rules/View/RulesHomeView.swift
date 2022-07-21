@@ -108,7 +108,6 @@ class RulesHomeView: UIView {
       categoryEditView.snp.makeConstraints { make in
           make.edges.equalToSuperview()
       }
-      categoryEditView.setInitialView()
     }
   }
 }
