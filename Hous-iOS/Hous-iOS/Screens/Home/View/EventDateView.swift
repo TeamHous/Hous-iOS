@@ -118,10 +118,13 @@ class EventDateView: UIView {
     monthBackgroundView.snp.makeConstraints { make in
       make.centerY.equalTo(yearBackgroundView)
       make.leading.equalTo(yearLabel.snp.trailing).offset(8)
+      
+      make.top.bottom.equalToSuperview()
     }
     
     monthDatePickerTextField.snp.makeConstraints { make in
-      make.edges.equalToSuperview().inset(10)
+      make.top.bottom.equalToSuperview()
+      make.leading.trailing.equalToSuperview().inset(15)
     }
     
     monthLabel.snp.makeConstraints { make in

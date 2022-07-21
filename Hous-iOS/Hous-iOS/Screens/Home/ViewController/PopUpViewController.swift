@@ -238,7 +238,7 @@ final class PopUpViewController: UIViewController {
     }
     
     buttonStackView.snp.makeConstraints { make in
-      make.top.equalTo(participantsCollectionView.snp.bottom).offset(16)
+      make.top.equalTo(participantsCollectionView.snp.bottom).offset(6)
       make.leading.trailing.equalToSuperview().inset(24)
       make.bottom.equalToSuperview().inset(20)
     }
