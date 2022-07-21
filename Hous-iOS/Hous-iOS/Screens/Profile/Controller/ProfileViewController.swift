@@ -125,6 +125,7 @@ final class ProfileViewController : UIViewController {
   private func configUI() {
     profileMainCollectionView.backgroundColor = .white
     view.backgroundColor = .white
+    profileMainCollectionView.showsVerticalScrollIndicator = false
   }
   
   private func render() {

@@ -108,6 +108,7 @@ final class ProfileTestResultViewController : UIViewController {
   private func configUI() {
     profileTestResultCollectionView.backgroundColor = .white
     view.backgroundColor = .white
+    profileTestResultCollectionView.showsVerticalScrollIndicator = false
   }
   
   private func render() {
