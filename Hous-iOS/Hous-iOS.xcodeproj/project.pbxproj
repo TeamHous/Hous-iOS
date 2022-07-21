@@ -578,7 +578,6 @@
 			children = (
 				B80510A02876D2D10025B767 /* Hous-iOS */,
 				B805109F2876D2D10025B767 /* Products */,
-				B8587379288879BF00912768 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1056,7 +1055,6 @@
 				B8587377288810A900912768 /* AssigneePopupViewModel.swift in Sources */,
 				B5084A27287996EE00C38749 /* RulesTodoView.swift in Sources */,
 				B858737B2889413F00912768 /* CategoryButton.swift in Sources */,
-				9BCA2A0128857BE20032338D /* ProfileMainAPITarget.swift in Sources */,
 				9BF7AB2228816235005B6E8A /* ProfileEditingNavigationBarView.swift in Sources */,
 				9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */,
 				9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */,
@@ -1171,7 +1169,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
-					"-interposable",
 					"-all_load",
 				);
 				SDKROOT = iphoneos;
@@ -1233,7 +1230,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
-					"-interposable",
 					"-all_load",
 				);
 				SDKROOT = iphoneos;
@@ -1250,9 +1246,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B849TJY5N4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hous-iOS/Global/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
