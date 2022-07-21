@@ -67,6 +67,9 @@
 		B534F94C2887131D00624BAA /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F94B2887131D00624BAA /* APIConstants.swift */; };
 		B534F9532888110600624BAA /* ProfileTestAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9522888110600624BAA /* ProfileTestAPITarget.swift */; };
 		B534F9552888111400624BAA /* ProfileTestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9542888111400624BAA /* ProfileTestAPIService.swift */; };
+		B534F9632889724300624BAA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B534F9622889724300624BAA /* Lottie */; };
+		B534F967288979C200624BAA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B534F966288979C200624BAA /* Launch Screen.storyboard */; };
+		B534F96C28899A3100624BAA /* splashlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B534F96B28899A3100624BAA /* splashlottie.json */; };
 		B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
@@ -208,6 +211,8 @@
 		B534F94B2887131D00624BAA /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B534F9522888110600624BAA /* ProfileTestAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestAPITarget.swift; sourceTree = "<group>"; };
 		B534F9542888111400624BAA /* ProfileTestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestAPIService.swift; sourceTree = "<group>"; };
+		B534F966288979C200624BAA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B534F96B28899A3100624BAA /* splashlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashlottie.json; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -286,6 +291,7 @@
 			files = (
 				778A7A0E2879349100722CBB /* RxGesture in Frameworks */,
 				B843872D287961EE003F7B75 /* RxSwift in Frameworks */,
+				B534F9632889724300624BAA /* Lottie in Frameworks */,
 				B843872B287961EE003F7B75 /* RxRelay in Frameworks */,
 				B84CF9C42884B8B2008770F0 /* Inject in Frameworks */,
 				B8438727287961EE003F7B75 /* Alamofire in Frameworks */,
@@ -642,6 +648,7 @@
 				B80510A12876D2D10025B767 /* AppDelegate.swift */,
 				B80510A32876D2D10025B767 /* SceneDelegate.swift */,
 				B80510AF2876D2D20025B767 /* Info.plist */,
+				B534F966288979C200624BAA /* Launch Screen.storyboard */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -649,6 +656,7 @@
 		B80510B92876D3090025B767 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B534F96B28899A3100624BAA /* splashlottie.json */,
 				B80510C82876D3E80025B767 /* Font */,
 				B80510AA2876D2D20025B767 /* Assets.xcassets */,
 			);
@@ -901,6 +909,7 @@
 				B843872A287961EE003F7B75 /* RxRelay */,
 				B843872C287961EE003F7B75 /* RxSwift */,
 				B84CF9C32884B8B2008770F0 /* Inject */,
+				B534F9622889724300624BAA /* Lottie */,
 			);
 			productName = "Hous-iOS";
 			productReference = B805109E2876D2D10025B767 /* Hous-iOS.app */;
@@ -938,6 +947,7 @@
 				B80510DE2876D65E0025B767 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */,
 				B84CF9C22884B8B2008770F0 /* XCRemoteSwiftPackageReference "Inject" */,
+				B534F9612889724300624BAA /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = B805109F2876D2D10025B767 /* Products */;
 			projectDirPath = "";
@@ -954,8 +964,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80510CB2876D5B10025B767 /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				B534F96C28899A3100624BAA /* splashlottie.json in Resources */,
 				B80510D12876D5D70025B767 /* Montserrat-Medium.otf in Resources */,
 				B80510D32876D5D70025B767 /* Montserrat-Bold.otf in Resources */,
+				B534F967288979C200624BAA /* Launch Screen.storyboard in Resources */,
 				B80510D42876D5D70025B767 /* Montserrat-Regular.otf in Resources */,
 				B80510CC2876D5B10025B767 /* SpoqaHanSansNeo-Medium.otf in Resources */,
 				778A79FF2877061E00722CBB /* Localizable.strings in Resources */,
@@ -1252,7 +1264,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hous-iOS/Global/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1282,7 +1294,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hous-iOS/Global/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1329,6 +1341,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.0.0;
+			};
+		};
+		B534F9612889724300624BAA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		B80510D52876D6440025B767 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -1378,6 +1398,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		B534F9622889724300624BAA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B534F9612889724300624BAA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		B8438722287961EE003F7B75 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

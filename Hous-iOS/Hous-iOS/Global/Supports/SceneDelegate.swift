@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let window = UIWindow(windowScene: windowScene)
     window.backgroundColor = .white
 
-    window.rootViewController = HousTabbarViewController()
+    window.rootViewController = SplashViewController()
     window.makeKeyAndVisible()
     self.window = window
   }
