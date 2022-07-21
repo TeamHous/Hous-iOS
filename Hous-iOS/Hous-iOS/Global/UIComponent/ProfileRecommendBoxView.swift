@@ -70,7 +70,7 @@ final class ProfileRecommendBoxView: UIView {
     
     personalityLabel.snp.makeConstraints {make in
       make.centerX.equalToSuperview()
-      make.top.equalTo(titleLabel.snp.bottom)
+      make.top.equalTo(titleLabel.snp.bottom).offset(5)
     }
     
     personalityImageView.snp.makeConstraints {make in
