@@ -238,7 +238,7 @@ final class PopUpViewController: UIViewController {
     }
     
     buttonStackView.snp.makeConstraints { make in
-      make.top.equalTo(participantsCollectionView.snp.bottom).offset(6)
+      make.top.equalTo(participantsCollectionView.snp.bottom).offset(3)
       make.leading.trailing.equalToSuperview().inset(24)
       make.bottom.equalToSuperview().inset(20)
     }
@@ -263,6 +263,7 @@ final class PopUpViewController: UIViewController {
     eventDateView.snp.makeConstraints { make in
       make.top.equalTo(iconStackView.snp.bottom).offset(16)
       make.leading.trailing.equalTo(popUpView).inset(24)
+      make.trailing.equalTo(iconStackView.snp.trailing)
     }
     
     participantLabel.snp.makeConstraints { make in
@@ -271,7 +272,7 @@ final class PopUpViewController: UIViewController {
     }
     
     participantsCollectionView.snp.makeConstraints { make in
-      make.top.equalTo(participantLabel.snp.bottom).offset(8)
+      make.top.equalTo(participantLabel.snp.bottom)
       make.leading.trailing.equalTo(popUpView)
     }
   }

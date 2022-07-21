@@ -52,7 +52,6 @@ final class SplashViewController: UIViewController {
         self.view.window?.rootViewController = tabbarViewController
         self.view.window?.makeKeyAndVisible()
       }
-      
     }
   }
   

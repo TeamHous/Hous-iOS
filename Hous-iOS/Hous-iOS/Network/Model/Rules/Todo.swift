@@ -17,10 +17,10 @@ struct HomeRuleCategoriesDTO: Codable {
   let id: String
   let categoryIcon: String
   let categoryName: String
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case categoryIcon, categoryName
+    case id = "_id"
+    case categoryIcon, categoryName
   }
 }
 
@@ -30,10 +30,10 @@ struct TodayTodoRulesDTO: Codable {
   let todayMembersWithTypeColor: [TodayMembersWithTypeColorDTO]
   let isTmpMember: Bool
   let isAllChecked: Bool
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case ruleName, todayMembersWithTypeColor, isTmpMember,isAllChecked
+    case id = "_id"
+    case ruleName, todayMembersWithTypeColor, isTmpMember,isAllChecked
   }
 }
 
@@ -48,10 +48,10 @@ struct RulesMyTodoDTO: Codable {
   let categoryIcon: String
   let ruleName: String
   let isChecked: Bool
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case categoryIcon, ruleName, isChecked
+    case id = "_id"
+    case categoryIcon, ruleName, isChecked
   }
 }
 
@@ -69,10 +69,10 @@ struct RulesByCategoryDTO: Codable {
 struct KeyRulesDTO: Codable {
   let id: String
   let ruleName: String
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case ruleName
+    case id = "_id"
+    case ruleName
   }
 }
 
@@ -81,10 +81,10 @@ struct RulesDTO: Codable {
   let ruleName: String
   let membersCnt: Int
   let typeColors: [String]
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case ruleName, membersCnt, typeColors
+    case id = "_id"
+    case ruleName, membersCnt, typeColors
   }
 }
 
@@ -93,10 +93,10 @@ struct RulesDTO: Codable {
 struct TodayTodoAssigneeDTO: Codable {
   let id: String
   let homies: [Participant]
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case homies
+    case id = "_id"
+    case homies
   }
 }
 
@@ -106,10 +106,10 @@ struct UpdateTodayTodoAssigneeDTO: Codable {
   let id: String
   let ruleName: String
   let tmpRuleMembers: [String]
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case ruleName, tmpRuleMembers
+    case id = "_id"
+    case ruleName, tmpRuleMembers
   }
 }
 
@@ -121,10 +121,10 @@ struct CategoryDTO: Codable {
   let ruleCategoryName: String
   let ruleCategoryIcon: String
   let ruleCnt: Int
-
+  
   enum CodingKeys: String, CodingKey {
-      case id = "_id"
-      case roomId, ruleCategoryName, ruleCategoryIcon, ruleCnt
+    case id = "_id"
+    case roomId, ruleCategoryName, ruleCategoryIcon, ruleCnt
   }
 }
 

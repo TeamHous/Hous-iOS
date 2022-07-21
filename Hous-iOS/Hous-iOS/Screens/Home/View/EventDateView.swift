@@ -133,12 +133,15 @@ class EventDateView: UIView {
     }
     
     dayBackgroundView.snp.makeConstraints { make in
+      make.top.bottom.equalToSuperview()
       make.centerY.equalTo(monthBackgroundView)
       make.leading.equalTo(monthLabel.snp.trailing).offset(8)
     }
     
     dayDatePickerTextField.snp.makeConstraints { make in
-      make.edges.equalToSuperview().inset(10)
+      make.top.bottom.equalToSuperview()
+      make.leading.trailing.equalToSuperview().inset(15)
+//      make.edges.equalToSuperview().inset(10)
     }
     
     dayLabel.snp.makeConstraints { make in

@@ -25,7 +25,7 @@ final class ProfileGraphCollectionViewCell: UICollectionViewCell {
     $0.backgroundColor = .white
   }
   
-  private let detailInfoButton = UIButton().then {
+  private lazy var detailInfoButton = UIButton().then {
     $0.setTitle("자세히 보기 ", for: .normal)
     $0.setImage(R.Image.viewMoreButton, for: .normal)
     $0.setTitleColor(.veryLightPinkFour, for: .normal)
