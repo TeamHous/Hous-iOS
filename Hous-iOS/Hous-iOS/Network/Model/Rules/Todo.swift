@@ -127,3 +127,4 @@ struct CategoryDTO: Codable {
       case roomId, ruleCategoryName, ruleCategoryIcon, ruleCnt
   }
 }
+
