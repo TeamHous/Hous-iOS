@@ -10,7 +10,7 @@ import UIKit
 
 enum HousTabbarItem: String, CaseIterable {
   case home
-  case rulse
+  case rules
   case profile
 }
 
@@ -19,7 +19,7 @@ extension HousTabbarItem {
     switch self {
     case .home:
       return UINavigationController(rootViewController: HomeViewController())
-    case .rulse:
+    case .rules:
       return UINavigationController(rootViewController: RulesViewController())
     case .profile:
       return UINavigationController(rootViewController: ProfileViewController(item: .profile))
@@ -30,7 +30,7 @@ extension HousTabbarItem {
     switch self {
     case .home:
       return R.Image.homeTabUnselected.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
-    case .rulse:
+    case .rules:
       return R.Image.rulesTabUnselected.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
     case .profile:
       return R.Image.profileTabUnselected.withTintColor(.white.withAlphaComponent(0.4), renderingMode: .alwaysOriginal)
@@ -41,7 +41,7 @@ extension HousTabbarItem {
     switch self {
     case .home:
       return R.Image.homeTabSelected
-    case .rulse:
+    case .rules:
       return R.Image.rulesTabSelected
     case .profile:
       return R.Image.profileTabSelected

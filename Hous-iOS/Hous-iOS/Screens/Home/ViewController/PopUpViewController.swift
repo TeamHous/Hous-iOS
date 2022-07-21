@@ -265,10 +265,11 @@ final class PopUpViewController: UIViewController {
     participantLabel.snp.makeConstraints { make in
       make.top.equalTo(eventDateView.snp.bottom).offset(16)
       make.leading.equalTo(popUpView).offset(24)
+      make.height.equalTo(24)
     }
     
     participantsCollectionView.snp.makeConstraints { make in
-      make.top.equalTo(participantLabel.snp.bottom)
+      make.top.equalTo(participantLabel.snp.bottom).offset(8)
       make.leading.trailing.equalTo(popUpView)
     }
   }

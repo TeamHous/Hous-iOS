@@ -124,8 +124,6 @@ extension HomeViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    if homeData.homieProfileList[indexPath.row].typeColor == "GRAY" { return }
-    
     if indexPath.row == homeData.homieProfileList.count {
       UIPasteboard.general.string = homeData.roomCode
       if let str = UIPasteboard.general.string {
@@ -135,6 +133,8 @@ extension HomeViewController: UICollectionViewDelegate {
       }
       return
     }
+    
+    if homeData.homieProfileList[indexPath.row].typeColor == "GRAY" { return }
     
     if indexPath.section == HomeSection.profiles.rawValue {
       

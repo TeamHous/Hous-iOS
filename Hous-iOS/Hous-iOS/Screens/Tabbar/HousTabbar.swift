@@ -26,7 +26,7 @@ final class HousTabbar: UIStackView {
   }()
 
   private let rulesItemView: HousTabbarItemView = {
-    let view = HousTabbarItemView(item: .rulse, index: 1)
+    let view = HousTabbarItemView(item: .rules, index: 1)
     view.clipsToBounds = true
     return view
   }()
