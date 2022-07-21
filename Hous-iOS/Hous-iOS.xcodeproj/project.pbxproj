@@ -70,7 +70,6 @@
 		B534F9552888111400624BAA /* ProfileTestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534F9542888111400624BAA /* ProfileTestAPIService.swift */; };
 		B534F9632889724300624BAA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B534F9622889724300624BAA /* Lottie */; };
 		B534F967288979C200624BAA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B534F966288979C200624BAA /* Launch Screen.storyboard */; };
-		B534F96C28899A3100624BAA /* splashlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B534F96B28899A3100624BAA /* splashlottie.json */; };
 		B58DECCB288025040075AB25 /* ProfileBadgeStackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B814226287C93340073E533 /* ProfileBadgeStackItemView.swift */; };
 		B59C9469287708E6005865CA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9468287708E5005865CA /* UIView+Extension.swift */; };
 		B59C946B287708FE005865CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C946A287708FE005865CA /* UITextField+Extension.swift */; };
@@ -83,6 +82,7 @@
 		B59C94792877097D005865CA /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C94782877097D005865CA /* UICollectionView+Extension.swift */; };
 		B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C947A2877098D005865CA /* UIStackView+Extension.swift */; };
 		B5A3A5E22889DD53007CBD86 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3A5E12889DD53007CBD86 /* UIScrollView+Extension.swift */; };
+		B5A3A5E42889ECFF007CBD86 /* splashlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5A3A5E32889ECFF007CBD86 /* splashlottie.json */; };
 		B5A7D19A28809B180037F210 /* QuitTestPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */; };
 		B5BD75D128801F4C00B98D35 /* IconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD75D028801F4C00B98D35 /* IconFactory.swift */; };
 		B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
@@ -219,7 +219,6 @@
 		B534F9522888110600624BAA /* ProfileTestAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestAPITarget.swift; sourceTree = "<group>"; };
 		B534F9542888111400624BAA /* ProfileTestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestAPIService.swift; sourceTree = "<group>"; };
 		B534F966288979C200624BAA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		B534F96B28899A3100624BAA /* splashlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashlottie.json; sourceTree = "<group>"; };
 		B59C9468287708E5005865CA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B59C946A287708FE005865CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B59C946C2877090F005865CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -231,6 +230,7 @@
 		B59C94782877097D005865CA /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B59C947A2877098D005865CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		B5A3A5E12889DD53007CBD86 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		B5A3A5E32889ECFF007CBD86 /* splashlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashlottie.json; sourceTree = "<group>"; };
 		B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTestPopUpViewController.swift; sourceTree = "<group>"; };
 		B5BD75D028801F4C00B98D35 /* IconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFactory.swift; sourceTree = "<group>"; };
 		B5E95ADB2881917B00CD2244 /* HomeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTO.swift; sourceTree = "<group>"; };
@@ -668,7 +668,7 @@
 		B80510B92876D3090025B767 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				B534F96B28899A3100624BAA /* splashlottie.json */,
+				B5A3A5E32889ECFF007CBD86 /* splashlottie.json */,
 				B80510C82876D3E80025B767 /* Font */,
 				B80510AA2876D2D20025B767 /* Assets.xcassets */,
 			);
@@ -982,7 +982,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80510CB2876D5B10025B767 /* SpoqaHanSansNeo-Bold.otf in Resources */,
-				B534F96C28899A3100624BAA /* splashlottie.json in Resources */,
+				B5A3A5E42889ECFF007CBD86 /* splashlottie.json in Resources */,
 				B80510D12876D5D70025B767 /* Montserrat-Medium.otf in Resources */,
 				B80510D32876D5D70025B767 /* Montserrat-Bold.otf in Resources */,
 				B534F967288979C200624BAA /* Launch Screen.storyboard in Resources */,
