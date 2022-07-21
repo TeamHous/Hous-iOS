@@ -18,12 +18,12 @@ protocol IconProtocol {
 
 struct PartyIcon: IconProtocol {
   var bigIconImage = R.Image.partyYellow
-  var smallIconImage = R.Image.partyYellowSmall
+  var smallIconImage = R.Image.partyFrameFixed
 }
 
 struct CakeIcon: IconProtocol {
   var bigIconImage = R.Image.cakeYellow
-  var smallIconImage = R.Image.cakeYellowSmall
+  var smallIconImage = R.Image.cakeFrameFixed
 }
 
 struct BeerIcon: IconProtocol {
@@ -33,7 +33,7 @@ struct BeerIcon: IconProtocol {
 
 struct CoffeeIcon: IconProtocol {
   var bigIconImage = R.Image.coffeeYellow
-  var smallIconImage = R.Image.coffeeYellowSmall
+  var smallIconImage = R.Image.coffeeFrameFixed
 }
 
 struct IconFactory {

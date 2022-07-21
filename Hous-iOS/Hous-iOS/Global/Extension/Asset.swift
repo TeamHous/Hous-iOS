@@ -235,6 +235,10 @@ extension R.Image {
   //Home Popup
   static var categoryCheck: UIImage { .load(named: "categoryCheck") }
   static var popupCloseHome: UIImage { .load(named: "popupCloseHome") }
+  static var coffeeFrameFixed: UIImage { .load(named: "coffeeFrameFixed") }
+  static var partyFrameFixed: UIImage { .load(named: "partyFrameFixed") }
+  static var cakeFrameFixed: UIImage { .load(named: "cakeFrameFixed") }
+  static var beerFrameFixed: UIImage { .load(named: "beerFrameFixed") }
   
   // Rules
   static var alarmOff: UIImage { .load(named: "alarmOff") }

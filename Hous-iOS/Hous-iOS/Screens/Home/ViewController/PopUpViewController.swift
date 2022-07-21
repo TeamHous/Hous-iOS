@@ -56,26 +56,22 @@ final class PopUpViewController: UIViewController {
   
   private let partyIconImageView = EventIconView().then {
     $0.eventCase = .party
-    $0.tag = 0
-    $0.iconImageView.image = R.Image.partyYellowSmall
+    $0.iconImageView.image = R.Image.partyFrameFixed
   }
   
   private let cakeIconImageView = EventIconView().then {
     $0.eventCase = .cake
-    $0.tag = 1
-    $0.iconImageView.image = R.Image.cakeYellowSmall
+    $0.iconImageView.image = R.Image.cakeFrameFixed
   }
   
   private let beerIconImageView = EventIconView().then {
     $0.eventCase = .beer
-    $0.tag = 2
-    $0.iconImageView.image = R.Image.beerYellowSmall
+    $0.iconImageView.image = R.Image.beerFrameFixed
   }
   
   private let coffeeIconImageView = EventIconView().then {
     $0.eventCase = .coffee
-    $0.tag = 3
-    $0.iconImageView.image = R.Image.coffeeYellowSmall
+    $0.iconImageView.image = R.Image.coffeeFrameFixed
   }
   
   private lazy var iconStackView = UIStackView(arrangedSubviews: [partyIconImageView, cakeIconImageView, beerIconImageView, coffeeIconImageView]).then {
@@ -238,7 +234,7 @@ final class PopUpViewController: UIViewController {
     }
     
     buttonStackView.snp.makeConstraints { make in
-      make.top.equalTo(participantsCollectionView.snp.bottom).offset(3)
+      make.top.equalTo(participantsCollectionView.snp.bottom)
       make.leading.trailing.equalToSuperview().inset(24)
       make.bottom.equalToSuperview().inset(20)
     }
@@ -475,7 +471,7 @@ extension PopUpViewController: UITextFieldDelegate {
     
     guard let text = eventTextField.text else { return false }
     
-    if text.count > maxEventLength && range.length == 0{
+    if text.count > maxEventLength && range.length == 0 {
       return false
     }
     
