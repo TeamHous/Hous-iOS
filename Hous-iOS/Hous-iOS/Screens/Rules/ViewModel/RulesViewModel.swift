@@ -74,3 +74,20 @@ extension RulesViewModel {
     }
   }
 }
+
+extension RulesViewModel {
+
+  func postNewCategory(roomId: String, categoryName: String, categoryIcon: String, completion: @escaping (PostNewCategoryDTO) -> Void) {
+    RulesMainAPIService.shared.requestPostNewCategory(roomId: roomId, categoryName: categoryName, categoryIcon: categoryIcon) { result in
+
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result)
+          as? Success<PostNewCategoryDTO> {
+        guard let response = responseResult.response else { return }
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+}

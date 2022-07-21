@@ -11,7 +11,7 @@ import Then
 
 protocol RulesCategoryEditViewDelegate: AnyObject {
   func borderButtonTouched(viewType: CategoryEditType)
-  func filledButtonTouched(viewType: CategoryEditType)
+  func filledButtonTouched(viewType: CategoryEditType, categoryName: String, categoryIcon: String)
 }
 
 final class RulesCategoryEditView: UIView {
@@ -24,6 +24,7 @@ final class RulesCategoryEditView: UIView {
       setText(editType)
     }
   }
+  var selectedButton: CategoryButton?
 
   enum Size {
     static let selectedCategoryViewSize: CGFloat = 100
@@ -70,39 +71,30 @@ final class RulesCategoryEditView: UIView {
   private var categoryFirstStackView = UIStackView()
   private var categorySecondStackView = UIStackView()
 
-  var cleanCategoryButton = UIButton().then {
+  var cleanCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .clean
     $0.isSelected = true
-    $0.setImage(R.Image.clean, for: .normal)
-    $0.setImage(R.Image.cleanChecked, for: .selected)
   }
-  var trashCategoryButton = UIButton().then {
-    $0.setImage(R.Image.trash, for: .normal)
-    $0.setImage(R.Image.trashChecked, for: .selected)
+  var trashCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .trash
   }
-  var lightCategoryButton = UIButton().then {
-    $0.setImage(R.Image.light, for: .normal)
-    $0.setImage(R.Image.lightChecked, for: .selected)
+  var lightCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .light
   }
-  var heartCategoryButton = UIButton().then {
-    $0.setImage(R.Image.heart, for: .normal)
-    $0.setImage(R.Image.heartChecked, for: .selected)
+  var heartCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .heart
   }
-  var beerCategoryButton = UIButton().then {
-    $0.setImage(R.Image.beer, for: .normal)
-    $0.setImage(R.Image.beerChecked, for: .selected)
+  var beerCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .beer
   }
-  var cakeCategoryButton = UIButton().then {
-    $0.setImage(R.Image.cake, for: .normal)
-    $0.setImage(R.Image.cakeChecked, for: .selected)
+  var cakeCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .cake
   }
-  var laundryCategoryButton = UIButton().then {
-    $0.setImage(R.Image.laundry, for: .normal)
-    $0.setImage(R.Image.laundryChecked, for: .selected)
+  var laundryCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .laundry
   }
-  var coffeeCategoryButton = UIButton().then {
-
-    $0.setImage(R.Image.coffee, for: .normal)
-    $0.setImage(R.Image.coffeeChecked, for: .selected)
+  var coffeeCategoryButton = CategoryButton().then {
+    $0.categoryIcon = .coffee
   }
 
   private var buttonStackView = UIStackView().then {
@@ -213,6 +205,18 @@ final class RulesCategoryEditView: UIView {
     borderButton.setTitle(editType.editViewBorderButtonText, for: .normal)
     filledButton.setTitle(editType.editViewFilledButtonText, for: .normal)
   }
+
+  func setInitialView() {
+    (categoryFirstStackView.subviews +
+     categorySecondStackView.subviews).forEach {
+      guard let button = $0 as? CategoryButton else { return }
+      button.isSelected = false
+    }
+    selectedCategoryImageView.image = R.Image.clean
+    self.cleanCategoryButton.isSelected = true
+    self.selectedButton = cleanCategoryButton
+    self.categoryTextField.text = ""
+  }
 }
 // MARK: - 라디오 버튼 기능
 extension RulesCategoryEditView {
@@ -227,15 +231,16 @@ extension RulesCategoryEditView {
     }
   }
 
-  @objc private func didTapCategory(_ sender: UIButton) {
+  @objc private func didTapCategory(_ sender: CategoryButton) {
 
     (categoryFirstStackView.subviews +
      categorySecondStackView.subviews).forEach {
 
-      guard let button = $0 as? UIButton else { return }
+      guard let button = $0 as? CategoryButton else { return }
       button == sender ? (button.isSelected = true) : (button.isSelected = false)
     }
     selectedCategoryImageView.image = sender.imageView?.image
+    self.selectedButton = sender
   }
 }
 
@@ -246,7 +251,9 @@ extension RulesCategoryEditView {
   }
 
   @objc private func filledButtonDidTapped() {
-    delegate?.filledButtonTouched(viewType: editType)
+    guard let categoryName = categoryTextField.text else { return }
+    guard let iconString = selectedButton?.categoryIcon.rawValue.uppercased() else { return }
+    delegate?.filledButtonTouched(viewType: editType, categoryName: categoryName, categoryIcon: iconString)
   }
 }
 

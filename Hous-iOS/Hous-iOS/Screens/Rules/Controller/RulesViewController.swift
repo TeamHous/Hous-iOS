@@ -252,8 +252,11 @@ extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControlle
     self.present(popUp, animated: true)
   }
 
-  func filledButtonTouched(viewType: CategoryEditType) {
-    // 추가하기 서버통신
+  func filledButtonTouched(viewType: CategoryEditType, categoryName: String, categoryIcon: String) {
+    viewModel.postNewCategory(roomId: APIConstants.roomID, categoryName: categoryName, categoryIcon: categoryIcon) { response in
+      self.getRulesTodayTodo()
+      //self.mainView.rulesType = .todo
+    }
   }
 
   private func removeCell() {

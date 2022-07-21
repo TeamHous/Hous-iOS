@@ -56,7 +56,7 @@ extension RulesMainAPITarget: TargetType {
       return "/room/\(roomId)/category/\(categoryId)/rule"
 
     case .postNewCategory(let roomId, _,_):
-      return "/room/\(roomId)/rule/category"
+      return "/room/\(roomId)/rules/category"
 
     case .updateCategory(let roomId, let eventId, _,_,_,_,_):
       return "/room/\(roomId)/event/\(eventId)"
