@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
 import SnapKit
 
 final class PlusButton: UIControl {
@@ -42,5 +44,11 @@ final class PlusButton: UIControl {
     plusImageView.snp.makeConstraints { make in
       make.center.equalToSuperview()
     }
+  }
+}
+
+extension Reactive where Base: PlusButton {
+  var tap: ControlEvent<Void> {
+    return controlEvent(.touchUpInside)
   }
 }

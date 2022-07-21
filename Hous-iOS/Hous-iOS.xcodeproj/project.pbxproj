@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		774F1393288809F5009138B7 /* AddRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F1392288809F5009138B7 /* AddRulesViewController.swift */; };
+		774F139628880E9D009138B7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 774F139528880E9D009138B7 /* ReactorKit */; };
+		774F139A28880EB9009138B7 /* RulesMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F139728880EB9009138B7 /* RulesMemberView.swift */; };
+		774F139B28880EB9009138B7 /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F139828880EB9009138B7 /* DropDownButton.swift */; };
+		774F139C28880EB9009138B7 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F139928880EB9009138B7 /* DropDownView.swift */; };
+		774F139E28880EC7009138B7 /* CircularDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F139D28880EC7009138B7 /* CircularDayButton.swift */; };
+		774F13A028880EEE009138B7 /* AddRulesReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F139F28880EEE009138B7 /* AddRulesReactor.swift */; };
+		774F13A328880F78009138B7 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 774F13A228880F78009138B7 /* FlexLayout */; };
+		774F13A528880F78009138B7 /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = 774F13A428880F78009138B7 /* FlexLayoutYoga */; };
+		774F13A728880F78009138B7 /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 774F13A628880F78009138B7 /* FlexLayoutYogaKit */; };
+		774F13AA28880F89009138B7 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 774F13A928880F89009138B7 /* PinLayout */; };
+		774F13AC28881181009138B7 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F13AB28881181009138B7 /* UIWindow+Extension.swift */; };
 		778A79FA287704D400722CBB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A79F9287704D400722CBB /* SplashViewController.swift */; };
 		778A79FC287704E500722CBB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A79FB287704E500722CBB /* Strings.swift */; };
 		778A79FF2877061E00722CBB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 778A7A012877061E00722CBB /* Localizable.strings */; };
@@ -157,6 +168,12 @@
 
 /* Begin PBXFileReference section */
 		774F1392288809F5009138B7 /* AddRulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRulesViewController.swift; sourceTree = "<group>"; };
+		774F139728880EB9009138B7 /* RulesMemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesMemberView.swift; sourceTree = "<group>"; };
+		774F139828880EB9009138B7 /* DropDownButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
+		774F139928880EB9009138B7 /* DropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		774F139D28880EC7009138B7 /* CircularDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularDayButton.swift; sourceTree = "<group>"; };
+		774F139F28880EEE009138B7 /* AddRulesReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRulesReactor.swift; sourceTree = "<group>"; };
+		774F13AB28881181009138B7 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		778A79F9287704D400722CBB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		778A79FB287704E500722CBB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		778A7A002877061E00722CBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -309,13 +326,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774F13AA28880F89009138B7 /* PinLayout in Frameworks */,
 				778A7A0E2879349100722CBB /* RxGesture in Frameworks */,
 				B843872D287961EE003F7B75 /* RxSwift in Frameworks */,
 				B534F9632889724300624BAA /* Lottie in Frameworks */,
+				774F13A728880F78009138B7 /* FlexLayoutYogaKit in Frameworks */,
+				774F13A528880F78009138B7 /* FlexLayoutYoga in Frameworks */,
 				B843872B287961EE003F7B75 /* RxRelay in Frameworks */,
 				B84CF9C42884B8B2008770F0 /* Inject in Frameworks */,
+				774F139628880E9D009138B7 /* ReactorKit in Frameworks */,
 				B8438727287961EE003F7B75 /* Alamofire in Frameworks */,
 				B8438723287961EE003F7B75 /* SnapKit in Frameworks */,
+				774F13A328880F78009138B7 /* FlexLayout in Frameworks */,
 				B8438729287961EE003F7B75 /* RxCocoa in Frameworks */,
 				B8438725287961EE003F7B75 /* Then in Frameworks */,
 			);
@@ -725,6 +747,7 @@
 				B87BD3EB2880024F00FE232D /* UIBezierPath+Extension.swift */,
 				B5F8584028806E95009474A1 /* UIImageView+Extension.swift */,
 				B5E95ADF2881DB1100CD2244 /* String+Extension.swift */,
+				774F13AB28881181009138B7 /* UIWindow+Extension.swift */,
 				B5E95AE12881DB2A00CD2244 /* Date+Extension.swift */,
 				B5A3A5E12889DD53007CBD86 /* UIScrollView+Extension.swift */,
 			);
@@ -836,6 +859,7 @@
 		B8434433287CEB6200CD1BF5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				774F139F28880EEE009138B7 /* AddRulesReactor.swift */,
 				B8434434287CEB6F00CD1BF5 /* RulesViewModel.swift */,
 				B8587376288810A900912768 /* AssigneePopupViewModel.swift */,
 			);
@@ -876,6 +900,10 @@
 			isa = PBXGroup;
 			children = (
 				9B55FBC9288345BC0089B930 /* ProfileRecommendRuleView.swift */,
+				774F139D28880EC7009138B7 /* CircularDayButton.swift */,
+				774F139828880EB9009138B7 /* DropDownButton.swift */,
+				774F139928880EB9009138B7 /* DropDownView.swift */,
+				774F139728880EB9009138B7 /* RulesMemberView.swift */,
 				9B7D8611287C494C006C0BCE /* BasePaddingLabel.swift */,
 				B843871D28795E0B003F7B75 /* NavigationBarView.swift */,
 				9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */,
@@ -957,6 +985,11 @@
 				B843872C287961EE003F7B75 /* RxSwift */,
 				B84CF9C32884B8B2008770F0 /* Inject */,
 				B534F9622889724300624BAA /* Lottie */,
+				774F139528880E9D009138B7 /* ReactorKit */,
+				774F13A228880F78009138B7 /* FlexLayout */,
+				774F13A428880F78009138B7 /* FlexLayoutYoga */,
+				774F13A628880F78009138B7 /* FlexLayoutYogaKit */,
+				774F13A928880F89009138B7 /* PinLayout */,
 			);
 			productName = "Hous-iOS";
 			productReference = B805109E2876D2D10025B767 /* Hous-iOS.app */;
@@ -995,6 +1028,9 @@
 				778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */,
 				B84CF9C22884B8B2008770F0 /* XCRemoteSwiftPackageReference "Inject" */,
 				B534F9612889724300624BAA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				774F139428880E9D009138B7 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				774F13A128880F78009138B7 /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				774F13A828880F89009138B7 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = B805109F2876D2D10025B767 /* Products */;
 			projectDirPath = "";
@@ -1044,6 +1080,7 @@
 				B5084A232879962100C38749 /* ComingEventsCollectionViewCell.swift in Sources */,
 				B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */,
 				B5E95ADC2881917B00CD2244 /* HomeDTO.swift in Sources */,
+				774F13A028880EEE009138B7 /* AddRulesReactor.swift in Sources */,
 				9B7D8612287C494C006C0BCE /* BasePaddingLabel.swift in Sources */,
 				B534F9552888111400624BAA /* ProfileTestAPIService.swift in Sources */,
 				B843871828795855003F7B75 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1064,6 +1101,7 @@
 				B84CF9C128847CF0008770F0 /* CommonResponse.swift in Sources */,
 				B843871628795830003F7B75 /* RulesTodoTableView.swift in Sources */,
 				B84344262879A63900CD1BF5 /* RulesCollectionViewCell.swift in Sources */,
+				774F139C28880EB9009138B7 /* DropDownView.swift in Sources */,
 				B80510C52876D3840025B767 /* Asset.swift in Sources */,
 				9B814229287D3F940073E533 /* ProfileGraphBoxView.swift in Sources */,
 				9BBB07B82888AA24003EAA09 /* ProfileMainAPIService.swift in Sources */,
@@ -1073,6 +1111,7 @@
 				B5F8583A2880531A009474A1 /* ProfileTestViewController.swift in Sources */,
 				B5F8583428802782009474A1 /* RulesCategoryTableView.swift in Sources */,
 				B8434435287CEB6F00CD1BF5 /* RulesViewModel.swift in Sources */,
+				774F139A28880EB9009138B7 /* RulesMemberView.swift in Sources */,
 				B5F8584128806E95009474A1 /* UIImageView+Extension.swift in Sources */,
 				B534F94C2887131D00624BAA /* APIConstants.swift in Sources */,
 				9B16CCAA2889E3E7004EAC6D /* NSAttributedString+Extension.swift in Sources */,
@@ -1108,6 +1147,7 @@
 				B87BD3EC2880024F00FE232D /* UIBezierPath+Extension.swift in Sources */,
 				9B55FBC328832B2E0089B930 /* ProfileTestResultRecommendCollectionViewCell.swift in Sources */,
 				B5F8583F288069B6009474A1 /* ProfileTestDTO.swift in Sources */,
+				774F139B28880EB9009138B7 /* DropDownButton.swift in Sources */,
 				9B55FBC128832AF70089B930 /* ProfileTestResultTextCollectionViewCell.swift in Sources */,
 				B5084A252879963800C38749 /* RulesTodoCollectionViewCell.swift in Sources */,
 				9B648B8B28804E6E005E9322 /* ProfileSettingViewController.swift in Sources */,
@@ -1120,6 +1160,8 @@
 				B8587377288810A900912768 /* AssigneePopupViewModel.swift in Sources */,
 				B5084A27287996EE00C38749 /* RulesTodoView.swift in Sources */,
 				B858737B2889413F00912768 /* CategoryButton.swift in Sources */,
+				774F139E28880EC7009138B7 /* CircularDayButton.swift in Sources */,
+				9BCA2A0128857BE20032338D /* ProfileMainAPITarget.swift in Sources */,
 				9BF7AB2228816235005B6E8A /* ProfileEditingNavigationBarView.swift in Sources */,
 				9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */,
 				9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */,
@@ -1151,6 +1193,7 @@
 				778A79FC287704E500722CBB /* Strings.swift in Sources */,
 				778A79FA287704D400722CBB /* SplashViewController.swift in Sources */,
 				B84CF9BB288458EF008770F0 /* RulesMainAPITarget.swift in Sources */,
+				774F13AC28881181009138B7 /* UIWindow+Extension.swift in Sources */,
 				B843871E28795E0C003F7B75 /* NavigationBarView.swift in Sources */,
 				9B7D860E287C487C006C0BCE /* ProfileBadgeCollectionViewCell.swift in Sources */,
 				B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */,
@@ -1220,6 +1263,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"FLEXLAYOUT_SWIFT_PACKAGE=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1389,6 +1433,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		774F139428880E9D009138B7 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		774F13A128880F78009138B7 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		774F13A828880F89009138B7 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
@@ -1448,6 +1516,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		774F139528880E9D009138B7 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 774F139428880E9D009138B7 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		774F13A228880F78009138B7 /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 774F13A128880F78009138B7 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		774F13A428880F78009138B7 /* FlexLayoutYoga */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 774F13A128880F78009138B7 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYoga;
+		};
+		774F13A628880F78009138B7 /* FlexLayoutYogaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 774F13A128880F78009138B7 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYogaKit;
+		};
+		774F13A928880F89009138B7 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 774F13A828880F89009138B7 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
 		778A7A0D2879349100722CBB /* RxGesture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 778A7A0C2879349100722CBB /* XCRemoteSwiftPackageReference "RxGesture" */;

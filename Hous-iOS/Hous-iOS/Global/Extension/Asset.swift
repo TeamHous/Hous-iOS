@@ -256,6 +256,7 @@ extension R.Image {
   static var rulesChecked: UIImage { .load(named: "rulesChecked") }
   static var todoSelected: UIImage { .load(named: "todoSelected") }
   static var todoUnselected: UIImage { .load(named: "todoUnselected") }
+  static var rulesSelected: UIImage { .load(named: "rulesSelected") }
   
   // Profile
   static var badgeLocked: UIImage { .load(named: "badgeLocked") }
