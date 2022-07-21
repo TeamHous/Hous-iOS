@@ -141,6 +141,7 @@
 		B85873752886DA7500912768 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85873742886DA7500912768 /* PlusButton.swift */; };
 		B8587377288810A900912768 /* AssigneePopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8587376288810A900912768 /* AssigneePopupViewModel.swift */; };
 		B858737B2889413F00912768 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858737A2889413F00912768 /* CategoryButton.swift */; };
+		B85873802889B47700912768 /* EmptyCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858737F2889B47700912768 /* EmptyCategoryCollectionViewCell.swift */; };
 		B87BD3E1287F000600FE232D /* TodayTodoLeftRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */; };
 		B87BD3E4287F1FCF00FE232D /* AssigneeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */; };
 		B87BD3EA287FE48300FE232D /* TodoTabEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */; };
@@ -277,6 +278,7 @@
 		B85873742886DA7500912768 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		B8587376288810A900912768 /* AssigneePopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneePopupViewModel.swift; sourceTree = "<group>"; };
 		B858737A2889413F00912768 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
+		B858737F2889B47700912768 /* EmptyCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B87BD3E0287F000600FE232D /* TodayTodoLeftRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoLeftRoundView.swift; sourceTree = "<group>"; };
 		B87BD3E3287F1FCF00FE232D /* AssigneeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeFactory.swift; sourceTree = "<group>"; };
 		B87BD3E9287FE48300FE232D /* TodoTabEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTabEnum.swift; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 				B84344252879A63900CD1BF5 /* RulesCollectionViewCell.swift */,
 				B84344272879AE5700CD1BF5 /* KeyRulesCollectionViewCell.swift */,
 				B843442B287C62EB00CD1BF5 /* AddRulesCollectionViewCell.swift */,
+				B858737F2889B47700912768 /* EmptyCategoryCollectionViewCell.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				B84CF9B6288453D3008770F0 /* TargetType.swift in Sources */,
 				9B1F1C08287DD09700A15D82 /* GraphView.swift in Sources */,
 				B5084A3828799C0D00C38749 /* EventsCollectionViewCell.swift in Sources */,
+				B85873802889B47700912768 /* EmptyCategoryCollectionViewCell.swift in Sources */,
 				B843871428795805003F7B75 /* RulesHomeView.swift in Sources */,
 				9BA5DAA22885C75E00D3735E /* ProfileResultPersonalityType.swift in Sources */,
 				9BBB07BC2888AA6A003EAA09 /* ProfileTestResultAPIService.swift in Sources */,

@@ -11,8 +11,6 @@ import Then
 
 final class RulesCategoryTableView: UIView {
 
-  var testText = "기본기본기본"
-
   var keyRulesData: [KeyRulesDTO] = [] {
     didSet { categoryCollectionView.reloadData() }
   }
@@ -32,6 +30,7 @@ final class RulesCategoryTableView: UIView {
     static let rulesItemSize = CGSize(width: itemWidth, height: 46)
     static let addItemSize = CGSize(width: itemWidth, height: 32)
     static let categoryCollectionEdgeInsets = UIEdgeInsets(top: 28, left: 0, bottom: 12, right: 0)
+    static let emptyViewSize = CGSize(width: itemWidth, height: 100)
   }
 
   //MARK: - 변수
@@ -47,6 +46,7 @@ final class RulesCategoryTableView: UIView {
       $0.register(cell: RulesCollectionViewCell.self)
       $0.register(cell: AddRulesCollectionViewCell.self)
       $0.register(cell: KeyRulesCollectionViewCell.self)
+      $0.register(cell: EmptyCategoryCollectionViewCell.self)
     }
 
   //MARK: - 생명주기
@@ -92,6 +92,9 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch section {
     case CategorySection.keyRules.rawValue:
+      if keyRulesData.isEmpty && rulesData.isEmpty {
+        return 1
+      }
       return keyRulesData.count
     case CategorySection.rules.rawValue:
       return rulesData.count
@@ -106,8 +109,11 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
 
     switch indexPath.section {
     case 0:
+      if keyRulesData.isEmpty && rulesData.isEmpty {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyCategoryCollectionViewCell.className, for: indexPath) as? EmptyCategoryCollectionViewCell else { return UICollectionViewCell() }
+        return cell
+      }
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.className, for: indexPath) as? KeyRulesCollectionViewCell else { return UICollectionViewCell() }
-
       _ = cell.setKeyRulesCell(keyRulesData[indexPath.row])
       return cell
     case 1:
@@ -129,6 +135,9 @@ extension RulesCategoryTableView: UICollectionViewDelegateFlowLayout {
 
     switch indexPath.section {
     case CategorySection.keyRules.rawValue, CategorySection.rules.rawValue:
+      if keyRulesData.isEmpty && rulesData.isEmpty {
+        return Size.emptyViewSize
+      }
       return Size.rulesItemSize
     case CategorySection.add.rawValue:
       return Size.addItemSize
