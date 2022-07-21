@@ -23,6 +23,7 @@ final class ProfileViewController : UIViewController {
     didSet {
       if isPresentedFromHomeVC {
         self.navigationBarView.isHidden = true
+        
       }
     }
   }
@@ -178,6 +179,9 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
       if profileNetworkDataPack.isEmptyView {
         guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileGraphEmptyCollectionViewCell.className, for: indexPath) as? ProfileGraphEmptyCollectionViewCell else {return UICollectionViewCell()}
         cell.delegate = self
+        if isPresentedFromHomeVC {
+          cell.testButton.isEnabled = false
+        }
         return cell
       }
       guard let cell = profileMainCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileGraphCollectionViewCell.className, for: indexPath) as? ProfileGraphCollectionViewCell else {return UICollectionViewCell()}
