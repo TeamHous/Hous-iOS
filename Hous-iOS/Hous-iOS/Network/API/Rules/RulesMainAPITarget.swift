@@ -17,7 +17,7 @@ enum RulesMainAPITarget {
   case getRulesByCategory(roomId: String, categoryId: String)
   case postNewCategory(roomId: String, categoryName: String, categoryIcon: String)
   case updateCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String)
-  case deleteCategory(roomId: String, eventId: String)
+  case deleteCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String)
 }
 
 extension RulesMainAPITarget: TargetType {
@@ -61,14 +61,14 @@ extension RulesMainAPITarget: TargetType {
     case .updateCategory(let roomId, let categoryId, _,_):
       return "/room/\(roomId)/rules/category/\(categoryId)"
 
-    case .deleteCategory(let roomId, let eventId):
-      return "/room/\(roomId)/event/\(eventId)"
+    case .deleteCategory(let roomId, let categoryId, _,_):
+      return "/room/\(roomId)/rules/category/\(categoryId)"
     }
   }
 
   var parameters: RequestParams {
     switch self {
-    case .getRulesTodayTodo, .getRulesMyTodo, .getTodayTodoAssignee, .getRulesByCategory, .deleteCategory:
+    case .getRulesTodayTodo, .getRulesMyTodo, .getTodayTodoAssignee, .getRulesByCategory:
       return .requestPlain
     case .updateMyTodoState(_,_, let isCheck):
       let body: [String: Any] = [
@@ -87,6 +87,12 @@ extension RulesMainAPITarget: TargetType {
       ]
       return .requestBody(body)
     case .updateCategory(_,_, let categoryName, let categoryIcon):
+      let body: [String: Any] = [
+        "categoryName": categoryName,
+        "categoryIcon": categoryIcon,
+      ]
+      return .requestBody(body)
+    case .deleteCategory(_,_, let categoryName, let categoryIcon):
       let body: [String: Any] = [
         "categoryName": categoryName,
         "categoryIcon": categoryIcon,
