@@ -10,6 +10,7 @@ import UIKit
 
 enum ProfileTestResultAPITarget {
   case getTestResult
+  case getRoomMateTestResult (userId: String)
 }
 
 extension ProfileTestResultAPITarget: TargetType {
@@ -18,6 +19,9 @@ extension ProfileTestResultAPITarget: TargetType {
     switch self {
     case .getTestResult:
       return .get
+    
+    case .getRoomMateTestResult(_):
+      return .get
     }
   }
   
@@ -25,12 +29,18 @@ extension ProfileTestResultAPITarget: TargetType {
     switch self {
     case .getTestResult:
       return "/user/me/type"
+    
+    case .getRoomMateTestResult(let userId):
+      return "/user/\(userId)/type"
     }
   }
   
   var parameters: RequestParams {
     switch self {
     case .getTestResult:
+      return .requestPlain
+    
+    case .getRoomMateTestResult(_):
       return .requestPlain
     }
   }

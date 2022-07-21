@@ -22,6 +22,14 @@ extension ProfileTestResultAPIService {
         responseData(dataResponse, completion: completion)
       }
   }
+  
+  func requestGetRoomMateTestResult(userId: String, completion: @escaping(NetworkResult<ProfileTestResultDTO>) -> Void) {
+    let target = ProfileTestResultAPITarget.getRoomMateTestResult(userId: userId)
+    AF.request(target)
+      .responseData {dataResponse in
+        responseData(dataResponse, completion: completion)
+      }
+  }
 }
 
 extension ProfileTestResultAPIService {
