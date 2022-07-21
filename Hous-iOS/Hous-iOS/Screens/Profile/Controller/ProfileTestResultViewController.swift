@@ -30,6 +30,11 @@ final class ProfileTestResultViewController : UIViewController {
   
   var isFromTypeTest = false
   
+  var isPresentedFromHomeVC = false 
+  
+  
+  var userId = ""
+  
   private var profileNetworkResponse: ProfileTestResultDTO?
   
   private var profileNetworkDataPack = ProfileTestResultDataPack(userNameLabel: "", personalityType: .empty, personalityTypeLabel: "", personalityImageURL: "", personalityTitleLabel: "", personalityDescriptionLabel: "", recommandTitleLabel: "", recommandRuleLabel: [],goodPersonalityType: .empty, goodPersonalityLabel: "", goodPersonalityImageURL: "", badPersonalityType: .empty,  badPersonalityLabel: "", badPersonalityImageURL: "")
@@ -55,11 +60,7 @@ final class ProfileTestResultViewController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    getNetworkInfo() {response in
-      self.profileNetworkResponse = response
-      self.convertResponseToDataPack(self.profileNetworkResponse)
-      self.profileTestResultCollectionView.reloadData()
-    }
+    getData()
     configUI()
     render()
   }
@@ -67,6 +68,22 @@ final class ProfileTestResultViewController : UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     setTabBarVisibility()
+  }
+  
+  private func getData() {
+    if isPresentedFromHomeVC {
+      getRoomMateNetworkInfo(userId: self.userId) { response in
+        self.profileNetworkResponse = response
+        self.convertResponseToDataPack(self.profileNetworkResponse)
+        self.profileTestResultCollectionView.reloadData()
+      }
+    } else {
+      getNetworkInfo { response in
+        self.profileNetworkResponse = response
+        self.convertResponseToDataPack(self.profileNetworkResponse)
+        self.profileTestResultCollectionView.reloadData()
+      }
+    }
   }
   
   private func setTabBarVisibility() {
@@ -230,6 +247,18 @@ extension ProfileTestResultViewController {
   
   private func getNetworkInfo(completion: @escaping (ProfileTestResultDTO) -> Void) {
     ProfileTestResultAPIService.shared.requestGetTestResult{ result in
+      if let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileTestResultDTO> {
+        guard let response = responseResult.response else {return}
+        completion(response)
+      } else {
+        let responseResult = NetworkResultFactory.makeResult(resultType: result)
+        responseResult.resultMethod()
+      }
+    }
+  }
+  
+  private func getRoomMateNetworkInfo(userId: String, completion: @escaping (ProfileTestResultDTO) -> Void) {
+    ProfileTestResultAPIService.shared.requestGetRoomMateTestResult(userId: userId) { result in
       if let responseResult = NetworkResultFactory.makeResult(resultType: result) as? Success<ProfileTestResultDTO> {
         guard let response = responseResult.response else {return}
         completion(response)
