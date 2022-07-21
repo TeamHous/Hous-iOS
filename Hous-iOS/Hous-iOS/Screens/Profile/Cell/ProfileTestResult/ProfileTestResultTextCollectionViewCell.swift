@@ -41,13 +41,13 @@ final class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
     
     descriptionView.snp.makeConstraints {make in
       make.centerX.equalToSuperview()
-      make.top.equalToSuperview().offset(11)
+      make.top.equalToSuperview()
       make.width.equalTo(Size.screenWidth - 48)
     }
     
     recommendRuleTitleView.snp.makeConstraints {make in
       make.centerX.equalToSuperview()
-      make.top.equalTo(descriptionView.snp.bottom).offset(24)
+      make.top.equalTo(descriptionView.snp.bottom).offset(18)
       make.width.height.equalTo(Size.recommendRuleTitleViewSize)
     }
     
@@ -61,7 +61,10 @@ final class ProfileTestResultTextCollectionViewCell : UICollectionViewCell {
   func setData(_ dataPack: ProfileTestResultDataPack) {
     self.descriptionView.personalityTitleLabel.text = dataPack.personalityTitleLabel
     self.descriptionView.personalityTitleLabel.textColor = dataPack.personalityType.textColor
-    self.descriptionView.personalityDescriptionLabel.text = dataPack.personalityDescriptionLabel
+    
+    let descriptionAttributedString = NSAttributedString(string: dataPack.personalityDescriptionLabel).withLineSpacing(2.5)
+    self.descriptionView.personalityDescriptionLabel.attributedText = descriptionAttributedString
+    
     self.descriptionView.backgroundColor = dataPack.personalityType.backgroundColor
     
     self.recommendRuleTitleView.recommendTitleLabel.text = dataPack.recommandTitleLabel
