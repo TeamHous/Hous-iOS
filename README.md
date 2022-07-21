@@ -1,7 +1,8 @@
 # Hous-iOS
 <div align="center">
 
-![하우스한줄소개](https://user-images.githubusercontent.com/60292150/178424666-f91b89aa-6134-4f44-80bb-2d2abd18d643.jpg)
+![KakaoTalk_Photo_2022-07-22-07-03-05](https://user-images.githubusercontent.com/60493070/180322745-92fdc3f3-9300-4c3a-9f93-211354ee5725.png)
+
 
 ## 공동생활을 위한 슬기로운 룸메이트 가이드 서비스
 `30th SOPT APPJAM`
@@ -33,6 +34,12 @@
 </div>
 
 <br />
+
+
+## ⭐️ WorkFlow
+
+![hous_workflow](https://user-images.githubusercontent.com/74812188/180251210-2bfbf298-a8f6-4400-b14f-ea5b229e15e7.png)
+
 
 ## 🛠 Development Environment
 ![Swift](https://img.shields.io/badge/swift-v5.5*-orange?logo=swift)
