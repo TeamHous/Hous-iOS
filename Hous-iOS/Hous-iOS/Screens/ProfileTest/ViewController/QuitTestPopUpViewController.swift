@@ -14,6 +14,8 @@ class QuitTestPopViewController: UIViewController {
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
+    static let popUpWidth = Size.screenWidth * (295/375)
+    static let popUpHeight = Size.popUpWidth * (185/295)
   }
   
   private lazy var blurView = UIVisualEffectView().then {
@@ -82,8 +84,8 @@ class QuitTestPopViewController: UIViewController {
     
     popUpView.snp.makeConstraints { make in
       make.center.equalToSuperview()
-      make.width.equalTo(Size.screenWidth * (295/375))
-      make.height.equalTo(Size.screenHeight * (187/812))
+      make.width.equalTo(Size.popUpWidth)
+      make.height.equalTo(Size.popUpHeight)
     }
     
     titleLabel.snp.makeConstraints { make in
