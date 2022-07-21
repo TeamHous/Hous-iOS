@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIScrollView {
+  
+  func scrollToTop() {
+    self.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+  }
+  
+}
+
+

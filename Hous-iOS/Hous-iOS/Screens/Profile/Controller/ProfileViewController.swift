@@ -81,6 +81,7 @@ final class ProfileViewController : UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    profileMainCollectionView.scrollToTop()
     setNavigationController()
     profileMainCollectionView.reloadData()
   }

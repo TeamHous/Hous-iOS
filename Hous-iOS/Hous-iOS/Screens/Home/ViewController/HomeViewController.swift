@@ -57,6 +57,7 @@ final class HomeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    homeCollectionView.scrollToTop()
     getHomeAPI()
     showNavigation()
   }

@@ -51,6 +51,9 @@ final class RulesViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     getRulesTodayTodo()
+    self.mainView.categoryCollectionView.scrollToTop()
+    self.mainView.todoTableView.todoCollectionView.scrollToTop()
+    self.mainView.categoryTableView.categoryCollectionView.scrollToTop()
   }
 
   // MARK: - Method
