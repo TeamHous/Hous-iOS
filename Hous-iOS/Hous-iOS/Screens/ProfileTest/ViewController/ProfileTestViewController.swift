@@ -63,6 +63,7 @@ class ProfileTestViewController: UIViewController {
     var config = UIButton.Configuration.plain()
     config.baseForegroundColor = R.Color.salmon
     config.attributedTitle = AttributedString("그만두기", attributes: container)
+    config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     
     $0.configuration = config
     $0.addTarget(self, action: #selector(showQuitTestPopUp), for: .touchUpInside)
@@ -220,7 +221,7 @@ extension ProfileTestViewController {
     testIndex -= 1
     
     isMovedBackward = true
-  
+    
     testCollectionView.scrollToItem(at: IndexPath(row: testIndex, section: 0), at: .left, animated: true)
     
     setBackforwardButton(index: testIndex + 1)
@@ -288,7 +289,7 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
       return
       
     } else {
-    
+      
       let type = testCellData[testIndex].testType
       let score = tag + 1
       
@@ -321,7 +322,6 @@ extension ProfileTestViewController {
     ProfileTestAPIService.shared.requestUpdateTest(typeScore: typeScore) { result in
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<UpdateTestDTO> {
-        guard let response = responseResult.response else { return }
         responseResult.resultMethod()
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)

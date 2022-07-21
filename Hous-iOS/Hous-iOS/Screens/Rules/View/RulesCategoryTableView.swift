@@ -108,12 +108,12 @@ extension RulesCategoryTableView: UICollectionViewDelegate, UICollectionViewData
     case 0:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyRulesCollectionViewCell.className, for: indexPath) as? KeyRulesCollectionViewCell else { return UICollectionViewCell() }
 
-      let ruleId = cell.setKeyRulesCell(keyRulesData[indexPath.row])
+      _ = cell.setKeyRulesCell(keyRulesData[indexPath.row])
       return cell
     case 1:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulesCollectionViewCell.className, for: indexPath) as? RulesCollectionViewCell else { return UICollectionViewCell() }
 
-      let ruleId = cell.setRulesCell(rulesData[indexPath.row])
+      _ = cell.setRulesCell(rulesData[indexPath.row])
       return cell
     case 2:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddRulesCollectionViewCell.className, for: indexPath)

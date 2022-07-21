@@ -101,10 +101,10 @@ class TestCollectionViewCell: UICollectionViewCell {
     }
     
     buttonStackView.snp.makeConstraints { make in
-      make.top.equalTo(testImageView.snp.bottom).offset(30)
+      make.top.equalTo(testImageView.snp.bottom).offset(30).multipliedBy(0.9)
       make.centerX.equalTo(testImageView)
       make.leading.trailing.equalToSuperview().inset(24)
-      make.bottom.equalTo(self.safeAreaLayoutGuide)
+      make.bottom.equalToSuperview().inset(21)
     }
   }
   
