@@ -237,6 +237,7 @@ final class PopUpViewController: UIViewController {
       make.top.equalTo(participantsCollectionView.snp.bottom)
       make.leading.trailing.equalToSuperview().inset(24)
       make.bottom.equalToSuperview().inset(20)
+      make.height.equalTo(40)
     }
     
     textFieldBackgroundView.snp.makeConstraints { make in
@@ -269,7 +270,7 @@ final class PopUpViewController: UIViewController {
     }
     
     participantsCollectionView.snp.makeConstraints { make in
-      make.top.equalTo(participantLabel.snp.bottom).offset(8)
+      make.top.equalTo(participantLabel.snp.bottom)
       make.leading.trailing.equalTo(popUpView)
     }
   }
