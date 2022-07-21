@@ -121,6 +121,14 @@ extension QuitTestPopViewController {
   }
   
   @objc private func quitTest() {
-    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    let housTabbarViewController = HousTabbarViewController()
+    
+    self.view.window?.rootViewController = housTabbarViewController
+    self.view.window?.makeKeyAndVisible()
+
+    housTabbarViewController.housTabbar.selectItem(index: 2)
+    housTabbarViewController.housTabbar.backgroundColor = R.Color.salmon
+
+    dismiss(animated: true)
   }
 }

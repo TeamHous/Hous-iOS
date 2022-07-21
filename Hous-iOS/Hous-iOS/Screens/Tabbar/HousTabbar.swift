@@ -72,7 +72,7 @@ final class HousTabbar: UIStackView {
 
   }
 
-  private func selectItem(index: Int) {
+  public func selectItem(index: Int) {
     itemViews.forEach { $0.isSelected = $0.index == index }
     itemTappedSubject.onNext(index)
   }

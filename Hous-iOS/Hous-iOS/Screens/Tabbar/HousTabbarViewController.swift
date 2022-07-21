@@ -44,7 +44,7 @@ class HousTabbarViewController: UITabBarController {
     setViewControllers(controllers, animated: true)
   }
 
-  private func selectTabWith(index: Int) {
+  func selectTabWith(index: Int) {
     self.selectedIndex = index
   }
 
