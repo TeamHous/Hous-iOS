@@ -142,7 +142,7 @@ final class ProfileViewController : UIViewController {
     }
     
     profileMainCollectionView.snp.makeConstraints{ make in
-      make.top.equalTo(navigationBarView.snp.bottom)
+      make.top.equalTo(navigationBarView.snp.bottom).offset(10)
       make.bottom.equalToSuperview()
       make.trailing.leading.equalToSuperview()
     }
