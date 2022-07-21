@@ -91,17 +91,26 @@ extension RulesViewModel {
     }
   }
 
-  func updateCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String, completion: @escaping (CategoryDTO) -> Void) {
+  func updateCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String, completion: @escaping () -> Void) {
     RulesMainAPIService.shared.requestUpdateCategory(roomId: roomId, categoryId: categoryId, categoryName: categoryName, categoryIcon: categoryIcon) { result in
 
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<CategoryDTO> {
-        guard let response = responseResult.response else { return }
-        completion(response)
+        guard let _ = responseResult.response else { return }
+        completion()
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
         responseResult.resultMethod()
       }
+    }
+  }
+
+  func deleteCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String, completion: @escaping () -> Void) {
+    RulesMainAPIService.shared.requestDeleteCategory(roomId: roomId, categoryId: categoryId, categoryName: categoryName, categoryIcon: categoryIcon) { result in
+
+      let responseResult = NetworkResultFactory.makeResult(resultType: result)
+      responseResult.resultMethod()
+      completion()
     }
   }
 }

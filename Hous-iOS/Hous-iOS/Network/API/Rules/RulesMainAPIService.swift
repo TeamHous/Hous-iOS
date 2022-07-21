@@ -86,12 +86,12 @@ extension RulesMainAPIService {
       }
   }
 
-  func requestDeleteCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String, completion: @escaping (NetworkResult<String>) -> Void) {
+  func requestDeleteCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String, completion: @escaping (NetworkResult<CategoryDTO>) -> Void) {
 
     let target = RulesMainAPITarget.deleteCategory(roomId: roomId, categoryId: categoryId, categoryName: categoryName, categoryIcon: categoryIcon)
     AF.request(target)
       .responseData { dataResponse in
-        responseData(dataResponse, completion: completion)
+        responseWithNoData(dataResponse, completion: completion)
       }
   }
 }

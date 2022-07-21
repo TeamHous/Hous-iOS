@@ -21,6 +21,8 @@ final class RulesViewController: UIViewController {
 
   var currentIndexPath: IndexPath?
   var currentCategoryId: String?
+  var currentCategoryName: String = ""
+  var currentCategoryIcon: String = ""
   var closure: (() -> Void)?
   var rulesTodayTodoData: RulesTodayTodoDTO = RulesTodayTodoDTO(homeRuleCategories: [], todayTodoRules: []) {
     didSet{
@@ -260,7 +262,10 @@ extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControlle
       }
     case .update:
       guard let categoryId = self.currentCategoryId else { return }
-      viewModel.updateCategory(roomId: APIConstants.roomID, categoryId: categoryId, categoryName: categoryName, categoryIcon: categoryIcon) { response in
+      viewModel.updateCategory(roomId: APIConstants.roomID,
+                               categoryId: categoryId,
+                               categoryName: categoryName,
+                               categoryIcon: categoryIcon) {
         self.getRulesTodayTodo()
       }
     }
@@ -268,15 +273,13 @@ extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControlle
   }
 
   private func removeCell() {
-    //    개인적인 처리보단 서버통신 한번 더 / 나중에 쓸 수도 있으니까 탄발 봐주세요 ...
-    //    guard let selectedIndexPath = self.currentIndexPath else { return }
-    //
-    //    self.mainView.categoryCollectionView.performBatchUpdates {
-    //      self.mainView.categoryCollectionView.deleteItems(at: [selectedIndexPath])
-    //      self.[데이터].remove(at: selectedIndexPath.row)
-    //    } completion: { [self] _ in
-    //      mainView.categoryCollectionView.reloadData()
-    //    }
+    guard let categoryId = self.currentCategoryId else { return }
+    viewModel.deleteCategory(roomId: APIConstants.roomID,
+                             categoryId: categoryId,
+                             categoryName: self.currentCategoryName,
+                             categoryIcon: self.currentCategoryIcon) {
+      self.getRulesTodayTodo()
+    }
   }
 }
 
@@ -296,6 +299,8 @@ extension RulesViewController {
     guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
     self.currentIndexPath = indexPath
     self.currentCategoryId = cell.categoryId
+    self.currentCategoryName = cell.categoryName
+    self.currentCategoryIcon = cell.categoryICon
     DispatchQueue.main.async {
       if indexPath.row != self.rulesTodayTodoData.homeRuleCategories.count {
         self.currentIndexPath = indexPath
