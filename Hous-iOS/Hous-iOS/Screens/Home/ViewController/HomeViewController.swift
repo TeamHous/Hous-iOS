@@ -53,6 +53,7 @@ final class HomeViewController: UIViewController {
     configUI()
     render()
     setCollectionView()
+    setNotificationCenter()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +64,10 @@ final class HomeViewController: UIViewController {
   }
   
   //MARK: Custom Methods
+  
+  private func setNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(reloadEventCollectionView), name: NSNotification.Name("DismissPopUp"), object: nil)
+  }
   
   private func showNavigation() {
     isNavigatinHidden(isHidden: false)
@@ -373,5 +378,11 @@ extension HomeViewController {
       
       responseResult.resultMethod()
     }
+  }
+}
+
+extension HomeViewController {
+  @objc private func reloadEventCollectionView() {
+    self.homeCollectionView.reloadData()
   }
 }

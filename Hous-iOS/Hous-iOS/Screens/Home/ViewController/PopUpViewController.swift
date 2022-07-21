@@ -387,6 +387,7 @@ extension PopUpViewController {
       updateEventDetail(eventName: eventName, eventIcon: eventIcon, eventId: eventId, date: date, participants: participants)
     }
     
+    NotificationCenter.default.post(name: NSNotification.Name("DismissPopUp"), object: nil)
     self.dismiss(animated: true)
   }
 }
