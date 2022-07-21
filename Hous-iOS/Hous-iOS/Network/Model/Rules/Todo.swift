@@ -115,7 +115,7 @@ struct UpdateTodayTodoAssigneeDTO: Codable {
 
 // postNewCategory
 
-struct PostNewCategoryDTO: Codable {
+struct CategoryDTO: Codable {
   let id: String
   let roomId: String
   let ruleCategoryName: String
@@ -127,7 +127,3 @@ struct PostNewCategoryDTO: Codable {
       case roomId, ruleCategoryName, ruleCategoryIcon, ruleCnt
   }
 }
-
-// updateCategory
-
-

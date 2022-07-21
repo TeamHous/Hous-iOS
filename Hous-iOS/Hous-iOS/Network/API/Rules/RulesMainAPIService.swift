@@ -68,7 +68,7 @@ extension RulesMainAPIService {
       }
   }
 
-  func requestPostNewCategory(roomId: String, categoryName: String, categoryIcon: String, completion: @escaping (NetworkResult<PostNewCategoryDTO>) -> Void) {
+  func requestPostNewCategory(roomId: String, categoryName: String, categoryIcon: String, completion: @escaping (NetworkResult<CategoryDTO>) -> Void) {
 
     let target = RulesMainAPITarget.postNewCategory(roomId: roomId, categoryName: categoryName, categoryIcon: categoryIcon)
     AF.request(target)
