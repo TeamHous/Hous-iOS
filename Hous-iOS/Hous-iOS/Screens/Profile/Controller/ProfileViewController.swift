@@ -184,6 +184,8 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
       cell.setData(profileNetworkDataPack)
       cell.moveToTestResultView = { [self] in
         let profileResultView = ProfileTestResultViewController()
+        profileResultView.userId = self.userId
+        profileResultView.isPresentedFromHomeVC = self.isPresentedFromHomeVC
         profileResultView.modalTransitionStyle = .crossDissolve
         profileResultView.modalPresentationStyle = .fullScreen
         
