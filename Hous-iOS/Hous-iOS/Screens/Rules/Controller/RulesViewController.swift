@@ -20,8 +20,8 @@ import RxCocoa
 final class RulesViewController: UIViewController {
 
   var currentIndexPath: IndexPath?
+  var currentCategoryId: String?
   var closure: (() -> Void)?
-
   var rulesTodayTodoData: RulesTodayTodoDTO = RulesTodayTodoDTO(homeRuleCategories: [], todayTodoRules: []) {
     didSet{
       DispatchQueue.main.async {
@@ -253,9 +253,18 @@ extension RulesViewController: RulesCategoryEditViewDelegate, PopUpViewControlle
   }
 
   func filledButtonTouched(viewType: CategoryEditType, categoryName: String, categoryIcon: String) {
-    viewModel.postNewCategory(roomId: APIConstants.roomID, categoryName: categoryName, categoryIcon: categoryIcon) { response in
-      self.getRulesTodayTodo()
+    switch viewType {
+    case .add:
+      viewModel.postNewCategory(roomId: APIConstants.roomID, categoryName: categoryName, categoryIcon: categoryIcon) { response in
+        self.getRulesTodayTodo()
+      }
+    case .update:
+      guard let categoryId = self.currentCategoryId else { return }
+      viewModel.updateCategory(roomId: APIConstants.roomID, categoryId: categoryId, categoryName: categoryName, categoryIcon: categoryIcon) { response in
+        self.getRulesTodayTodo()
+      }
     }
+
   }
 
   private func removeCell() {
@@ -286,6 +295,7 @@ extension RulesViewController {
     guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else {return}
     guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else {return}
     self.currentIndexPath = indexPath
+    self.currentCategoryId = cell.categoryId
     DispatchQueue.main.async {
       if indexPath.row != self.rulesTodayTodoData.homeRuleCategories.count {
         self.currentIndexPath = indexPath

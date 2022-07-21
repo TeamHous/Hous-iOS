@@ -226,8 +226,7 @@ final class RulesCategoryEditView: UIView {
 
   func setCategoryInfo(categoryName: String, categoryIcon: String) {
     self.unselectAllButton()
-    guard let iconType = CategoryIconImage(rawValue: categoryIcon.lowercased()) else { print("나가니?")
-      return }
+    guard let iconType = CategoryIconImage(rawValue: categoryIcon.lowercased()) else { return }
     let icon = CategoryIconFactory.makeIcon(type: iconType)
     self.categoryTextField.text = categoryName
     selectedCategoryImageView.image = icon.unCheckedImage
