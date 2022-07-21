@@ -128,21 +128,25 @@ extension HomeViewController: UICollectionViewDelegate {
       return
     }
     
-    let profileHomeVC = ProfileViewController(item: .profile)
-    
-    profileHomeVC.isPresentedFromHomeVC = true
-    
-    let homieId = homeData.homieProfileList[indexPath.item].id
-    profileHomeVC.userId = homieId
-    
-    profileHomeVC.homieNavigationBarView.isHidden = false
-    profileHomeVC.navigationBarView.isHidden = true
-    
-    profileHomeVC.homieNavigationBarView.popNavigationController = { [self] in
-      navigationController?.popViewController(animated: true)
+    if indexPath.section == HomeSection.profiles.rawValue {
+      
+      let profileHomeVC = ProfileViewController(item: .profile)
+      
+      profileHomeVC.isPresentedFromHomeVC = true
+      
+      let homieId = homeData.homieProfileList[indexPath.item].id
+      profileHomeVC.userId = homieId
+      
+      profileHomeVC.homieNavigationBarView.isHidden = false
+      profileHomeVC.navigationBarView.isHidden = true
+      
+      profileHomeVC.homieNavigationBarView.popNavigationController = { [self] in
+        navigationController?.popViewController(animated: true)
+      }
+      
+      self.navigationController?.pushViewController(profileHomeVC, animated: true)
     }
     
-    self.navigationController?.pushViewController(profileHomeVC, animated: true)
   }
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
