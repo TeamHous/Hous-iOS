@@ -127,3 +127,7 @@ struct PostNewCategoryDTO: Codable {
       case roomId, ruleCategoryName, ruleCategoryIcon, ruleCnt
   }
 }
+
+// updateCategory
+
+

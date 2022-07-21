@@ -16,7 +16,7 @@ enum RulesMainAPITarget {
   case updateTodayTodoAssignee(roomId: String, ruleId: String, tmpRuleMembers: [String])
   case getRulesByCategory(roomId: String, categoryId: String)
   case postNewCategory(roomId: String, categoryName: String, categoryIcon: String)
-  case updateCategory(roomId: String, eventId: String, email: String, password: String, userName: String, gender: String, birthday: String)
+  case updateCategory(roomId: String, categoryId: String, categoryName: String, categoryIcon: String)
   case deleteCategory(roomId: String, eventId: String)
 }
 
@@ -58,8 +58,8 @@ extension RulesMainAPITarget: TargetType {
     case .postNewCategory(let roomId, _,_):
       return "/room/\(roomId)/rules/category"
 
-    case .updateCategory(let roomId, let eventId, _,_,_,_,_):
-      return "/room/\(roomId)/event/\(eventId)"
+    case .updateCategory(let roomId, let categoryId, _,_):
+      return "/room/\(roomId)/rules/category/\(categoryId)"
 
     case .deleteCategory(let roomId, let eventId):
       return "/room/\(roomId)/event/\(eventId)"
@@ -86,13 +86,10 @@ extension RulesMainAPITarget: TargetType {
         "categoryIcon": categoryIcon
       ]
       return .requestBody(body)
-    case .updateCategory(_,_, let email, let password, let userName, let gender, let birthday):
+    case .updateCategory(_,_, let categoryName, let categoryIcon):
       let body: [String: Any] = [
-        "email": email,
-        "password": password,
-        "userName": userName,
-        "gender": gender,
-        "birthday": birthday
+        "categoryName": categoryName,
+        "categoryIcon": categoryIcon,
       ]
       return .requestBody(body)
     }
