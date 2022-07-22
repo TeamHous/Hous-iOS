@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import Toast
 
 
 final class HomeViewController: UIViewController {
@@ -127,6 +128,15 @@ extension HomeViewController: UICollectionViewDelegate {
     if indexPath.row == homeData.homieProfileList.count {
       UIPasteboard.general.string = homeData.roomCode
       if let str = UIPasteboard.general.string {
+        
+        self.view.makeToast("초대 코드가 복사되었어요", duration: 1.5, point: CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height * 0.85), title: nil, image: nil) { didTap in
+          if didTap {
+            print("completion from tap")
+          } else {
+            print("completion without tap")
+          }
+        }
+
         print(str)
         // 토스트 메시지 라이브러리로 띄우기 야호
         // 클립보드에 복사됨
