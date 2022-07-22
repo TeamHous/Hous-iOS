@@ -161,6 +161,7 @@ SOPT 30th APPJAM
 ### 구현 방식
 
 1️⃣ `전체 홈 화면는 전체적인 구조를 컬렉션뷰로 잡고 각각의 섹션과 섹션헤더를 통해 뷰를 설계하였습니다. 두번째 셀(KeyRules, Todo) 같은 경우에 동적으로 cell의 높이가 바뀌어야했기에 동적 높이를 적용하였습니다.`
+
 2️⃣ `이벤트 팝업창을 구성할 때 아이콘 라디오 버튼들과 날짜 Datepicker부분을 모두 View로 빼고 TapGesture를 적용시켜서 구현했습니다.`
 
 <br />
@@ -199,9 +200,9 @@ SOPT 30th APPJAM
 
 >  이번에 내가 앱잼에서 맡은 부분은 커스텀 탭바와 새로운 규칙을 수정하거나, 추가하는 뷰이다. 
 
-- 커스텀 탭바는  UITabbarController에 위에 존재하는 tabbar를 숨김 처리하고  커스텀한 Tabbar를 올렸고 RxSwift, RxCocoa, RxGestures를 이용해서  아이템 간의 이벤트를 발생 및 구독  했다.
+1️⃣ `커스텀 탭바는  UITabbarController에 위에 존재하는 tabbar를 숨김 처리하고  커스텀한 Tabbar를 올렸고 RxSwift, RxCocoa, RxGestures를 이용해서  아이템 간의 이벤트를 발생 및 구독  했다.`
 
-- 규칙 추가, 수정하는 뷰는 먼저 드랍다운이 들어가 있어서, 라이브러리를 쓸까 말까 고민하다가 직접 구현하는 방식으로 갔었는데 드랍다운 탭 이벤트를 주기가 좀 복잡했다.  (좌표계산이 좀 까다로웠음..)
+2️⃣ `규칙 추가, 수정하는 뷰는 먼저 드랍다운이 들어가 있어서, 라이브러리를 쓸까 말까 고민하다가 직접 구현하는 방식으로 갔었는데 드랍다운 탭 이벤트를 주기가 좀 복잡했다.  (좌표계산이 좀 까다로웠음..)`
 
 <br />
 
@@ -270,13 +271,13 @@ participantButton.setBackgroundImage(assignee.checkedFaceImage, for: .selected)
 
 ### 어려웠던 점 및 극복 과정
 
-1️⃣ git rebase를 처음 접하면서 코드나 파일구조 git conflict등을 무수히 겪으며 reset하며 rebase를 익히고 git에 대한 두려움을 어느정도 떨쳐낼 수 있었다.
+1️⃣ `git rebase를 처음 접하면서 코드나 파일구조 git conflict등을 무수히 겪으며 reset하며 rebase를 익히고 git에 대한 두려움을 어느정도 떨쳐낼 수 있었다.`
 
-2️⃣ 초기에 GET API통신을 viewWillAppear에 넣어줬으나 dismiss시에는 viewWillAppear가 호출되지 않아 예상한 결과값을 얻지 못했다. iOS 13이후로 dismiss후에는 viewWillAppear가 호출되지 않는다 하여 NotificationCenter를 활용해서 이벤트를 감지하고 원하는 CollectionView를 팝업을 dismiss한 후에 reload시켜줄 수 있었다.
+2️⃣ `초기에 GET API통신을 viewWillAppear에 넣어줬으나 dismiss시에는 viewWillAppear가 호출되지 않아 예상한 결과값을 얻지 못했다. iOS 13이후로 dismiss후에는 viewWillAppear가 호출되지 않는다 하여 NotificationCenter를 활용해서 이벤트를 감지하고 원하는 CollectionView를 팝업을 dismiss한 후에 reload시켜줄 수 있었다.`
 
-3️⃣ 텍스트필드 글자수를 제한할 필요가 있었는데 textFieldDelegate로만 글자수를 제한을 하면 한글의 받침 특성 때문에 글자수가 잘 맞지 않는 이슈가 있어 textDidChangeNotification의 NoficationCenter를 이용해서 한번더 처리를 해주어서 한글 글자수 제한을 구현할 수 있었다.
+3️⃣ `텍스트필드 글자수를 제한할 필요가 있었는데 textFieldDelegate로만 글자수를 제한을 하면 한글의 받침 특성 때문에 글자수가 잘 맞지 않는 이슈가 있어 textDidChangeNotification의 NoficationCenter를 이용해서 한번더 처리를 해주어서 한글 글자수 제한을 구현할 수 있었다.`
 
-4️⃣ 성향테스트를 할 시에 테스트를 한 버튼의 상태를 계속 기억하고 있고 돌아가면 이를 수정할 수 있어야했기 때문에 DTO를 바로 받아서 사용하는 것이 아닌 dictionary를 이용해서 한번의 다른 struct으로 만든 후 이를 적용해서 구현했습니다.
+4️⃣ `성향테스트를 할 시에 테스트를 한 버튼의 상태를 계속 기억하고 있고 돌아가면 이를 수정할 수 있어야했기 때문에 DTO를 바로 받아서 사용하는 것이 아닌 dictionary를 이용해서 한번의 다른 struct으로 만든 후 이를 적용해서 구현했습니다.`
 
 ```swift
 struct TypeTestDTO: Codable {
@@ -331,24 +332,12 @@ struct TestCellItem {
 
 ## 김호세
 
-1️⃣ 
+1️⃣ `하우스 프로젝트를 진행하면서 어려웠던 부분은 새로운 규칙을 추가할 때, 유저 인터렉션에 따라 변하는 UI 로직 처리였다.  해결은 Dictionary를 이용해서 인터렉션마다 업데이트를 하는 방식으로 했다.`
 
-```
-하우스 프로젝트를 진행하면서 어려웠던 부분은 새로운 규칙을 추가할 때, 유저 인터렉션에 따라 변하는 UI 로직 처리였다.  해결은 Dictionary를 이용해서 인터렉션마다 업데이트를 하는 방식으로 했다. 
-```
+2️⃣ `개발이라는 것 특성상 협업할 확률이 높은데 Git에 대해서 좀 더 자세히 알 필요가 있다고 생각해서( 사실 그냥 One-line이 예뻐서 )  git rebase merge + git flow를 도입해봤다. 
+rebase를 하게 되면 merge 보다 훨씬 충돌이 많이 발생하는데 초기에는 팀원들이 이것에 대해서 걱정했었다. 지금 이 글을 쓰는 시점에서 다들 git rebase에 대해 큰 부담감을 가지지 않고 충돌에 더 여유로워진 모습을 봐서 나름 뿌듯했다.`
 
-2️⃣ 
-
-```
-개발이라는 것 특성상 협업할 확률이 높은데 Git에 대해서 좀 더 자세히 알 필요가 있다고 생각해서( 사실 그냥 One-line이 예뻐서 )  git rebase merge + git flow를 도입해봤다. 
-rebase를 하게 되면 merge 보다 훨씬 충돌이 많이 발생하는데 초기에는 팀원들이 이것에 대해서 걱정했었다. 지금 이 글을 쓰는 시점에서 다들 git rebase에 대해 큰 부담감을 가지지 않고 충돌에 더 여유로워진 모습을 봐서 나름 뿌듯했다.
-```
-
-3️⃣ 
-
-```
-또한 Injection을 도입해봤는데 개인적으로도 나름 유용하게 사용하고 있기도 하고 팀원들이 마음에 들어하는 거 같아서 좋았다. 다만 보통 사용할 때는, Test App Target을  만들고 작업을 하는데 좀만 더 신경 써서, 그 부분도 도입했으면 좋지 않았을까 하는 아쉬움이 들었다.
-```
+3️⃣ `또한 Injection을 도입해봤는데 개인적으로도 나름 유용하게 사용하고 있기도 하고 팀원들이 마음에 들어하는 거 같아서 좋았다. 다만 보통 사용할 때는, Test App Target을  만들고 작업을 하는데 좀만 더 신경 써서, 그 부분도 도입했으면 좋지 않았을까 하는 아쉬움이 들었다.`
 
 
 
