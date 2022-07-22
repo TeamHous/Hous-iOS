@@ -195,8 +195,10 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectio
         profileResultView.isPresentedFromHomeVC = self.isPresentedFromHomeVC
         profileResultView.modalTransitionStyle = .crossDissolve
         profileResultView.modalPresentationStyle = .fullScreen
-        
-        present(profileResultView, animated: true)
+        let seconds = 0.1
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [self] in
+          present(profileResultView, animated: true)
+        }
       }
       return cell
       

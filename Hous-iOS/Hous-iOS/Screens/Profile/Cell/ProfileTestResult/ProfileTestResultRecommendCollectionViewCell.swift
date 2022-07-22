@@ -41,7 +41,6 @@ final class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell 
   private func render(){
     profileTestResultRecommendStackView.addArrangedSubviews(badRecommendView, goodRecommmendView)
     self.addSubView(profileTestResultRecommendStackView)
-    
     profileTestResultRecommendStackView.snp.makeConstraints {make in
       make.leading.trailing.equalToSuperview().inset(24)
       make.top.equalToSuperview()

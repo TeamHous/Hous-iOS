@@ -29,7 +29,7 @@ final class ProfileRecommendTitleView : UIView {
   }
   
   private func configUI(){
-    self.backgroundColor = .offWhite
+    self.backgroundColor = .white
     self.layer.cornerRadius = 15
     self.layer.masksToBounds = true
   }

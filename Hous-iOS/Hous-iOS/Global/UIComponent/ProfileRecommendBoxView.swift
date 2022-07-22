@@ -8,6 +8,7 @@
 import UIKit
 
 enum CellType: String {
+  case empty = ""
   case bad = "맞춰가요"
   case good = "찰떡궁합"
 }
@@ -47,12 +48,12 @@ final class ProfileRecommendBoxView: UIView {
   }
   
   private func configUI(personalityType: PersonalityType, cellType: CellType){
-    self.backgroundColor = personalityType.backgroundColor
+    self.backgroundColor = .white
     self.layer.cornerRadius = 15
     self.layer.masksToBounds = true
     
     titleLabel.text = cellType.rawValue
-    titleLabel.textColor = personalityType.textColor
+    titleLabel.textColor = .white
     
     personalityLabel.text = personalityType.personalityTitleText
     

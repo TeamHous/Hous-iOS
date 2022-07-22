@@ -218,12 +218,6 @@
 		9BBB07BB2888AA6A003EAA09 /* ProfileTestResultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTestResultAPIService.swift; sourceTree = "<group>"; };
 		9BBE243E2881BF3200712C69 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		9BCA29F6288433BC0032338D /* ProfileRecommendBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecommendBoxView.swift; sourceTree = "<group>"; };
-		9BCA29F8288560EE0032338D /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileDTO.swift"; sourceTree = SOURCE_ROOT; };
-		9BCA29FA2885611B0032338D /* ProfileSettingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileSettingDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileSettingDTO.swift"; sourceTree = SOURCE_ROOT; };
-		9BCA29FC288561690032338D /* ProfileEditingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileEditingDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileEditingDTO.swift"; sourceTree = SOURCE_ROOT; };
-		9BCA29FE2885618F0032338D /* ProfileTestResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTestResultDTO.swift; path = "Hous-iOS/Network/Model/Profile/ProfileTestResultDTO.swift"; sourceTree = SOURCE_ROOT; };
-		9BCA2A0028857BE10032338D /* ProfileMainAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileMainAPITarget.swift; path = "Hous-iOS/Network/API/Profile/ProfileMainAPITarget.swift"; sourceTree = SOURCE_ROOT; };
-		9BCA2A0228857C020032338D /* ProfileMainAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileMainAPIService.swift; path = "Hous-iOS/Network/API/Profile/ProfileMainAPIService.swift"; sourceTree = SOURCE_ROOT; };
 		9BF7AB1F2881611C005B6E8A /* ProfileEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingViewController.swift; sourceTree = "<group>"; };
 		9BF7AB2128816235005B6E8A /* ProfileEditingNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditingNavigationBarView.swift; sourceTree = "<group>"; };
 		B5084A20287995E700C38749 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -346,26 +340,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		774F138E288807D8009138B7 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				B534F9452884E8E200624BAA /* HomeMainAPITarget.swift */,
-				B534F9472884E8F000624BAA /* HomeMainAPIService.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		774F138F2888083A009138B7 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				9BCA29F8288560EE0032338D /* ProfileDTO.swift */,
-				9BCA29FE2885618F0032338D /* ProfileTestResultDTO.swift */,
-				9BCA29FA2885611B0032338D /* ProfileSettingDTO.swift */,
-				9BCA29FC288561690032338D /* ProfileEditingDTO.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		778A79F8287704C800722CBB /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +375,7 @@
 				9B55FBBB288323990089B930 /* ProfileTestResultNavigationBar.swift */,
 				9B55FBC52883453B0089B930 /* ProfileDescriptionView.swift */,
 				9B55FBC72883454A0089B930 /* ProfileRecommendRuleTitleView.swift */,
+				9B55FBC9288345BC0089B930 /* ProfileRecommendRuleView.swift */,
 			);
 			path = ProfileTestResult;
 			sourceTree = "<group>";
@@ -899,7 +874,6 @@
 		B843871F28795F60003F7B75 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
-				9B55FBC9288345BC0089B930 /* ProfileRecommendRuleView.swift */,
 				774F139D28880EC7009138B7 /* CircularDayButton.swift */,
 				774F139828880EB9009138B7 /* DropDownButton.swift */,
 				774F139928880EB9009138B7 /* DropDownView.swift */,
@@ -1161,7 +1135,6 @@
 				B5084A27287996EE00C38749 /* RulesTodoView.swift in Sources */,
 				B858737B2889413F00912768 /* CategoryButton.swift in Sources */,
 				774F139E28880EC7009138B7 /* CircularDayButton.swift in Sources */,
-				9BCA2A0128857BE20032338D /* ProfileMainAPITarget.swift in Sources */,
 				9BF7AB2228816235005B6E8A /* ProfileEditingNavigationBarView.swift in Sources */,
 				9B648B8928804DD4005E9322 /* ProfileSettingNavigationBarView.swift in Sources */,
 				9B7D860D287C487C006C0BCE /* ProfileInfoCollectionViewCell.swift in Sources */,
