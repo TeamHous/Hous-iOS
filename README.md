@@ -1,8 +1,8 @@
-# Hous-iOS
+# 🏡 Hous-iOS
 
 <div align="center">
-
 ![KakaoTalk_Photo_2022-07-22-07-03-05](https://user-images.githubusercontent.com/60493070/180322745-92fdc3f3-9300-4c3a-9f93-211354ee5725.png)
+</div>
 
 # 🏠 About Hous- 🧐
 
@@ -19,8 +19,9 @@ SOPT 30th APPJAM
 <br/>
 
 # 🐉 Workflow
-
+<div align="center">
 ![hous_workflow](https://user-images.githubusercontent.com/74812188/180251210-2bfbf298-a8f6-4400-b14f-ea5b229e15e7.png)
+</div>
 
 <br/>
 
@@ -30,8 +31,6 @@ SOPT 30th APPJAM
 > 청소에 민감하지만 룸메이트는 청소에 민감하지 않아서 결국 다 혼자 청소하지는 않으셨나요? </br>
 전혀 상처를 주려고 하지 않았지만, 룸메이트와 성향이 달라 상처를 줘버린 적이 있지는 않으셨나요? </br>
 룸메이트와의 평화로운 한집살이를 도와줄 비서 **Hous-** 입니다.
-
-</div>
 
 <br />
 
