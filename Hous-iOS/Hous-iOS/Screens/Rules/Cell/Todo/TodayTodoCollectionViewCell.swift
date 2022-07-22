@@ -141,7 +141,6 @@ extension TodayTodoCollectionViewCell {
       let assigneesCount = assigneesLabelText.count
       if (assigneesLabelText.count > 2) {
         assigneesLabelText = Array(assigneesLabelText.prefix(2))
-        print("잘들어요냐고")
         self.assigneesLabel.text = "\(assigneesLabelText.joined(separator: ", ")) 외 \(assigneesCount - 2)명"
       } else {
         self.assigneesLabel.text = assigneesLabelText.joined(separator: ", ")
