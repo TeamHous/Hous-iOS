@@ -50,7 +50,7 @@ struct GreenAssignee: AssigneeProtocol {
   var checkedFaceImage = R.Image.faceCheckedGreen
   var faceImage = R.Image.faceGreen
   var color = R.Color.easterGreen
-  var profileBackgroundColor = R.Color.blueMint
+  var profileBackgroundColor = R.Color.iceMint
 }
 
 struct GrayAssignee: AssigneeProtocol {
