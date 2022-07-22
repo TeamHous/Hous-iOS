@@ -14,12 +14,18 @@ struct RuleMemberWhenRequest {
 
 // getNewRuleInfo (새로운 규칙 추가 시 뷰에 띄워야 하는 정보들)
 
-struct GetNewRuleInfoDTO: Codable {
+struct GetNewRuleInfoDTO: Codable, Equatable {
+  static func == (lhs: GetNewRuleInfoDTO, rhs: GetNewRuleInfoDTO) -> Bool {
+    return (lhs.ruleCategories == rhs.ruleCategories) && (lhs.homies == rhs.homies)
+  }
+
   let ruleCategories: [RuleCategoryDTO]
   let homies: [HomieDTO]
+
+
 }
 
-struct RuleCategoryDTO: Codable {
+struct RuleCategoryDTO: Codable,Equatable {
   let id: String
   let categoryName: String
 
@@ -29,7 +35,7 @@ struct RuleCategoryDTO: Codable {
   }
 }
 
-struct HomieDTO: Codable {
+struct HomieDTO: Codable, Equatable, Hashable {
   let id: String
   let userName: String
   let typeColor: String

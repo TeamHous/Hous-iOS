@@ -43,7 +43,7 @@ final class RulesMemberView: UIView {
   fileprivate let btn6 = CircularDayButton(day: .saturday)
   fileprivate let btn7 = CircularDayButton(day: .sunday)
 
-  private lazy var btns = [
+   lazy var btns = [
     btn1,
     btn2,
     btn3,
@@ -175,30 +175,38 @@ final class RulesMemberView: UIView {
     }
   }
 
-  public func setResponsible(members: [String], isFirst: Bool = false) {
+//  public func setResponsible(members: [String], isFirst: Bool = false) {
+//
+//    if isFirst {
+//      dropDownButton.changeText(text: "담당자 없음")
+//    }
+//    if !isFirst {
+//      dropDownButton.changeText(text: members.first)
+//      dropDownButton.selectedItemSubject.onNext(members.first!)
+//      dropDownButton.selectedItemString = members.first
+//    }
+//
+//    dropDownButton.dropView.dropDownOptions = members
+//    dropDownButton.isHiddenArrow(isHidden: false)
+//    dropDownButton.isEnabled = true
+//
+//    dayStackView.subviews.forEach { dayButton in
+//      if let dayButton = dayButton as? CircularDayButton {
+//        dayButton.isEnabled = true
+//      }
+//    }
+//  }
 
-    if isFirst {
-      dropDownButton.changeText(text: "담당자 없음")
+  public func calculateRemainingMember(members: [HomieDTO]) {
+
+    let drpdownOptions = members.map { item -> (String, UIColor) in
+      let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: item.typeColor.lowercased()) ?? .none)
+
+
+      return (item.userName, factory.color)
     }
-    if !isFirst {
-      dropDownButton.changeText(text: members.first)
-      dropDownButton.selectedItemSubject.onNext(members.first!)
-      dropDownButton.selectedItemString = members.first
-    }
 
-    dropDownButton.dropView.dropDownOptions = members
-    dropDownButton.isHiddenArrow(isHidden: false)
-    dropDownButton.isEnabled = true
-
-    dayStackView.subviews.forEach { dayButton in
-      if let dayButton = dayButton as? CircularDayButton {
-        dayButton.isEnabled = true
-      }
-    }
-  }
-
-  public func calculateRemainingMember(members: [String]) {
-    dropDownButton.dropView.dropDownOptions = members
+    dropDownButton.dropView.dropDownOptions = drpdownOptions
     dropDownButton.dropView.tableView.reloadData()
   }
 }

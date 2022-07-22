@@ -34,10 +34,12 @@ final class DropDownButton: UIControl {
     return view
   }()
 
-  private let colorView: UIView = {
+  let colorView: UIView = {
     let view = UIView()
     view.isHidden = true
     view.backgroundColor = .yellow
+    view.layer.cornerRadius = 8
+    view.layer.cornerCurve = .continuous
     return view
   }()
 
@@ -66,8 +68,8 @@ final class DropDownButton: UIControl {
     return imageView
   }()
 
-  var dropView: DropDownView = {
-    let view = DropDownView()
+  lazy var dropView: DropDownView = {
+    let view = DropDownView(isCategory: isCategory)
     view.backgroundColor = .white
     view.translatesAutoresizingMaskIntoConstraints = false
     return view

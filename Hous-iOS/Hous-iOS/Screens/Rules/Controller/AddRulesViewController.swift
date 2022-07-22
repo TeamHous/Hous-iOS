@@ -31,6 +31,7 @@ final class AddRulesViewController: UIViewController {
     button.setImage(R.Image.alarmOff, for: .normal)
     button.setImage(R.Image.alarmOn, for: .selected)
 
+    button.addTarget(self, action: #selector(didTapNotification), for: .touchUpInside)
     let barbutton = UIBarButtonItem(customView: button)
     return barbutton
   }()
@@ -124,7 +125,6 @@ final class AddRulesViewController: UIViewController {
     return label
   }()
 
-
   private lazy var addRuleMemberButton: PlusButton = {
     let button = PlusButton()
     return button
@@ -132,12 +132,15 @@ final class AddRulesViewController: UIViewController {
 
   private let addButton: UIButton = {
     let button = UIButton()
-    button.backgroundColor = R.Color.softBlue
+    button.setBackgroundColor(R.Color.softBlue, for: .normal)
     button.setTitle("추가하기", for: .normal)
     button.setTitleColor(.white, for: .normal)
+    button.setBackgroundColor(R.Color.veryLightPinkFour, for: .disabled)
     button.titleLabel?.font = .font(.spoqaHanSansNeoBold, ofSize: 18)
     button.layer.cornerCurve = .continuous
     button.layer.cornerRadius = 15
+    button.layer.masksToBounds = true
+    button.isEnabled = false
 
     return button
   }()
@@ -151,25 +154,21 @@ final class AddRulesViewController: UIViewController {
   private var totalRulesMemberViews: [RulesMemberView] = []
   internal var disposeBag = DisposeBag()
 
-  private var initialMembers: [String] = []
-  private var remainingMembers: [String] = []
-  private var selectedMembers: [String] = []
+  private var initialMembers: [HomieDTO] = []
+  private var remainingMembers: [HomieDTO] = []
+
   private var isEnabledKeyRuleButton: Bool = true
   private var isFirst: Bool = true
+  private var categories: [RuleCategoryDTO] = []
 
-  private var dictionary: [Int: String] = [:] {
+  private var selectedRelay = PublishRelay<Bool>()
+
+  private var dictionary: [Int: HomieDTO] = [:] {
     didSet {
       let members = Array(dictionary.values)
 
-      print(dictionary, "이거 Dictionary")
-
       let compareSet = Set(members)
       let resultArray = initialMembers.filter { !compareSet.contains($0) }
-
-      print(initialMembers, "initial")
-      print(members, "members")
-      print(dictionary, "dictionary")
-      print(resultArray, "remain")
 
       remainingMembers = resultArray
       totalRulesMemberViews.forEach { memberView in
@@ -211,6 +210,17 @@ final class AddRulesViewController: UIViewController {
     navigationController?.navigationBar.topItem?.title = ""
     navigationItem.rightBarButtonItem = notificationButton
     navigationItem.title = "새로운 규칙 추가"
+
+
+    if let tvc = navigationController?.tabBarController as? HousTabbarViewController {
+      tvc.housTabbar.isHidden = true
+    }
+
+  }
+
+  @objc
+  private func didTapNotification() {
+
   }
 
   @objc
@@ -239,6 +249,8 @@ final class AddRulesViewController: UIViewController {
 
     view.addSubview(scrollView)
     scrollView.addSubview(contentView)
+
+    view.addSubview(addButton)
 
     scrollView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -288,6 +300,12 @@ final class AddRulesViewController: UIViewController {
     addRuleMemberButton.snp.makeConstraints { make in
       make.height.equalTo(Constant.plusButtonHeight)
     }
+
+    addButton.snp.makeConstraints { make in
+      make.height.equalTo(48)
+      make.leading.trailing.equalToSuperview().inset(Constant.sideMargin)
+      make.bottom.equalToSuperview().inset(24)
+    }
   }
 }
 
@@ -304,7 +322,21 @@ extension AddRulesViewController: ReactorKit.View {
 
     rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
       .map { _ in () }
-      .map { Reactor.Action.viewWillAppear }
+      .map { Reactor.Action.viewWillAppearCategories }
+      .asObservable()
+      .bind(to: reactor.action)
+      .disposed(by: disposeBag)
+
+    rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+      .map { _ in () }
+      .map { Reactor.Action.viewWillAppearInitialMember }
+      .asObservable()
+      .bind(to: reactor.action)
+      .disposed(by: disposeBag)
+
+    rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+      .map { _ in () }
+      .map { Reactor.Action.viewWillAppearRemainingMember }
       .asObservable()
       .bind(to: reactor.action)
       .disposed(by: disposeBag)
@@ -316,7 +348,7 @@ extension AddRulesViewController: ReactorKit.View {
       .disposed(by: disposeBag)
 
     addRuleMemberButton.rx.tap
-      .map { [weak self] _ -> [String] in
+      .map { [weak self] _ -> [HomieDTO] in
         guard let remainMembers = self?.remainingMembers else {
           return []
         }
@@ -326,13 +358,22 @@ extension AddRulesViewController: ReactorKit.View {
       .bind(to: reactor.action)
       .disposed(by: disposeBag)
 
+    addButton.rx.tap
+      .map { Reactor.Action.didTapAdd }
+      .bind(to: reactor.action)
+      .disposed(by: disposeBag)
+
   }
 
   private func bindState(_ reactor: AddRulesReactor) {
 
     reactor.state
       .map { $0.catergories }
+      .do {
+        self.categories = $0
+      }
       .distinctUntilChanged()
+      .map { $0.map {($0.categoryName, .brownGreyTwo)} }
       .bind(to: categoryDropDownButton.dropView.rx.dropDownOptions)
       .disposed(by: disposeBag)
 
@@ -357,7 +398,6 @@ extension AddRulesViewController: ReactorKit.View {
       .withUnretained(self)
       .subscribe(onNext: { owner, isSelected in
 
-        // TODO: Refactor - 함수로 바꾸기
         if isSelected {
           owner.totalRulesMemberViews.first?.setNoResponsible()
           owner.keyRuleLabel.textColor = R.Color.softBlue
@@ -394,16 +434,40 @@ extension AddRulesViewController: ReactorKit.View {
 
       })
       .disposed(by: disposeBag)
+
+    reactor.state
+      .map { $0.isEnableAdd }
+      .distinctUntilChanged()
+      .withUnretained(self)
+      .subscribe(onNext: { owner, isEnableAdd in
+        print(isEnableAdd)
+        owner.addButton.isEnabled = isEnableAdd
+      })
+      .disposed(by: disposeBag)
+
+
+    reactor.state
+      .map { $0.back }
+      .distinctUntilChanged()
+      .withUnretained(self)
+      .subscribe(onNext: { owner, back in
+
+        if back {
+          owner.navigationController?.popViewController(animated: false)
+        }
+      })
+      .disposed(by: disposeBag)
   }
 
 }
 
 extension AddRulesViewController {
 
-  private func appendRuleMemberView(members: [String]) {
+  private func appendRuleMemberView(members: [HomieDTO]) {
     let memberView = RulesMemberView()
 
     memberView.tag = totalRulesMemberViews.count
+
     totalRulesMemberViews.append(memberView)
 
     memberView.calculateRemainingMember(members: members)
@@ -418,14 +482,22 @@ extension AddRulesViewController {
     memberView.dropDownButton.selectedItemSubject
       .withUnretained(self)
       .subscribe(onNext: { owner, selectedItem in
-        owner.dictionary[memberView.tag] = selectedItem
+
+        let selectedHomie = owner.initialMembers.first { $0.userName == selectedItem }
+
+        guard let selectedHomie = selectedHomie else { return }
+
+        let factory = AssigneeFactory.makeAssignee(type: AssigneeColor(rawValue: selectedHomie.typeColor.lowercased()) ?? .none)
+        memberView.dropDownButton.colorView.backgroundColor = factory.color
+        owner.dictionary[memberView.tag] = selectedHomie
+        owner.selectedRelay.accept(true)
+
       })
       .disposed(by: disposeBag)
 
     memberView.isTappedSubject
       .withUnretained(self)
       .subscribe(onNext:  { owner, isTapped in
-
 
         switch (owner.dictionary.isEmpty, isTapped) {
         case (_, true):
@@ -438,11 +510,8 @@ extension AddRulesViewController {
         case (true, false):
           owner.keyRuleCheckButton.isEnabled = true
         }
-
-
       })
       .disposed(by: disposeBag)
-
 
     memberView.dropDownButton.removeButton.rx.tap
       .withUnretained(self)
@@ -453,6 +522,9 @@ extension AddRulesViewController {
         owner.contentView.removeArrangedSubview(memberView)
         memberView.removeFromSuperview()
 
+        UIView.animate(withDuration: 0.5) {
+          owner.view.layoutIfNeeded()
+        }
       })
       .disposed(by: disposeBag)
 
@@ -468,18 +540,3 @@ extension AddRulesViewController {
 
   }
 }
-
-extension Sequence where Element: Hashable {
-  func uniqued() -> [Element] {
-    var set = Set<Element>()
-    return filter { set.insert($0).inserted }
-  }
-}
-extension Array where Element: Hashable {
-  func difference(from other: [Element]) -> [Element] {
-    let thisSet = Set(self)
-    let otherSet = Set(other)
-    return Array(thisSet.symmetricDifference(otherSet))
-  }
-}
-
