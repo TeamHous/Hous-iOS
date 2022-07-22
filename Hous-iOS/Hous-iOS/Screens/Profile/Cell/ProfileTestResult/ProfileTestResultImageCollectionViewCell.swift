@@ -16,22 +16,20 @@ final class ProfileTestResultImageCollectionViewCell : UICollectionViewCell {
   }
   
   private let userNameLabel = UILabel().then {
-    $0.text = "최호미님은"
+    $0.text = ""
     $0.textColor = .brownGrey
     $0.backgroundColor = .white
     $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
   }
   
   private let personalityTypeLabel = UILabel().then {
-    $0.text = "늘 행복한 동글이"
+    $0.text = ""
     $0.textColor = .housBlack
     $0.backgroundColor = .white
     $0.font = .font(.spoqaHanSansNeoBold, ofSize: 22)
   }
   
-  private let personalityImageView = UIImageView().then {
-    $0.image = R.Image.resultImage1
-  }
+  private let personalityImageView = UIImageView()
   
   override init(frame: CGRect){
     super.init(frame: frame)
