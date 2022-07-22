@@ -279,14 +279,14 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
       self.testCellData[testIndex].testAnswers[tag].isSelected = true
       
       // 나의 테스트 성향 점수 변경
-      self.updateTest(typeScore: finalScore)
-      
-      let testResultVC = ProfileTestResultViewController()
-      testResultVC.modalPresentationStyle = .fullScreen
-      
-      testResultVC.isFromTypeTest = true
-      self.present(testResultVC, animated: true)
-      return
+      self.updateTest(typeScore: finalScore) {
+        let testResultVC = ProfileTestResultViewController()
+        testResultVC.modalPresentationStyle = .fullScreen
+        
+        testResultVC.isFromTypeTest = true
+        self.present(testResultVC, animated: true)
+        return
+      }
       
     } else {
       
@@ -318,11 +318,13 @@ extension ProfileTestViewController: TestCollectionViewCellDelegate {
 
 extension ProfileTestViewController {
   
-  private func updateTest(typeScore: [Int]) {
+  private func updateTest(typeScore: [Int], completion: @escaping () -> Void) {
     ProfileTestAPIService.shared.requestUpdateTest(typeScore: typeScore) { result in
       if let responseResult = NetworkResultFactory.makeResult(resultType: result)
           as? Success<UpdateTestDTO> {
         responseResult.resultMethod()
+        
+        completion()
       } else {
         let responseResult = NetworkResultFactory.makeResult(resultType: result)
         responseResult.resultMethod()

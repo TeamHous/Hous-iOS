@@ -60,13 +60,13 @@ final class ProfileTestResultViewController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    getData()
     configUI()
     render()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    getData()
     setTabBarVisibility()
   }
   
@@ -98,6 +98,15 @@ final class ProfileTestResultViewController : UIViewController {
     registerCell()
     navigationBarView.moveToProfileMainView = {  [self] in
       if isFromTypeTest {
+        
+        let housTabbarViewController = HousTabbarViewController()
+        
+        self.view.window?.rootViewController = housTabbarViewController
+        self.view.window?.makeKeyAndVisible()
+
+        housTabbarViewController.housTabbar.selectItem(index: 2)
+        housTabbarViewController.housTabbar.backgroundColor = R.Color.salmon
+        
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
       } else {
         dismiss(animated: true)
