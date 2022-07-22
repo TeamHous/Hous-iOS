@@ -150,7 +150,11 @@ extension HomeViewController: UICollectionViewDelegate {
       profileHomeVC.modalPresentationStyle = .fullScreen
       profileHomeVC.modalTransitionStyle = .crossDissolve
       
-      present(profileHomeVC, animated: true)
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
+        present(profileHomeVC, animated: true)
+      }
+      
+//      present(profileHomeVC, animated: true)
 //      profileHomeVC.homieNavigationBarView.popNavigationController = { [self] in
 //        navigationController?.popViewController(animated: true)
 //      }
