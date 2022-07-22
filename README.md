@@ -46,7 +46,7 @@ SOPT 30th APPJAM
 
 # 🛠 Development Environment
 
-![Swift](https://img.shields.io/badge/swift-v5.5*-orange?logo=swift)![Xcode](https://img.shields.io/badge/xcode-v13.0*-blue?logo=xcode)![iOS](https://img.shields.io/badge/iOS-15.0*-green.svg)
+![Swift](https://img.shields.io/badge/swift-v5.5*-orange?logo=swift)  ![Xcode](https://img.shields.io/badge/xcode-v13.0*-blue?logo=xcode)  ![iOS](https://img.shields.io/badge/iOS-15.0*-green.svg)
 
 <br />
 
