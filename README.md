@@ -140,9 +140,9 @@ SOPT 30th APPJAM
 
 ### 구현 방식
 
-	1. `오늘의 Todo & 나의 Todo` / `Category` / `Category 추가 수정`  세가지 뷰로 나누어 구현했습니다.
-	1. 오늘의 Todo & 나의 Todo enum을 정의하고 case에 따라 cell을 다르게 dequeue 해주었습니다.
-	1. `Category` 추가 수정 또한 enum을 정의하고 case에 따라 같은 View를 재사용하며 다른 기능을 구현했습니다.
+	1. 오늘의 Todo & 나의 Todo / Category / Category 추가 수정  세가지 뷰로 나누어 구현했습니다.
+	2. 오늘의 Todo & 나의 Todo enum을 정의하고 case에 따라 cell을 다르게 dequeue 해주었습니다.
+	3. Category 추가 수정 또한 enum을 정의하고 case에 따라 같은 View를 재사용하며 다른 기능을 구현했습니다.
 
 
 
@@ -168,10 +168,10 @@ SOPT 30th APPJAM
 
 Hous- 는 User 마다 성향테스트 결과에 따른 `TypeColor`가 존재하고 서버에서 `String`으로 받아오기 때문에 받아온 `String`을 경우에 따라 네가지로 변환해야 합니다.
 
-	1. `typeColor에 따른 다양한 색의 지정 UIColor`
-	1. `typeColor에 따른 다양한 색의 배경 UIColor`
-	1. `typeColor에 따른 다양한 색의 얼굴 이모지`
-	1. `typeColor에 따른 다양한 색의 체크된 얼굴 이모지`
+	1. typeColor에 따른 다양한 색의 지정 UIColor
+	2. typeColor에 따른 다양한 색의 배경 UIColor
+	3. typeColor에 따른 다양한 색의 얼굴 이모지
+	4. typeColor에 따른 다양한 색의 체크된 얼굴 이모지
 
 하지만 서버통신을 할 때마다 조건문을 사용하여 TypeColor에 따른 분기처리를 했더니 중복 코드가 굉장히 많아졌습니다.
 
