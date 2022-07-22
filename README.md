@@ -157,7 +157,6 @@ SOPT 30th APPJAM
 <img width="499" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-07-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205 20 56" src="https://user-images.githubusercontent.com/59338503/180444446-55f4c55d-ac2c-42f9-83fe-914fa2e88470.png"> <img width="297" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-07-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205 23 40" src="https://user-images.githubusercontent.com/59338503/180444377-bd4cf92c-aa50-40d7-929f-be47c92118e0.png">
 
 <img width="915" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-07-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205 22 37" src="https://user-images.githubusercontent.com/59338503/180444352-eea8eea2-052d-41cc-8b20-6e2a4f2baa06.png">
--c84bc9ff2b4c.png">
 
 ### 구현 방식
 
