@@ -41,7 +41,7 @@ final class ProfileTestResultViewController : UIViewController {
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
-    static let imageCellSize = CGSize(width: Size.screenWidth, height: 320)
+    static let imageCellSize = CGSize(width: Size.screenWidth, height: 340)
     static let textCellSize = CGSize(width: Size.screenWidth, height: 320)
     static let recommendCellSize = CGSize(width: Size.screenWidth, height: 100)
   }
