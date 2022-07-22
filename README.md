@@ -1,8 +1,7 @@
 # 🏡 Hous-iOS
-
-<div align="center">
 ![KakaoTalk_Photo_2022-07-22-07-03-05](https://user-images.githubusercontent.com/60493070/180322745-92fdc3f3-9300-4c3a-9f93-211354ee5725.png)
-</div>
+
+<br/>
 
 # 🏠 About Hous- 🧐
 
@@ -19,9 +18,7 @@ SOPT 30th APPJAM
 <br/>
 
 # 🐉 Workflow
-<div align="center">
 ![hous_workflow](https://user-images.githubusercontent.com/74812188/180251210-2bfbf298-a8f6-4400-b14f-ea5b229e15e7.png)
-</div>
 
 <br/>
 
