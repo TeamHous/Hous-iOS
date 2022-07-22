@@ -140,9 +140,9 @@ SOPT 30th APPJAM
 
 ### 구현 방식
 
-	1. 오늘의 Todo & 나의 Todo / Category / Category 추가 수정  세가지 뷰로 나누어 구현했습니다.
-	2. 오늘의 Todo & 나의 Todo enum을 정의하고 case에 따라 cell을 다르게 dequeue 해주었습니다.
-	3. Category 추가 수정 또한 enum을 정의하고 case에 따라 같은 View를 재사용하며 다른 기능을 구현했습니다.
+1️⃣ `오늘의 Todo & 나의 Todo / Category / Category 추가 수정  세가지 뷰로 나누어 구현했습니다.`
+2️⃣ `오늘의 Todo & 나의 Todo enum을 정의하고 case에 따라 cell을 다르게 dequeue 해주었습니다.`
+3️⃣ `Category 추가 수정 또한 enum을 정의하고 case에 따라 같은 View를 재사용하며 다른 기능을 구현했습니다.`
 
 <br />
 
