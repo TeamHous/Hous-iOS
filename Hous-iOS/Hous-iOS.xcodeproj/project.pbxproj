@@ -97,6 +97,7 @@
 		B59C947B2877098D005865CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C947A2877098D005865CA /* UIStackView+Extension.swift */; };
 		B5A3A5E22889DD53007CBD86 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3A5E12889DD53007CBD86 /* UIScrollView+Extension.swift */; };
 		B5A3A5E42889ECFF007CBD86 /* splashlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B5A3A5E32889ECFF007CBD86 /* splashlottie.json */; };
+		B5A3A5E7288AEDED007CBD86 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B5A3A5E6288AEDED007CBD86 /* Toast */; };
 		B5A7D19A28809B180037F210 /* QuitTestPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7D19928809B180037F210 /* QuitTestPopUpViewController.swift */; };
 		B5BD75D128801F4C00B98D35 /* IconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD75D028801F4C00B98D35 /* IconFactory.swift */; };
 		B5C2D3AB2880263800843196 /* HousTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FC27287936A500F5376B /* HousTabbarViewController.swift */; };
@@ -327,6 +328,7 @@
 				774F13AA28880F89009138B7 /* PinLayout in Frameworks */,
 				778A7A0E2879349100722CBB /* RxGesture in Frameworks */,
 				B843872D287961EE003F7B75 /* RxSwift in Frameworks */,
+				B5A3A5E7288AEDED007CBD86 /* Toast in Frameworks */,
 				B534F9632889724300624BAA /* Lottie in Frameworks */,
 				774F13A728880F78009138B7 /* FlexLayoutYogaKit in Frameworks */,
 				774F13A528880F78009138B7 /* FlexLayoutYoga in Frameworks */,
@@ -978,6 +980,7 @@
 				774F13A428880F78009138B7 /* FlexLayoutYoga */,
 				774F13A628880F78009138B7 /* FlexLayoutYogaKit */,
 				774F13A928880F89009138B7 /* PinLayout */,
+				B5A3A5E6288AEDED007CBD86 /* Toast */,
 			);
 			productName = "Hous-iOS";
 			productReference = B805109E2876D2D10025B767 /* Hous-iOS.app */;
@@ -1019,6 +1022,7 @@
 				774F139428880E9D009138B7 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				774F13A128880F78009138B7 /* XCRemoteSwiftPackageReference "FlexLayout" */,
 				774F13A828880F89009138B7 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				B5A3A5E5288AEDED007CBD86 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = B805109F2876D2D10025B767 /* Products */;
 			projectDirPath = "";
@@ -1462,6 +1466,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		B5A3A5E5288AEDED007CBD86 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		B80510D52876D6440025B767 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1539,6 +1551,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B534F9612889724300624BAA /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		B5A3A5E6288AEDED007CBD86 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5A3A5E5288AEDED007CBD86 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		B8438722287961EE003F7B75 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
