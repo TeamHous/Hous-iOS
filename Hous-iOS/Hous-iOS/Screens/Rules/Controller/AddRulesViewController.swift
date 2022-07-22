@@ -120,7 +120,7 @@ final class AddRulesViewController: UIViewController {
 """
     label.numberOfLines = 0
     label.textColor = R.Color.veryLightPinkFive
-    label.font = .font(.montserratMedium, ofSize: 12)
+    label.font = .font(.spoqaHanSansNeoMedium, ofSize: 12)
 
     return label
   }()
@@ -202,6 +202,9 @@ final class AddRulesViewController: UIViewController {
 
     let reactor = AddRulesReactor()
     self.reactor = reactor
+
+    self.ruleNameTextField.delegate = self
+    self.ruleNameTextField.returnKeyType = .done
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -230,7 +233,7 @@ final class AddRulesViewController: UIViewController {
 
   private func makeLabel(text: String) -> UILabel {
     let label = UILabel()
-    label.font = .font(.montserratMedium, ofSize: 16)
+    label.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     label.textColor = R.Color.softBlue
     label.text = text
 
@@ -538,5 +541,12 @@ extension AddRulesViewController {
     contentView.addArrangedSubview(memberView)
     contentView.addArrangedSubview(addRuleMemberButton)
 
+  }
+}
+
+extension AddRulesViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      textField.resignFirstResponder()
+      return true
   }
 }

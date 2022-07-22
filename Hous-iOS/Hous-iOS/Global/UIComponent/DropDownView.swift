@@ -78,6 +78,8 @@ extension DropDownView: UITableViewDelegate, UITableViewDataSource {
     if isCategory {
       let cell = UITableViewCell()
       cell.backgroundColor = .white
+      cell.textLabel?.font = .font(.spoqaHanSansNeoMedium, ofSize: 14)
+      cell.textLabel?.textColor = R.Color.brownGreyTwo
       cell.textLabel?.text = dropDownOptions[indexPath.row].0
       cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12))
       return cell

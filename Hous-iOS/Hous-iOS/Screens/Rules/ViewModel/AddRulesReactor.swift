@@ -60,13 +60,13 @@ final class AddRulesReactor: Reactor {
     switch action {
 
     case .viewWillAppearCategories:
-      return getCategories(roomID: "62d4335e17e70062873f3d23")
+      return getCategories(roomID: APIConstants.roomID)
 
     case .viewWillAppearInitialMember:
-      return getInitialMember(roomID: "62d4335e17e70062873f3d23")
+      return getInitialMember(roomID: APIConstants.roomID)
 
     case .viewWillAppearRemainingMember:
-      return getRemainMember(roomID: "62d4335e17e70062873f3d23")
+      return getRemainMember(roomID: APIConstants.roomID)
 
     case .didTapKeyRuleButton:
       return Observable.concat([

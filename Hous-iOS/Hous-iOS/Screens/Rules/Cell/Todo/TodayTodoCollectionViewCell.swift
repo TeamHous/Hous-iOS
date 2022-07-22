@@ -27,11 +27,11 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     $0.spacing = 8
   }
   var todoTitleLabel = UILabel().then {
-    $0.font = .font(.montserratMedium, ofSize: 16)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.text = "화장실 청소"
   }
   var assigneesLabel = UILabel().then {
-    $0.font = .font(.montserratMedium, ofSize: 13)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 13)
     $0.textColor = R.Color.lightPeriwinkle
     $0.text = "담당자 선택하기"
   }

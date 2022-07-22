@@ -17,7 +17,7 @@ class MyTodoCollectionViewCell: UICollectionViewCell {
   var delegate: MyTodoCheckUpdateDelegate?
 
   var todoTitleLabel = UILabel().then {
-    $0.font = .systemFont(ofSize: 16)
+    $0.font = .font(.spoqaHanSansNeoMedium, ofSize: 16)
     $0.text = "거실 청소기 돌리기"
   }
   var categoryImageView = UIImageView().then {
