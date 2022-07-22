@@ -114,6 +114,7 @@ final class ProfileViewController : UIViewController {
   private func setup(){
     setDelegate()
     registerCell()
+    profileMainCollectionView.showsVerticalScrollIndicator = false
     navigationBarView.moveToSettingViewController = {  [self] in
       let profileSettingViewController = ProfileSettingViewController()
       navigationController?.pushViewController(profileSettingViewController, animated: true)
