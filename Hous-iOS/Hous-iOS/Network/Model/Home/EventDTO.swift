@@ -14,7 +14,7 @@ struct EventDTO: Codable {
   let eventName: String
   let eventIcon:String
   let date: String
-  let participants: [Participant]
+  var participants: [Participant]
   
   enum CodingKeys: String, CodingKey {
     case id = "_id"
@@ -27,7 +27,7 @@ struct Participant: Codable {
   let id: String
   let userName: String
   let typeColor: String
-  let isChecked: Bool
+  var isChecked: Bool
   
   enum CodingKeys: String, CodingKey {
     case id = "_id"

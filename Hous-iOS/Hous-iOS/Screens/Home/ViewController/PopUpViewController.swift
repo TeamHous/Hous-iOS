@@ -40,7 +40,13 @@ final class PopUpViewController: UIViewController {
     }
   }
   
-  var eventData: EventDTO?
+  var eventData: EventDTO? {
+    didSet {
+      realEventData = eventData
+    }
+  }
+  
+  var realEventData: EventDTO?
   
   var homieProfileList: [HomieProfileList] = [] {
     didSet {
@@ -402,6 +408,8 @@ extension PopUpViewController: UICollectionViewDelegate {
     guard let cell = collectionView.cellForItem(at: indexPath) as? ParticipantsCollectionViewCell
     else { return }
     
+    realEventData?.participants[indexPath.row].isChecked.toggle()
+    
     cell.participantButton.isSelected.toggle()
     
     if isDefaultPopUp {
@@ -447,10 +455,15 @@ extension PopUpViewController: UICollectionViewDataSource {
       cell.setDefaultParticipantData(self.homieProfileList[indexPath.row], isSelected: nil)
       return cell
     }
-    guard let eventData = eventData else { return UICollectionViewCell() }
+    
+    guard let eventData = realEventData else { return UICollectionViewCell() }
     let isSelected = eventData.participants[indexPath.row].isChecked
     cell.setParticipantData(eventData.participants[indexPath.row], isSelected: isSelected)
     return cell
+//    guard let eventData = eventData else { return UICollectionViewCell() }
+//    let isSelected = eventData.participants[indexPath.row].isChecked
+//    cell.setParticipantData(eventData.participants[indexPath.row], isSelected: isSelected)
+//    return cell
   }
 }
 
