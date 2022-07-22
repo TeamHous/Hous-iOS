@@ -18,7 +18,7 @@ final class PopUpViewController: UIViewController {
   
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
-    static let eventIconSize = CGSize(width: 44, height: 68)
+    static let eventIconSize = CGSize(width: 50, height: 68)
     static let popUpWidth = UIScreen.main.bounds.width * (272/375)
     static let popUpHeight = Size.popUpWidth * (439/272)
   }
