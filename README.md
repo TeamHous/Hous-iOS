@@ -148,7 +148,21 @@ SOPT 30th APPJAM
 
 ## 김민재
 
+### 맡은뷰
 
+``` 
+메인홈탭 - 이벤트, Rules, Todo, 같은 방 호미(homie)들 조회, 이벤트 추가/수정/삭제 팝업창, 호미프로필 조회, 성향테스트 조회, 성향 테스트 결과 추가, 테스트 그만두기 팝업
+```
+
+<img width="499" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-07-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205 20 56" src="https://user-images.githubusercontent.com/59338503/180444446-55f4c55d-ac2c-42f9-83fe-914fa2e88470.png"> <img width="297" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-07-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205 23 40" src="https://user-images.githubusercontent.com/59338503/180444377-bd4cf92c-aa50-40d7-929f-be47c92118e0.png">
+
+<img width="915" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-07-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205 22 37" src="https://user-images.githubusercontent.com/59338503/180444352-eea8eea2-052d-41cc-8b20-6e2a4f2baa06.png">
+-c84bc9ff2b4c.png">
+
+### 구현 방식
+
+- 전체 홈 화면는 전체적인 구조를 컬렉션뷰로 잡고 각각의 섹션과 섹션헤더를 통해 뷰를 설계하였습니다. 두번째 셀(KeyRules, Todo) 같은 경우에 동적으로 cell의 높이가 바뀌어야했기에 동적 높이를 적용하였습니다.
+- 이벤트 팝업창을 구성할 때 아이콘 라디오 버튼들과 날짜 Datepicker부분을 모두 View로 빼고 TapGesture를 적용시켜서 구현했습니다.
 
 <br />
 
@@ -255,7 +269,55 @@ participantButton.setBackgroundImage(assignee.checkedFaceImage, for: .selected)
 
 ## 김민재
 
+### 어려웠던 점 및 극복 과정
 
+- git rebase를 처음 접하면서 코드나 파일구조 git conflict등을 무수히 겪으며 reset하며 rebase를 익히고 git에 대한 두려움을 어느정도 떨쳐낼 수 있었다.
+- 초기에 GET API통신을 viewWillAppear에 넣어줬으나 dismiss시에는 viewWillAppear가 호출되지 않아 예상한 결과값을 얻지 못했다. iOS 13이후로 dismiss후에는 viewWillAppear가 호출되지 않는다 하여 NotificationCenter를 활용해서 이벤트를 감지하고 원하는 CollectionView를 팝업을 dismiss한 후에 reload시켜줄 수 있었다.
+- 텍스트필드 글자수를 제한할 필요가 있었는데 textFieldDelegate로만 글자수를 제한을 하면 한글의 받침 특성 때문에 글자수가 잘 맞지 않는 이슈가 있어 textDidChangeNotification의 NoficationCenter를 이용해서 한번더 처리를 해주어서 한글 글자수 제한을 구현할 수 있었다.
+- 성향테스트를 할 시에 테스트를 한 버튼의 상태를 계속 기억하고 있고 돌아가면 이를 수정할 수 있어야했기 때문에 DTO를 바로 받아서 사용하는 것이 아닌 dictionary를 이용해서 한번의 다른 struct으로 만든 후 이를 적용해서 구현했습니다.
+
+```swift
+struct TypeTestDTO: Codable {
+  let id: String
+  let question: String
+  let testNum: Int
+  let questionImg: String
+  let answers: [String]
+  let questionType: String
+  
+  enum CodingKeys: String, CodingKey {
+    case id = "_id"
+    case question
+    case testNum
+    case questionImg
+    case answers
+    case questionType
+  }
+}
+struct TestCellItem {
+  let testTitle: String
+  let testIdx: Int
+  let testImg: String
+  let testType: String
+  var testAnswers: [ButtonState]
+  
+  init(dto: TypeTestDTO) {
+    self.testTitle = dto.question
+    self.testIdx = dto.testNum
+    self.testImg = dto.questionImg
+    self.testType = dto.questionType
+    
+    var t: [ButtonState] = []
+    for answer in dto.answers {
+      let button = ButtonState(optionText: answer, isSelected: false)
+      t.append(button)
+    }
+    self.testAnswers = t
+  }
+}
+```
+
+> DTO를 한번 더 감싼 custom struct DTO
 
 <br />
 
