@@ -271,8 +271,11 @@ participantButton.setBackgroundImage(assignee.checkedFaceImage, for: .selected)
 ### 어려웠던 점 및 극복 과정
 
 1️⃣ git rebase를 처음 접하면서 코드나 파일구조 git conflict등을 무수히 겪으며 reset하며 rebase를 익히고 git에 대한 두려움을 어느정도 떨쳐낼 수 있었다.
+
 2️⃣ 초기에 GET API통신을 viewWillAppear에 넣어줬으나 dismiss시에는 viewWillAppear가 호출되지 않아 예상한 결과값을 얻지 못했다. iOS 13이후로 dismiss후에는 viewWillAppear가 호출되지 않는다 하여 NotificationCenter를 활용해서 이벤트를 감지하고 원하는 CollectionView를 팝업을 dismiss한 후에 reload시켜줄 수 있었다.
+
 3️⃣ 텍스트필드 글자수를 제한할 필요가 있었는데 textFieldDelegate로만 글자수를 제한을 하면 한글의 받침 특성 때문에 글자수가 잘 맞지 않는 이슈가 있어 textDidChangeNotification의 NoficationCenter를 이용해서 한번더 처리를 해주어서 한글 글자수 제한을 구현할 수 있었다.
+
 4️⃣ 성향테스트를 할 시에 테스트를 한 버튼의 상태를 계속 기억하고 있고 돌아가면 이를 수정할 수 있어야했기 때문에 DTO를 바로 받아서 사용하는 것이 아닌 dictionary를 이용해서 한번의 다른 struct으로 만든 후 이를 적용해서 구현했습니다.
 
 ```swift
