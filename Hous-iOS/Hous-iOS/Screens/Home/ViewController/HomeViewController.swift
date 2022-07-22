@@ -108,7 +108,7 @@ final class HomeViewController: UIViewController {
   private func setHomieProfileCell(cell: ProfileCollectionViewCell, profileIsHidden: Bool) {
     cell.profileImage.isHidden = profileIsHidden
     cell.profileNameLabel.isHidden = profileIsHidden
-    
+    cell.backgroundColor = R.Color.offWhite
     cell.codeImage.isHidden = !profileIsHidden
     cell.codeLabel.isHidden = !profileIsHidden
   }
@@ -147,12 +147,15 @@ extension HomeViewController: UICollectionViewDelegate {
       
       profileHomeVC.homieNavigationBarView.isHidden = false
       profileHomeVC.navigationBarView.isHidden = true
+      profileHomeVC.modalPresentationStyle = .fullScreen
+      profileHomeVC.modalTransitionStyle = .crossDissolve
       
-      profileHomeVC.homieNavigationBarView.popNavigationController = { [self] in
-        navigationController?.popViewController(animated: true)
-      }
-      
-      self.navigationController?.pushViewController(profileHomeVC, animated: true)
+      present(profileHomeVC, animated: true)
+//      profileHomeVC.homieNavigationBarView.popNavigationController = { [self] in
+//        navigationController?.popViewController(animated: true)
+//      }
+//
+//      self.navigationController?.pushViewController(profileHomeVC, animated: true)
     }
   }
   

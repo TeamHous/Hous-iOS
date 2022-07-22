@@ -23,7 +23,9 @@ final class ProfileViewController : UIViewController {
     didSet {
       if isPresentedFromHomeVC {
         self.navigationBarView.isHidden = true
-        
+        self.homieNavigationBarView.popNavigationController = {
+          self.dismiss(animated: true)
+        }
       }
     }
   }
