@@ -78,7 +78,7 @@ enum PersonalityType: String {
       return R.Color.easterGreen
       
     case .empty:
-      return R.Color.veryLightPink
+      return .white
     }
   }
   
@@ -100,7 +100,7 @@ enum PersonalityType: String {
       return R.Color.blueMint
     
     case .empty:
-      return R.Color.veryLightPinkTwo
+      return .white
     }
   }
   
@@ -122,7 +122,7 @@ enum PersonalityType: String {
       return R.Color.iceMint
       
     case .empty:
-      return R.Color.veryLightPink
+      return .white
     }
     
   }
@@ -145,7 +145,7 @@ enum PersonalityType: String {
       return R.Color.easterGreen
       
     case .empty:
-      return R.Color.veryLightPink
+      return .white
     }
   }
   
