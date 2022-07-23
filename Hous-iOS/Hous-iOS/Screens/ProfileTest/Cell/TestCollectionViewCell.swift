@@ -98,6 +98,7 @@ class TestCollectionViewCell: UICollectionViewCell {
       make.top.equalTo(testTitleLabel.snp.bottom).offset(18)
       make.centerX.equalTo(testTitleLabel)
       make.leading.trailing.equalToSuperview().inset(25)
+      make.width.height.equalTo(325)
     }
     
     buttonStackView.snp.makeConstraints { make in
