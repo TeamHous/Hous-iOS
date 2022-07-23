@@ -154,14 +154,13 @@ class RulesTodoCollectionViewCell: UICollectionViewCell {
   }
   
   func setTodosData(_ data: [TodoList], _ totalCount: Int) {
-    
+    todoLabelStackView.subviews.forEach { $0.removeFromSuperview() }
     data.forEach { item in
       let label = RulesTodosView()
       label.circleImageView.isHidden = true
       label.setRulesLabelData(rule: item.ruleName)
+      label.checkButton.isSelected = item.isChecked
       label.setCheckButton(item.isChecked)
-      
-      if todoLabelStackView.subviews.count == totalCount { return }
       todoLabelStackView.addArrangedSubview(label)
     }
   }
