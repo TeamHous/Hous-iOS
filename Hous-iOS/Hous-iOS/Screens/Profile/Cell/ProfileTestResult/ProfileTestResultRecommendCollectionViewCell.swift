@@ -43,7 +43,7 @@ final class ProfileTestResultRecommendCollectionViewCell : UICollectionViewCell 
     self.addSubView(profileTestResultRecommendStackView)
     profileTestResultRecommendStackView.snp.makeConstraints {make in
       make.leading.trailing.equalToSuperview().inset(24)
-      make.top.equalToSuperview()
+      make.top.equalToSuperview().offset(24)
       make.height.equalTo(Size.stackViewHeight)
     }
   }

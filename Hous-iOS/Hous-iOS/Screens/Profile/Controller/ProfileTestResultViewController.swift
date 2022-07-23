@@ -30,7 +30,7 @@ final class ProfileTestResultViewController : UIViewController {
   
   var isFromTypeTest = false
   
-  var isPresentedFromHomeVC = false 
+  var isPresentedFromHomeVC = false
   
   
   var userId = ""
@@ -43,7 +43,9 @@ final class ProfileTestResultViewController : UIViewController {
     static let screenWidth = UIScreen.main.bounds.width
     static let imageCellSize = CGSize(width: Size.screenWidth, height: 340)
     static let textCellSize = CGSize(width: Size.screenWidth, height: 320)
+    static let textSmallCellSize = CGSize(width: Size.screenWidth, height: 300)
     static let recommendCellSize = CGSize(width: Size.screenWidth, height: 100)
+    
   }
   
   private let navigationBarView = ProfileTestResultNavigationBarView()
@@ -103,7 +105,7 @@ final class ProfileTestResultViewController : UIViewController {
         
         self.view.window?.rootViewController = housTabbarViewController
         self.view.window?.makeKeyAndVisible()
-
+        
         housTabbarViewController.housTabbar.selectItem(index: 2)
         housTabbarViewController.housTabbar.backgroundColor = R.Color.salmon
         
@@ -180,8 +182,12 @@ extension ProfileTestResultViewController: UICollectionViewDelegateFlowLayout, U
     switch indexPath.row {
     case 0:
       return Size.imageCellSize
+      // 리팩토링 필요 - 동적 셀 사이즈
     case 1:
-      return Size.textCellSize
+      if self.profileNetworkDataPack.personalityType == .hexagon ||
+          self.profileNetworkDataPack.personalityType == .pentagon {
+        return Size.textSmallCellSize
+      } else { return Size.textCellSize }
     case 2:
       return Size.recommendCellSize
     default:
@@ -221,11 +227,13 @@ extension ProfileTestResultViewController {
       recommandRuleLabel.append($0)
     }
     
+    // 하이 레벨 오각이 띄어쓰기 향후 고려 필요
     var goodPersonalityType: PersonalityType
     switch profileNetworkResponse!.good.typeName {
     case "늘 행복한 동글이": goodPersonalityType = .round
     case "슈퍼 팔로워 셋돌이": goodPersonalityType = .triangle
     case "룸메 맞춤형 네각이": goodPersonalityType = .rectangle
+    case "하이 레벨 오각이": goodPersonalityType = .pentagon
     case "하이레벨 오각이": goodPersonalityType = .pentagon
     case "룰 세터 육각이": goodPersonalityType = .hexagon
     default: goodPersonalityType = .empty
@@ -240,6 +248,7 @@ extension ProfileTestResultViewController {
     case "늘 행복한 동글이": badPersonalityType = .round
     case "슈퍼 팔로워 셋돌이": badPersonalityType = .triangle
     case "룸메 맞춤형 네각이": badPersonalityType = .rectangle
+    case "하이 레벨 오각이": badPersonalityType = .pentagon
     case "하이레벨 오각이": badPersonalityType = .pentagon
     case "룰 세터 육각이": badPersonalityType = .hexagon
     default: badPersonalityType = .empty
