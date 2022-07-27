@@ -22,7 +22,7 @@ final class HomeViewController: UIViewController {
   private enum Size {
     static let screenWidth = UIScreen.main.bounds.width
     static let eventCellSize = CGSize(width: Size.screenWidth, height: 88)
-    static let profileCellSize = CGSize(width: Size.screenWidth / 3 - 22, height: Size.screenWidth / 3 - 22)
+    static let profileCellSize = CGSize(width: Size.screenWidth / 3 - 24, height: Size.screenWidth / 3 - 24)
     static let titleCellSize = CGSize(width: Size.screenWidth, height: 37)
   }
   
