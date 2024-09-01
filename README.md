@@ -11,7 +11,7 @@
 
 SOPT 30th APPJAM
 
-- 프로젝트 기간: 2021.06.18 ~
+- 프로젝트 기간: 2022.06.29 ~
 - [👉 Code Convention](https://sugared-lemming-812.notion.site/Code-Convention-34a4c6aa434a468f82b6ee0a763430b4)
 - [👉 Git Convention](https://sugared-lemming-812.notion.site/Git-Convention-d81d12da8c3244faae31bd111e930897)
 
